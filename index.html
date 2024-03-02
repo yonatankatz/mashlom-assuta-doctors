@@ -237,7 +237,7 @@
         }
 
   function readJsonFromFile() { // TODO replace it with the real server path 
-      fetch('http://asuta.mashlom.me/canadian-pediatric-ed-triage.json')
+      fetch('canadian-pediatric-ed-triage.json')
           .then(response => response.json())
           .then(data => {
               const convertedData = convertToJson(data);
