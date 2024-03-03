@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Responsive UI with Chips and List (RTL)</title>
+<link rel="stylesheet" href="css/triage.css">
+<script src="js/utils.js"></script>
+</head>
+<body>
+
+<div id="header" class="header">
+  <div id="triage-level" class="triage-level">
+    בחר מצב חולה. לאיפוס, לחץ כאן ->
+  </div>
+  <div class="reset-buttons">
+    <span class="reset-all" onclick="resetAll()"><img style="cursor:pointer; width: 40px; height: 40px;margin-right:10px; " src="assets/refresh.png"></span>
+  </div>  
+</div>
+<div class="content">
+<div id="filters" class="filters-group">
+        
+        </div>
+  <div class="list-conditions" id="list-conditions">
+    <!-- List will be dynamically added here -->
+  </div>
+</div>
+
+<div class="footer">
+    <div id="footer-menu">
+      <a id="searchBtn" class="footer-button">
+        <div  class="icon">🔍</div>
+        <div class="text">חפש</div>
+      </a>
+      <a href="#" class="footer-button">
+        <div class="icon">🌡️</div>
+        <div class="text">מדדים</div>
+      </a>
+    </div>
+    <div id="searchbox-container" class="searchbox-container">
+      <button class="closeButton" onclick="toggleSearchBar()">×</button>
+      <input type="text" class="search-input" id="searchInput" onkeyup="searchTyping(event)" placeholder="חיפוש לפי כל הערכים..">
+    </div>
+  </div>
+  
+<script src="js/triage.js"></script>
+</body>
+</html>

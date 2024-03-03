@@ -1,0 +1,185 @@
+body, html {
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    direction: rtl; /* Right-to-left direction */
+    background-color: #F8F8F8;
+  }
+
+  .header {
+    border-radius: 25px;
+    background-color: #FFFFFF;
+    color: #6D6D6D;
+    width: 96%;
+    top: 0;
+    display: flex;
+    height: 10vh;
+    z-index: 999;
+    font-size: 4vw;
+    box-shadow: 1px 1px;
+    padding: 6px;
+  }
+  .triage-level {
+    float:right;
+    width: 80vw;
+    display: grid;
+	align-items: center;
+    text-align: center
+  }
+
+  .triage-caption {
+    font-size: 3rem;
+    color: black;
+    font-weight: 500;
+  }
+
+  .triage-sub-caption {
+    font-size: 1.5rem;
+    color: black;
+  }
+
+  .reset-all {
+    color: #fff;
+    margin: 3px;
+  }
+  .reset-buttons {
+    float: left;
+	display: grid;
+	align-items: center;
+  }
+
+  .footer {
+    background-color: #FFFFFF;
+    color: #81BDEF;
+    text-align: center;
+    width: 96%;
+    bottom: 0;
+    z-index: 1;
+    height:8vh;
+    display: flex;
+    align-items: center; 
+    box-shadow: 2px 2px;
+    padding: 6px;
+  }
+
+  .footer-button {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 15px;
+    padding-right: 40px;
+    padding-left: 40px;
+    margin-right: 10px;
+    padding-bottom: 10px;
+    float: right;
+    border-radius: 25px;
+    border: 2px solid #D0D0D0;
+    cursor: pointer;
+  }
+
+  .footer-button .icon {
+    font-size: 24px;
+  }
+
+  .footer-button .text {
+    font-size: 12px;
+  }
+
+  .content {
+    background-color: #ecf0f1;
+    overflow-y: auto;
+    text-align: center;
+    height: 80vh;
+  }
+
+  .filters-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+    margin-bottom: 2wh;
+  }
+  .selected {
+    background-color: #ffc107 !important;
+  }
+  .selected-row {
+    background-color: #81BDEF !important;
+    color: white;
+  }
+  .chip {
+    background-color: #81BDEF;
+    color: white;
+    border-radius: 20px;
+    padding: 5px 10px;
+    margin: 5px;
+    cursor: pointer;
+    font-size: 6vw;
+  }
+
+  .list-conditions {
+    padding: 20px;
+    text-align: right;
+  }
+
+  .list-condition {
+    margin-bottom: 10px;
+    position: relative;
+    font-size: 8vw;
+  }
+
+  .badge {
+    color: black;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: -8px;
+    left: -8px; /* Adjusted to left side */
+    font-size: 12px;
+  }
+
+  
+.searchbox-container {
+    display: none;    
+    width: 100%;
+    text-align: center; /* Center-align the content */
+    width: 90%; /* Set width to 50% of the screen */
+    margin: 0 auto; /* Center horizontally */
+    align-items: center;
+    position: relative;
+}
+
+.closeButton {
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #999;
+    cursor: pointer;
+}
+
+.search-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #f8f8f8;
+    background-image: url('https://www.w3schools.com/css/searchicon.png');
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    background-size: 15px;
+    padding-left: 35px;
+    box-sizing: border-box;
+  }
