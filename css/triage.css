@@ -1,6 +1,7 @@
 body, html {
     scroll-behavior: smooth;
-    margin: 0;
+    margin: 0 auto; /* Center the body horizontally */
+    max-width: 700px; /* Set maximum width for the body */
     padding: 0;
     overflow: hidden;
     height: 100%;
@@ -9,22 +10,9 @@ body, html {
     background-color: #F8F8F8;
   }
 
-  .header {
-    border-radius: 25px;
-    background-color: #FFFFFF;
-    color: #6D6D6D;
-    width: 96%;
-    top: 0;
-    display: flex;
-    height: 10vh;
-    z-index: 999;
-    font-size: 4vw;
-    box-shadow: 1px 1px;
-    padding: 6px;
-  }
   .triage-level {
     float:right;
-    width: 80vw;
+    width: 80%;
     display: grid;
 	align-items: center;
     text-align: center
@@ -46,6 +34,7 @@ body, html {
     margin: 3px;
   }
   .reset-buttons {
+    margin-left: 20px;
     float: left;
 	display: grid;
 	align-items: center;
@@ -55,15 +44,21 @@ body, html {
     background-color: #FFFFFF;
     color: #81BDEF;
     text-align: center;
-    width: 96%;
-    bottom: 0;
     z-index: 1;
-    height:8vh;
     display: flex;
     align-items: center; 
-    box-shadow: 2px 2px;
-    padding: 6px;
+    height: 10vh;
+}
+  
+  .footer-menu {
+    display: flex;
+    align-items: center;
   }
+
+  .header {
+    height: 10vh;
+  }
+
 
   .footer-button {
     text-decoration: none;
@@ -71,37 +66,36 @@ body, html {
     flex-direction: column;
     align-items: center;
     padding-top: 10px;
-    padding-bottom: 15px;
     padding-right: 40px;
     padding-left: 40px;
     margin-right: 10px;
-    padding-bottom: 10px;
     float: right;
-    border-radius: 25px;
+    border-radius: 10px;
     border: 2px solid #D0D0D0;
     cursor: pointer;
+    height:100%;
   }
 
   .footer-button .icon {
-    font-size: 24px;
+    font-size: 16px;
   }
 
   .footer-button .text {
-    font-size: 12px;
+    font-size: 10px;
   }
 
   .content {
     background-color: #ecf0f1;
     overflow-y: auto;
     text-align: center;
-    height: 80vh;
+    height: 75vh;
   }
 
   .filters-group {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 20px;
+    padding-top: 20px;
     margin-bottom: 2wh;
   }
   .selected {
@@ -118,32 +112,16 @@ body, html {
     padding: 5px 10px;
     margin: 5px;
     cursor: pointer;
-    font-size: 6vw;
   }
 
   .list-conditions {
-    padding: 20px;
     text-align: right;
-  }
-
-  .list-condition {
+    margin-top: 10px;
     margin-bottom: 10px;
-    position: relative;
-    font-size: 8vw;
   }
 
-  .badge {
-    color: black;
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    top: -8px;
-    left: -8px; /* Adjusted to left side */
-    font-size: 12px;
+  .badge-triage {
+    color: black important!;
   }
 
   

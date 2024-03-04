@@ -3,23 +3,29 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Responsive UI with Chips and List (RTL)</title>
+<title>טריאז' ילדים - אסותא אשדוד</title>
+<link rel="icon" href="assets/favicon.svg">
 <link rel="stylesheet" href="css/triage.css">
 <script src="js/utils.js"></script>
 <script src="js/angular.min.js"></script>
+<script src="3rd-party/bootstrap/bootstrap.bundle.min.js"></script>
+<link href="3rd-party/bootstrap/bootstrap.min.css" rel="stylesheet">
 </head>
 <body ng-app="app" ng-controller="TriageController as ctrl">
-
-<div id="header" class="header" style="{{'background-color: ' + ctrl.colorByLevel[ctrl.triageLevel] }}">
-  <div id="triage-level" class="triage-level">
-    <span ng-if="ctrl.triageLevel == 100"> בחר מצב חולה. לאיפוס, לחץ כאן -> </span>
-    <span ng-if="ctrl.triageLevel < 100" class="triage-caption"> טריאז' {{ctrl.triageLevel}}</span><span class="triage-sub-caption">{{ctrl.captionByLevel[ctrl.triageLevel]}}</span>
-  </div>
-  <div class="reset-buttons">
-    <span class="reset-all" ng-click="ctrl.resetAll()"><img style="cursor:pointer; width: 40px; height: 40px;margin-right:10px; " src="assets/refresh.png"></span>
-  </div>  
-</div>
-<div class="content">
+<nav class="navbar navbar-expand-lg header"
+    style="{{'background-color: ' + ctrl.colorByLevel[ctrl.triageLevel] }}" >
+    <div id="triage-level" class="triage-level">
+      <div ng-if="ctrl.triageLevel == 100">
+      <h1 style="float:left">&nbsp;</h1> 
+      <span> בחר מצב חולה. לאיפוס, לחץ כאן -> </span>      
+      </div>
+      <h1 ng-if="ctrl.triageLevel < 100" class="triage-caption"> טריאז' {{ctrl.triageLevel}}</h1>
+    </div>
+    <div class="reset-buttons">
+      <span class="reset-all" ng-click="ctrl.resetAll()"><img style="cursor:pointer; width: 40px; height: 40px;margin-right:10px; " src="assets/refresh.png"></span>
+    </div>    
+</nav>
+<div class="container content">
 <div id="filters" class="filters-group">
     <div ng-repeat="category in ctrl.categories" class="chip" 
       ng-class="{ 'selected': ctrl.selectedCategories.includes(category.categoryId) }"
@@ -28,17 +34,21 @@
     </div>      
   </div>
   <div class="list-conditions" id="list-conditions">
-    <div ng-repeat="item in ctrl.triageData" class="list-condition"
-         ng-show="ctrl.showItem(item)"
-         ng-class="{'selected-row' : ctrl.selectedRows.includes(item)}"
-         ng-click="ctrl.toggleRow(item)">
-      {{item.description}}
-      <span class="badge" style="{{'background-color: ' + ctrl.colorByLevel[item.level] }}">{{item.level}}</span>
-    </div>
+    <ol class="list-group" style="padding: 0px;">
+      <li class="list-group-item d-flex justify-content-between align-items-center"
+        ng-repeat="item in ctrl.triageData"
+        ng-show="ctrl.showItem(item)"
+        ng-class="{'selected-row' : ctrl.selectedRows.includes(item)}"
+        ng-click="ctrl.toggleRow(item)"
+      >
+        {{item.description}}
+        <span class="badge text rounded-pill badge-triage" style="{{'background-color: ' + ctrl.colorByLevel[item.level] }}">{{item.level}}</span>
+      </li>
+    </ol>
   </div>
 </div>
-
-<div class="footer">
+<footer class="bg-primary text-center text-white footer">
+  <div class="footer">
     <div id="footer-menu" ng-show="!ctrl.searchBarOpen">
       <a id="searchBtn" class="footer-button" ng-click="ctrl.openSearchBar()">
         <div class="icon">🔍</div>
@@ -54,7 +64,7 @@
       <input type="text" class="search-input" id="searchInput" ng-model="ctrl.searchText" ng-keyup="ctrl.searchTyping($event)" placeholder="חיפוש לפי כל הערכים..">
     </div>
   </div>
-  
+</footer>
 <script src="js/triage.js"></script>
 </body>
 </html>
