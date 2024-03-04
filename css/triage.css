@@ -147,8 +147,7 @@ body, html {
   }
 
   
-.searchbox-container {
-    display: none;    
+.searchbox-container {  
     width: 100%;
     text-align: center; /* Center-align the content */
     width: 90%; /* Set width to 50% of the screen */
