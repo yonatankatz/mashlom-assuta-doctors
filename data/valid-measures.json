@@ -1,0 +1,52 @@
+{
+    "breath": [
+        {
+            "age": "0-3 חודשים",
+            "breaths": "30-60",
+            "heartbit": "90-100"
+        },
+        {
+            "age": "3-6 חודשים",
+            "breaths": "30-60",
+            "heartbit": "80-160"
+        },
+        {
+            "age": "6-12 חודשים",
+            "breaths": "25-45",
+            "heartbit": "80-140"
+        },
+        {
+            "age": "1-3 שנים",
+            "breaths": "20-30",
+            "heartbit": "75-130"
+        },
+        {
+            "age": "6 שנים",
+            "breaths": "16-24",
+            "heartbit": "70-110"
+        },
+        {
+            "age": "10 שנים",
+            "breaths": "14-20",
+            "heartbit": "60-90"
+        }
+    ],
+    "bloodPressure": [
+        {
+            "age": "0-1 חודשים",
+            "bloodPressure": "60 mmHg"
+        },
+        {
+            "age": "1-12 חודשים",
+            "bloodPressure": "70 mmHg"
+        },
+        {
+            "age": "1-10 שנים",
+            "bloodPressure": "70 mmHg + פעמיים הגיל בשנים"
+        },
+        {
+            "age": "10+ שנים",
+            "bloodPressure": "90 mmHg"
+        }
+    ]
+}

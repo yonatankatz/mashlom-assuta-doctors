@@ -12,40 +12,77 @@
 <link href="3rd-party/bootstrap/bootstrap.min.css" rel="stylesheet">
 </head>
 <body ng-app="app" ng-controller="TriageController as ctrl">
-<nav class="navbar navbar-expand-lg header"
-    style="{{'background-color: ' + ctrl.colorByLevel[ctrl.triageLevel] }}" >
-    <div id="triage-level" class="triage-level">
-      <div ng-if="ctrl.triageLevel == 100">
-      <h1 style="float:left">&nbsp;</h1> 
-      <span> בחר מצב חולה. לאיפוס, לחץ כאן -> </span>      
+<div id="triage-main" ng-show="ctrl.dataShown=='TRIAGE'">
+  <nav class="navbar navbar-expand-lg header"
+      style="{{'background-color: ' + ctrl.colorByLevel[ctrl.triageLevel] }}" >
+      <div id="triage-level" class="triage-level">
+        <div ng-if="ctrl.triageLevel == 100">
+        <h1 style="float:left">&nbsp;</h1> 
+        <span> בחר מצב חולה. לאיפוס, לחץ כאן -> </span>      
+        </div>
+        <h1 ng-if="ctrl.triageLevel < 100" class="triage-caption"> טריאז' {{ctrl.triageLevel}}</h1>
       </div>
-      <h1 ng-if="ctrl.triageLevel < 100" class="triage-caption"> טריאז' {{ctrl.triageLevel}}</h1>
+      <div class="reset-buttons">
+        <span class="reset-all" ng-click="ctrl.resetAll()"><img style="cursor:pointer; width: 40px; height: 40px;margin-right:10px; " src="assets/refresh.png"></span>
+      </div>    
+  </nav>
+  <div class="container content-triage" >
+  <div id="filters" class="filters-group">
+      <div ng-repeat="category in ctrl.categories" class="chip" 
+        ng-class="{ 'selected': ctrl.selectedCategories.includes(category.categoryId) }"
+        ng-click="ctrl.toggleFilter(category.categoryId)">
+          {{category.categoryDisplay}}
+      </div>      
     </div>
-    <div class="reset-buttons">
-      <span class="reset-all" ng-click="ctrl.resetAll()"><img style="cursor:pointer; width: 40px; height: 40px;margin-right:10px; " src="assets/refresh.png"></span>
-    </div>    
-</nav>
-<div class="container content">
-<div id="filters" class="filters-group">
-    <div ng-repeat="category in ctrl.categories" class="chip" 
-      ng-class="{ 'selected': ctrl.selectedCategories.includes(category.categoryId) }"
-      ng-click="ctrl.toggleFilter(category.categoryId)">
-        {{category.categoryDisplay}}
-    </div>      
+    <div class="list-conditions" id="list-conditions">
+      <ol class="list-group" style="padding: 0px;">
+        <li class="list-group-item d-flex justify-content-between align-items-center"
+          ng-repeat="item in ctrl.triageData"
+          ng-show="ctrl.showItem(item)"
+          ng-class="{'selected-row' : ctrl.selectedRows.includes(item)}"
+          ng-click="ctrl.toggleRow(item)"
+        >
+          {{item.description}}
+          <span class="badge text rounded-pill badge-triage" style="{{'background-color: ' + ctrl.colorByLevel[item.level] }}">{{item.level}}</span>
+        </li>
+      </ol>
+    </div>
   </div>
-  <div class="list-conditions" id="list-conditions">
-    <ol class="list-group" style="padding: 0px;">
-      <li class="list-group-item d-flex justify-content-between align-items-center"
-        ng-repeat="item in ctrl.triageData"
-        ng-show="ctrl.showItem(item)"
-        ng-class="{'selected-row' : ctrl.selectedRows.includes(item)}"
-        ng-click="ctrl.toggleRow(item)"
-      >
-        {{item.description}}
-        <span class="badge text rounded-pill badge-triage" style="{{'background-color: ' + ctrl.colorByLevel[item.level] }}">{{item.level}}</span>
-      </li>
-    </ol>
+</div>
+<div class="container content-measures" ng-show="ctrl.dataShown=='MEASURES'">
+  <div class="measures-back-button" ng-click="ctrl.closeMeasures()">
+    <img class="measures-back-button-img" src="assets/back.png" >
   </div>
+  <table class="table table-striped" style="margin-top: 30px;">
+     <thead>
+      <tr>
+        <th scope="col">גיל</th>
+        <th scope="col">מס' נשימות</th>
+        <th scope="col">דופק</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="line in ctrl.validMeasures.breath">
+        <th scope="row">{{line.age}}</th>
+        <td>{{line.breaths}}</td>
+        <td>{{line.heartbit}}</td>
+      </tr>
+    </tbody>
+</table>
+<table class="table table-striped">
+  <thead>
+   <tr>
+     <th scope="col">גיל</th>
+     <th scope="col">לחץ דם<br>(סיסטורלי מינימלי)</th>
+   </tr>
+ </thead>
+ <tbody>
+   <tr ng-repeat="line in ctrl.validMeasures.bloodPressure">
+     <th scope="row">{{line.age}}</th>
+     <td>{{line.bloodPressure}}</td>
+   </tr>
+ </tbody>
+</table>
 </div>
 <footer class="text-center text-white footer">
   <div class="footer-container">
@@ -54,7 +91,7 @@
         <div class="icon">🔍</div>
         <div class="text">חפש</div>
       </a>
-      <a href="#" class="footer-button">
+      <a class="footer-button" ng-click="ctrl.openMeasures()">
         <div class="icon">🌡️</div>
         <div class="text">מדדים</div>
       </a>

@@ -7,7 +7,6 @@ body, html {
     height: 100%;
     font-family: Arial, sans-serif;
     direction: rtl; /* Right-to-left direction */
-    background-color: #F8F8F8;
   }
 
   .triage-level {
@@ -93,11 +92,18 @@ body, html {
     font-size: 10px;
   }
 
-  .content {
+  .content-triage {
     background-color: #ecf0f1;
     overflow-y: auto;
     text-align: center;
     height: min(82vh, calc(100vh - 10vh - 75px));
+  }
+
+  .content-measures {
+    background-color: #ecf0f1;
+    overflow-y: auto;
+    text-align: center;
+    height: 92vh;
   }
 
   .filters-group {
@@ -168,4 +174,23 @@ body, html {
     background-size: 15px;
     padding-left: 35px;
     box-sizing: border-box;
+  }
+
+  .measures-back-button {
+    float: right;
+    margin: 10px;
+    cursor: pointer;
+    box-shadow: 0 0 5px -1px rgba(0,0,0,0.2);
+    padding: 10px;
+    padding-right: 30px;
+    padding-left: 30px;
+    border-radius: 10px;
+  }
+  .measures-back-button:active {
+    box-shadow: 0 0 5px -1px rgba(0,0,0,0.6);
+  }
+
+  .measures-back-button-img {
+    width: 40px;
+    height: 40px;
   }

@@ -10,8 +10,11 @@ app.controller("TriageController", ['$scope', '$rootScope', '$http', '$timeout',
     // values: 1-5, or 100 indicating not set.
     ctrl.triageLevel = 100; 
     ctrl.categories = [];
+    ctrl.validMeasures = {};
     // values: RECENTLY_USE, SEARCH_FILTER, CATEGORY_FILTER
     ctrl.itemsShowingState = "RECENTLY_USE";
+    // values: TRIAGE, MEASURES
+    ctrl.dataShown = "TRIAGE";
     ctrl.colorByLevel = {
         1: "#FE0000",
         2: "#ED4400",
@@ -77,7 +80,14 @@ app.controller("TriageController", ['$scope', '$rootScope', '$http', '$timeout',
             loadTopItems();
         })
         .catch(function(error) {
-            console.log('Error fetching JSON data file:', error);
+            console.log('Error fetching triage data file:', error);
+        });
+        $http.get('data/valid-measures.json').then(function(response) {
+            // The response.data contains the JSON object
+            ctrl.validMeasures = response.data;
+        })
+        .catch(function(error) {
+            console.log('Error fetching measures data file:', error);
         });
     }
     init();
@@ -169,6 +179,7 @@ app.controller("TriageController", ['$scope', '$rootScope', '$http', '$timeout',
     }
 
     ctrl.openSearchBar = function() {
+        ctrl.dataShown = 'TRIAGE';
         ctrl.searchBarOpen = true; 
         $timeout(function() {
             document.getElementById('searchInput').focus();
@@ -194,5 +205,12 @@ app.controller("TriageController", ['$scope', '$rootScope', '$http', '$timeout',
         if (ctrl.searchText.length > 0) {
             ctrl.itemsShowingState = "SEARCH_FILTER";
         }
+    };
+    ctrl.closeMeasures = function() {
+        ctrl.dataShown = 'TRIAGE';
+    };
+
+    ctrl.openMeasures = function() {
+        ctrl.dataShown = 'MEASURES';
     };
 }]);
