@@ -40,6 +40,10 @@ body, html {
 	align-items: center;
   }
 
+  .header {
+    height: 10vh;
+  }
+
   .footer {
     background-color: #FFFFFF;
     color: #81BDEF;
@@ -47,16 +51,21 @@ body, html {
     z-index: 1;
     display: flex;
     align-items: center; 
-    height: 10vh;
+    height: 8vh;
+    width: 100%;
+    max-width: 700px; /* Set maximum width for the body */
+    min-height: 75px;
+    position: fixed;
+    bottom: 0;
+}
+
+.footer-container {
+    width: 100%;
 }
   
   .footer-menu {
     display: flex;
     align-items: center;
-  }
-
-  .header {
-    height: 10vh;
   }
 
 
@@ -88,7 +97,7 @@ body, html {
     background-color: #ecf0f1;
     overflow-y: auto;
     text-align: center;
-    height: 75vh;
+    height: min(82vh, calc(100vh - 10vh - 75px));
   }
 
   .filters-group {
@@ -128,7 +137,7 @@ body, html {
 .searchbox-container {  
     width: 100%;
     text-align: center; /* Center-align the content */
-    width: 90%; /* Set width to 50% of the screen */
+    width: 85%; /* Set width to 50% of the screen */
     margin: 0 auto; /* Center horizontally */
     align-items: center;
     position: relative;
@@ -137,10 +146,10 @@ body, html {
 .closeButton {
     position: absolute;
     top: -20px;
-    left: -20px;
+    left: -25px;
     background-color: transparent;
     border: none;
-    font-size: 20px;
+    font-size: 24px;
     cursor: pointer;
     color: #999;
     cursor: pointer;

@@ -15,7 +15,7 @@ app.controller("TriageController", ['$scope', '$rootScope', '$http', '$timeout',
     ctrl.colorByLevel = {
         1: "#FE0000",
         2: "#ED4400",
-        3: "#E7FF0D",
+        3: "#b6bf50",
         4: "#44D113",
         5: "#3594E8"
     };
