@@ -183,7 +183,7 @@ app.controller("TriageController", ['$scope', '$rootScope', '$http', '$timeout',
         ctrl.searchBarOpen = true; 
         $timeout(function() {
             document.getElementById('searchInput').focus();
-          });
+          }, 100);
     }
 
     ctrl.closeSearchBar = function() {

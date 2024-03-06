@@ -13,7 +13,7 @@ body, html {
     float:right;
     width: 80%;
     display: grid;
-	align-items: center;
+	  align-items: center;
     text-align: center
   }
 
@@ -35,8 +35,8 @@ body, html {
   .reset-buttons {
     margin-left: 20px;
     float: left;
-	display: grid;
-	align-items: center;
+	  display: grid;
+	  align-items: center;
   }
 
   .header {

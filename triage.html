@@ -87,7 +87,7 @@
 <footer class="text-center text-white footer">
   <div class="footer-container">
     <div id="footer-menu" ng-show="!ctrl.searchBarOpen">
-      <a id="searchBtn" class="footer-button" ng-click="ctrl.openSearchBar()">
+      <a id="searchBtn" class="footer-button" ng-click="ctrl.openSearchBar()" ng-touchend="ctrl.openSearchBar()">
         <div class="icon">🔍</div>
         <div class="text">חפש</div>
       </a>
