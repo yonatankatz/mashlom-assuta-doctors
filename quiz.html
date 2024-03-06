@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>אוסף שאלות ברפואה דחופה - אסותא אשדוד </title>
+    <link rel="icon" href="assets/favicon.svg">
+    <link rel="stylesheet" href="css/quiz.css">
+    <script src="js/utils.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="3rd-party/bootstrap/bootstrap.bundle.min.js"></script>
+    <link href="3rd-party/bootstrap/bootstrap.min.css" rel="stylesheet">
+</head>
+<body ng-app="app" ng-controller="QuizController as ctrl">
+
+<div class="container" ng-if="ctrl.quizData">
+    <div class="question-container">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <p class="card-text">{{ctrl.getQ().q}}</p>
+                <div class="list-questions" id="list-questions">
+                    <ol class="list-group" style="padding: 0px;">
+                      <li class="list-group-item d-flex justify-content-between align-items-center"
+                        ng-repeat="option in ctrl.getQ().options"
+                        ng-class="{'selected-row' : ctrl.getSelected() == option}"
+                        ng-click="ctrl.selectAnswer(option)">
+                        {{option}}
+                      </li>
+                    </ol>
+                  </div>              
+                </div>
+                <button class="btn btn-primary answer-btn" onclick="ctrl.nextQuestion()">Next</button>
+            </div>
+        </div>
+</div>
+
+<script src="js/quiz.js"></script>
+</body>
+</html>

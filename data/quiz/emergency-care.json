@@ -1,0 +1,35 @@
+{
+    "title": "בוחן ברפואה דחופה",
+    "qustions": [
+        { 
+            "q": "באיזה מהמקרים הבאים לא תעבור ל Failed Airway Algorithm?",
+            "options": [
+                "Failure to maintain oxygenation",
+                "Two attempts by experienced operator",
+                "Unable to bag ventilate",
+                "באם אתה כבר נמצא ב- Difficult Airway Algorithm, לאחר מתן משתקים ולאחר הניסיון הטוב ביותר שלך ללרינגוסקופיה"
+            ],
+            "a": "Two attempts by experienced operator"
+        },
+        { 
+            "q": "מה נכון לגבי RSI  למטופל עם פגיעת ראש?",
+            "options": [
+                "מתן פנטניל איננו מומלץ, משום שפנטניל עלול לגרום לבחילות והקאות, וכתוצאה מכל סיכון לעלייה של ICP.",
+                "מומלץ לתת פנטניל, בזמן מתן התרופות ההיפנוטיות והמשתקים",
+                "ישנה קונטרה אינדיקציה מוחלטת למתן סקולין (Succinylcholine)",
+                "מומלץ לשמור על לחץ דם עם  MAP at 100 mm Hg"
+            ],
+            "a": "מומלץ לשמור על לחץ דם עם  MAP at 100 mm Hg"
+        },
+        { 
+            "q": "מה מהבאים נכון?",
+            "options": [
+                "בזמן הנשמה ב- Pressure-controlled ventilation ה- inspiratory flow rate נשאר קבוע",
+                "הנשמה ב- Pressure-controlled ventilation לא מתאימה למטופל עם דחף נשמתי גבוה (high respiratory drive)",
+                "לחולה COPD מורדם ומונשם, מומלצת הנשמה מסוג Pressure-controlled ventilation",
+                "לחולה עם ARDS מורדם ומונשם, מומלצת הנשמה מסוג Pressure-controlled ventilation"
+            ],
+            "a": "לחולה COPD מורדם ומונשם, מומלצת הנשמה מסוג Pressure-controlled ventilation"
+        }       
+    ]    
+}

@@ -1,3 +1,10 @@
+var root = document.documentElement;
+root.style.setProperty('--screen-y', window.innerHeight)
+document.addEventListener('resize', () => {
+  root.style.setProperty('--screen-x', window.screenX)
+  root.style.setProperty('--screen-y', window.innerHeight)
+})
+
 var app = angular.module("app", []);
 
 app.controller("TriageController", ['$scope', '$rootScope', '$http', '$timeout', function($scope, $rootScope, $http, $timeout) {
