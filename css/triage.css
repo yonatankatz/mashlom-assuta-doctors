@@ -143,33 +143,37 @@ body, html {
   
 .searchbox-container {  
     width: 100%;
-    text-align: center; /* Center-align the content */
-    width: 85%; /* Set width to 50% of the screen */
-    margin: 0 auto; /* Center horizontally */
-    align-items: center;
+    margin: 0; /* Center horizontally */
+    /* align-items: center; */
     position: relative;
+    padding: 10px;
+}
+
+.closeButtonDiv {
+  float: right;
+  vertical-align: top; 
+  width: 8%;
+  height: 100%;
 }
 
 .closeButton {
-    position: absolute;
-    top: -20px;
-    left: -25px;
-    background-color: transparent;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-    color: #999;
-    cursor: pointer;
+  cursor: pointer;
+  background-color: transparent;    
+  border: none;
+  font-size: 24px;
+  color: #999;
 }
 
+
+
 .search-input {
-    width: 100%;
+    width: 90%;
     padding: 10px;
+    float: right;
     border: 1px solid #ccc;
     border-radius: 5px;
-    font-size: 16px;
-    background-color: #f8f8f8;
-    background-image: url('https://www.w3schools.com/css/searchicon.png');
+    font-size: 16px;  
+    background-image: url('/assets/searchicon.png');
     background-position: 10px 10px;
     background-repeat: no-repeat;
     background-size: 15px;

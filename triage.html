@@ -97,8 +97,10 @@
       </a>
     </div>
     <div id="searchbox-container" class="searchbox-container" ng-show="ctrl.searchBarOpen">
-      <button class="closeButton" ng-click="ctrl.closeSearchBar()">×</button>
       <input type="text" class="search-input" id="searchInput" ng-model="ctrl.searchText" ng-keyup="ctrl.searchTyping($event)" placeholder="חיפוש לפי כל הערכים..">
+      <div class="closeButtonDiv">
+        <button class="closeButton" ng-click="ctrl.closeSearchBar()">×</button>
+      </div>
     </div>
     
   </div>
