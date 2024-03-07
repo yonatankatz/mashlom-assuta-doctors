@@ -6,7 +6,7 @@ document.addEventListener('resize', () => {
 })
 
 var app = angular.module("app", []);
-
+  
 app.controller("TriageController", ['$scope', '$rootScope', '$http', '$timeout', function($scope, $rootScope, $http, $timeout) {
     const ctrl = this;
     window.ctrl = this;
@@ -188,9 +188,11 @@ app.controller("TriageController", ['$scope', '$rootScope', '$http', '$timeout',
     ctrl.openSearchBar = function() {
         ctrl.dataShown = 'TRIAGE';
         ctrl.searchBarOpen = true; 
+        inputElement = document.getElementById('searchInput')
         $timeout(function() {
-            document.getElementById('searchInput').focus();
-          });
+            inputElement.focus();
+        }, 100);
+
     }
 
     ctrl.closeSearchBar = function() {

@@ -10,6 +10,7 @@
 <script src="js/angular.min.js"></script>
 <script src="3rd-party/bootstrap/bootstrap.bundle.min.js"></script>
 <link href="3rd-party/bootstrap/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="3rd-party/fontawesome/fontawesome-free-6.5.1-web/css/all.min.css">
 </head>
 <body ng-app="app" ng-controller="TriageController as ctrl">
 <div id="triage-main" ng-show="ctrl.dataShown=='TRIAGE'">
@@ -17,13 +18,12 @@
       style="{{'background-color: ' + ctrl.colorByLevel[ctrl.triageLevel] }}" >
       <div id="triage-level" class="triage-level">
         <div ng-if="ctrl.triageLevel == 100">
-        <h1 style="float:left">&nbsp;</h1> 
         <span> בחר מצב חולה. לאיפוס, לחץ כאן -> </span>      
         </div>
         <h1 ng-if="ctrl.triageLevel < 100" class="triage-caption"> טריאז' {{ctrl.triageLevel}}</h1>
       </div>
       <div class="reset-buttons">
-        <span class="reset-all" ng-click="ctrl.resetAll()"><img style="cursor:pointer; width: 40px; height: 40px;margin-right:10px; " src="assets/refresh.png"></span>
+        <span class="reset-all" ng-click="ctrl.resetAll()"><img style="cursor:pointer; width: 35px; height: 35px;margin-right:10px; " src="assets/refresh.png"></span>
       </div>    
   </nav>
   <div class="container content-triage" >
@@ -73,7 +73,7 @@
   <thead>
    <tr>
      <th scope="col">גיל</th>
-     <th scope="col">לחץ דם<br>(סיסטורלי מינימלי)</th>
+     <th scope="col">לחץ דם<br>(סיסטולי מינימלי)</th>
    </tr>
  </thead>
  <tbody>
@@ -87,19 +87,22 @@
 <footer class="text-center text-white footer">
   <div class="footer-container">
     <div id="footer-menu" ng-show="!ctrl.searchBarOpen">
-      <a id="searchBtn" class="footer-button" ng-click="ctrl.openSearchBar()">
-        <div class="icon">🔍</div>
+      <a id="searchBtn" class="footer-button" ng-click="ctrl.openSearchBar()" ng-touchend="ctrl.openSearchBar()">
+        <div style="color: black;"><i class="fa-solid fa-magnifying-glass"></i></div>
         <div class="text">חפש</div>
       </a>
       <a class="footer-button" ng-click="ctrl.openMeasures()">
-        <div class="icon">🌡️</div>
+        <div style="color: black;"><i class="fa-solid fa-syringe"></i></div>
         <div class="text">מדדים</div>
       </a>
     </div>
     <div id="searchbox-container" class="searchbox-container" ng-show="ctrl.searchBarOpen">
-      <button class="closeButton" ng-click="ctrl.closeSearchBar()">×</button>
       <input type="text" class="search-input" id="searchInput" ng-model="ctrl.searchText" ng-keyup="ctrl.searchTyping($event)" placeholder="חיפוש לפי כל הערכים..">
+      <div class="closeButtonDiv">
+        <button class="closeButton" ng-click="ctrl.closeSearchBar()">×</button>
+      </div>
     </div>
+    
   </div>
 </footer>
 <script src="js/triage.js"></script>

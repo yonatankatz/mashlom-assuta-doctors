@@ -13,7 +13,7 @@ body, html {
     float:right;
     width: 80%;
     display: grid;
-	align-items: center;
+	  align-items: center;
     text-align: center
   }
 
@@ -35,12 +35,13 @@ body, html {
   .reset-buttons {
     margin-left: 20px;
     float: left;
-	display: grid;
-	align-items: center;
+	  display: grid;
+	  align-items: center;
   }
 
   .header {
-    height: 10vh;
+    height: 10dvh;
+    background-color: white;
   }
 
   .footer {
@@ -50,7 +51,7 @@ body, html {
     z-index: 1;
     display: flex;
     align-items: center; 
-    height: 8vh;
+    height: 8dvh;
     width: 100%;
     max-width: 700px; /* Set maximum width for the body */
     min-height: 75px;
@@ -95,15 +96,15 @@ body, html {
   .content-triage {
     background-color: #ecf0f1;
     overflow-y: auto;
-    text-align: center;
-    height: min(82vh, calc(100vh - 10vh - 75px));
+    text-align: center;    
+    height: min(82dvh, calc(100dvh - 10dvh - 75px));
   }
 
   .content-measures {
     background-color: #ecf0f1;
     overflow-y: auto;
     text-align: center;
-    height: 92vh;
+    height: 92dvh;
   }
 
   .filters-group {
@@ -142,33 +143,37 @@ body, html {
   
 .searchbox-container {  
     width: 100%;
-    text-align: center; /* Center-align the content */
-    width: 85%; /* Set width to 50% of the screen */
-    margin: 0 auto; /* Center horizontally */
-    align-items: center;
+    margin: 0; /* Center horizontally */
+    /* align-items: center; */
     position: relative;
+    padding: 10px;
+}
+
+.closeButtonDiv {
+  float: right;
+  vertical-align: top; 
+  width: 8%;
+  height: 100%;
 }
 
 .closeButton {
-    position: absolute;
-    top: -20px;
-    left: -25px;
-    background-color: transparent;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-    color: #999;
-    cursor: pointer;
+  cursor: pointer;
+  background-color: transparent;    
+  border: none;
+  font-size: 24px;
+  color: #999;
 }
 
+
+
 .search-input {
-    width: 100%;
+    width: 90%;
     padding: 10px;
+    float: right;
     border: 1px solid #ccc;
     border-radius: 5px;
-    font-size: 16px;
-    background-color: #f8f8f8;
-    background-image: url('https://www.w3schools.com/css/searchicon.png');
+    font-size: 16px;  
+    background-image: url('/assets/searchicon.png');
     background-position: 10px 10px;
     background-repeat: no-repeat;
     background-size: 15px;
@@ -193,4 +198,12 @@ body, html {
   .measures-back-button-img {
     width: 40px;
     height: 40px;
+  }
+
+  .vertical-center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
   }
