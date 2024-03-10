@@ -15,7 +15,7 @@
 <body ng-app="app" ng-controller="TriageController as ctrl">
 <div id="triage-main" ng-show="ctrl.dataShown=='TRIAGE'">
   <nav class="navbar navbar-expand-lg header"
-      style="{{'background-color: ' + ctrl.colorByLevel[ctrl.triageLevel] }}" >
+      style="{{'background-color: ' + ctrl.colorByLevel[ctrl.triageLevel] }}; display:none;" >
       <div id="triage-level" class="triage-level">
         <div ng-if="ctrl.triageLevel == 100">
         <span> בחר מצב חולה. לאיפוס, לחץ כאן -> </span>      
@@ -37,13 +37,13 @@
     <div class="list-conditions" id="list-conditions">
       <ol class="list-group" style="padding: 0px;">
         <li class="list-group-item d-flex justify-content-between align-items-center"
-          ng-repeat="item in ctrl.triageData"
+          ng-repeat="item in ctrl.triageData | toArray | orderBy:'level':true"
           ng-show="ctrl.showItem(item)"
           ng-class="{'selected-row' : ctrl.selectedRows.includes(item)}"
           ng-click="ctrl.toggleRow(item)"
         >
           {{item.description}}
-          <span class="badge text rounded-pill badge-triage" style="{{'background-color: ' + ctrl.colorByLevel[item.level] }}">{{item.level}}</span>
+          <span class="badge text rounded-pill badge-triage" style="{{'background-color: ' + ctrl.colorByLevel[item.level] }};font-size:1rem;">{{item.level}}</span>
         </li>
       </ol>
     </div>

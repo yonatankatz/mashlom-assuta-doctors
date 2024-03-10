@@ -13,7 +13,7 @@ body, html {
     float:right;
     width: 80%;
     display: grid;
-	  align-items: center;
+	align-items: center;
     text-align: center
   }
 
@@ -35,13 +35,13 @@ body, html {
   .reset-buttons {
     margin-left: 20px;
     float: left;
-	  display: grid;
-	  align-items: center;
+	display: grid;
+	align-items: center;
   }
 
   .header {
-    height: 10dvh;
-    background-color: white;
+    /*height: 10dvh;
+    background-color: white;*/
   }
 
   .footer {
@@ -96,8 +96,9 @@ body, html {
   .content-triage {
     background-color: #ecf0f1;
     overflow-y: auto;
-    text-align: center;    
-    height: min(82dvh, calc(100dvh - 10dvh - 75px));
+    text-align: center;
+    /*height: min(82vh, calc(100vh - 10vh - 75px));*/ /*applies only when there is header*/
+    height: min(92dvh, calc(100dvh - 75px));
   }
 
   .content-measures {
@@ -146,7 +147,7 @@ body, html {
     margin: 0; /* Center horizontally */
     /* align-items: center; */
     position: relative;
-    padding: 10px;
+padding: 10px;
 }
 
 .closeButtonDiv {
@@ -157,11 +158,11 @@ body, html {
 }
 
 .closeButton {
-  cursor: pointer;
-  background-color: transparent;    
-  border: none;
-  font-size: 24px;
-  color: #999;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+        color: #999;
 }
 
 
@@ -169,10 +170,10 @@ body, html {
 .search-input {
     width: 90%;
     padding: 10px;
-    float: right;
+float: right;
     border: 1px solid #ccc;
     border-radius: 5px;
-    font-size: 16px;  
+    font-size: 16px;
     background-image: url('/assets/searchicon.png');
     background-position: 10px 10px;
     background-repeat: no-repeat;

@@ -104,8 +104,11 @@ app.controller("TriageController", ['$scope', '$rootScope', '$http', '$timeout',
     });
 
     ctrl.toggleFilter = function(categoryId) {
-        ctrl.itemsShowingState = "CATEGORY_FILTER";
-        toggleItemInList(ctrl.selectedCategories, categoryId);
+        toggleSingleItemInList(ctrl.selectedCategories, categoryId);
+        if (ctrl.selectedCategories) {
+            ctrl.itemsShowingState = "CATEGORY_FILTER";
+            ctrl.closeSearchBar();
+        }
         // if there are no more categories - we go back to the roots: the recent items.
         if (ctrl.selectedCategories.length == 0) {
             ctrl.itemsShowingState = "RECENTLY_USE";
@@ -123,6 +126,19 @@ app.controller("TriageController", ['$scope', '$rootScope', '$http', '$timeout',
         return false;
     };
 
+    ctrl.clearSelectedCategories = function() {
+        ctrl.selectedCategories.splice(0,ctrl.selectedCategories.length);
+    };
+
+    function toggleSingleItemInList(list, item) {
+        if (list.includes(item)) {
+            list.splice(0, list.length)
+        } else {
+            list.splice(0, list.length)
+            list.push(item)
+        }
+    }
+
     function toggleItemInList(list, item) {
         if (list.includes(item)) {
             list.splice(list.indexOf(item), 1);
@@ -132,8 +148,7 @@ app.controller("TriageController", ['$scope', '$rootScope', '$http', '$timeout',
     }
 
     ctrl.toggleRow = function(item) {
-        toggleItemInList(ctrl.selectedRows, item);
-        ctrl.triageLevel = getMinWaitingTime();
+
     }
 
     function getMinWaitingTime() {
@@ -205,6 +220,7 @@ app.controller("TriageController", ['$scope', '$rootScope', '$http', '$timeout',
             return;
         }
         if (ctrl.searchText.length > 0) {
+            ctrl.clearSelectedCategories();
             ctrl.itemsShowingState = "SEARCH_FILTER";
         }
     };
@@ -216,3 +232,22 @@ app.controller("TriageController", ['$scope', '$rootScope', '$http', '$timeout',
         ctrl.dataShown = 'MEASURES';
     };
 }]);
+
+// see https://github.com/petebacondarwin/angular-toArrayFilter/blob/master/toArrayFilter.js
+app.filter('toArray', function () {
+    return function (obj, addKey) {
+      if (!angular.isObject(obj)) return obj;
+      if ( addKey === false ) {
+        return Object.keys(obj).map(function(key) {
+          return obj[key];
+        });
+      } else {
+        return Object.keys(obj).map(function (key) {
+          var value = obj[key];
+          return angular.isObject(value) ?
+            Object.defineProperty(value, '$key', { enumerable: false, value: key}) :
+            { $key: key, $value: value };
+        });
+      }
+    };
+  });
