@@ -167,7 +167,14 @@ padding: 10px;
         color: #999;
 }
 
+.table-header {
+  padding-top: 15px;
+  padding-left: 80px;
+}
 
+.helper-table-last-col {
+  min-width: 80px;
+}
 
 .search-input {
     width: 90%;
