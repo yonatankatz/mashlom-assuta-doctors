@@ -1,0 +1,36 @@
+<div class="container content-tables">
+    <div class="tables-back-button" ng-click="ctrl.closeTable()">
+      <img class="tables-back-button-img" src="assets/back.png" >
+    </div>
+    <table class="table table-striped" style="margin-top: 30px;">
+       <thead>
+        <tr>
+          <th scope="col">גיל</th>
+          <th scope="col">מס' נשימות</th>
+          <th scope="col">דופק</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="line in ctrl.validMeasures.breath">
+          <th scope="row">{{line.age}}</th>
+          <td>{{line.breaths}}</td>
+          <td>{{line.heartbit}}</td>
+        </tr>
+      </tbody>
+  </table>
+  <table class="table table-striped">
+    <thead>
+     <tr>
+       <th scope="col">גיל</th>
+       <th scope="col">לחץ דם<br>(סיסטולי מינימלי)</th>
+     </tr>
+   </thead>
+   <tbody>
+     <tr ng-repeat="line in ctrl.validMeasures.bloodPressure">
+       <th scope="row">{{line.age}}</th>
+       <td>{{line.bloodPressure}}</td>
+     </tr>
+   </tbody>
+  </table>
+</div>
+  

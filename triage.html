@@ -49,41 +49,8 @@
     </div>
   </div>
 </div>
-<div class="container content-measures" ng-show="ctrl.dataShown=='MEASURES'">
-  <div class="measures-back-button" ng-click="ctrl.closeMeasures()">
-    <img class="measures-back-button-img" src="assets/back.png" >
-  </div>
-  <table class="table table-striped" style="margin-top: 30px;">
-     <thead>
-      <tr>
-        <th scope="col">גיל</th>
-        <th scope="col">מס' נשימות</th>
-        <th scope="col">דופק</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr ng-repeat="line in ctrl.validMeasures.breath">
-        <th scope="row">{{line.age}}</th>
-        <td>{{line.breaths}}</td>
-        <td>{{line.heartbit}}</td>
-      </tr>
-    </tbody>
-</table>
-<table class="table table-striped">
-  <thead>
-   <tr>
-     <th scope="col">גיל</th>
-     <th scope="col">לחץ דם<br>(סיסטולי מינימלי)</th>
-   </tr>
- </thead>
- <tbody>
-   <tr ng-repeat="line in ctrl.validMeasures.bloodPressure">
-     <th scope="row">{{line.age}}</th>
-     <td>{{line.bloodPressure}}</td>
-   </tr>
- </tbody>
-</table>
-</div>
+<measures-table ng-show="ctrl.dataShown=='MEASURES'" ></measures-table>
+<helper-tables ng-show="ctrl.dataShown=='HELPER_TABLES'" ></helper-tables>
 <footer class="text-center text-white footer">
   <div class="footer-container">
     <div id="footer-menu" ng-show="!ctrl.searchBarOpen">
@@ -95,14 +62,17 @@
         <div style="color: black;"><i class="fa-solid fa-syringe"></i></div>
         <div class="text">מדדים</div>
       </a>
+      <a class="footer-button" ng-click="ctrl.openHelperTables()">
+        <div style="color: black;"><i class="fa-solid fa-user-doctor"></i></div>
+        <div class="text">טבלאות עזר</div>
+      </a>
     </div>
     <div id="searchbox-container" class="searchbox-container" ng-show="ctrl.searchBarOpen">
       <input type="text" class="search-input" id="searchInput" ng-model="ctrl.searchText" ng-keyup="ctrl.searchTyping($event)" placeholder="חיפוש לפי כל הערכים..">
       <div class="closeButtonDiv">
         <button class="closeButton" ng-click="ctrl.closeSearchBar()">×</button>
       </div>
-    </div>
-    
+    </div>    
   </div>
 </footer>
 <script src="js/triage.js"></script>

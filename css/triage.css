@@ -68,6 +68,9 @@ body, html {
     align-items: center;
   }
 
+  .helper-table-first-col {
+
+  }
 
   .footer-button {
     text-decoration: none;
@@ -75,8 +78,7 @@ body, html {
     flex-direction: column;
     align-items: center;
     padding-top: 10px;
-    padding-right: 40px;
-    padding-left: 40px;
+    min-width: 80px;
     margin-right: 10px;
     float: right;
     border-radius: 10px;
@@ -101,7 +103,7 @@ body, html {
     height: min(92dvh, calc(100dvh - 75px));
   }
 
-  .content-measures {
+  .content-tables {
     background-color: #ecf0f1;
     overflow-y: auto;
     text-align: center;
@@ -170,7 +172,7 @@ padding: 10px;
 .search-input {
     width: 90%;
     padding: 10px;
-float: right;
+    float: right;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
@@ -182,9 +184,9 @@ float: right;
     box-sizing: border-box;
   }
 
-  .measures-back-button {
+  .tables-back-button {
     float: right;
-    margin: 10px;
+    margin: 10px;    
     cursor: pointer;
     box-shadow: 0 0 5px -1px rgba(0,0,0,0.2);
     padding: 10px;
@@ -192,11 +194,17 @@ float: right;
     padding-left: 30px;
     border-radius: 10px;
   }
-  .measures-back-button:active {
+  .tables-back-button:active {
     box-shadow: 0 0 5px -1px rgba(0,0,0,0.6);
   }
 
-  .measures-back-button-img {
+  .clearfix {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+  .tables-back-button-img {
     width: 40px;
     height: 40px;
   }

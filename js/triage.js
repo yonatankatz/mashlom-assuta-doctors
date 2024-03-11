@@ -13,7 +13,7 @@ app.controller("TriageController", ['$scope', '$rootScope', '$http', '$timeout',
     ctrl.validMeasures = {};
     // values: RECENTLY_USE, SEARCH_FILTER, CATEGORY_FILTER
     ctrl.itemsShowingState = "RECENTLY_USE";
-    // values: TRIAGE, MEASURES
+    // values: TRIAGE, MEASURES, HELPER_TABLES
     ctrl.dataShown = "TRIAGE";
     ctrl.colorByLevel = {
         1: "#FE0000",
@@ -224,13 +224,18 @@ app.controller("TriageController", ['$scope', '$rootScope', '$http', '$timeout',
             ctrl.itemsShowingState = "SEARCH_FILTER";
         }
     };
-    ctrl.closeMeasures = function() {
+    ctrl.closeTable = function() {
         ctrl.dataShown = 'TRIAGE';
     };
 
     ctrl.openMeasures = function() {
         ctrl.dataShown = 'MEASURES';
     };
+    
+    ctrl.openHelperTables = function() {
+        ctrl.dataShown = 'HELPER_TABLES';
+    };
+    
 }]);
 
 // see https://github.com/petebacondarwin/angular-toArrayFilter/blob/master/toArrayFilter.js
@@ -251,3 +256,21 @@ app.filter('toArray', function () {
       }
     };
   });
+
+app.directive('measuresTable', function() {
+    return {
+        restrict: 'E',
+        templateUrl: 'htmls/measures-table.html',
+        link: function(scope, element, attrs) {
+        }
+    };
+});
+
+app.directive('helperTables', function() {
+    return {
+        restrict: 'E',
+        templateUrl: 'htmls/helper-tables.html',
+        link: function(scope, element, attrs) {
+        }
+    };
+});
