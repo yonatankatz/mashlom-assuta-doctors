@@ -72,7 +72,7 @@ app.controller("TriageController", ['$scope', '$rootScope', '$http', '$timeout',
     }
 
     function init() {
-        $http.get('data/canadian-pediatric-ed-triage.json').then(function(response) {
+        $http.get('/triage/data/canadian-pediatric-ed-triage.json').then(function(response) {
             // The response.data contains the JSON object
             ctrl.jsonData = response.data;
             ctrl.triageData = flattenJson(ctrl.jsonData);
@@ -82,7 +82,7 @@ app.controller("TriageController", ['$scope', '$rootScope', '$http', '$timeout',
         .catch(function(error) {
             console.log('Error fetching triage data file:', error);
         });
-        $http.get('data/valid-measures.json').then(function(response) {
+        $http.get('/triage/data/valid-measures.json').then(function(response) {
             // The response.data contains the JSON object
             ctrl.validMeasures = response.data;
         })
@@ -260,7 +260,7 @@ app.filter('toArray', function () {
 app.directive('measuresTable', function() {
     return {
         restrict: 'E',
-        templateUrl: 'htmls/measures-table.html',
+        templateUrl: '/triage/htmls/measures-table.html',
         link: function(scope, element, attrs) {
         }
     };
@@ -269,7 +269,7 @@ app.directive('measuresTable', function() {
 app.directive('helperTables', function() {
     return {
         restrict: 'E',
-        templateUrl: 'htmls/helper-tables.html',
+        templateUrl: '/triage/htmls/helper-tables.html',
         link: function(scope, element, attrs) {
         }
     };

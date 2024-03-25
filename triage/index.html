@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>טריאז' ילדים - אסותא אשדוד</title>
-<link rel="icon" href="assets/favicon.svg">
-<link rel="stylesheet" href="triage/css/triage.css">
-<script src="common/js/utils.js"></script>
-<script src="3rd-party/angularjs/angular.min.js"></script>
-<script src="3rd-party/bootstrap/bootstrap.bundle.min.js"></script>
-<link href="3rd-party/bootstrap/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="3rd-party/fontawesome/fontawesome-free-6.5.1-web/css/all.min.css">
+<link rel="icon" href="../assets/favicon.svg">
+<link rel="stylesheet" href="css/triage.css">
+<script src="../common/js/utils.js"></script>
+<script src="../3rd-party/angularjs/angular.min.js"></script>
+<script src="../3rd-party/bootstrap/bootstrap.bundle.min.js"></script>
+<link href="../3rd-party/bootstrap/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="../3rd-party/fontawesome/fontawesome-free-6.5.1-web/css/all.min.css">
 </head>
 <body ng-app="app" ng-controller="TriageController as ctrl">
 <div id="triage-main" ng-show="ctrl.dataShown=='TRIAGE'">
@@ -23,7 +23,7 @@
         <h1 ng-if="ctrl.triageLevel < 100" class="triage-caption"> טריאז' {{ctrl.triageLevel}}</h1>
       </div>
       <div class="reset-buttons">
-        <span class="reset-all" ng-click="ctrl.resetAll()"><img style="cursor:pointer; width: 35px; height: 35px;margin-right:10px; " src="assets/refresh.png"></span>
+        <span class="reset-all" ng-click="ctrl.resetAll()"><img style="cursor:pointer; width: 35px; height: 35px;margin-right:10px; " src="../assets/refresh.png"></span>
       </div>    
   </nav>
   <div class="container content-triage" >
@@ -75,6 +75,6 @@
     </div>    
   </div>
 </footer>
-<script src="triage/js/triage.js"></script>
+<script src="js/triage.js"></script>
 </body>
 </html>
