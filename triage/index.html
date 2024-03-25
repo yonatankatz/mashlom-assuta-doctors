@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>טריאז' ילדים - אסותא אשדוד</title>
 <link rel="icon" href="../assets/favicon.svg">
+<link rel="stylesheet" href="../common/css/common.css">
 <link rel="stylesheet" href="css/triage.css">
 <script src="../common/js/utils.js"></script>
 <script src="../3rd-party/angularjs/angular.min.js"></script>
@@ -26,7 +27,7 @@
         <span class="reset-all" ng-click="ctrl.resetAll()"><img style="cursor:pointer; width: 35px; height: 35px;margin-right:10px; " src="../assets/refresh.png"></span>
       </div>    
   </nav>
-  <div class="container content-triage" >
+  <div class="container main-content" >
   <div id="filters" class="filters-group">
       <div ng-repeat="category in ctrl.categories" class="chip" 
         ng-class="{ 'selected': ctrl.selectedCategories.includes(category.categoryId) }"

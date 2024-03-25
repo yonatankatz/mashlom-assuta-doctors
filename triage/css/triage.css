@@ -44,63 +44,8 @@ body, html {
     background-color: white;*/
   }
 
-  .footer {
-    background-color: #FFFFFF;
-    color: #81BDEF;
-    text-align: center;
-    z-index: 1;
-    display: flex;
-    align-items: center; 
-    height: 8dvh;
-    width: 100%;
-    max-width: 700px; /* Set maximum width for the body */
-    min-height: 75px;
-    position: fixed;
-    bottom: 0;
-}
-
-.footer-container {
-    width: 100%;
-}
-  
-  .footer-menu {
-    display: flex;
-    align-items: center;
-  }
-
   .helper-table-first-col {
 
-  }
-
-  .footer-button {
-    text-decoration: none;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 10px;
-    min-width: 80px;
-    margin-right: 10px;
-    float: right;
-    border-radius: 10px;
-    border: 2px solid #D0D0D0;
-    cursor: pointer;
-    height:100%;
-  }
-
-  .footer-button .icon {
-    font-size: 16px;
-  }
-
-  .footer-button .text {
-    font-size: 10px;
-  }
-
-  .content-triage {
-    background-color: #ecf0f1;
-    overflow-y: auto;
-    text-align: center;
-    /*height: min(82vh, calc(100vh - 10vh - 75px));*/ /*applies only when there is header*/
-    height: min(92dvh, calc(100dvh - 75px));
   }
 
   .content-tables {
