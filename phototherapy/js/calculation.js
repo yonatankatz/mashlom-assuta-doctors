@@ -129,12 +129,12 @@ function getRiskZone(ageInHours, bilirubin, hasRisk, shouldUsePhototherapy){
     if (bilirubin >= p75AtAge && bilirubin < p95AtAge){
         riskZone = 2;
         percentile = 75 + ((bilirubin - p75AtAge) / (p95AtAge - p75AtAge)) * 20;
-        percentileString = 'אחוזון ' + percentile.toFixed(0);
+        percentileString = 'באחוזון ' + percentile.toFixed(0);
     }
     if (bilirubin >= p40AtAge && bilirubin < p75AtAge){
         riskZone = 3;
         percentile = 40 + ((bilirubin - p40AtAge) / (p75AtAge - p40AtAge)) * 35;
-        percentileString = 'אחוזון ' + percentile.toFixed(0);
+        percentileString = 'באחוזון ' + percentile.toFixed(0);
     }
     if (bilirubin < p40AtAge){
         riskZone = 4;
