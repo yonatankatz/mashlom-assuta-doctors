@@ -42,7 +42,7 @@
                 בילירובין (mg/dl):
             </div>
             <div class="col">
-                <input type="number" style="max-width: 90px;" ng-model="ctrl.bilirubin" class="form-control" id="bilirubin" max="50" ng-focus="clearContent('bilirubin')">
+                <input ng-change="ctrl.changedValue()" type="number" style="max-width: 90px;" ng-model="ctrl.bilirubin" class="form-control" id="bilirubin" max="50" ng-focus="clearContent('bilirubin')">
             </div>
         </div>        
         <div class="row form-group">
@@ -50,30 +50,22 @@
                 גיל (שעות):
             </div>
             <div class="col">
-                <input type="number" style="max-width: 90px;" ng-model="ctrl.ageInHours" class="form-control" id="ageInHours" max="200" ng-focus="clearContent('ageInHours')">
+                <input ng-change="ctrl.changedValue()" type="number" style="max-width: 90px;" ng-model="ctrl.ageInHours" class="form-control" id="ageInHours" max="200" ng-focus="clearContent('ageInHours')">
             </div>
         </div>        
       </div>
     </form>
   </div>
-  <div class="cards-container row row-cols-1 row-cols-md-1 g-4" style="">
+  <div class="cards-container row row-cols-1 row-cols-md-1 g-4" >
     <div class="col">
       <div class="card">
-        <div class="card-body">
+        <div class="card-body" ng-show="!!!ctrl.ctrl.riskZoneObj">
           <h5 class="card-title">לא נדרש טיפול באור</h5>
-          <p class="card-text">הילד באחוזון <span>38</span> , באיזור סיכון <span>1 (סיכון גבוה)</span>. נדרש המשך אישפוז עם מעקב בילירובין בסרום כל 8 שעות
+          <p class="card-text">הילד באחוזון <span> {{ctrl.riskZoneObj['percentileString']}} </span> , באיזור סיכון <span> {{ctrl.riskZoneObj['riskZone']}} </span> {{ctrl.riskZoneObj['explanation']}}
           </p>
         </div>
       </div>
     </div>
-    <!-- <div class="col">
-      <div class="card">    
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        </div>
-      </div>
-    </div> -->
   </div>
 
 </div>  
@@ -89,6 +81,7 @@
 </footer>
 <script src="../3rd-party/angularjs/angular.min.js"></script>
 <script src="../3rd-party/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="js/calculation.js"></script>
 <script src="js/phototherapy.js"></script>
 </body>
 </html>

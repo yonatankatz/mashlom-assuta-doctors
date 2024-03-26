@@ -112,6 +112,10 @@ var percentile95DataPoints = [
     { x: 148, y: 17.4 }
 ];
 
+function interpolate(x0, y0, x1, y1, x) {
+    return y0 + ((y1 - y0) / (x1 - x0)) * (x - x0);
+}
+
 function getRiskZone(ageInHours, bilirubin, hasRisk, shouldUsePhototherapy){
     p40AtAge = getYOnCurveByX(percentile40DataPoints, ageInHours);
     p75AtAge = getYOnCurveByX(percentile75DataPoints, ageInHours);
@@ -125,12 +129,12 @@ function getRiskZone(ageInHours, bilirubin, hasRisk, shouldUsePhototherapy){
     if (bilirubin >= p75AtAge && bilirubin < p95AtAge){
         riskZone = 2;
         percentile = 75 + ((bilirubin - p75AtAge) / (p95AtAge - p75AtAge)) * 20;
-        percentileString = 'אחוזון ' + percentile;
+        percentileString = 'אחוזון ' + percentile.toFixed(0);
     }
     if (bilirubin >= p40AtAge && bilirubin < p75AtAge){
         riskZone = 3;
         percentile = 40 + ((bilirubin - p40AtAge) / (p75AtAge - p40AtAge)) * 35;
-        percentileString = 'אחוזון ' + percentile;
+        percentileString = 'אחוזון ' + percentile.toFixed(0);
     }
     if (bilirubin < p40AtAge){
         riskZone = 4;
