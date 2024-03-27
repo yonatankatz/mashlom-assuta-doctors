@@ -42,7 +42,7 @@
                 בילירובין (mg/dl):
             </div>
             <div class="col">
-                <input ng-change="ctrl.changedValue()" inputmode="numeric" type="text" pattern="[0-9.]{0,4}$" style="max-width: 90px;" ng-model="ctrl.bilirubin" class="form-control" id="bilirubin" max="50" select-on-click >
+                <input ng-change="ctrl.changedValue()" inputmode="tel" type="text" pattern="[0-9.]{0,4}$" style="max-width: 90px;" ng-model="ctrl.bilirubin" class="form-control" id="bilirubin" max="50" select-on-click >
             </div>
         </div>        
         <div class="row form-group">
@@ -50,7 +50,7 @@
                 גיל (שעות):
             </div>
             <div class="col">
-                <input ng-change="ctrl.changedValue()" inputmode="numeric" type="text" pattern="[0-9.]{0,4}$" style="max-width: 90px;" ng-model="ctrl.ageInHours" class="form-control" id="ageInHours" select-on-click >
+                <input ng-change="ctrl.changedValue()" inputmode="decimal" type="text" pattern="[0-9.]{0,4}$" style="max-width: 90px;" ng-model="ctrl.ageInHours" class="form-control" id="ageInHours" select-on-click >
             </div>
         </div>        
       </div>
