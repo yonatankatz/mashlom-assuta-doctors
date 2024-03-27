@@ -8,7 +8,8 @@ app.controller("PhototherapyController", ['$scope', '$rootScope', '$http', '$tim
     ctrl.bilirubin;
     ctrl.ageInHours;
     ctrl.hasRiskFactors = false;
-    ctrl.diagnose = '';
+    ctrl.rootDiagnose = '';
+    ctrl.distanceFromCurve = '';
     ctrl.riskZoneObj = {};
 
     function init() {
@@ -43,11 +44,14 @@ app.controller("PhototherapyController", ['$scope', '$rootScope', '$http', '$tim
 
 
     ctrl.changedValue = function() {   
-        if (!ctrl.allInputsSatisfied) {
+        if (!ctrl.allInputsSatisfied()) {
             return;
         }
         $timeout(function() {
-            const newRiskZoneObj = getRiskZone(ctrl.ageInHours, ctrl.bilirubin, ctrl.hasRiskFactors, true);
+            const {shouldUse , delta} = shouldUsePhototherapy(ctrl.ageInHours, ctrl.bilirubin, ctrl.weekOfBirth === 'above38', ctrl.hasRiskFactors);
+            ctrl.rootDiagnose = shouldUse ? "נדרש טיפול באור" : "לא נדרש טיפול באור";
+            ctrl.distanceFromCurve = '(' + (shouldUse ? "מעל העקומה ב " : "מתחת לעקומה ב ") + delta + ")" ;
+            const newRiskZoneObj = getRiskZone(ctrl.ageInHours, ctrl.bilirubin, ctrl.hasRiskFactors, shouldUse);
             Object.assign(ctrl.riskZoneObj, newRiskZoneObj);    
         }, 20) ;
     };

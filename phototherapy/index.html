@@ -65,8 +65,8 @@
     <div class="col">
       <div class="card">
         <div class="card-body" ng-show="ctrl.allInputsSatisfied()">
-          <h5 class="card-title">לא נדרש טיפול באור</h5>
-          <p class="card-text">היילוד <span>{{ctrl.riskZoneObj['percentileString']}}</span>, באיזור סיכון <span>{{ctrl.riskZoneObj['riskZone']}}</span>. {{ctrl.riskZoneObj['explanation']}}
+          <h3 class="card-title">{{ctrl.rootDiagnose}}<span style="font-size: 0.8rem;"> {{ctrl.distanceFromCurve}} </span></h3>
+          <p class="card-text">היילוד <span>{{ctrl.riskZoneObj['percentileString']}}</span>, באיזור סיכון <span>{{ctrl.riskZoneObj['riskZone']}}</span>. {{ctrl.riskZoneObj['explanation']}}.
           </p>
         </div>
       </div>

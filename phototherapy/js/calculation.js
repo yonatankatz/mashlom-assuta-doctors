@@ -311,11 +311,11 @@ function getDataPointsByCase(isWeek38Plus, hasRisk){
 function shouldUsePhototherapy(ageInHours, bilirubin, isWeek38Plus, hasRisk){
     var dataPoints = getDataPointsByCase(isWeek38Plus, hasRisk);
     var threshold = getYOnCurveByX(dataPoints, ageInHours);
-    shouldUsePhototherapy = false;
+    shouldUse = false;
     if (bilirubin > threshold) {
-        shouldUsePhototherapy = true;
+        shouldUse = true;
     }
-    return { shouldUsePhototherapy, delta: Math.abs(bilirubin - threshold) }
+    return { shouldUse, delta: Math.abs(bilirubin - threshold).toFixed(1) }
 }
 
 function getYOnCurveByX(dataPoints, x) {
