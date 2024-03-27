@@ -112,6 +112,141 @@ var percentile95DataPoints = [
     { x: 148, y: 17.4 }
 ];
 
+var week38PlusNoRisk = [
+    { x: 8, y: 7.2 },
+    { x: 11.7, y: 8.1 },
+    { x: 16, y: 9.1 },
+    { x: 19.6, y: 9.9 },
+    { x: 23.6, y: 11 },
+    { x: 29.2, y: 11.9 },
+    { x: 36.1, y: 13 },
+    { x: 41.1, y: 14 },
+    { x: 47.1, y: 15 },
+    { x: 52.8, y: 15.5 },
+    { x: 59.4, y: 16 },
+    { x: 64.9, y: 16.5 },
+    { x: 71.3, y: 17 },
+    { x: 78.4, y: 17.3 },
+    { x: 86.4, y: 17.6 },
+    { x: 94.9, y: 17.9 },
+    { x: 102.2, y: 18.2 },
+    { x: 111.6, y: 18.4 },
+    { x: 119.3, y: 18.6 },
+    { x: 128.9, y: 18.9 },
+    { x: 137.8, y: 19 },
+    { x: 143.3, y: 19 },
+    { x: 152.5, y: 19 },
+    { x: 159.3, y: 19 },
+    { x: 167.4, y: 19 },
+];
+
+var week38PlusWithRisk = [
+    { x: 4.1, y: 6 },
+    { x: 9.8, y: 7.1 },
+    { x: 13.9, y: 7.8 },
+    { x: 17.2, y: 8.5 },
+    { x: 21.9, y: 9.2 },
+    { x: 26, y: 9.8 },
+    { x: 30, y: 10.2 },
+    { x: 36.6, y: 11.1 },
+    { x: 42.1, y: 11.8 },
+    { x: 47.5, y: 12.4 },
+    { x: 54.4, y: 13 },
+    { x: 61.5, y: 13.7 },
+    { x: 66.3, y: 14 },
+    { x: 71.3, y: 14.5 },
+    { x: 83.7, y: 15 },
+    { x: 90.8, y: 15.6 },
+    { x: 95.8, y: 16 },
+    { x: 109, y: 16.5 },
+    { x: 119.1, y: 16.9 },
+    { x: 127.1, y: 17.3 },
+    { x: 130.8, y: 17.4 },
+    { x: 138.8, y: 17.7 },
+    { x: 144.2, y: 17.7 },
+    { x: 154.8, y: 17.9 },
+    { x: 159.6, y: 18 },
+    { x: 162.8, y: 18 },
+    { x: 167, y: 18 },
+];
+
+
+var week37NoRisk = [
+    { x: -0.1, y: 5.1 },
+    { x: 4.4, y: 6 },
+    { x: 8.4, y: 6.8 },
+    { x: 12.2, y: 7.6 },
+    { x: 14.7, y: 8 },
+    { x: 19.3, y: 8.8 },
+    { x: 23.1, y: 9.4 },
+    { x: 26.8, y: 9.9 },
+    { x: 33.6, y: 10.8 },
+    { x: 38.9, y: 11.4 },
+    { x: 43.3, y: 11.9 },
+    { x: 47.4, y: 12.4 },
+    { x: 53.9, y: 13 },
+    { x: 60.3, y: 13.5 },
+    { x: 65.1, y: 13.9 },
+    { x: 71.3, y: 14.4 },
+    { x: 77.4, y: 14.9 },
+    { x: 84.3, y: 15.4 },
+    { x: 89.2, y: 15.8 },
+    { x: 95, y: 15.9 },
+    { x: 100.3, y: 16.1 },
+    { x: 107.3, y: 16.5 },
+    { x: 113.2, y: 16.7 },
+    { x: 119.1, y: 16.9 },
+    { x: 126.6, y: 17.2 },
+    { x: 135.5, y: 17.5 },
+    { x: 143.8, y: 17.7 },
+    { x: 151.4, y: 17.9 },
+    { x: 159.8, y: 18 },
+    { x: 167.4, y: 18 },
+];
+
+var week37WithRisk = [
+    { x: 0.2, y: 5.1 },
+    { x: 3.5, y: 5.3 },
+    { x: 6.6, y: 5.6 },
+    { x: 11.7, y: 6 },
+    { x: 18.7, y: 6.6 },
+    { x: 23.4, y: 7 },
+    { x: 27.1, y: 7.4 },
+    { x: 30.1, y: 7.8 },
+    { x: 34.9, y: 8.4 },
+    { x: 39, y: 9 },
+    { x: 42.5, y: 9.4 },
+    { x: 45.4, y: 9.8 },
+    { x: 49.3, y: 10.2 },
+    { x: 52.2, y: 10.4 },
+    { x: 55.5, y: 10.6 },
+    { x: 60.3, y: 11.1 },
+    { x: 63.1, y: 11.4 },
+    { x: 66.5, y: 11.8 },
+    { x: 71.7, y: 12.4 },
+    { x: 75.4, y: 12.8 },
+    { x: 79.7, y: 13 },
+    { x: 84.7, y: 13.5 },
+    { x: 88.6, y: 13.9 },
+    { x: 94.3, y: 14.4 },
+    { x: 98.3, y: 14.6 },
+    { x: 102.9, y: 14.8 },
+    { x: 109.3, y: 15 },
+    { x: 112.1, y: 15 },
+    { x: 115, y: 14.9 },
+    { x: 119.5, y: 15 },
+    { x: 123.9, y: 15 },
+    { x: 127.5, y: 15 },
+    { x: 133.1, y: 15 },
+    { x: 139, y: 15 },
+    { x: 144.9, y: 15 },
+    { x: 151.1, y: 15 },
+    { x: 157.4, y: 15 },
+    { x: 163.1, y: 15 },
+    { x: 167.5, y: 15 },
+];    
+    
+
 function getRiskZone(ageInHours, bilirubin, hasRisk, shouldUsePhototherapy){
     p40AtAge = getYOnCurveByX(percentile40DataPoints, ageInHours);
     p75AtAge = getYOnCurveByX(percentile75DataPoints, ageInHours);
@@ -160,6 +295,25 @@ function getTrackingStatusByRiskZone(riskZone, hasRisk, shouldUsePhototherapy){
     }
 }
 
+function getDataPointsByCase(isWeek38Plus, hasRisk){
+    if (isWeek38Plus){
+        return hasRisk ? week38PlusWithRisk : week38PlusNoRisk; 
+    }
+    else{
+        return hasRisk ? week37WithRisk : week37NoRisk; 
+    }
+}
+
+function shouldUsePhototherapy(ageInHours, bilirubin, isWeek38Plus, hasRisk){
+    var dataPoints = getDataPointsByCase(isWeek38Plus, hasRisk);
+    var threshold = getYOnCurveByX(dataPoints, ageInHours);
+    shouldUsePhototherapy = false;
+    if (bilirubin > threshold) {
+        shouldUsePhototherapy = true;
+    }
+    return { shouldUsePhototherapy, delta: Math.abs(bilirubin - threshold) }
+}
+
 function getYOnCurveByX(dataPoints, x) {
     // Find the two points between which the X coordinate lies
     var i = 0;
@@ -176,5 +330,5 @@ function getYOnCurveByX(dataPoints, x) {
     x
     );
 
-return interpolatedY;
+    return interpolatedY;
 }
