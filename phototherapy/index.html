@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>טיפול באור - אסותא אשדוד</title>
+<title>צהבת ביילוד - אסותא אשדוד</title>
 <link rel="icon" href="../assets/favicon.svg">
 <link rel="stylesheet" href="../common/css/common.css">
 <link href="../3rd-party/bootstrap/bootstrap.min.css" rel="stylesheet">
@@ -12,9 +12,14 @@
 </head>
 <body ng-app="app" ng-controller="PhototherapyController as ctrl" >
 <div id="phototherapy-main" class="container phototherapy-main-content">  
+<div id="calculator"  ng-show="ctrl.dataShown=='CALCULATOR'" >
   <div class="group-container">
     <div style="width:100%; text-align: center;margin-top: 20px;">
-        <h1>צהבת ביילוד</h1>
+        <h1 style="width:80%;float:right;">צהבת ביילוד</h1>
+        <div class="reset-button">
+            <span ng-click="ctrl.resetAll()"><img style="cursor:pointer; width: 35px; height: 35px;margin-right:10px; " src="../assets/refresh.png"></span>
+        </div>
+        <div style="clear:both;"></div>  
     </div>
     <form>
       <div class="container">
@@ -23,7 +28,7 @@
                 שבוע לידה:
             </div>
             <div class="col">
-                <button type="button" class="btn btn-outline-secondary" ng-class="{ 'checked-button': ctrl.weekOfBirth == 'above38' }" ng-click="ctrl.selectWeekOfBirth('above38')">38+</button>
+                <button type="button" class="btn btn-outline-secondary" ng-class="{ 'checked-button': ctrl.weekOfBirth == 'above38' }" ng-click="ctrl.selectWeekOfBirth('above38')">+38</button>
                 <button type="button" class="btn btn-outline-secondary" ng-class="{ 'checked-button': ctrl.weekOfBirth == 'under38' }" ng-click="ctrl.selectWeekOfBirth('under38')">35-37</button>
             </div>            
           </div>
@@ -34,7 +39,7 @@
             <div class="col" >
                 <button type="button" class="btn btn-outline-secondary" ng-class="{ 'checked-button': ctrl.hasRiskFactors }" ng-click="ctrl.selectRiskFactor(true)">קיים</button>
                 <button type="button" class="btn btn-outline-secondary" ng-class="{ 'checked-button': !ctrl.hasRiskFactors }" ng-click="ctrl.selectRiskFactor(false)">לא קיים</button>
-                <i class="fa-solid fa-circle-info fs-3 info"></i>
+                <i style="cursor: pointer;" ng-click="ctrl.openRiskyConditions()" class="fa-solid fa-circle-info fs-3 info"></i>
             </div>
         </div>        
         <div class="row form-group">
@@ -42,7 +47,7 @@
                 בילירובין (mg/dl):
             </div>
             <div class="col">
-                <input ng-change="ctrl.changedValue()" inputmode="tel" type="text" pattern="[0-9.]{0,4}$" style="max-width: 90px;" ng-model="ctrl.bilirubin" class="form-control" id="bilirubin" max="50" select-on-click >
+                <input ng-change="ctrl.changedValue()" inputmode="decimal" type="text" pattern="[0-9.]{0,4}" maxlength="4" style="max-width: 90px;" ng-model="ctrl.bilirubin" class="form-control" id="bilirubin" max="50" select-on-click >
             </div>
         </div>        
         <div class="row form-group">
@@ -50,7 +55,7 @@
                 גיל (שעות):
             </div>
             <div class="col">
-                <input ng-change="ctrl.changedValue()" inputmode="decimal" type="text" pattern="[0-9.]{0,4}$" style="max-width: 90px;" ng-model="ctrl.ageInHours" class="form-control" id="ageInHours" select-on-click >
+                <input ng-change="ctrl.changedValue()" inputmode="decimal" type="text" pattern="[0-9.]{0,4}" maxlength="3" style="max-width: 90px;" ng-model="ctrl.ageInHours" class="form-control" id="ageInHours" select-on-click >
             </div>
         </div>        
       </div>
@@ -59,22 +64,39 @@
   <div class="cards-container row row-cols-1 row-cols-md-1 g-4" >
     <div class="col">
       <div class="card">
-        <div class="card-body" ng-show="!!!ctrl.ctrl.riskZoneObj">
+        <div class="card-body" ng-show="ctrl.allInputsSatisfied()">
           <h5 class="card-title">לא נדרש טיפול באור</h5>
-          <p class="card-text">היילוד <span> {{ctrl.riskZoneObj['percentileString']}} </span> , באיזור סיכון <span> {{ctrl.riskZoneObj['riskZone']}} </span> {{ctrl.riskZoneObj['explanation']}}
+          <p class="card-text">היילוד <span>{{ctrl.riskZoneObj['percentileString']}}</span>, באיזור סיכון <span>{{ctrl.riskZoneObj['riskZone']}}</span>. {{ctrl.riskZoneObj['explanation']}}
           </p>
         </div>
       </div>
     </div>
   </div>
-
+</div>
+<graphs ng-show="ctrl.dataShown=='GRAPH_UNDER_38'" ></graphs>
+<graphs ng-show="ctrl.dataShown=='GRAPH_38+'"></graphs>
+<graphs ng-show="ctrl.dataShown=='GRAPH_BUTANI'"></graphs>
+<risks ng-show="ctrl.dataShown=='RISKS'" ></risks>
 </div>  
 <footer class="text-center text-white footer">
   <div class="footer-container">
     <div id="footer-menu">
       <a class="footer-button" ng-click="ctrl.openRiskyConditions()">
-        <div style="color: black;"><i class="fa-solid fa-syringe"></i></div>
+        <div style="color: black;"><i class="fa-solid fa-bed-pulse"></i></div>
         <div class="text">גורמי סיכון</div>
+      </a>
+    </div>
+    <a class="footer-button" ng-click="ctrl.openGraph('GRAPH_38+', 'assets/graph-week-38.png')">
+        <div style="color: black;">+<i class="fa-solid fa-chart-line">38</i></div>
+        <div class="text">גרף שבוע 38+</div>
+      </a>
+      <a class="footer-button" ng-click="ctrl.openGraph('GRAPH_UNDER_38', 'assets/graph-week-under-38.png')">
+        <div style="color: black;"><i class="fa-solid fa-chart-line">37</i></div>
+        <div class="text">גרף שבוע 35-37</div>
+      </a>
+      <a class="footer-button" ng-click="ctrl.openGraph('GRAPH_BUTANI', 'assets/butani.png')">
+        <div style="color: black;"><i class="fa-solid fa-chart-gantt"></i></div>
+        <div class="text">עקומת בוטאני</div>
       </a>
     </div>
   </div>

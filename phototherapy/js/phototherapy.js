@@ -3,7 +3,7 @@ var app = angular.module("app", []);
 app.controller("PhototherapyController", ['$scope', '$rootScope', '$http', '$timeout', function($scope, $rootScope, $http, $timeout) {
     const ctrl = this;
     window.ctrl = this;
-
+    ctrl.dataShown = 'CALCULATOR'; // possible values: CALCULATOR, RISKS, GRAPH_38+, GRAPH_UNDER_38, GRAPH_BUTANI
     ctrl.weekOfBirth = 'above38';
     ctrl.bilirubin;
     ctrl.ageInHours;
@@ -37,12 +37,13 @@ app.controller("PhototherapyController", ['$scope', '$rootScope', '$http', '$tim
         ctrl.changedValue();
     }
 
-    ctrl.openRiskyConditions = function() {
-        window.alert("opened!");
-    };
+    ctrl.allInputsSatisfied = function() {
+        return ctrl.ageInHours && ctrl.bilirubin;
+    }
+
 
     ctrl.changedValue = function() {   
-        if (!ctrl.ageInHours || !ctrl.bilirubin) {
+        if (!ctrl.allInputsSatisfied) {
             return;
         }
         $timeout(function() {
@@ -50,38 +51,64 @@ app.controller("PhototherapyController", ['$scope', '$rootScope', '$http', '$tim
             Object.assign(ctrl.riskZoneObj, newRiskZoneObj);    
         }, 20) ;
     };
+
+    ctrl.resetAll = function() {
+        ctrl.bilirubin = '';
+        ctrl.ageInHours = '';    
+    };
+
+    ctrl.openGraph = function(graph, graphPath) {
+        ctrl.dataShown = graph;
+        ctrl.imagePath = graphPath;        
+    };
+
   
-    ctrl.calcTreatment = function() {
+    ctrl.openRiskyConditions = function() {
+        ctrl.dataShown = 'RISKS';
     };
     
-    function getGraph(weekOfBirth, riskFactor) {
-        if (weekOfBirth === '38+'){
-            if (riskFactor === 'yes'){
-                return 'risk-38'
-            }
-            else {
-                return 'no-risk-38'
-            }
-        } else{
-            if (riskFactor === 'yes'){
-                return 'risk-35-37'
-            }
-            else {
-                return 'no-risk-35-37'
-            }
-        }
-    }
+    ctrl.closePanel = function() {
+        ctrl.dataShown = 'CALCULATOR';
+    };
+
 }]);
 
 app.directive('selectOnClick', ['$window', function ($window) {
     return {
         restrict: 'A',
         link: function (scope, element, attrs) {
+            var prevValue = '';
             element.on('click', function () {
                 if (!$window.getSelection().toString()) {                                        
                     this.setSelectionRange(0, this.value.length);                    
                 }
             });
+            element.on('input', function () {
+                if(this.checkValidity()){
+                    prevValue = this.value;
+                  } else {
+                    this.value = prevValue;
+                  }
+            });
         }
     };
 }]);
+
+app.directive('risks', function() {
+    return {
+        restrict: 'E',
+        templateUrl: 'htmls/risks.html',
+        link: function(scope, element, attrs) {
+        }
+    };
+});
+
+app.directive('graphs', function() {
+    return {
+        restrict: 'E',
+        templateUrl: 'htmls/graphs.html',
+        link: function(scope, element, attrs) {
+            
+        }
+    };
+});
