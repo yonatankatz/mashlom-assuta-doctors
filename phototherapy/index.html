@@ -11,6 +11,15 @@
 <link rel="stylesheet" href="css/phototherapy.css">
 </head>
 <body ng-app="app" ng-controller="PhototherapyController as ctrl" >
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J85BPCEQ2Y"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-J85BPCEQ2Y');
+</script>
 <div id="phototherapy-main" class="container phototherapy-main-content">  
 <div id="calculator"  ng-show="ctrl.dataShown=='CALCULATOR'" >
   <div class="group-container">
@@ -24,7 +33,7 @@
     <form>
       <div class="container">
         <div class="row form-group">
-            <div class="col-auto fs-3 input-caption">
+            <div class="col-auto fs-3 input-caption col-auto-buttons-cols">
                 שבוע לידה:
             </div>
             <div class="col">
@@ -33,13 +42,14 @@
             </div>            
           </div>
         <div class="row form-group">
-            <div class="col-auto fs-3 input-caption">
-                 גורם סיכון:
+            <div class="col-auto fs-3 input-caption col-auto-buttons-cols">
+                 גורם סיכון
+                 <i style="cursor: pointer;vertical-align: top;" ng-click="ctrl.openRiskyConditions()" class="fa-solid fa-circle-info fs-4 info"></i>
+                 :
             </div>
             <div class="col" >
                 <button type="button" class="btn btn-outline-secondary" ng-class="{ 'checked-button': ctrl.hasRiskFactors }" ng-click="ctrl.selectRiskFactor(true)">קיים</button>
                 <button type="button" class="btn btn-outline-secondary" ng-class="{ 'checked-button': !ctrl.hasRiskFactors }" ng-click="ctrl.selectRiskFactor(false)">לא קיים</button>
-                <i style="cursor: pointer;" ng-click="ctrl.openRiskyConditions()" class="fa-solid fa-circle-info fs-3 info"></i>
             </div>
         </div>        
         <div class="row form-group">
@@ -65,7 +75,7 @@
     <div class="col">
       <div class="card">
         <div class="card-body" ng-show="ctrl.allInputsSatisfied()">
-          <h3 class="card-title">{{ctrl.rootDiagnose}}<span style="font-size: 0.8rem;"> {{ctrl.distanceFromCurve}} </span></h3>
+          <h3 class="card-title">{{ctrl.rootDiagnose}} <span style="font-size: 0.8rem;"> {{ctrl.distanceFromCurve}} </span></h3>
           <p class="card-text">היילוד <span>{{ctrl.riskZoneObj['percentileString']}}</span>, באיזור סיכון <span>{{ctrl.riskZoneObj['riskZone']}}</span>. {{ctrl.riskZoneObj['explanation']}}.
           </p>
         </div>

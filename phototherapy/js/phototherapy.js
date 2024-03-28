@@ -51,6 +51,9 @@ app.controller("PhototherapyController", ['$scope', '$rootScope', '$http', '$tim
             const {shouldUse , delta} = shouldUsePhototherapy(ctrl.ageInHours, ctrl.bilirubin, ctrl.weekOfBirth === 'above38', ctrl.hasRiskFactors);
             ctrl.rootDiagnose = shouldUse ? "נדרש טיפול באור" : "לא נדרש טיפול באור";
             ctrl.distanceFromCurve = '(' + (shouldUse ? "מעל העקומה ב " : "מתחת לעקומה ב ") + delta + ")" ;
+            if (delta == 0) {
+                ctrl.distanceFromCurve = "(על קו העקומה)";
+            }
             const newRiskZoneObj = getRiskZone(ctrl.ageInHours, ctrl.bilirubin, ctrl.hasRiskFactors, shouldUse);
             Object.assign(ctrl.riskZoneObj, newRiskZoneObj);    
         }, 20) ;

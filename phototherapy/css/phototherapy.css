@@ -60,6 +60,9 @@ html, body {
 .col-auto-text-cols {      
   min-width: 230px;
 }
+.col-auto-buttons-cols {      
+    min-width: 190px;
+  }
 
 .back-button {
     float: right;
