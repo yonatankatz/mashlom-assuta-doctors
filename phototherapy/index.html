@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>צהבת ביילוד - אסותא אשדוד</title>
 <link rel="icon" href="../assets/favicon.svg">
-<link rel="stylesheet" href="../common/css/common.css">
 <link href="../3rd-party/bootstrap/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="../3rd-party/fontawesome/fontawesome-free-6.5.1-web/css/all.min.css">
+<link rel="stylesheet" href="../common/css/common.css">
 <link rel="stylesheet" href="css/phototherapy.css">
 </head>
 <body ng-app="app" ng-controller="PhototherapyController as ctrl" >
@@ -23,15 +23,16 @@
 <div id="phototherapy-main" class="container phototherapy-main-content">  
 <div id="calculator"  ng-show="ctrl.dataShown=='CALCULATOR'" >
   <div class="group-container">
-    <div style="width:100%; text-align: center;margin-top: 20px;">
-        <h1 style="width:80%;float:right;">צהבת ביילוד</h1>
-        <div class="reset-button">
-            <span ng-click="ctrl.resetAll()"><img style="cursor:pointer; width: 35px; height: 35px;margin-right:10px; " src="../assets/refresh.png"></span>
-        </div>
-        <div style="clear:both;"></div>  
-    </div>
     <form>
       <div class="container">
+        <div class="row form-group">
+            <div class="col fs-3 input-caption">
+                <h1 style="width:80%;float:right;">צהבת ביילוד</h1>
+            </div>
+            <div class="col reset-button">
+                <span ng-click="ctrl.resetAll()"><img style="cursor:pointer; width: 35px; height: 35px;margin-right:10px; " src="../assets/refresh.png"></span>
+            </div>        
+        </div>
         <div class="row form-group">
             <div class="col-auto fs-3 input-caption col-auto-buttons-cols">
                 שבוע לידה:
@@ -44,7 +45,7 @@
         <div class="row form-group">
             <div class="col-auto fs-3 input-caption col-auto-buttons-cols">
                  גורם סיכון
-                 <i style="cursor: pointer;vertical-align: top;" ng-click="ctrl.openRiskyConditions()" class="fa-solid fa-circle-info fs-4 info"></i>
+                 <i style="cursor: pointer;vertical-align: top;" ng-click="ctrl.openRiskyConditions()" class="fa-solid fa-circle-info fs-5 info"></i>
                  :
             </div>
             <div class="col" >
@@ -75,8 +76,8 @@
     <div class="col">
       <div class="card">
         <div class="card-body" ng-show="ctrl.allInputsSatisfied()">
-          <h3 class="card-title">{{ctrl.rootDiagnose}} <span style="font-size: 0.8rem;"> {{ctrl.distanceFromCurve}} </span></h3>
-          <p class="card-text">היילוד <span>{{ctrl.riskZoneObj['percentileString']}}</span>, באיזור סיכון <span>{{ctrl.riskZoneObj['riskZone']}}</span>. {{ctrl.riskZoneObj['explanation']}}.
+          <h3 class="card-title"><span class="circle" ng-style="ctrl.statusColor"></span>{{ctrl.rootDiagnose}} <span style="font-size: 0.8rem;"> {{ctrl.distanceFromCurve}} </span></h3>
+          <p class="card-text">היילוד <span>{{ctrl.riskZoneObj['percentileString']}}</span> באיזור סיכון <span>{{ctrl.riskZoneObj['riskZone']}}</span>.<br> {{ctrl.riskZoneObj['explanation']}}.
           </p>
         </div>
       </div>
@@ -92,20 +93,20 @@
   <div class="footer-container">
     <div id="footer-menu">
       <a class="footer-button" ng-click="ctrl.openRiskyConditions()">
-        <div style="color: black;"><i class="fa-solid fa-bed-pulse"></i></div>
+        <div style="color: #404040;"><i class="fa-solid fa-bed-pulse"></i></div>
         <div class="text">גורמי סיכון</div>
       </a>
     </div>
     <a class="footer-button" ng-click="ctrl.openGraph('GRAPH_38+', 'assets/graph-week-38.png')">
-        <div style="color: black;">+<i class="fa-solid fa-chart-line">38</i></div>
+        <div style="color: #404040;" >+<i class="fa-solid fa-chart-line">38</i></div>
         <div class="text">גרף שבוע 38+</div>
       </a>
       <a class="footer-button" ng-click="ctrl.openGraph('GRAPH_UNDER_38', 'assets/graph-week-under-38.png')">
-        <div style="color: black;"><i class="fa-solid fa-chart-line">37</i></div>
+        <div style="color: #404040;"><i class="fa-solid fa-chart-line">37</i></div>
         <div class="text">גרף שבוע 35-37</div>
       </a>
       <a class="footer-button" ng-click="ctrl.openGraph('GRAPH_BUTANI', 'assets/butani.png')">
-        <div style="color: black;"><i class="fa-solid fa-chart-gantt"></i></div>
+        <div style="color: #404040;"><i class="fa-solid fa-chart-gantt"></i></div>
         <div class="text">עקומת בוטאני</div>
       </a>
     </div>

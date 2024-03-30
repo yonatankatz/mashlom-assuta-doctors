@@ -11,6 +11,7 @@ app.controller("PhototherapyController", ['$scope', '$rootScope', '$http', '$tim
     ctrl.rootDiagnose = '';
     ctrl.distanceFromCurve = '';
     ctrl.riskZoneObj = {};
+    ctrl.statusColor = {};
 
     function init() {
         // check if needed
@@ -55,6 +56,7 @@ app.controller("PhototherapyController", ['$scope', '$rootScope', '$http', '$tim
                 ctrl.distanceFromCurve = "(על קו העקומה)";
             }
             const newRiskZoneObj = getRiskZone(ctrl.ageInHours, ctrl.bilirubin, ctrl.hasRiskFactors, shouldUse);
+            ctrl.statusColor['background-color'] = shouldUse ? 'red' : 'green';
             Object.assign(ctrl.riskZoneObj, newRiskZoneObj);    
         }, 20) ;
     };

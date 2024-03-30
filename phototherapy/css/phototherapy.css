@@ -7,6 +7,8 @@ html, body {
     margin: 0 auto; /* Center the body horizontally */
     padding: 0;
     font-family: Arial, sans-serif;
+    color: #404040 !important;
+    background-color: white;    
 }
 
 .form-group {
@@ -30,12 +32,12 @@ html, body {
 }
 
 .checked-button {
-    background-color: blue;
+    background-color: #6FB4ED;
     color: white;
 }
 
 .checked-button:hover {
-    background-color: blue;
+    background-color: #6FB4ED;
     color: white;
 }
 
@@ -52,7 +54,7 @@ html, body {
     font-size: 24px;
 }
 .phototherapy-main-content {        
-    background-color: #ecf0f1;
+    background-color: #F8F8F8 !important;    ;
     /*height: min(82vh, calc(100vh - 10vh - 75px));*/ /*applies only when there is header*/
     height: min(92dvh, calc(100dvh - 75px));
 }
@@ -103,9 +105,17 @@ html, body {
 
   .reset-button {
     margin-left: 20px;
-    float: left;
 	display: grid;
 	align-items: center;
+    justify-content: left;
   }
 
-  
+  .circle {
+    display: inline-block;
+    width: 0.65em; /* Set the width and height to be the same as the font size */
+    height: 0.65em;
+    border-radius: 50%; /* Create a circle using border-radius */    
+    margin-left: 10px;
+  }
+
+
