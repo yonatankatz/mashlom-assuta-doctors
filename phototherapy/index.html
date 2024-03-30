@@ -24,15 +24,17 @@
 <div id="calculator"  ng-show="ctrl.dataShown=='CALCULATOR'" >
   <div class="group-container">
     <form>
-      <div class="container">
+    <div>
         <div class="row form-group">
             <div class="col fs-3 input-caption">
-                <h1 style="width:80%;float:right;">צהבת ביילוד</h1>
+                <h1 style="width:80%;float:right;padding-right: 8px;">צהבת ביילוד</h1>
             </div>
             <div class="col-auto reset-button">
                 <span ng-click="ctrl.resetAll()"><img style="cursor:pointer; width: 35px; height: 35px;margin-right:10px; " src="../assets/refresh.png"></span>
             </div>        
         </div>
+    </div>
+      <div class="container">
         <div class="row form-group">
             <div class="col-auto fs-3 input-caption col-auto-buttons-cols">
                 שבוע לידה:
