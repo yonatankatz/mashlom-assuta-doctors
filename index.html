@@ -16,6 +16,7 @@
     justify-content: center;
     align-items: center;
     font-family: Arial, sans-serif;
+    overflow-y: auto; 
   }
   header {    
     padding: 0;
@@ -23,14 +24,22 @@
   .menu-link {
     margin-top: 10px;
   }
+  main {
+    padding-bottom: 10dhv; /*should be the same as the height of the footer*/
+    overflow-y: auto;
+  }
+  header {
+    height: 20dvh;
+  }
   footer {
     text-align: center;
     padding: 20px 0;
     background-color: #f4f4f4;
-    /* Stick the footer to the bottom */
+    /* Stick the footer to the bottom */    
     position: absolute;
     bottom: 0;
     width: 100%;
+    height: 10dvh;
   }
   .li-logo {
     width: 10px;
@@ -38,6 +47,7 @@
   }
   .guide-video {
     width: 85dvw;
+    max-width: 390px;
     max-height: 50dvh;
     margin-top: 20px; 
     
@@ -45,6 +55,10 @@
   .video-container {
     width: 100%;
     margin-top: 30px; 
+  }
+  .page-content {
+    position: relative;
+    min-height: 100vh;  
   }
 </style>
 </head>
@@ -58,15 +72,16 @@
 
   gtag('config', 'G-J85BPCEQ2Y');
 </script>
+<div class="page-content">
   <header>
-    <img src="assets/logo/FullLogo_Transparent.png" alt="Logo" style="width: 20dvw;height: 20dvw;">
+    <img src="assets/logo/FullLogo_Transparent.png" alt="Logo" style="height: 100%;">
   </header>
   <main>
   <div class="list-group" style="width:100%; padding-right: 20%; padding-left: 20%;">
     <a href="phototherapy/" class="btn btn-primary btn-lg menu-link">צהבת ביילוד</a>
     <a href="triage/" class="btn btn-primary btn-lg menu-link">טריאז' מיון ילדים</a>
   </div> 
-  <div class="video-container" style="display: none;">
+  <div class="video-container">
     <div>
     איך לשמור לינק ל mashlom על הסמארטפון שלכם: 
   </div>
@@ -76,15 +91,16 @@
     </video>
   </div>
   </main>
-<footer>
-  <div>
-    <a href="https://www.linkedin.com/in/talavinari"><img class="li-logo" src="assets/LinkedIn_icon.png" alt="LinkedIn"></a>
-    טל אבינערי, <a href="mailto:talavinari@gmail.com">talavinari@gmail.com</a>
-  </div>
-  <div>
-    <a href="https://www.linkedin.com/in/yonatan-katz-a07b562/"><img class="li-logo" src="assets/LinkedIn_icon.png" alt="LinkedIn"></a>
-    יונתן כץ, <a href="mailto:katzyonatan@gmail.com">katzyonatan@gmail.com</a>
-  </div>
-</footer>
+  <footer>
+    <div>
+      <a href="https://www.linkedin.com/in/talavinari"><img class="li-logo" src="assets/LinkedIn_icon.png" alt="LinkedIn"></a>
+      טל אבינערי, <a href="mailto:talavinari@gmail.com">talavinari@gmail.com</a>
+    </div>
+    <div>
+      <a href="https://www.linkedin.com/in/yonatan-katz-a07b562/"><img class="li-logo" src="assets/LinkedIn_icon.png" alt="LinkedIn"></a>
+      יונתן כץ, <a href="mailto:katzyonatan@gmail.com">katzyonatan@gmail.com</a>
+    </div>
+  </footer>
+</div>
 </body>
 </html>
