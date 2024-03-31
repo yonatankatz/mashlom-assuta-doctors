@@ -25,7 +25,7 @@
     margin-top: 10px;
   }
   main {
-    padding-bottom: 10dhv; /*should be the same as the height of the footer*/
+    padding-bottom: calc(max(10dhv, 40px)); /*should be at leaset same as the height of the footer*/
     overflow-y: auto;
   }
   header {
@@ -33,13 +33,14 @@
   }
   footer {
     text-align: center;
-    padding: 20px 0;
+    padding: 0;
     background-color: #f4f4f4;
     /* Stick the footer to the bottom */    
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 10dvh;
+    height: 7dvh;
+    min-height: 40px;
   }
   .li-logo {
     width: 10px;
@@ -106,7 +107,7 @@
   </div>
   </main>
   <footer>
-    <div>
+    <div style="padding-top: 10px;">
       <a href="https://www.linkedin.com/in/talavinari"><img class="li-logo" src="assets/LinkedIn_icon.png" alt="LinkedIn"></a>
       טל אבינערי, <a href="mailto:talavinari@gmail.com">talavinari@gmail.com</a>
     </div>
