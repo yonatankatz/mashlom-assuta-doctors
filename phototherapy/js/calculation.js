@@ -312,7 +312,7 @@ function shouldUsePhototherapy(ageInHours, bilirubin, isWeek38Plus, hasRisk){
     var dataPoints = getDataPointsByCase(isWeek38Plus, hasRisk);
     var threshold = getYOnCurveByX(dataPoints, ageInHours);
     shouldUse = false;
-    if (bilirubin > threshold) {
+    if (bilirubin >= threshold) {
         shouldUse = true;
     }
     return { shouldUse, delta: Math.abs(bilirubin - threshold).toFixed(1) }
