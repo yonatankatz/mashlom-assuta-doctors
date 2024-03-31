@@ -6,7 +6,7 @@
     "lang": "he",
     "icons": [
       {
-        "src": "/assets/logo/IconOnly_Transparent.png",
+        "src": "/assets/logo/IconOnly.png",
         "sizes": "1280x1024",
         "type": "image/png"
       }
