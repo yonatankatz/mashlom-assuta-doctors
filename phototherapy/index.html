@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>צהבת ביילוד - אסותא אשדוד</title>
 <link rel="icon" href="../assets/favicon.svg">
+<link rel="manifest" href="manifest.json">
 <link href="../3rd-party/bootstrap/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="../3rd-party/fontawesome/fontawesome-free-6.5.1-web/css/all.min.css">
 <link rel="stylesheet" href="../common/css/common.css">
@@ -36,7 +37,7 @@
     </div>
       <div class="container">
         <div class="row form-group">
-            <div class="col-auto fs-3 input-caption col-auto-buttons-cols">
+            <div class="col-auto fs-5 input-caption col-auto-buttons-cols">
                 שבוע לידה:
             </div>
             <div class="col">
@@ -45,7 +46,7 @@
             </div>            
           </div>
         <div class="row form-group">
-            <div class="col-auto fs-3 input-caption col-auto-buttons-cols">
+            <div class="col-auto fs-5 input-caption col-auto-buttons-cols">
                  גורם סיכון
                  <i style="cursor: pointer;vertical-align: top;" ng-click="ctrl.openRiskyConditions()" class="fa-solid fa-circle-info fs-5 info"></i>
                  :
@@ -56,7 +57,7 @@
             </div>
         </div>        
         <div class="row form-group">
-            <div class="col-auto fs-3 input-caption col-auto-text-cols">
+            <div class="col-auto fs-5 input-caption col-auto-text-cols">
                 בילירובין (mg/dl):
             </div>
             <div class="col">
@@ -64,7 +65,7 @@
             </div>
         </div>        
         <div class="row form-group">
-            <div class="col-auto fs-3 input-caption col-auto-text-cols">
+            <div class="col-auto fs-5 input-caption col-auto-text-cols">
                 גיל (שעות):
             </div>
             <div class="col">
@@ -78,7 +79,7 @@
     <div class="col">
       <div class="card">
         <div class="card-body" ng-show="ctrl.allInputsSatisfied()">
-          <h3 class="card-title"><span class="circle" ng-style="ctrl.statusColor"></span>{{ctrl.rootDiagnose}} <span style="font-size: 0.8rem;"> {{ctrl.distanceFromCurve}} </span></h3>
+          <h3 class="card-title"><span class="circle" ng-style="ctrl.statusColor"></span>{{ctrl.rootDiagnose}} <!-- span style="font-size: 0.8rem;"> {{ctrl.distanceFromCurve}} </span --></h3>
           <p class="card-text">היילוד <span>{{ctrl.riskZoneObj['percentileString']}}</span> באיזור סיכון <span>{{ctrl.riskZoneObj['riskZone']}}</span>.<br> {{ctrl.riskZoneObj['explanation']}}.
           </p>
         </div>

@@ -1,0 +1,13 @@
+{
+    "name": "mashlom.me",
+    "short_name": "mashlom",
+    "start_url": "/phototherapy",
+    "icons": [
+      {
+        "src": "/assets/logo/IconOnly_Transparent.png",
+        "sizes": "1280x1024",
+        "type": "image/png"
+      }
+    ],
+    "display": "standalone"
+  }
