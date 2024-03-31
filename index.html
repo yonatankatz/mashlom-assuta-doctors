@@ -8,14 +8,35 @@
 <link href="3rd-party/bootstrap/bootstrap.min.css" rel="stylesheet">
 <link href="3rd-party/bootstrap/bootstrap.min.css" rel="stylesheet">
 <link rel="icon" href="assets/favicon.svg">
+<link rel="manifest" href="common/manifest.json">
 <link rel="stylesheet" href="3rd-party/fontawesome/fontawesome-free-6.5.1-web/css/all.min.css">
 <style>
   html, body {
-    padding: 40px;
+    padding: 0px;
     text-align: center;
     justify-content: center;
     align-items: center;
     height: 90dvh;
+    font-family: Arial, sans-serif;
+  }
+  header {    
+    padding: 0;
+  }
+  .menu-link {
+    margin-top: 10px;
+  }
+  footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #f4f4f4;
+    /* Stick the footer to the bottom */
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+  .li-logo {
+    width: 10px;
+    height: 10px;
   }
 </style>
 </head>
@@ -29,10 +50,23 @@
 
   gtag('config', 'G-J85BPCEQ2Y');
 </script>
-  <h1 >מה שלומך?</h1>  
+  <header>
+    <img src="assets/logo/FullLogo_Transparent.png" alt="Logo" style="width: 20dvw;height: 20dvw;">
+  </header>
   <div class="list-group" style="width:100%; padding-right: 20%; padding-left: 20%;">
-    <a href="phototherapy/" class="list-group-item list-group-item-action">צהבת ביילוד</a>
-    <a href="triage/" class="list-group-item list-group-item-action">טריאז' מיון ילדים</a>
+    <a href="phototherapy/" class="btn btn-primary btn-lg menu-link">צהבת ביילוד</a>
+    <a href="triage/" class="btn btn-primary btn-lg menu-link">טריאז' מיון ילדים</a>
   </div>
+  
+<footer>
+  <div>
+    <a href="https://www.linkedin.com/in/talavinari"><img class="li-logo" src="assets/LinkedIn_icon.png" alt="LinkedIn"></a>
+    טל אבינערי, <a href="mailto:talavinari@gmail.com">talavinari@gmail.com</a>
+  </div>
+  <div>
+    <a href="https://www.linkedin.com/in/yonatan-katz-a07b562/"><img class="li-logo" src="assets/LinkedIn_icon.png" alt="LinkedIn"></a>
+    יונתן כץ, <a href="mailto:katzyonatan@gmail.com">katzyonatan@gmail.com</a>
+  </div>
+</footer>
 </body>
 </html>
