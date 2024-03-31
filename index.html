@@ -72,6 +72,22 @@
 
   gtag('config', 'G-J85BPCEQ2Y');
 </script>
+<script>
+  window.onload = function() {
+    var isAndroid = /Android/i.test(navigator.userAgent);
+    var isiPhone = /iPhone/i.test(navigator.userAgent);
+    
+    var videoContainer = document.getElementById("video-element");
+    
+    if (isAndroid) {
+        videoContainer.innerHTML = '<video controls class="guide-video"><source src="assets/videos/guide-android.mp4" type="video/mp4">Your browser does not support the video tag.</video>';
+    } else if (isiPhone) {
+        videoContainer.innerHTML = '<video controls class="guide-video"><source src="assets/videos/guide-iphone.mp4" type="video/mp4">Your browser does not support the video tag.</video>';
+    } else {
+      document.getElementById("video-container").style.display = 'none';
+    }
+}
+</script>
 <div class="page-content">
   <header>
     <img src="assets/logo/FullLogo_Transparent.png" alt="Logo" style="height: 100%;">
@@ -81,14 +97,12 @@
     <a href="phototherapy/" class="btn btn-primary btn-lg menu-link">צהבת ביילוד</a>
     <a href="triage/" class="btn btn-primary btn-lg menu-link">טריאז' מיון ילדים</a>
   </div> 
-  <div class="video-container">
+  <div id="video-container" class="video-container">
     <div>
     איך לשמור לינק ל mashlom על הסמארטפון שלכם: 
   </div>
-    <video class="guide-video" controls>
-      <source src="assets/videos/guide-android.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
+    <div id="video-element">
+  </div>
   </div>
   </main>
   <footer>
