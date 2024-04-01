@@ -2,8 +2,6 @@
     "name": "mashlom.me",
     "short_name": "Mashlom",
     "start_url": "/",
-    "dir": "rtl",
-    "lang": "he",
     "icons": [
       {
         "src": "/assets/logo/IconOnly.png",
