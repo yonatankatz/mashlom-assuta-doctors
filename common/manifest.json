@@ -1,7 +1,7 @@
 {
     "name": "mashlom.me",
     "short_name": "mashlom",
-    "start_url": "/phototherapy",
+    "start_url": "/",
     "dir": "rtl",
     "lang": "he",
     "icons": [
