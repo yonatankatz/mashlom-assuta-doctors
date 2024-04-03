@@ -63,7 +63,7 @@
       <ol class="list-group" style="padding: 0px;">
         <li class="list-group-item d-flex justify-content-between align-items-center"
           ng-repeat="item in ctrl.triageData | toArray | orderBy:'level':true"
-          ng-show="ctrl.showItem(item)"
+          ng-if="ctrl.showItem(item)"
           ng-class="{'selected-row' : ctrl.selectedRows.includes(item)}"
           ng-click="ctrl.toggleRow(item)"
         >
