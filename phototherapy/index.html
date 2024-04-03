@@ -88,7 +88,7 @@
                 בילירובין (mg/dl):
             </div>
             <div class="col input-col">
-                <input ng-change="ctrl.changedValue()" ng-model-options="{ allowInvalid: true}" inputmode="decimal" type="text" pattern="[0-9.]{0,4}" maxlength="4" style="max-width: 90px;" ng-model="ctrl.bilirubin" class="form-control" id="bilirubin" max="50" select-on-click >
+                <input ng-change="ctrl.changedValue()" ng-model-options="{ allowInvalid: true}" inputmode="decimal" type="text" pattern="[0-9]{1,4}[.]{0,1}[0-9]{0,1}" maxlength="4" style="max-width: 90px;" ng-model="ctrl.bilirubin" class="form-control" id="bilirubin" max="50" select-on-click >
             </div>
         </div>        
         <div class="row form-group">

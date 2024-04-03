@@ -28,7 +28,7 @@ app.controller("PhototherapyController", ['$scope', '$rootScope', '$http', '$tim
     }
 
     ctrl.allInputsSatisfied = function() {
-        return ctrl.ageInHours && ctrl.bilirubin;
+        return ctrl.ageInHours && ctrl.bilirubin && ctrl.ageInHours > 9;
     }
 
     ctrl.riskZoneSatisfied = function() {
@@ -81,7 +81,8 @@ app.controller("PhototherapyController", ['$scope', '$rootScope', '$http', '$tim
 app.directive('selectOnClick', ['$window', function ($window) {
     return {
         restrict: 'A',
-        link: function (scope, element, attrs) {
+        require: 'ngModel',
+        link: function (scope, element, attrs, ngModelCtrl) {
             var prevValue = '';
             element.on('click', function () {
                 if (!$window.getSelection().toString()) {                                        
@@ -93,6 +94,8 @@ app.directive('selectOnClick', ['$window', function ($window) {
                     prevValue = this.value;
                   } else {
                     this.value = prevValue;
+                    ngModelCtrl.$setViewValue(this.value);
+                    ngModelCtrl.$render();
                   }
             });
         }
