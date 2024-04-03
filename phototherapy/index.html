@@ -34,55 +34,69 @@
 
   gtag('config', 'G-J85BPCEQ2Y');
 </script>
-<div id="phototherapy-main" class="container phototherapy-main-content">  
-<div id="calculator"  ng-show="ctrl.dataShown=='CALCULATOR'" >
+<nav class="navbar navbar-expand-lg header">
+  <div style="width: 20%;height:100%; text-align: right;">
+    <img class="header-assuta-logo" src="../assets/assuta/only-alef.png" >
+  </div>
+  <div class="header-text">
+    <p>
+      mashlom.me בשיתוף עם בית<br>
+      החולים אסותא אשדוד, חטיבת הילדים
+    </p>
+  </div>
+  <div style="width: 15%;height:100%; text-align: left; vertical-align: middle">
+    <img class="header-mashlom-logo" src="../assets/logo/IconOnly_Transparent_NoBuffer.png" >
+  </div>
+</nav>
+<div id="phototherapy-main" class="container main-content phototherapy-main-content">  
+<div id="calculator" style="overflow-y: auto;overflow-x: hidden; padding-bottom: 10px;" ng-show="ctrl.dataShown=='CALCULATOR'" >
   <div class="group-container">
     <form>
     <div>
         <div class="row form-group">
-            <div class="col fs-3 input-caption">
-                <h1 style="width:80%;float:right;padding-right: 8px;">צהבת ביילוד</h1>
+            <div class="col-auto fs-3 ">
+                <h1>צהבת ביילוד</h1>
             </div>
-            <div class="col-auto reset-button">
+            <div class="col-auto me-auto reset-button">
                 <span ng-click="ctrl.resetAll()"><img style="cursor:pointer; width: 35px; height: 35px;margin-right:10px; " src="../assets/refresh.png"></span>
             </div>        
         </div>
     </div>
       <div class="container">
         <div class="row form-group">
-            <div class="col-auto fs-5 input-caption col-auto-buttons-cols">
+            <div class="col-auto fs-5  col-auto-buttons-cols">
                 שבוע לידה:
             </div>
-            <div class="col">
+            <div class="col-auto input-col">
                 <button type="button" class="btn btn-outline-secondary" ng-class="{ 'checked-button': ctrl.weekOfBirth == 'above38' }" ng-click="ctrl.selectWeekOfBirth('above38')">+38</button>
                 <button type="button" class="btn btn-outline-secondary" ng-class="{ 'checked-button': ctrl.weekOfBirth == 'under38' }" ng-click="ctrl.selectWeekOfBirth('under38')">35-37</button>
             </div>            
           </div>
         <div class="row form-group">
-            <div class="col-auto fs-5 input-caption col-auto-buttons-cols">
+            <div class="col-auto fs-5  col-auto-buttons-cols">
                  גורם סיכון
                  <i style="cursor: pointer;vertical-align: top;" ng-click="ctrl.openRiskyConditions()" class="fa-solid fa-circle-info fs-5 info"></i>
                  :
             </div>
-            <div class="col" >
+            <div class="col-auto input-col" >
                 <button type="button" class="btn btn-outline-secondary" ng-class="{ 'checked-button': ctrl.hasRiskFactors }" ng-click="ctrl.selectRiskFactor(true)">קיים</button>
                 <button type="button" class="btn btn-outline-secondary" ng-class="{ 'checked-button': !ctrl.hasRiskFactors }" ng-click="ctrl.selectRiskFactor(false)">לא קיים</button>
             </div>
         </div>        
         <div class="row form-group">
-            <div class="col-auto fs-5 input-caption col-auto-text-cols">
+            <div class="col-auto fs-5  col-auto-text-cols">
                 בילירובין (mg/dl):
             </div>
-            <div class="col">
-                <input ng-change="ctrl.changedValue()" inputmode="decimal" type="text" pattern="[0-9.]{0,4}" maxlength="4" style="max-width: 90px;" ng-model="ctrl.bilirubin" class="form-control" id="bilirubin" max="50" select-on-click >
+            <div class="col input-col">
+                <input ng-change="ctrl.changedValue()" ng-model-options="{ allowInvalid: true}" inputmode="decimal" type="text" pattern="[0-9.]{0,4}" maxlength="4" style="max-width: 90px;" ng-model="ctrl.bilirubin" class="form-control" id="bilirubin" max="50" select-on-click >
             </div>
         </div>        
         <div class="row form-group">
-            <div class="col-auto fs-5 input-caption col-auto-text-cols">
+            <div class="col-auto fs-5  col-auto-text-cols">
                 גיל (שעות):
             </div>
-            <div class="col">
-                <input ng-change="ctrl.changedValue()" inputmode="decimal" type="text" pattern="[0-9]{0,3}" maxlength="3" style="max-width: 90px;" ng-model="ctrl.ageInHours" class="form-control" id="ageInHours" select-on-click >
+            <div class="col input-col">
+                <input ng-change="ctrl.changedValue()" ng-model-options="{ allowInvalid: true}" inputmode="decimal" type="text" pattern="[0-9]{0,3}" maxlength="3" style="max-width: 90px;" ng-model="ctrl.ageInHours" class="form-control" id="ageInHours" select-on-click >
             </div>
         </div>        
       </div>
@@ -109,20 +123,20 @@
   <div class="footer-container">
     <div id="footer-menu">
       <a class="footer-button" ng-click="ctrl.openRiskyConditions()">
-        <div style="color: #404040;"><i class="fa-solid fa-bed-pulse"></i></div>
+        <div class="bottom-menu-color"><i class="fa-solid fa-bed-pulse"></i></div>
         <div class="text">גורמי סיכון</div>
       </a>
     </div>
     <a class="footer-button" ng-click="ctrl.openGraph('GRAPH_38+', 'assets/graph-week-38.png')">
-        <div style="color: #404040;" >+<i class="fa-solid fa-chart-line">38</i></div>
+        <div class="bottom-menu-color" >+<i class="fa-solid fa-chart-line">38</i></div>
         <div class="text">גרף שבוע 38+</div>
       </a>
       <a class="footer-button" ng-click="ctrl.openGraph('GRAPH_UNDER_38', 'assets/graph-week-under-38.png')">
-        <div style="color: #404040;"><i class="fa-solid fa-chart-line">37</i></div>
+        <div class="bottom-menu-color"><i class="fa-solid fa-chart-line">37</i></div>
         <div class="text">גרף שבוע 35-37</div>
       </a>
       <a class="footer-button" ng-click="ctrl.openGraph('GRAPH_BUTANI', 'assets/butani.png')">
-        <div style="color: #404040;"><i class="fa-solid fa-chart-gantt"></i></div>
+        <div class="bottom-menu-color"><i class="fa-solid fa-chart-gantt"></i></div>
         <div class="text">עקומת בוטאני</div>
       </a>
     </div>

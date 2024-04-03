@@ -1,14 +1,78 @@
+:root {
+  --buttons-background-color: #6495ed;
+  --page-font-color: #1D426E;
+  --buttons-color: white;
+  --header-background: #E5FFFA;
+  --header-text-color: #6585A0;
+  --page-background-color: white;
+  --main-content-background-color: white;
+  --footer-background: white;
+  --footer-color: #81BDEF;
+  --font-color: #faf0e6;
+  --border-color: #ccc;
+  --bottom-menu-color: var(--page-font-color);
+}
+
+html, body {
+  color: var(--page-font-color) !important;
+  background-color: var(--page-background-color);
+  overflow-x: hidden;
+}
+
 .main-content {
-    background-color: #ecf0f1;
+    background-color: var(--main-content-background-color);
     overflow-y: auto;
     text-align: center;
     /*height: min(82vh, calc(100vh - 10vh - 75px));*/ /*applies only when there is header*/
-    height: min(92dvh, calc(100dvh - 75px));
+    height: min(calc(92dvh - 45px), calc(100dvh - 75px - 45px));
+    border: 1px solid var(--border-color);    
   }
 
+  .header {
+    height: 50px;
+    background-color: var(--header-background);    
+    border: 1px solid var(--border-color);     
+  }
+
+  .header-mashlom-logo {
+    max-height: 45px;
+    padding-left: 5px;
+    padding-bottom: 7px;    
+  }
+
+  .header-assuta-logo {
+    max-height: 42px;
+    padding-right: 5px;
+    padding-bottom: 2px;
+    max-width: 100px;
+  }
+
+  .header-text {
+    width: 65%;
+    max-height:100%;
+    color:var(--header-text-color);
+    text-align: center;
+    font-weight: 600;
+    font-size: 13px;
+    font-family: Helvetica;
+    padding-right: 15px;
+    vertical-align: middle;
+  }
+
+  .buttons-color {
+    background-color: var(--buttons-background-color);
+    color: var(--buttons-color);
+  }
+
+  .bottom-menu-color {
+    color: var(--bottom-menu-color);
+  }
+
+
 .footer {
-    background-color: #FFFFFF;
-    color: #81BDEF;
+  background-color: var(--footer-background);
+  border: 1px solid var(--border-color); 
+    color: var(--footer-color);
     text-align: center;
     z-index: 1;
     display: flex;
@@ -37,10 +101,10 @@
     align-items: center;
     padding-top: 10px;
     min-width: 80px;
-    margin-right: 10px;
+    margin-right: 5px;
     float: right;
     border-radius: 10px;
-    border: 2px solid #D0D0D0;
+    border: 2px solid var(--border-color);
     cursor: pointer;
     height:100%;
   }
@@ -51,4 +115,5 @@
 
   .footer-button .text {
     font-size: 10px;
+    color: var(--page-font-color);
   }
