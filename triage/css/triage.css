@@ -1,3 +1,8 @@
+:root {
+  --selected-chips-color: #3DB5A5;
+  --not-selected-chips-color: #3F6186;
+}
+
 body, html {
     scroll-behavior: smooth;
     margin: 0 auto; /* Center the body horizontally */
@@ -39,20 +44,11 @@ body, html {
 	align-items: center;
   }
 
-  .header {
-    /*height: 10dvh;
-    background-color: white;*/
-  }
 
-  .helper-table-first-col {
-
-  }
-
-  .content-tables {
-    background-color: #ecf0f1;
+  .content-tables {    
     overflow-y: auto;
     text-align: center;
-    height: 92dvh;
+    height: calc(92dvh - 45px);
   }
 
   .filters-group {
@@ -63,14 +59,14 @@ body, html {
     margin-bottom: 2wh;
   }
   .selected {
-    background-color: #ffc107 !important;
+    background-color: var(--selected-chips-color) !important;
   }
   .selected-row {
     background-color: #81BDEF !important;
     color: white;
   }
   .chip {
-    background-color: #81BDEF;
+    background-color: var(--not-selected-chips-color);
     color: white;
     border-radius: 20px;
     padding: 5px 10px;
@@ -136,18 +132,16 @@ padding: 10px;
     box-sizing: border-box;
   }
 
-  .tables-back-button {
+  .back-button {
     float: right;
     margin: 5px;    
     cursor: pointer;
     box-shadow: 0 0 5px -1px rgba(0,0,0,0.2);
-    padding: 5px;
     padding-right: 30px;
     padding-left: 30px;
     border-radius: 10px;
-  }
-  .tables-back-button:active {
-    box-shadow: 0 0 5px -1px rgba(0,0,0,0.6);
+    font-size: 30px;
+    color: var(--page-font-color);
   }
 
   .clearfix {
@@ -167,4 +161,20 @@ padding: 10px;
     top: 50%;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
+  }
+
+  .table {
+    --bs-table-bg: #3DB5A5;
+    --bs-table-color: white;
+  }
+  .table-striped tbody tr:nth-of-type(odd) {
+    --bs-table-color: black;
+    --bs-table-bg-type: #f5fffd;
+    --bs-table-striped-bg: #f5fffd;  
+  }
+  
+  .table-striped tbody tr:nth-of-type(even) {
+    --bs-table-color: black;
+    --bs-table-bg-type: #ebf7ff;
+    --bs-table-striped-bg: #ebf7ff;  
   }
