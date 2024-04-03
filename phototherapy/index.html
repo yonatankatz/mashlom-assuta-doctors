@@ -93,7 +93,7 @@
       <div class="card">
         <div class="card-body" ng-show="ctrl.allInputsSatisfied()">
           <h3 class="card-title"><span class="circle" ng-style="ctrl.statusColor"></span>{{ctrl.rootDiagnose}} <!-- span style="font-size: 0.8rem;"> {{ctrl.distanceFromCurve}} </span --></h3>
-          <p class="card-text">היילוד <span>{{ctrl.riskZoneObj['percentileString']}}</span> באיזור סיכון <span>{{ctrl.riskZoneObj['riskZone']}}</span>.<br> {{ctrl.riskZoneObj['explanation']}}.
+          <p ng-show="ctrl.riskZoneSatisfied()" class="card-text">היילוד <span>{{ctrl.riskZoneObj['percentileString']}}</span> באיזור סיכון <span>{{ctrl.riskZoneObj['riskZone']}}</span>.<br> {{ctrl.riskZoneObj['explanation']}}.
           </p>
         </div>
       </div>

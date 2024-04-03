@@ -13,18 +13,6 @@ app.controller("PhototherapyController", ['$scope', '$rootScope', '$http', '$tim
     ctrl.riskZoneObj = {};
     ctrl.statusColor = {};
 
-    function init() {
-        // check if needed
-        // $http.get('/triage/data/canadian-pediatric-ed-triage.json').then(function(response) {
-        //     // The response.data contains the JSON object
-        //     ctrl.jsonData = response.data;    
-        // })
-        // .catch(function(error) {
-        //     console.log('Error fetching phototherapy data file:', error);
-        // });
-    }
-    init();
-
     ctrl.clearContent = function(attr) {
         ctrl[attr]  = null;
     }
@@ -43,6 +31,9 @@ app.controller("PhototherapyController", ['$scope', '$rootScope', '$http', '$tim
         return ctrl.ageInHours && ctrl.bilirubin;
     }
 
+    ctrl.riskZoneSatisfied = function() {
+        return Object.keys(ctrl.riskZoneObj).length > 0;
+    }
 
     ctrl.changedValue = function() {   
         if (!ctrl.allInputsSatisfied()) {
@@ -55,9 +46,14 @@ app.controller("PhototherapyController", ['$scope', '$rootScope', '$http', '$tim
             if (delta == 0) {
                 ctrl.distanceFromCurve = "(על קו העקומה)";
             }
-            const newRiskZoneObj = getRiskZone(ctrl.ageInHours, ctrl.bilirubin, ctrl.hasRiskFactors, shouldUse);
             ctrl.statusColor['background-color'] = shouldUse ? 'red' : 'green';
-            Object.assign(ctrl.riskZoneObj, newRiskZoneObj);    
+            if (ctrl.ageInHours >= 12){
+                const newRiskZoneObj = getRiskZone(ctrl.ageInHours, ctrl.bilirubin, ctrl.hasRiskFactors, shouldUse);
+                Object.assign(ctrl.riskZoneObj, newRiskZoneObj);    
+            } else {
+                // Reset in case we already have data here from previous diagnose
+                ctrl.riskZoneObj = {};
+            }
         }, 20) ;
     };
 

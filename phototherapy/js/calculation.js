@@ -112,11 +112,11 @@ var percentile95DataPoints = [
     { x: 148, y: 17.4 }
 ];
 
-function interpolate(x0, y0, x1, y1, x) {
-    return y0 + ((y1 - y0) / (x1 - x0)) * (x - x0);
-}
+
 
 var week38PlusNoRisk = [
+    { x: 0, y: 5 },
+    { x: 4.1, y: 6 },
     { x: 8, y: 7.2 },
     { x: 11.7, y: 8.1 },
     { x: 16, y: 9.1 },
@@ -145,6 +145,7 @@ var week38PlusNoRisk = [
 ];
 
 var week38PlusWithRisk = [
+    { x: 0, y: 5 },
     { x: 4.1, y: 6 },
     { x: 9.8, y: 7.1 },
     { x: 13.9, y: 7.8 },
@@ -174,9 +175,8 @@ var week38PlusWithRisk = [
     { x: 167, y: 18 },
 ];
 
-
 var week37NoRisk = [
-    { x: -0.1, y: 5.1 },
+    { x: 0, y: 5.1 },
     { x: 4.4, y: 6 },
     { x: 8.4, y: 6.8 },
     { x: 12.2, y: 7.6 },
@@ -209,7 +209,7 @@ var week37NoRisk = [
 ];
 
 var week37WithRisk = [
-    { x: 0.2, y: 5.1 },
+    { x: 0, y: 5.1 },
     { x: 3.5, y: 5.3 },
     { x: 6.6, y: 5.6 },
     { x: 11.7, y: 6 },
@@ -249,7 +249,10 @@ var week37WithRisk = [
     { x: 163.1, y: 15 },
     { x: 167.5, y: 15 },
 ];    
-    
+
+function interpolate(x0, y0, x1, y1, x) {
+    return y0 + ((y1 - y0) / (x1 - x0)) * (x - x0);
+}
 
 function getRiskZone(ageInHours, bilirubin, hasRisk, shouldUsePhototherapy){
     p40AtAge = getYOnCurveByX(percentile40DataPoints, ageInHours);
