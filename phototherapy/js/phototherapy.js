@@ -3,7 +3,7 @@ var app = angular.module("app", []);
 app.controller("PhototherapyController", ['$scope', '$rootScope', '$http', '$timeout', function($scope, $rootScope, $http, $timeout) {
     const ctrl = this;
     window.ctrl = this;
-    ctrl.dataShown = 'CALCULATOR'; // possible values: CALCULATOR, RISKS, GRAPH_38+, GRAPH_UNDER_38, GRAPH_BUTANI
+    ctrl.dataShown = 'CALCULATOR'; // possible values: CALCULATOR, RISKS, PHOTOTHERAPY_GRAPH, GRAPH_BUTANI, EXCHANGE_TRANSFUSION_GRAPH
     ctrl.weekOfBirth = 'above38';
     ctrl.bilirubin;
     ctrl.ageInHours;
@@ -62,9 +62,10 @@ app.controller("PhototherapyController", ['$scope', '$rootScope', '$http', '$tim
         ctrl.ageInHours = '';    
     };
 
-    ctrl.openGraph = function(graph, graphPath) {
+    ctrl.openGraph = function(graph, graphPath38, graphPath37) {
         ctrl.dataShown = graph;
-        ctrl.imagePath = graphPath;        
+        ctrl.imagePath38 = graphPath38;
+        ctrl.imagePath37 = graphPath37;
     };
 
   

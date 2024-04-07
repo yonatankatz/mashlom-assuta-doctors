@@ -37,8 +37,7 @@ html, body {
     font-size: 24px;
 }
 .phototherapy-main-content {        
-    /*height: min(82vh, calc(100vh - 10vh - 75px));*/ /*applies only when there is header*/
-    height: min(92dvh, calc(100dvh - 75px));
+    /*height: min(82vh, calc(100vh - 10vh - 75px));*/ /*applies only when there is header*/    
     text-align: justify;
 }
 
@@ -77,7 +76,6 @@ html, body {
 
   .content-risks {    
     text-align: center;
-    height: 90dvh;
   }
 
   .risks-header {

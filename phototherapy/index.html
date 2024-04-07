@@ -114,8 +114,8 @@
     </div>
   </div>
 </div>
-<graphs ng-show="ctrl.dataShown=='GRAPH_UNDER_38'" ></graphs>
-<graphs ng-show="ctrl.dataShown=='GRAPH_38+'"></graphs>
+<graphs ng-show="ctrl.dataShown=='PHOTOTHERAPY_GRAPH'" ></graphs>
+<graphs ng-show="ctrl.dataShown=='EXCHANGE_TRANSFUSION_GRAPH'"></graphs>
 <graphs ng-show="ctrl.dataShown=='GRAPH_BUTANI'"></graphs>
 <risks ng-show="ctrl.dataShown=='RISKS'" ></risks>
 </div>  
@@ -127,13 +127,13 @@
         <div class="text">גורמי סיכון</div>
       </a>
     </div>
-    <a class="footer-button" ng-click="ctrl.openGraph('GRAPH_38+', 'assets/graph-week-38.png')">
-        <div class="bottom-menu-color" >+<i class="fa-solid fa-chart-line">38</i></div>
-        <div class="text">גרף שבוע 38+</div>
+    <a class="footer-button" ng-click="ctrl.openGraph('PHOTOTHERAPY_GRAPH', 'assets/graph-week-38.png', 'assets/graph-week-under-38.png')">
+        <div class="bottom-menu-color" ><i class="fa-solid fa-chart-line"></i></div>
+        <div class="text">גרף טיפול באור</div>
       </a>
-      <a class="footer-button" ng-click="ctrl.openGraph('GRAPH_UNDER_38', 'assets/graph-week-under-38.png')">
-        <div class="bottom-menu-color"><i class="fa-solid fa-chart-line">37</i></div>
-        <div class="text">גרף שבוע 35-37</div>
+      <a class="footer-button" ng-click="ctrl.openGraph('EXCHANGE_TRANSFUSION_GRAPH', 'assets/exchange-transfusion-38.png', 'assets/exchange-transfusion-under-38.png')" >
+        <div class="bottom-menu-color"><i class="fa-solid fa-droplet"></i></div>
+        <div class="text">גרף החלפת דם</div>
       </a>
       <a class="footer-button" ng-click="ctrl.openGraph('GRAPH_BUTANI', 'assets/butani.png')">
         <div class="bottom-menu-color"><i class="fa-solid fa-chart-gantt"></i></div>
