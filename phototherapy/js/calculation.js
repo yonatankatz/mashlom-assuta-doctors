@@ -322,6 +322,11 @@ function shouldUsePhototherapy(ageInHours, bilirubin, isWeek38Plus, hasRisk){
 }
 
 function getYOnCurveByX(dataPoints, x) {
+    // Avoid interpolate on X > defined range function.
+    var maxDefinedX = dataPoints[dataPoints.length - 1].x;
+    if (x > maxDefinedX){
+        x = maxDefinedX;
+    }
     // Find the two points between which the X coordinate lies
     var i = 0;
     while (i < dataPoints.length - 1 && dataPoints[i + 1].x < x) {
