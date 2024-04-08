@@ -112,9 +112,7 @@ var percentile95DataPoints = [
     { x: 148, y: 17.4 }
 ];
 
-
-
-var week38PlusNoRisk = [
+var phototherapyWeek38PlusNoRisk = [
     { x: 0, y: 5 },
     { x: 4.1, y: 6 },
     { x: 8, y: 7.2 },
@@ -144,7 +142,7 @@ var week38PlusNoRisk = [
     { x: 167.4, y: 19 },
 ];
 
-var week38PlusWithRisk = [
+var phototherapyWeek38PlusWithRisk = [
     { x: 0, y: 5 },
     { x: 4.1, y: 6 },
     { x: 9.8, y: 7.1 },
@@ -175,7 +173,7 @@ var week38PlusWithRisk = [
     { x: 167, y: 18 },
 ];
 
-var week37NoRisk = [
+var phototherapyWeek37NoRisk = [
     { x: 0, y: 5.1 },
     { x: 4.4, y: 6 },
     { x: 8.4, y: 6.8 },
@@ -208,7 +206,7 @@ var week37NoRisk = [
     { x: 167.4, y: 18 },
 ];
 
-var week37WithRisk = [
+var phototherapyWeek37WithRisk = [
     { x: 0, y: 5.1 },
     { x: 3.5, y: 5.3 },
     { x: 6.6, y: 5.6 },
@@ -248,7 +246,183 @@ var week37WithRisk = [
     { x: 157.4, y: 15 },
     { x: 163.1, y: 15 },
     { x: 167.5, y: 15 },
-];    
+];
+
+var transfusionWeek38PlusNoRisk = [
+{ x: 5.9,  y: 16.1 },
+{ x: 9.1,  y: 16.5 },
+{ x: 11,   y: 16.8 },
+{ x: 14.5, y: 17.2 },
+{ x: 17.3, y: 17.5 },
+{ x: 22.2, y: 18 },
+{ x: 24.4, y: 18.4 },
+{ x: 26.6, y: 18.6 },
+{ x: 30.2, y: 19.1 },
+{ x: 33.8, y: 19.6 },
+{ x: 37.3, y: 20.1 },
+{ x: 40.9, y: 20.6 },
+{ x: 44.7, y: 21 },
+{ x: 47.5, y: 21.3 },
+{ x: 50,   y: 21.7 },
+{ x: 54.1, y: 22.1 },
+{ x: 57.1, y: 22.3 },
+{ x: 61.2, y: 22.7 },
+{ x: 63.4, y: 22.9 },
+{ x: 65.9, y: 23.1 },
+{ x: 69.2, y: 23.3 },
+{ x: 73.8, y: 23.6 },
+{ x: 77.7, y: 24 },
+{ x: 80.2, y: 24.1 },
+{ x: 82.4, y: 24.1 },
+{ x: 86.7, y: 24.4 },
+{ x: 89.8, y: 24.6 },
+{ x: 94.7, y: 24.8 },
+{ x: 98.8, y: 24.9 },
+{ x: 103.5, y: 25.1 },
+{ x: 107.3, y: 25.1 },
+{ x: 111.5, y: 25.1 },
+{ x: 115.8, y: 25.1 },
+{ x: 120,   y: 25.1 },
+{ x: 124.9, y: 25.1 },
+{ x: 128.2, y: 25.1 },
+{ x: 133.4, y: 25.1 },
+{ x: 137,   y: 25.1 },
+{ x: 141.9, y: 25.1 },
+{ x: 145.2, y: 25.1 },
+{ x: 149.9, y: 25 },
+{ x: 153.5, y: 25.1 },
+{ x: 158.7, y: 25.1 },
+{ x: 163.1, y: 25.1 },
+{ x: 167,   y: 25.1 },
+];
+
+var transfusionWeek38PlusWithRisk = [
+{ x: 6.2,  y: 14 },
+{ x: 10.7, y: 14.6 },
+{ x: 15.1, y: 15 },
+{ x: 19,   y: 15.4 },
+{ x: 22.3, y: 15.9 },
+{ x: 24.7, y: 16.2 },
+{ x: 26.7, y: 16.4 },
+{ x: 30.2, y: 16.8 },
+{ x: 33.8, y: 17.2 },
+{ x: 37.7, y: 17.6 },
+{ x: 42.3, y: 18 },
+{ x: 45.6, y: 18.3 },
+{ x: 49.2, y: 18.6 },
+{ x: 52.2, y: 18.9 },
+{ x: 56.4, y: 19.2 },
+{ x: 60.8, y: 19.6 },
+{ x: 65.4, y: 20 },
+{ x: 69.6, y: 20.4 },
+{ x: 73.7, y: 20.7 },
+{ x: 77.3, y: 21 },
+{ x: 81.7, y: 21.3 },
+{ x: 85.8, y: 21.7 },
+{ x: 90.2, y: 22 },
+{ x: 94,    y: 22.2 },
+{ x: 98.7,  y: 22.4 },
+{ x: 102.8, y: 22.5 },
+{ x: 107.2, y: 22.6 },
+{ x: 112.5, y: 22.6 },
+{ x: 118,   y: 22.6 },
+{ x: 122.9, y: 22.6 },
+{ x: 126.8, y: 22.6 },
+{ x: 132.3, y: 22.6 },
+{ x: 138,   y: 22.6 },
+{ x: 143,   y: 22.6 },
+{ x: 147.7, y: 22.6 },
+{ x: 153.2, y: 22.6 },
+{ x: 159.2, y: 22.6 },
+{ x: 164.2, y: 22.6 },
+{ x: 167.6, y: 22.6 }
+];
+
+var transfusionWeek37NoRisk = [
+{ x: 6.1,  y: 14 },
+{ x: 10.2, y: 14.5 },
+{ x: 15,   y: 14.8 },
+{ x: 18.7, y: 15.2 },
+{ x: 22.7, y: 15.6 },
+{ x: 24.9, y: 16 },
+{ x: 27.2, y: 16.2 },
+{ x: 30,   y: 16.7 },
+{ x: 33.7, y: 17.1 },
+{ x: 37.7, y: 17.5 },
+{ x: 39.7, y: 17.8 },
+{ x: 42.2, y: 18 },
+{ x: 46.2, y: 18.3 },
+{ x: 49.6, y: 18.7 },
+{ x: 54.4, y: 19 },
+{ x: 57.8, y: 19.3 },
+{ x: 62.3, y: 19.9 },
+{ x: 65.2, y: 20.3 },
+{ x: 69.7, y: 20.8 },
+{ x: 72.8, y: 21.2 },
+{ x: 77.9, y: 21.8 },
+{ x: 81.3, y: 21.9 },
+{ x: 85.8, y: 22.2 },
+{ x: 88.1, y: 22.3 },
+{ x: 90.4, y: 22.5 },
+{ x: 94.6, y: 22.7 },
+{ x: 97.2, y: 22.8 },
+{ x: 99.2, y: 22.8 },
+{ x: 103.1, y: 22.9},
+{ x: 107.1, y: 23 },
+{ x: 111.3, y: 23 },
+{ x: 116.2, y: 23 },
+{ x: 119.8, y: 23 },
+{ x: 123.2, y: 23},
+{ x: 129.5, y: 22.9 },
+{ x: 132.6, y: 22.9 },
+{ x: 137.7, y: 22.9 },
+{ x: 141.7, y: 22.9 },
+{ x: 146.2, y: 23 },
+{ x: 150.2, y: 23 },
+{ x: 155, y: 22.9 },
+{ x: 158.4,y: 22.9 },
+{ x: 164,y: 22.9 },
+{ x: 166.7, y: 22.9}
+];
+
+var transfusionWeek37WithRisk = [
+{ x: 6.4,  y: 12 },
+{ x: 9.9,  y: 12.3 },
+{ x: 13.3, y: 12.7 },
+{ x: 17,   y: 13 },
+{ x: 21,   y: 13.4 },
+{ x: 24.9, y: 13.9 },
+{ x: 29.2, y: 14.4 },
+{ x: 33.1, y: 14.9 },
+{ x: 37.1, y: 15.4 },
+{ x: 40.5, y: 15.9 },
+{ x: 44.2, y: 16.2 },
+{ x: 48.7, y: 16.6 },
+{ x: 52.7, y: 16.9 },
+{ x: 57.5, y: 17.3 },
+{ x: 62.3, y: 17.7 },
+{ x: 66.9, y: 18 },
+{ x: 72,   y: 18.5 },
+{ x: 77.6, y: 18.9 },
+{ x: 82.2, y: 19.1 },
+{ x: 86.1, y: 19.3 },
+{ x: 90.7, y: 19.5 },
+{ x: 96,   y: 19.5 },
+{ x: 99.4, y: 19.5 },
+{ x: 102.8, y: 19.5 },
+{ x: 107.9, y: 19.5 },
+{ x: 113.9, y: 19.5 },
+{ x: 118.4, y: 19.5 },
+{ x: 123,   y: 19.5 },
+{ x: 127.5, y: 19.5 },
+{ x: 132.3, y: 19.5 },
+{ x: 138.3, y: 19.5 },
+{ x: 143.6, y: 19.5 },
+{ x: 149.6, y: 19.5 },
+{ x: 155.8, y: 19.5 },
+{ x: 161.5, y: 19.5 },
+{ x: 166.4, y: 19.5 }
+];
 
 function interpolate(x0, y0, x1, y1, x) {
     return y0 + ((y1 - y0) / (x1 - x0)) * (x - x0);
@@ -302,17 +476,35 @@ function getTrackingStatusByRiskZone(riskZone, hasRisk, shouldUsePhototherapy){
     }
 }
 
-function getDataPointsByCase(isWeek38Plus, hasRisk){
+function getPhototherapyDataPointsByCase(isWeek38Plus, hasRisk){
     if (isWeek38Plus){
-        return hasRisk ? week38PlusWithRisk : week38PlusNoRisk; 
+        return hasRisk ? phototherapyWeek38PlusWithRisk : phototherapyWeek38PlusNoRisk; 
     }
     else{
-        return hasRisk ? week37WithRisk : week37NoRisk; 
+        return hasRisk ? phototherapyWeek37WithRisk : phototherapyWeek37NoRisk; 
     }
 }
 
+function getTransfusionDataPointsByCase(isWeek38Plus, hasRisk){
+    if (isWeek38Plus){
+        return hasRisk ? transfusionWeek38PlusWithRisk : transfusionWeek38PlusNoRisk; 
+    }
+    else{
+        return hasRisk ? transfusionWeek37WithRisk : transfusionWeek37NoRisk; 
+    }
+}
+
+function shouldConsiderTransfusion(ageInHours, bilirubin, isWeek38Plus, hasRisk){
+    var dataPoints = getTransfusionDataPointsByCase(isWeek38Plus, hasRisk);
+    var threshold = getYOnCurveByX(dataPoints, ageInHours);
+    if (bilirubin >= threshold) {
+        return true;
+    }
+    return false;
+}
+
 function shouldUsePhototherapy(ageInHours, bilirubin, isWeek38Plus, hasRisk){
-    var dataPoints = getDataPointsByCase(isWeek38Plus, hasRisk);
+    var dataPoints = getPhototherapyDataPointsByCase(isWeek38Plus, hasRisk);
     var threshold = getYOnCurveByX(dataPoints, ageInHours);
     shouldUse = false;
     if (bilirubin >= threshold) {
