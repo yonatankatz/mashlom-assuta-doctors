@@ -663,13 +663,17 @@ function getTransfusionDataPointsByCase(isWeek38Plus, hasRisk){
     }
 }
 
-function shouldConsiderTransfusion(ageInHours, bilirubin, isWeek38Plus, hasRisk){
+function gerTransfusionResult(ageInHours, bilirubin, isWeek38Plus, hasRisk){
+    const DELTA_FROM_THRESHOLD_TO_NOTIFY = 2;
     var dataPoints = getTransfusionDataPointsByCase(isWeek38Plus, hasRisk);
     var threshold = getYOnCurveByX(dataPoints, ageInHours);
     if (bilirubin >= threshold) {
-        return true;
+        return 'עובר את סף החלפת דם';
     }
-    return false;
+    else if ((threshold - bilirubin) <= DELTA_FROM_THRESHOLD_TO_NOTIFY){
+        return 'ערך בילירובין מתקרב לסף החלפת דם, יש לשקול מתן IVIG';
+    }
+    return '';
 }
 
 function shouldUsePhototherapy(ageInHours, bilirubin, isWeek38Plus, hasRisk){

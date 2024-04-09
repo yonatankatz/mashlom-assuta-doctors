@@ -12,7 +12,7 @@ app.controller("PhototherapyController", ['$scope', '$rootScope', '$http', '$tim
     ctrl.distanceFromCurve = '';
     ctrl.riskZoneObj = {};
     ctrl.statusColor = {};
-    ctrl.considerTransfusion = false;
+    ctrl.considerTransfusion = '';
 
     ctrl.clearContent = function(attr) {
         ctrl[attr]  = null;
@@ -36,10 +36,6 @@ app.controller("PhototherapyController", ['$scope', '$rootScope', '$http', '$tim
         return Object.keys(ctrl.riskZoneObj).length > 0;
     }
 
-    ctrl.shouldShowConsiderTransfusion = function() {
-        return ctrl.considerTransfusion;
-    }
-
     ctrl.changedValue = function() {   
         if (!ctrl.allInputsSatisfied()) {
             return;
@@ -48,6 +44,7 @@ app.controller("PhototherapyController", ['$scope', '$rootScope', '$http', '$tim
             const {shouldUse , delta} = shouldUsePhototherapy(ctrl.ageInHours, ctrl.bilirubin, ctrl.weekOfBirth === 'above38', ctrl.hasRiskFactors);
             ctrl.rootDiagnose = shouldUse ? "נדרש טיפול באור" : "לא נדרש טיפול באור";
             ctrl.distanceFromCurve = '(' + (shouldUse ? "מעל העקומה ב " : "מתחת לעקומה ב ") + delta + ")" ;
+            ctrl.considerTransfusion = gerTransfusionResult(ctrl.ageInHours, ctrl.bilirubin, ctrl.weekOfBirth === 'above38', ctrl.hasRiskFactors);
             if (delta == 0) {
                 ctrl.distanceFromCurve = "(על קו העקומה)";
             }
@@ -55,12 +52,9 @@ app.controller("PhototherapyController", ['$scope', '$rootScope', '$http', '$tim
             if (ctrl.ageInHours >= 12){
                 const newRiskZoneObj = getRiskZone(ctrl.ageInHours, ctrl.bilirubin, ctrl.hasRiskFactors, shouldUse);
                 Object.assign(ctrl.riskZoneObj, newRiskZoneObj);
-                ctrl.considerTransfusion = shouldConsiderTransfusion(ctrl.ageInHours, ctrl.bilirubin, ctrl.weekOfBirth === 'above38', ctrl.hasRiskFactors);
             } else {
                 // Reset in case we already have data here from previous diagnose
                 ctrl.riskZoneObj = {};
-                // reset consider transfusion as it is undefined below 12.
-                ctrl.considerTransfusion = false;
             }
         }, 20) ;
     };
@@ -68,7 +62,7 @@ app.controller("PhototherapyController", ['$scope', '$rootScope', '$http', '$tim
     ctrl.resetAll = function() {
         ctrl.bilirubin = '';
         ctrl.ageInHours = '';    
-        ctrl.considerTransfusion = false;
+        ctrl.considerTransfusion = '';
     };
 
     ctrl.openGraph = function(graph, graphPath38, graphPath37) {
