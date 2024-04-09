@@ -424,6 +424,165 @@ var transfusionWeek37WithRisk = [
 { x: 166.4, y: 19.5 }
 ];
 
+var phototherapyShlomoProtocolWeek38PlusNoRisk = [
+{ x: 5.8,  y: 7.2 },
+{ x: 10.4, y: 7.9 },
+{ x: 13.2, y: 8.4 },
+{ x: 17.2, y: 9.1 },
+{ x: 20.4, y: 9.7 },
+{ x: 23.9, y: 10.3 },
+{ x: 26.7, y: 10.9 },
+{ x: 30.7, y: 11.7 },
+{ x: 33.9, y: 12.3 },
+{ x: 37.1, y: 12.9 },
+{ x: 40.7, y: 13.4 },
+{ x: 45.1, y: 14 },
+{ x: 48.3, y: 14.5 },
+{ x: 52.7, y: 15 },
+{ x: 55.9, y: 15.4 },
+{ x: 60.3, y: 16.1 },
+{ x: 63.8, y: 16.5 },
+{ x: 67.4, y: 16.8 },
+{ x: 71.8, y: 17.3 },
+{ x: 75,   y: 17.6 },
+{ x: 79,   y: 18 },
+{ x: 83.4, y: 18.5 },
+{ x: 87.8, y: 19 },
+{ x: 91.4, y: 19.3 },
+{ x: 96.2, y: 19.5 },
+{ x: 100.2, y: 19.9 },
+{ x: 104.2, y: 20.1 },
+{ x: 108.5, y: 20.4 },
+{ x: 112.1, y: 20.6 },
+{ x: 116.9, y: 20.8 },
+{ x: 120.9, y: 21 },
+{ x: 124.9, y: 21.2 },
+{ x: 129.3, y: 21.3 },
+{ x: 133.7, y: 21.2 },
+{ x: 138.5, y: 21.2 },
+{ x: 142.5, y: 21.2 },
+{ x: 146.9, y: 21.2 },
+{ x: 150.4, y: 21.2 },
+{ x: 155.2, y: 21.2 },
+{ x: 158.8, y: 21.2 },
+{ x: 163.6, y: 21.2 },
+{ x: 168, y: 21.2 }
+];
+
+
+var phototherapyShlomoProtocolWeek38PlusWithRisk = [
+{ x: 5.8, y: 5.2 },
+{ x: 10,  y: 5.9 },
+{ x: 13.6,y: 6.8 },
+{ x: 17.2,y: 7.6 },
+{ x: 20.8,y: 8.1 },
+{ x: 24.3,y: 8.8 },
+{ x: 28.7,y: 9.4 },
+{ x: 32.7,y: 10 },
+{ x: 37.5,y: 10.8 },
+{ x: 41.1,y: 11.4 },
+{ x: 45.1,y: 12 },
+{ x: 51.1,y: 12.8 },
+{ x: 56.7,y: 13.4 },
+{ x: 61.9,y: 14.1 },
+{ x: 66.6,y: 14.7 },
+{ x: 72.6,y: 15.1 },
+{ x: 77.4,y: 15.5 },
+{ x: 84.2,y: 16.1 },
+{ x: 90.6,y: 16.6 },
+{ x: 96.6,y: 16.9 },
+{ x: 102.6,y: 17.3 },
+{ x: 107.7,y: 17.6 },
+{ x: 114.1,y: 17.9 },
+{ x: 120.5,y: 18 },
+{ x: 126.1,y: 18.1 },
+{ x: 130.9,y: 18.1 },
+{ x: 137.3,y: 18.1 },
+{ x: 143.3,y: 18.1 },
+{ x: 148.4,y: 18.1 },
+{ x: 154.4,y: 18.1 },
+{ x: 160,  y: 18.1 },
+{ x: 166.6,y: 18.1 },
+{ x: 168,  y: 18.1 }
+];
+
+var phototherapyShlomoProtocolWeek37NoRisk = [
+{ x: 6.2,  y: 5.1 },
+{ x: 10,   y: 6 },
+{ x: 12.4, y: 6.5 },
+{ x: 16,   y: 7.3 },
+{ x: 19.6, y: 8.1 },
+{ x: 23.5, y: 8.6 },
+{ x: 26.7, y: 9.4 },
+{ x: 29.5, y: 9.9 },
+{ x: 33.1, y: 10.4 },
+{ x: 36.7, y: 11 },
+{ x: 39.9, y: 11.5 },
+{ x: 43.9, y: 12.1 },
+{ x: 48.3, y: 12.5 },
+{ x: 52.3, y: 12.9 },
+{ x: 55.9, y: 13.3 },
+{ x: 59.9, y: 13.9 },
+{ x: 63.4, y: 14.4 },
+{ x: 67.8, y: 14.7 },
+{ x: 71.8, y: 15 },
+{ x: 75.4, y: 15.4 },
+{ x: 79.8, y: 15.8 },
+{ x: 84.2, y: 16.1 },
+{ x: 87.8, y: 16.5 },
+{ x: 92.2, y: 16.8 },
+{ x: 96.2, y: 17.2 },
+{ x: 100.2, y: 17.5 },
+{ x: 104.6, y: 17.8 },
+{ x: 108.9, y: 17.9 },
+{ x: 113.3, y: 18 },
+{ x: 117.3, y: 18 },
+{ x: 121.7, y: 18.1 },
+{ x: 126.1, y: 18.1 },
+{ x: 130.5, y: 18.1 },
+{ x: 134.9, y: 18.1 },
+{ x: 138.9, y: 18.1 },
+{ x: 142.9, y: 18.1 },
+{ x: 147.2, y: 18.1 },
+{ x: 151.6, y: 18.1 },
+{ x: 155.6, y: 18.1 },
+{ x: 160,   y: 18.1 },
+{ x: 167.4, y: 18.1 },
+{ x: 168, y: 18.1 }
+];
+
+var phototherapyShlomoProtocolWeek37WithRisk = [
+{ x: 6.2,  y: 4.2 },
+{ x: 10.8, y: 4.9 },
+{ x: 16.4, y: 5.9 },
+{ x: 21.9, y: 6.7 },
+{ x: 27.1, y: 7.5 },
+{ x: 31.9, y: 8.1 },
+{ x: 37.1, y: 8.9 },
+{ x: 43.1, y: 9.7 },
+{ x: 48.3, y: 10.4 },
+{ x: 54.7, y: 11.2 },
+{ x: 61.9, y: 12.1 },
+{ x: 65.8, y: 12.6 },
+{ x: 71.8, y: 13.1 },
+{ x: 78.2, y: 13.6 },
+{ x: 86.6, y: 14 },
+{ x: 93.8, y: 14.3 },
+{ x: 100.6, y: 14.6 },
+{ x: 108.1, y: 14.8 },
+{ x: 113.7, y: 15 },
+{ x: 119.7, y: 15 },
+{ x: 126.1, y: 15 },
+{ x: 134.5, y: 15 },
+{ x: 142.1, y: 15 },
+{ x: 150.8, y: 15 },
+{ x: 158,   y: 15 },
+{ x: 163.2, y: 15 },
+{ x: 167.4, y: 15 },
+{ x: 168, y: 15 }
+]; 
+
+
 function interpolate(x0, y0, x1, y1, x) {
     return y0 + ((y1 - y0) / (x1 - x0)) * (x - x0);
 }
@@ -478,10 +637,18 @@ function getTrackingStatusByRiskZone(riskZone, hasRisk, shouldUsePhototherapy){
 
 function getPhototherapyDataPointsByCase(isWeek38Plus, hasRisk){
     if (isWeek38Plus){
-        return hasRisk ? phototherapyWeek38PlusWithRisk : phototherapyWeek38PlusNoRisk; 
+        // Hagar Old Graphs
+        //return hasRisk ? phototherapyWeek38PlusWithRisk : phototherapyWeek38PlusNoRisk; 
+
+        // Shlomo and Assuta's Protocol
+        return hasRisk ? phototherapyShlomoProtocolWeek38PlusWithRisk : phototherapyShlomoProtocolWeek38PlusNoRisk; 
     }
     else{
-        return hasRisk ? phototherapyWeek37WithRisk : phototherapyWeek37NoRisk; 
+        // Hagar Old Graphs
+        //return hasRisk ? phototherapyWeek37WithRisk : phototherapyWeek37NoRisk; 
+        
+        // Shlomo and Assuta's Protocol
+        return hasRisk ? phototherapyShlomoProtocolWeek37WithRisk : phototherapyShlomoProtocolWeek37NoRisk; 
     }
 }
 
