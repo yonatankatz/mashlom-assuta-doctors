@@ -29,7 +29,7 @@ app.controller("PhototherapyController", ['$scope', '$rootScope', '$http', '$tim
     }
 
     ctrl.allInputsSatisfied = function() {
-        return ctrl.ageInHours && ctrl.bilirubin && ctrl.ageInHours > 9;
+        return ctrl.ageInHours && ctrl.bilirubin && ctrl.ageInHours >= 6;
     }
 
     ctrl.riskZoneSatisfied = function() {

@@ -507,6 +507,7 @@ var phototherapyShlomoProtocolWeek38PlusWithRisk = [
 ];
 
 var phototherapyShlomoProtocolWeek37NoRisk = [
+{ x: 6,  y: 5 },
 { x: 6.2,  y: 5.1 },
 { x: 10,   y: 6 },
 { x: 12.4, y: 6.5 },
@@ -552,6 +553,7 @@ var phototherapyShlomoProtocolWeek37NoRisk = [
 ];
 
 var phototherapyShlomoProtocolWeek37WithRisk = [
+{ x: 6,  y: 4 },
 { x: 6.2,  y: 4.2 },
 { x: 10.8, y: 4.9 },
 { x: 16.4, y: 5.9 },
