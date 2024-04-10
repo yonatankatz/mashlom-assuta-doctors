@@ -29,7 +29,7 @@ app.controller("PhototherapyController", ['$scope', '$rootScope', '$http', '$tim
     }
 
     ctrl.allInputsSatisfied = function() {
-        return ctrl.ageInHours && ctrl.bilirubin && ctrl.ageInHours >= 6;
+        return ctrl.ageInHours && ctrl.bilirubin;
     }
 
     ctrl.riskZoneSatisfied = function() {
@@ -40,6 +40,13 @@ app.controller("PhototherapyController", ['$scope', '$rootScope', '$http', '$tim
         if (!ctrl.allInputsSatisfied()) {
             return;
         }
+        // if the user types a two digits numbers - its weird that we immediately shows him the value after the
+        // first digit. usually, the sign will be nagative. it doesn't feel good.
+        // so -
+        // for one digit - we just delay the display a little bit.
+        // after two digits - we can show the value immediately.
+        // that's why we have this timeoutMillis parameter.
+        var timeoutMillis =  ctrl.ageInHours <= 9 ? 800 : 20;
         $timeout(function() {
             const {shouldUse , delta} = shouldUsePhototherapy(ctrl.ageInHours, ctrl.bilirubin, ctrl.weekOfBirth === 'above38', ctrl.hasRiskFactors);
             ctrl.rootDiagnose = shouldUse ? "נדרש טיפול באור" : "לא נדרש טיפול באור";
@@ -56,7 +63,7 @@ app.controller("PhototherapyController", ['$scope', '$rootScope', '$http', '$tim
                 // Reset in case we already have data here from previous diagnose
                 ctrl.riskZoneObj = {};
             }
-        }, 20) ;
+        }, timeoutMillis) ;
     };
 
     ctrl.resetAll = function() {

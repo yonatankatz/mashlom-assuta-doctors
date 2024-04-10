@@ -664,6 +664,9 @@ function getTransfusionDataPointsByCase(isWeek38Plus, hasRisk){
 }
 
 function gerTransfusionResult(ageInHours, bilirubin, isWeek38Plus, hasRisk){
+    if (ageInHours < 6 && ageInHours < bilirubin) {
+        return 'עובר את סף החלפת דם (בילירובין גדול מגיל הילד)';
+    }
     const DELTA_FROM_THRESHOLD_TO_NOTIFY = 2;
     var dataPoints = getTransfusionDataPointsByCase(isWeek38Plus, hasRisk);
     var threshold = getYOnCurveByX(dataPoints, ageInHours);
@@ -677,13 +680,17 @@ function gerTransfusionResult(ageInHours, bilirubin, isWeek38Plus, hasRisk){
 }
 
 function shouldUsePhototherapy(ageInHours, bilirubin, isWeek38Plus, hasRisk){
+    if (ageInHours < 6) {
+        shouldUse = bilirubin > ageInHours / 2;
+        return { shouldUse, delta: 0 };
+    }
     var dataPoints = getPhototherapyDataPointsByCase(isWeek38Plus, hasRisk);
     var threshold = getYOnCurveByX(dataPoints, ageInHours);
     shouldUse = false;
     if (bilirubin >= threshold) {
         shouldUse = true;
     }
-    return { shouldUse, delta: Math.abs(bilirubin - threshold).toFixed(1) }
+    return { shouldUse, delta: Math.abs(bilirubin - threshold).toFixed(1) };
 }
 
 function getYOnCurveByX(dataPoints, x) {
