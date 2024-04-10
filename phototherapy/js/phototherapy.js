@@ -48,6 +48,10 @@ app.controller("PhototherapyController", ['$scope', '$rootScope', '$http', '$tim
         // that's why we have this timeoutMillis parameter.
         var timeoutMillis =  ctrl.ageInHours <= 9 ? 800 : 20;
         $timeout(function() {
+            // we need to check again, as during the timeout one may delete the value.
+            if (!ctrl.allInputsSatisfied()) {
+                return;
+            }
             const {shouldUse , delta} = shouldUsePhototherapy(ctrl.ageInHours, ctrl.bilirubin, ctrl.weekOfBirth === 'above38', ctrl.hasRiskFactors);
             ctrl.rootDiagnose = shouldUse ? "נדרש טיפול באור" : "לא נדרש טיפול באור";
             ctrl.distanceFromCurve = '(' + (shouldUse ? "מעל העקומה ב " : "מתחת לעקומה ב ") + delta + ")" ;
