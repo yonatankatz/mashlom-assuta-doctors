@@ -36,8 +36,17 @@ app.controller("PhototherapyController", ['$scope', '$rootScope', '$http', '$tim
         return Object.keys(ctrl.riskZoneObj).length > 0;
     }
 
+    ctrl.clearValues = function() {
+        ctrl.rootDiagnose = '';
+        ctrl.distanceFromCurve = '';
+        ctrl.considerTransfusion = '';
+        ctrl.riskZoneObj = {};
+        ctrl.statusColor['background-color'] = '';
+    };
+
     ctrl.changedValue = function() {   
         if (!ctrl.allInputsSatisfied()) {
+            ctrl.clearValues();
             return;
         }
         // if the user types a two digits numbers - its weird that we immediately shows him the value after the
@@ -50,6 +59,7 @@ app.controller("PhototherapyController", ['$scope', '$rootScope', '$http', '$tim
         $timeout(function() {
             // we need to check again, as during the timeout one may delete the value.
             if (!ctrl.allInputsSatisfied()) {
+                ctrl.clearValues();
                 return;
             }
             const {shouldUse , delta} = shouldUsePhototherapy(ctrl.ageInHours, ctrl.bilirubin, ctrl.weekOfBirth === 'above38', ctrl.hasRiskFactors);
