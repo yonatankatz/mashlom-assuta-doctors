@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>פרוטוקלי מלר"ד - אסותא אשדוד</title>
+<link rel="manifest" href="../common/manifest.json">
+<link href="../3rd-party/bootstrap/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="../3rd-party/fontawesome/fontawesome-free-6.5.1-web/css/all.min.css">
+<link rel="stylesheet" href="../common/css/common.css">
+<link rel="stylesheet" href="css/erprotocols.css">
+
+<link rel="icon" href="/assets/logo/fav-icon96x96.png">
+<meta property='og:title' content="צהבת ביילוד, חטיבת ילדים, אסותא אשדוד"/>
+<meta property='og:type' content='Article'/>
+<meta property="og:image:type" content="image/jpeg" />
+<meta property='og:site_name' content='mashlom.me'/>
+<meta property='og:image' content='https://assuta.mashlom.me/assets/logo/FullLogo1200x630.jpg'/>
+<meta property="og:image:secure_url" content="https://assuta.mashlom.me/assets/logo/FullLogo1200x630.jpg" />
+<meta property='og:url' content="https://assuta.mashlom.me/phototherapy"/>
+<meta property='og:description' content="מחשבון טיפול בצהבת ביילוד"/>
+<meta name="description" content="מחשבון טיפול בצהבת ביילוד" />
+<meta name="keywords" content="assuta ashdod, רופאים, מחשבונים, רפואת ילדים, צהבת, יילוד, עקומת בוטאני, phototherapy, אסותא אשדוד" />
+<meta name="robots" content="index, follow, NOODP" />
+
+</head>
+<body ng-app="app" ng-controller="PhototherapyController as ctrl" >
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J85BPCEQ2Y"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-J85BPCEQ2Y');
+</script>
+<nav class="navbar navbar-expand-lg header">
+  <div style="width: 20%;height:100%; text-align: right;">
+    <img class="header-assuta-logo" src="../assets/assuta/only-alef.png" >
+  </div>
+  <div class="header-text">
+    <p>
+      mashlom.me בשיתוף עם בית<br>
+      החולים אסותא אשדוד, חטיבת הילדים
+    </p>
+  </div>
+  <div style="width: 15%;height:100%; text-align: left; vertical-align: middle">
+    <img class="header-mashlom-logo" src="../assets/logo/IconOnly_Transparent_NoBuffer.png" >
+  </div>
+</nav>
+<div id="phototherapy-main" class="container main-content phototherapy-main-content">  
+<div id="calculator" style="overflow-y: auto;overflow-x: hidden; padding-bottom: 10px;" ng-show="ctrl.dataShown=='CALCULATOR'" >
+  <div class="group-container">
+    <div>
+        <div class="row form-group">
+            <div class="col-auto fs-3 ">
+                <h1>מלר"ד פרוטוקלים</h1>
+            </div>
+        </div>
+    </div>
+  </div>
+  
+
+  <div class="accordion accordion-flush" id="accordionProtocolLevel">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="protocolHeadingOne">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#protocolCollapseOne" aria-expanded="false" aria-controls="protocolCollapseOne">
+          היפרקלמיה
+        </button>
+      </h2>
+      <div id="protocolCollapseOne" class="accordion-collapse collapse" aria-labelledby="protocolHeadingOne" data-bs-parent="#accordionProtocolLevel">
+        <div class="accordion-body">
+          <div class="accordion accordion-flush" id="accordionFlushExample">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="flush-headingOne">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                  תלונה
+                </button>
+              </h2>
+              <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne">
+                <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="flush-headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                  קבלה סיעודית
+                </button>
+              </h2>
+              <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo">
+                <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="protocolHeadingTwo">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#protocolCollapseTwo" aria-expanded="false" aria-controls="protocolCollapseTwo">
+          פרוטוקול 2
+        </button>
+      </h2>
+      <div id="protocolCollapseTwo" class="accordion-collapse collapse" aria-labelledby="protocolHeadingTwo" data-bs-parent="#accordionProtocolLevel">
+        <div class="accordion-body">
+          Bla 2
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<graphs ng-show="ctrl.dataShown=='PHOTOTHERAPY_GRAPH'" ></graphs>
+<graphs ng-show="ctrl.dataShown=='EXCHANGE_TRANSFUSION_GRAPH'"></graphs>
+<graphs ng-show="ctrl.dataShown=='GRAPH_BUTANI'"></graphs>
+<risks ng-show="ctrl.dataShown=='RISKS'" ></risks>
+</div>  
+<footer class="text-center text-white footer">
+  <div class="footer-container">
+    <div id="footer-menu">
+      <a class="footer-button" ng-click="ctrl.openRiskyConditions()">
+        <div class="bottom-menu-color"><i class="fa-solid fa-bed-pulse"></i></div>
+        <div class="text">גורמי סיכון</div>
+      </a>
+    </div>
+    <a class="footer-button" ng-click="ctrl.openGraph('PHOTOTHERAPY_GRAPH', 'assets/phototherapy-treatment-graph.png')">
+        <div class="bottom-menu-color" ><i class="fa-solid fa-chart-line"></i></div>
+        <div class="text">גרף טיפול באור</div>
+      </a>
+      <a class="footer-button" ng-click="ctrl.openGraph('EXCHANGE_TRANSFUSION_GRAPH', 'assets/exchange-transfusion-38.png', 'assets/exchange-transfusion-under-38.png')" >
+        <div class="bottom-menu-color"><i class="fa-solid fa-droplet"></i></div>
+        <div class="text">גרף החלפת דם</div>
+      </a>
+      <a class="footer-button" ng-click="ctrl.openGraph('GRAPH_BUTANI', 'assets/butani-updated.png', '')">
+        <div class="bottom-menu-color"><i class="fa-solid fa-chart-gantt"></i></div>
+        <div class="text">עקומת בוטאני</div>
+      </a>
+    </div>
+  </div>
+</footer>
+<script src="../3rd-party/angularjs/angular.min.js"></script>
+<script src="../3rd-party/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="js/erprotocols.js"></script>
+</body>
+</html>

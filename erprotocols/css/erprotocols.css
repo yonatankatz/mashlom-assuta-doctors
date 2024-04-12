@@ -1,0 +1,107 @@
+html, body {
+    max-width: 700px; /* Set maximum width for the body */
+    direction: rtl; /* Right-to-left direction */
+    height: 100%;
+    scroll-behavior: smooth;
+    margin: 0 auto; /* Center the body horizontally */
+    padding: 0;
+    font-family: Arial, sans-serif;  
+}
+
+
+.group-container .form-group .form-check {
+  display: inline-block; /* Ensures form checks are displayed in line */
+  margin-right: 1rem; /* Adjust margin between form checks */
+}
+
+.checked-button {
+    background-color: #3F6186;
+    color: white;
+}
+
+.checked-button:hover {
+    background-color: #3F6186;
+    color: white;
+}
+
+.cards-container {
+    width: 100%; /* Set a width */
+    margin: 0 auto; /* Set margin to auto */
+}
+
+.form-group {
+    margin-top: 20px;
+}
+
+.info {
+    font-size: 24px;
+}
+.phototherapy-main-content {        
+    /*height: min(82vh, calc(100vh - 10vh - 75px));*/ /*applies only when there is header*/    
+    text-align: justify;
+}
+
+.input-col {
+  padding-right: 0px;
+}
+
+.col-auto-text-cols {      
+  min-width: 170px;
+  padding: 0px;
+}
+.col-auto-buttons-cols {      
+    min-width: 170px;
+    padding: 0px;
+  }
+
+.back-button {
+    float: right;
+    margin: 5px;    
+    cursor: pointer;
+    box-shadow: 0 0 5px -1px rgba(0,0,0,0.2);
+    padding-right: 30px;
+    padding-left: 30px;
+    border-radius: 10px;
+    font-size: 30px;
+    color: var(--page-font-color);
+  }
+  .back-button:active {
+    box-shadow: 0 0 5px -1px rgba(0,0,0,0.6);
+  }
+
+  .back-button-img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .content-risks {    
+    text-align: center;
+  }
+
+  .risks-header {
+    padding-top: 15px;
+    padding-left: 80px;
+  }
+
+  .risks-container {
+    width: 100%;
+    padding: 0;
+    margin-top: 3dvh;
+  }
+
+  .reset-button {
+    margin-left: 20px;
+	display: grid;
+	align-items: center;
+    justify-content: left;
+  }
+
+  .circle {
+    display: inline-block;
+    width: 0.65em; /* Set the width and height to be the same as the font size */
+    height: 0.65em;
+    border-radius: 50%; /* Create a circle using border-radius */    
+    margin-left: 10px;
+  }
+
+
