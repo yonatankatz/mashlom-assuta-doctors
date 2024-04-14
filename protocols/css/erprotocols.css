@@ -9,8 +9,7 @@ html, body {
 }
 
 
-.group-container .form-group .form-check {
-  display: inline-block; /* Ensures form checks are displayed in line */
+.group-container .form-group .form-check {  
   margin-right: 1rem; /* Adjust margin between form checks */
 }
 

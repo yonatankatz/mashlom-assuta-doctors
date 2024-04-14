@@ -1,9 +1,9 @@
 var app = angular.module("app", []);
   
-app.controller("PhototherapyController", ['$scope', '$rootScope', '$http', '$timeout', function($scope, $rootScope, $http, $timeout) {
+app.controller("HyperkalemiaController", ['$scope', '$rootScope', '$http', '$timeout', function($scope, $rootScope, $http, $timeout) {
     const ctrl = this;
-    window.ctrl = this;
-    ctrl.dataShown = 'CALCULATOR'; // possible values: CALCULATOR, RISKS, PHOTOTHERAPY_GRAPH, GRAPH_BUTANI, EXCHANGE_TRANSFUSION_GRAPH
+    window.ctrl = this;    
+    ctrl.isExpanded = false;
     kabala_siudit =  ['הפשטה מלאה', 'ביצוע סימנים חיוניים וניטור', 'אקג', 'במידה ויש שינויים באקג - דפיברילטור', 'VL2 ולקיחת מעבדה הכוללת ס"ד, כימיה וגזים'];
     treatment = ['קלציום גלקונוט 10% 30 ml או קלציום כלוריד 10% 10 mL – מתן בפוש איטי דרך CL. ייתכן צורך במנות נוספות כחצי שעה לאחר מכן',
             'בולוס של אינסולין 10 U ב dextrose 50% 50 ml',
@@ -32,36 +32,17 @@ app.controller("PhototherapyController", ['$scope', '$rootScope', '$http', '$tim
         {'id': 7, 'displayName':'המלצות בשחרור', listItems: releaseNotes}
         ];
 
-    ctrl.clearContent = function(attr) {
-        ctrl[attr]  = null;
-    }
-
-    ctrl.closePanel = function() {
-        ctrl.dataShown = 'CALCULATOR';
-    };
-
-}]);
-
-app.directive('selectOnClick', ['$window', function ($window) {
-    return {
-        restrict: 'A',
-        require: 'ngModel',
-        link: function (scope, element, attrs, ngModelCtrl) {
-            var prevValue = '';
-            element.on('click', function () {
-                if (!$window.getSelection().toString()) {                                        
-                    this.setSelectionRange(0, this.value.length);                    
+        ctrl.toggleCollabse = function() {
+            ctrl.isExpanded = !ctrl.isExpanded;            
+            var accordionButtons = document.querySelectorAll('.accordion-button');            
+            accordionButtons.forEach(function(button) {                
+                if (button.getAttribute("aria-expanded") == 'true' && !ctrl.isExpanded) {
+                    button.click();
                 }
+                else if (button.getAttribute("aria-expanded") == 'false' && ctrl.isExpanded) {
+                    button.click(); 
+                }                
             });
-            element.on('input', function () {
-                if(this.checkValidity()){
-                    prevValue = this.value;
-                  } else {
-                    this.value = prevValue;
-                    ngModelCtrl.$setViewValue(this.value);
-                    ngModelCtrl.$render();
-                  }
-            });
-        }
-    };
+        };
+
 }]);

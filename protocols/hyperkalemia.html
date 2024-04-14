@@ -11,20 +11,27 @@
 <link rel="stylesheet" href="css/erprotocols.css">
 
 <link rel="icon" href="/assets/logo/fav-icon96x96.png">
-<meta property='og:title' content="צהבת ביילוד, חטיבת ילדים, אסותא אשדוד"/>
+<meta property='og:title' content="פרוטוקול היפרגליקמיה, מיון מבוגרים, אסותא אשדוד"/>
 <meta property='og:type' content='Article'/>
 <meta property="og:image:type" content="image/jpeg" />
 <meta property='og:site_name' content='mashlom.me'/>
 <meta property='og:image' content='https://assuta.mashlom.me/assets/logo/FullLogo1200x630.jpg'/>
 <meta property="og:image:secure_url" content="https://assuta.mashlom.me/assets/logo/FullLogo1200x630.jpg" />
-<meta property='og:url' content="https://assuta.mashlom.me/phototherapy"/>
-<meta property='og:description' content="מחשבון טיפול בצהבת ביילוד"/>
-<meta name="description" content="מחשבון טיפול בצהבת ביילוד" />
-<meta name="keywords" content="assuta ashdod, רופאים, מחשבונים, רפואת ילדים, צהבת, יילוד, עקומת בוטאני, phototherapy, אסותא אשדוד" />
+<meta property='og:url' content="https://assuta.mashlom.me/protocols/hyperkalemia"/>
+<meta property='og:description' content="פרוטוקול טיפול בהיפרגלקמיה"/>
+<meta name="description" content="פרוטוקול טיפול בהיפרגלקמיה" />
+<meta name="keywords" content="assuta ashdod, רופאים, מחשבונים, מיון, מלרד, מיון מבוגרים, hyperkalemia, היפרגליקמיה, אסותא אשדוד" />
 <meta name="robots" content="index, follow, NOODP" />
-
+<style>
+  .accordion-button {
+      justify-content: space-between;
+  }
+  .accordion-button::after {
+    margin-left: inherit !important;
+  }
+</style>
 </head>
-<body ng-app="app" ng-controller="PhototherapyController as ctrl" >
+<body ng-app="app" ng-controller="HyperkalemiaController as ctrl" >
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-J85BPCEQ2Y"></script>
 <script>
@@ -49,12 +56,15 @@
   </div>
 </nav>
 <div id="phototherapy-main" class="container main-content phototherapy-main-content">  
-<div id="calculator" style="overflow-y: auto;overflow-x: hidden; padding-bottom: 10px;" ng-show="ctrl.dataShown=='CALCULATOR'" >
+<div id="calculator" style="overflow-y: auto;overflow-x: hidden; padding-bottom: 10px;" >
   <div class="group-container">
     <div>
         <div class="row form-group">
             <div class="col-auto fs-3 ">
                 <h1>היפרקלמיה</h1>
+            </div>
+            <div class="col-auto me-auto">
+              <button ng-click="ctrl.toggleCollabse()" type="button" class="btn btn-light border fs-6" style="min-width: 80px;padding:3px;">{{ctrl.isExpanded ? "כווץ" : "פתח הכל"}}</button>
             </div>
         </div>  
     </div>
@@ -74,7 +84,7 @@
               {{item}}
             </li>
           </ul>
-          <img ng-show="section.imageSource !== undefined" style="width: 300px; height: 200px;margin-right:10px; " src="{{section.imageSource}}">
+          <img ng-if="!!section.imageSource" style="max-width: 80dvw;margin-right:10px; " ng-src="{{section.imageSource}}">
         </div>
       </div>
     </div>
