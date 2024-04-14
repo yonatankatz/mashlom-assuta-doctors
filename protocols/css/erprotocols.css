@@ -6,6 +6,7 @@ html, body {
     margin: 0 auto; /* Center the body horizontally */
     padding: 0;
     font-family: Arial, sans-serif;  
+    overflow: hidden;
 }
 
 
@@ -35,9 +36,12 @@ html, body {
 .info {
     font-size: 24px;
 }
-.phototherapy-main-content {        
-    /*height: min(82vh, calc(100vh - 10vh - 75px));*/ /*applies only when there is header*/    
-    text-align: justify;
+
+.hyperkalemia-main {
+  padding: 0px;
+  height: calc(100dvh - 50px);
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .input-col {
