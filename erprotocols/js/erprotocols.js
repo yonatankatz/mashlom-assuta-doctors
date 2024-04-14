@@ -29,13 +29,17 @@ app.controller("PhototherapyController", ['$scope', '$rootScope', '$http', '$tim
                     'דיאטת דלת אשלגן',
                     'מעקב רופא משפחה לצורך איזון טיפול תרופתי ומעקב אחר תרופות נפרוטוקסיות ותרופות אשר מעלות אשלגן',
                     'חולה דיאליזה –?'];
+    onGoingTreatment = ['אקג חוזר לאחר טיפול ',
+                        'גזים חוזרים פעם בשעה',
+                        'קטטר במידת הצורך'];
     ctrl.sections = [
         {'id': 1, 'displayName': 'תלונה' },
         {'id': 2, 'displayName': 'קבלה סיעודית', listItems: kabala_siudit },
         {'id': 3, 'displayName': 'בירור', imageSource: 'assets/hyperkalemia-diagnose.png' },
         {'id': 4, 'displayName': 'טיפול', listItems: treatment},
-        {'id': 5, 'displayName':  'החלטה', listItems: decisions},
-        {'id': 6, 'displayName':'המלצות בשחרור', listItems: releaseNotes}
+        {'id': 5, 'displayName': 'ניהול שוטף של המטופל', listItems: onGoingTreatment},
+        {'id': 6, 'displayName':  'החלטה', listItems: decisions},
+        {'id': 7, 'displayName':'המלצות בשחרור', listItems: releaseNotes}
         ];
 
     ctrl.clearContent = function(attr) {
