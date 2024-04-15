@@ -68,8 +68,8 @@
                 שבוע לידה:
             </div>
             <div class="col-auto input-col">
-                <button type="button" class="btn btn-outline-secondary" ng-class="{ 'checked-button': ctrl.weekOfBirth == 'above38' }" ng-click="ctrl.selectWeekOfBirth('above38')">+38</button>
-                <button type="button" class="btn btn-outline-secondary" ng-class="{ 'checked-button': ctrl.weekOfBirth == 'under38' }" ng-click="ctrl.selectWeekOfBirth('under38')">35-37</button>
+                <button type="button" class="btn btn-outline-secondary" ng-class="{ 'buttons-color': ctrl.weekOfBirth == 'above38' }" ng-click="ctrl.selectWeekOfBirth('above38')">+38</button>
+                <button type="button" class="btn btn-outline-secondary" ng-class="{ 'buttons-color': ctrl.weekOfBirth == 'under38' }" ng-click="ctrl.selectWeekOfBirth('under38')">35-37</button>
             </div>            
           </div>
         <div class="row form-group">
@@ -79,8 +79,8 @@
                  :
             </div>
             <div class="col-auto input-col" >
-                <button type="button" class="btn btn-outline-secondary" ng-class="{ 'checked-button': ctrl.hasRiskFactors }" ng-click="ctrl.selectRiskFactor(true)">קיים</button>
-                <button type="button" class="btn btn-outline-secondary" ng-class="{ 'checked-button': !ctrl.hasRiskFactors }" ng-click="ctrl.selectRiskFactor(false)">לא קיים</button>
+                <button type="button" class="btn btn-outline-secondary" ng-class="{ 'buttons-color': ctrl.hasRiskFactors }" ng-click="ctrl.selectRiskFactor(true)">קיים</button>
+                <button type="button" class="btn btn-outline-secondary" ng-class="{ 'buttons-color': !ctrl.hasRiskFactors }" ng-click="ctrl.selectRiskFactor(false)">לא קיים</button>
             </div>
         </div>        
         <div class="row form-group">

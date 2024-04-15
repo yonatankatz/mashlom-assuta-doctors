@@ -22,22 +22,6 @@
 <meta name="description" content="פרוטוקול טיפול בהיפרגלקמיה" />
 <meta name="keywords" content="assuta ashdod, רופאים, מחשבונים, מיון, מלרד, מיון מבוגרים, hyperkalemia, היפרגליקמיה, אסותא אשדוד" />
 <meta name="robots" content="index, follow, NOODP" />
-<style>
-  .accordion-button {
-      justify-content: space-between;
-  }
-  .accordion-button::after {
-    margin-left: inherit !important;
-  }
-  .case-sub-section {
-    background-color: blanchedalmond; 
-    padding: 6px;
-    border-radius: 10px;
-  }
-  .list-items-only-section {
-    padding-inline-start: 1.5rem;
-  }
-</style>
 </head>
 <body ng-app="app" ng-controller="HyperkalemiaController as ctrl" >
 <!-- Google tag (gtag.js) -->
@@ -71,7 +55,7 @@
                 <h1>היפרקלמיה</h1>
             </div>
             <div class="col-auto me-auto">
-              <button ng-click="ctrl.toggleCollabse()" type="button" class="btn btn-light border fs-6" style="min-width: 80px;padding:3px;">{{ctrl.isExpanded ? "כווץ" : "פתח הכל"}}</button>
+              <button ng-click="ctrl.toggleCollabse()" type="button" class="btn btn-light border buttons-color fs-6" style="min-width: 80px;padding:3px;">{{ctrl.isExpanded ? "כווץ" : "פתח הכל"}}</button>
             </div>
         </div>  
     </div>
@@ -80,7 +64,7 @@
     <div ng-repeat="section in ctrl.sections" class="accordion-item">
       <h2 class="accordion-header" id="protocolHeadingOne_{{section.id}}">
         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
-        data-bs-target="#{{section.id}}" aria-expanded="false" aria-controls="{{section.id}}">
+        data-bs-target="#{{section.id}}" aria-expanded="false" aria-controls="{{section.id}}" ng-click="ctrl.blurButton($event)">
           {{section.displayName}}
         </button>
       </h2>
@@ -91,7 +75,7 @@
               <span>
                 סיווג (Meq\L)
               </span>
-              <div class="case-sub-section" style="background-color: blanchedalmond;">
+              <div class="case-sub-section" style="background-color: #FFECCC;">
                 <ul style="list-style-type:none; padding-inline-start: 5px; margin-block-end: 0">
                   <li ng-repeat="case in section.caseTypes">
                     {{case}}

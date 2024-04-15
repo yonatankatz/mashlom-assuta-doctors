@@ -1,5 +1,6 @@
 :root {
-  --buttons-background-color: #6495ed;
+  --buttons-background-color: #3F6186;
+  --buttons-background-color-hover: #3F6186;
   --page-font-color: #1D426E;
   --buttons-color: white;
   --header-background: #E5FFFA;
@@ -61,6 +62,11 @@ html, body {
 
   .buttons-color {
     background-color: var(--buttons-background-color);
+    color: var(--buttons-color);
+  }
+
+  .buttons-color:hover {
+    background-color: var(--buttons-background-color-hover);
     color: var(--buttons-color);
   }
 
