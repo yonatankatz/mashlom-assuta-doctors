@@ -14,16 +14,6 @@ html, body {
   margin-right: 1rem; /* Adjust margin between form checks */
 }
 
-.checked-button {
-    background-color: #3F6186;
-    color: white;
-}
-
-.checked-button:hover {
-    background-color: #3F6186;
-    color: white;
-}
-
 .cards-container {
     width: 100%; /* Set a width */
     margin: 0 auto; /* Set margin to auto */

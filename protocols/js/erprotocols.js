@@ -42,12 +42,17 @@ app.controller("HyperkalemiaController", ['$scope', '$rootScope', '$http', '$tim
             var accordionButtons = document.querySelectorAll('.accordion-button');            
             accordionButtons.forEach(function(button) {                
                 if (button.getAttribute("aria-expanded") == 'true' && !ctrl.isExpanded) {
-                    button.click();
+                    button.click();                    
                 }
                 else if (button.getAttribute("aria-expanded") == 'false' && ctrl.isExpanded) {
                     button.click(); 
-                }                
+                }                                
             });
+        };
+
+        ctrl.blurButton = function(event) {
+            // just removing the "selection" indication.
+            event.target.blur();
         };
 
 }]);

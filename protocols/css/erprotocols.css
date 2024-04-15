@@ -1,3 +1,7 @@
+:root {
+  --bs-primary-bg-subtle: #6585A0;
+}
+
 html, body {
     max-width: 700px; /* Set maximum width for the body */
     direction: rtl; /* Right-to-left direction */
@@ -12,16 +16,6 @@ html, body {
 
 .group-container .form-group .form-check {  
   margin-right: 1rem; /* Adjust margin between form checks */
-}
-
-.checked-button {
-    background-color: #3F6186;
-    color: white;
-}
-
-.checked-button:hover {
-    background-color: #3F6186;
-    color: white;
 }
 
 .cards-container {
@@ -42,6 +36,7 @@ html, body {
   height: calc(100dvh - 50px);
   overflow-y: auto;
   overflow-x: hidden;
+  border: 1px solid var(--border-color);
 }
 
 .input-col {
@@ -107,4 +102,26 @@ html, body {
     margin-left: 10px;
   }
 
+  .accordion-button {
+    justify-content: space-between;
+}
+.accordion-button::after {
+  margin-left: inherit !important;
+  color: white;
+}
+.case-sub-section {
+  background-color: #FFECCC; 
+  padding: 6px;
+  border-radius: 10px;
+}
+.list-items-only-section {
+  padding-inline-start: 1.5rem;
+}
+
+  .accordion-button:not(.collapsed) {    
+    --bs-accordion-active-color: white;   
+  }
+  .accordion-button:not(.collapsed)::after {    
+      background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>") !important;    
+  }
 
