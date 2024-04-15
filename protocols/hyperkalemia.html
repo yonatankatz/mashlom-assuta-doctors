@@ -34,6 +34,9 @@
     padding: 6px;
     border-radius: 10px;
   }
+  .list-items-only-section {
+    padding-inline-start: 1.5rem;
+  }
 </style>
 </head>
 <body ng-app="app" ng-controller="HyperkalemiaController as ctrl" >
@@ -113,7 +116,7 @@
               </div>
             </div>
           </div>
-          <ul ng-if="!!section.listItems">
+          <ul ng-if="!!section.listItems" class="list-items-only-section">
             <li ng-repeat="item in section.listItems">
               {{item}}
             </li>
