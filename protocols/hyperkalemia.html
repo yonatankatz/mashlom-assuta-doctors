@@ -29,6 +29,11 @@
   .accordion-button::after {
     margin-left: inherit !important;
   }
+  .case-sub-section {
+    background-color: blanchedalmond; 
+    padding: 6px;
+    border-radius: 10px;
+  }
 </style>
 </head>
 <body ng-app="app" ng-controller="HyperkalemiaController as ctrl" >
@@ -80,30 +85,30 @@
         <div class="accordion-body">
           <div ng-if="section.id === 1">
             <div>
-              <span style="font-weight: bolder;">
+              <span>
                 סיווג (Meq\L)
               </span>
-              <div style="background-color: blanchedalmond;">
-                <ul>
+              <div class="case-sub-section" style="background-color: blanchedalmond;">
+                <ul style="list-style-type:none; padding-inline-start: 5px; margin-block-end: 0">
                   <li ng-repeat="case in section.caseTypes">
                     {{case}}
                   </li>
                 </ul>    
               </div>
             </div>
-            <div>
-              <span style="font-weight: bolder;">
+            <div style="margin-top: 0.5rem;">
+              <span>
                 תיאור התלונה
               </span>
-              <div style="background-color: blanchedalmond;">
+              <div class="case-sub-section">
                 {{section.caseDecription}}
               </div>
             </div>
-            <div>
-              <span style="font-weight: bolder;">
+            <div style="margin-top: 0.5rem;">
+              <span>
                 גורמי סיכון
               </span>
-              <div style="background-color: blanchedalmond">
+              <div class="case-sub-section">
                 {{section.riskFactors}}
               </div>
             </div>
