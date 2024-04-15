@@ -36,6 +36,16 @@ app.controller("PhototherapyController", ['$scope', '$rootScope', '$http', '$tim
         return Object.keys(ctrl.riskZoneObj).length > 0;
     }
 
+    ctrl.isFollowUpRelevant = function() {
+        return ctrl.riskZoneObj.riskZone === 3 || 
+        ctrl.riskZoneObj.riskZone === 4 || 
+        (ctrl.riskZoneObj.riskZone == 2 && !ctrl.hasRiskFactors);
+    }
+
+    ctrl.shouldFollowUp = function() {
+        return ctrl.riskZoneSatisfied() && ctrl.isFollowUpRelevant();
+    }
+    
     ctrl.clearValues = function() {
         ctrl.rootDiagnose = '';
         ctrl.distanceFromCurve = '';
