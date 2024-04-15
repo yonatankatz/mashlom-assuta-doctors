@@ -78,12 +78,45 @@
       </h2>
       <div id="{{section.id}}" class="accordion-collapse collapse" aria-labelledby="protocolHeadingOne_{{section.id}}">
         <div class="accordion-body">
-          <ul>
+          <div ng-if="section.id === 1">
+            <div>
+              <span style="font-weight: bolder;">
+                סיווג (Meq\L)
+              </span>
+              <div style="background-color: blanchedalmond;">
+                <ul>
+                  <li ng-repeat="case in section.caseTypes">
+                    {{case}}
+                  </li>
+                </ul>    
+              </div>
+            </div>
+            <div>
+              <span style="font-weight: bolder;">
+                תיאור התלונה
+              </span>
+              <div style="background-color: blanchedalmond;">
+                {{section.caseDecription}}
+              </div>
+            </div>
+            <div>
+              <span style="font-weight: bolder;">
+                גורמי סיכון
+              </span>
+              <div style="background-color: blanchedalmond">
+                {{section.riskFactors}}
+              </div>
+            </div>
+          </div>
+          <ul ng-if="!!section.listItems">
             <li ng-repeat="item in section.listItems">
               {{item}}
             </li>
           </ul>
-          <img ng-if="!!section.imageSource" style="max-width: 80dvw;margin-right:10px; " ng-src="{{section.imageSource}}">
+          <div>
+              {{section.imageDescription}}
+            <img ng-if="!!section.imageSource" style="max-width: 80dvw;margin-right:10px; " ng-src="{{section.imageSource}}">
+          </div>
         </div>
       </div>
     </div>  

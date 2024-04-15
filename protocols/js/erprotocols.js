@@ -22,10 +22,15 @@ app.controller("HyperkalemiaController", ['$scope', '$rootScope', '$http', '$tim
     onGoingTreatment = ['אקג חוזר לאחר טיפול ',
                         'גזים חוזרים פעם בשעה',
                         'קטטר במידת הצורך'];
+    caseTypes = ['קל: 5.5-6',
+    'בנוני: 6.1-6.9',
+    'קשה: 6.9-7'];
+    caseDecription = 'תלונות לא ספיציפיות, ייתכן א-סימפטומטי, עלול להתייצג עם חולשה. תסמיני GI  עד הפרעות קצב מסכנות חיים';
+    riskFactors = 'מטופלי דיאליזה, CKD, תרופתי כגון: NSAIDS , דיגוקסין , סקולין, בטא בלוקרים, ספירונולקטון, איקקור.';
     ctrl.sections = [
-        {'id': 1, 'displayName': 'תלונה' },
+        {'id': 1, 'displayName': 'תלונה', caseTypes, caseDecription, riskFactors},
         {'id': 2, 'displayName': 'קבלה סיעודית', listItems: kabala_siudit },
-        {'id': 3, 'displayName': 'בירור', imageSource: 'assets/hyperkalemia-diagnose.png' },
+        {'id': 3, 'displayName': 'בירור', imageSource: 'assets/hyperkalemia-diagnose.png', imageDescription: 'שינויים באקג המתאימים להיפרקלמיה:' },
         {'id': 4, 'displayName': 'טיפול', listItems: treatment},
         {'id': 5, 'displayName': 'ניהול שוטף של המטופל', listItems: onGoingTreatment},
         {'id': 6, 'displayName':  'החלטה', listItems: decisions},
