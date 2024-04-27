@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>פרוטוקלי מלר"ד - אסותא אשדוד</title>
+<link rel="manifest" href="../common/manifest.json">
+<link href="../3rd-party/bootstrap/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="../3rd-party/fontawesome/fontawesome-free-6.5.1-web/css/all.min.css">
+<link rel="stylesheet" href="../common/css/common.css">
+<link rel="stylesheet" href="css/erprotocols.css">
+
+<link rel="icon" href="/assets/logo/fav-icon96x96.png">
+<meta property='og:title' content="פרוטוקולים , מיון מבוגרים, אסותא אשדוד"/>
+<meta property='og:type' content='Article'/>
+<meta property="og:image:type" content="image/jpeg" />
+<meta property='og:site_name' content='mashlom.me'/>
+<meta property='og:image' content='https://assuta.mashlom.me/assets/logo/FullLogo1200x630.jpg'/>
+<meta property="og:image:secure_url" content="https://assuta.mashlom.me/assets/logo/FullLogo1200x630.jpg" />
+<meta property='og:url' content="https://assuta.mashlom.me/protocols/hyperkalemia"/>
+<meta property='og:description' content="פרוטוקולי טיפול"/>
+<meta name="description" content="פרוטוקולי טיפול" />
+<meta name="keywords" content="assuta ashdod, רופאים, מחשבונים, מיון, מלרד, מיון מבוגרים, אסותא אשדוד" />
+<meta name="robots" content="index, follow, NOODP" />
+</head>
+<body ng-app="app" ng-controller="ProtocolsController as ctrl" >
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J85BPCEQ2Y"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-J85BPCEQ2Y');
+</script>
+<nav class="navbar navbar-expand-lg header">
+  <div style="width: 20%;height:100%; text-align: right;">
+    <img class="header-assuta-logo" src="../assets/assuta/only-alef.png" >
+  </div>
+  <div class="header-text">
+    <p>
+      mashlom.me בשיתוף עם בית<br>
+      החולים אסותא אשדוד
+    </p>
+  </div>
+  <div style="width: 15%;height:100%; text-align: left; vertical-align: middle">
+    <img class="header-mashlom-logo" src="../assets/logo/IconOnly_Transparent_NoBuffer.png" >
+  </div>
+</nav>
+<div id="hyperkalemia-main" class="container protocols-main">  
+  <div class="group-container">
+    <div style="padding-right: 10px;padding-left: 10px;">
+        <div class="row form-group">
+            <div class="col-auto fs-3 ">
+                <h1>הפרוטוקולים של זקני ציון</h1>
+            </div>
+            <div class="col-auto me-auto">
+              <button ng-click="ctrl.toggleCollabse()" type="button" class="btn btn-light border buttons-color fs-6" style="min-width: 80px;padding:3px;">{{ctrl.isExpanded ? "כווץ" : "פתח הכל"}}</button>
+            </div>
+        </div>  
+    </div>
+  </div>
+  <div ng-repeat="protocol in ctrl.protocols">
+    <div class="btn-group" style="min-width: 100%;">
+            <button type="button" ng-click="ctrl.openUrl(protocol.link); $event.prevetDefault();" class="btn links"> {{protocol.name}}</button>
+            <button type="button" style="max-width: 30px;" class="btn dropdown-toggle dropdown-toggle-split links" data-bs-toggle="dropdown" aria-expanded="false">
+            <span class="visually-hidden">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu">
+            <li ng-repeat="subsection in protocol.subsections"><a class="dropdown-item" href="{{protocol.link + ctrl.urlSuffix + '#' + subsection.id}}">{{subsection.displayName}}</a></li>
+            </ul>
+        </div>
+    </div>
+</div>  
+<script src="../3rd-party/angularjs/angular.min.js"></script>
+<script src="../3rd-party/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="js/protocols.js"></script>
+</body>
+</html>

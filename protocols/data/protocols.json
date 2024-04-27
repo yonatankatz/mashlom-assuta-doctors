@@ -1,0 +1,42 @@
+{"protocols": [
+    {
+        "name": "היפרגליקמיה",
+        "link": "./hyperkalemia",
+        "subsections": [
+            {"displayName": "תלונה", "id": "1"},
+            {"displayName": "קבלה סיעודית", "id": "2"},
+            {"displayName": "בירור", "id": "3"},
+            {"displayName": "טיפול", "id": "4"},
+            {"displayName": "ניהול שוטף של המטופל", "id": "5"},
+            {"displayName": "החלטה", "id": "6"},
+            {"displayName": "המלצות בשחרור", "id": "7"}
+        ]
+    },
+    {
+        "name": "היפרגליקמיה",
+        "link": "./hyperkalemia",
+        "subsections": [
+            {"displayName": "תלונה", "id": "1"},
+            {"displayName": "קבלה סיעודית", "id": "2"},
+            {"displayName": "בירור", "id": "3"},
+            {"displayName": "טיפול", "id": "4"},
+            {"displayName": "ניהול שוטף של המטופל", "id": "5"},
+            {"displayName": "החלטה", "id": "6"},
+            {"displayName": "המלצות בשחרור", "id": "7"}
+        ]
+    },
+    {
+        "name": "היפרגליקמיה",
+        "link": "./hyperkalemia",
+        "subsections": [
+            {"displayName": "תלונה", "id": "1"},
+            {"displayName": "קבלה סיעודית", "id": "2"},
+            {"displayName": "בירור", "id": "3"},
+            {"displayName": "טיפול", "id": "4"},
+            {"displayName": "ניהול שוטף של המטופל", "id": "5"},
+            {"displayName": "החלטה", "id": "6"},
+            {"displayName": "המלצות בשחרור", "id": "7"}
+        ]
+    }
+    ]
+}

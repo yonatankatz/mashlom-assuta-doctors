@@ -37,22 +37,35 @@ app.controller("HyperkalemiaController", ['$scope', '$rootScope', '$http', '$tim
         {'id': 7, 'displayName':'המלצות בשחרור', listItems: releaseNotes}
         ];
 
-        ctrl.toggleCollabse = function() {
-            ctrl.isExpanded = !ctrl.isExpanded;            
-            var accordionButtons = document.querySelectorAll('.accordion-button');            
-            accordionButtons.forEach(function(button) {                
-                if (button.getAttribute("aria-expanded") == 'true' && !ctrl.isExpanded) {
-                    button.click();                    
-                }
-                else if (button.getAttribute("aria-expanded") == 'false' && ctrl.isExpanded) {
-                    button.click(); 
-                }                                
-            });
-        };
+    ctrl.toggleCollabse = function() {
+        ctrl.isExpanded = !ctrl.isExpanded;            
+        var accordionButtons = document.querySelectorAll('.accordion-button');
+        accordionButtons.forEach(function(button) {                
+            if (button.getAttribute("aria-expanded") == 'true' && !ctrl.isExpanded) {
+                button.click();                    
+            }
+            else if (button.getAttribute("aria-expanded") == 'false' && ctrl.isExpanded) {
+                button.click(); 
+            }                                
+        });
+    };
 
-        ctrl.blurButton = function(event) {
-            // just removing the "selection" indication.
-            event.target.blur();
-        };
+    ctrl.blurButton = function(event) {
+        // just removing the "selection" indication.
+        event.target.blur();
+    };        
+
+    function init() {
+        $timeout(function() {
+            if (window.location.hash) {
+                var element = document.querySelector('[data-bs-target="' + window.location.hash + '"]');
+                if (element.getAttribute("aria-expanded") == 'false') {
+                    element.click(); 
+                }    
+            }        
+        }, 50);
+    }
+
+    init();
 
 }]);
