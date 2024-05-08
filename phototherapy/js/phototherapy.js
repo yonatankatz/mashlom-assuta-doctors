@@ -1,6 +1,6 @@
 var app = angular.module("app", []);
   
-app.controller("PhototherapyController", ['$scope', '$rootScope', '$http', '$timeout', function($scope, $rootScope, $http, $timeout) {
+app.controller("PhototherapyController", ['$scope', '$rootScope', '$timeout', function($scope, $rootScope, $timeout) {
     const ctrl = this;
     window.ctrl = this;
     ctrl.dataShown = 'CALCULATOR'; // possible values: CALCULATOR, RISKS, PHOTOTHERAPY_GRAPH, GRAPH_BUTANI, EXCHANGE_TRANSFUSION_GRAPH
@@ -54,9 +54,20 @@ app.controller("PhototherapyController", ['$scope', '$rootScope', '$http', '$tim
         ctrl.statusColor['background-color'] = '';
     };
 
-    ctrl.changedValue = function() {   
+    /*returns true if values satisfied.*/
+    ctrl.handleValuesSatisifed = function(callback) {
         if (!ctrl.allInputsSatisfied()) {
             ctrl.clearValues();
+            if (callback) {
+                callback('done-values-not-satisifed');
+            }
+            return false;
+        }
+        return true;
+    }
+
+    ctrl.changedValue = function(callback) {   
+        if (!ctrl.handleValuesSatisifed(callback)) {
             return;
         }
         // if the user types a two digits numbers - its weird that we immediately shows him the value after the
@@ -68,10 +79,9 @@ app.controller("PhototherapyController", ['$scope', '$rootScope', '$http', '$tim
         var timeoutMillis =  ctrl.ageInHours <= 9 ? 800 : 20;
         $timeout(function() {
             // we need to check again, as during the timeout one may delete the value.
-            if (!ctrl.allInputsSatisfied()) {
-                ctrl.clearValues();
+            if (!ctrl.handleValuesSatisifed(callback)) {
                 return;
-            }
+            }    
             const {shouldUse , delta} = shouldUsePhototherapy(ctrl.ageInHours, ctrl.bilirubin, ctrl.weekOfBirth === 'above38', ctrl.hasRiskFactors);
             ctrl.rootDiagnose = shouldUse ? "נדרש טיפול באור" : "לא נדרש טיפול באור";
             ctrl.distanceFromCurve = '(' + (shouldUse ? "מעל העקומה ב " : "מתחת לעקומה ב ") + delta + ")" ;
@@ -86,6 +96,9 @@ app.controller("PhototherapyController", ['$scope', '$rootScope', '$http', '$tim
             } else {
                 // Reset in case we already have data here from previous diagnose
                 ctrl.riskZoneObj = {};
+            }
+            if (callback) {
+                callback('done');
             }
         }, timeoutMillis) ;
     };
