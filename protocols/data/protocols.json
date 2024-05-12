@@ -1,6 +1,6 @@
 {"protocols": [
     {
-        "name": "היפרגליקמיה",
+        "name": "היפרקלמיה",
         "link": "./hyperkalemia",
         "subsections": [
             {"displayName": "תלונה", "id": "1"},
@@ -13,8 +13,8 @@
         ]
     },
     {
-        "name": "היפרגליקמיה",
-        "link": "./hyperkalemia",
+        "name": "אצירת שתן",
+        "link": "./urinary-retention",
         "subsections": [
             {"displayName": "תלונה", "id": "1"},
             {"displayName": "קבלה סיעודית", "id": "2"},

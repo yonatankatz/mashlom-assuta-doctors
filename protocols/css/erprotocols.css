@@ -129,3 +129,7 @@ html, body {
     border: 1px solid var(--border-color) !important;
   }
 
+  .bullet-point {
+      list-style-type: '👈';
+      padding-inline-start: 1ch;    
+  }

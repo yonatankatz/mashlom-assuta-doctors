@@ -1,0 +1,209 @@
+<style>
+    .table-header {
+        --bs-table-bg: #3DB5A5;
+        --bs-table-color: white;
+    }
+</style>
+<div class="accordion accordion-flush" id="accordionProtocolLevel">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="protocolHeadingOne_1">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+      data-bs-target="#1" aria-expanded="false" aria-controls="1" ng-click="ctrl.blurButton($event)">
+      {{ctrl.protocolData.subsections[0].displayName}}
+      </button>
+      </h2>
+      <div id="1" class="accordion-collapse collapse" aria-labelledby="protocolHeadingOne_1">
+        <div class="accordion-body">
+            <ul class="list-items-only-section">
+            <li ng-repeat="item in ctrl.protocolData.subsections[0].items track by $index">
+                {{item}}
+            </li>
+            </ul>        
+        </div>        
+      </div>
+  </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="protocolHeadingOne_2">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+      data-bs-target="#2" aria-expanded="false" aria-controls="2" ng-click="ctrl.blurButton($event)">
+        {{ctrl.protocolData.subsections[1].displayName}}
+      </button>
+      </h2>
+      <div id="2" class="accordion-collapse collapse" aria-labelledby="protocolHeadingOne_1">
+        <div class="accordion-body">      
+            <h5>התוויות בעד אשפוז</h5>
+            <div class="pro-hospitalization case-sub-section" style="background-color: #FFECCC;">
+            <ul class="list-items-only-section" >
+                <li class="bullet-point" ng-repeat="item in ctrl.protocolData.subsections[1].hospitalizationItems.pros track by $index">
+                {{item}}
+                </li>
+                </ul>        
+            </div>
+        
+            <h5>התוויות נגד אשפוז</h5>
+            <div class="con-hospitalization case-sub-section" style="background-color: #FFECCC;">
+            <ul class="list-items-only-section" >
+                <li class="bullet-point" ng-repeat="item in ctrl.protocolData.subsections[1].hospitalizationItems.cons track by $index">
+                {{item}}
+                </li>
+                </ul>        
+            </div>
+            </div>        
+        </div>      
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="protocolHeadingOne_3">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+        data-bs-target="#3" aria-expanded="false" aria-controls="3" ng-click="ctrl.blurButton($event)">
+        {{ctrl.protocolData.subsections[2].displayName}}
+        </button>
+        </h2>
+        <div id="3" class="accordion-collapse collapse" aria-labelledby="protocolHeadingOne_3">
+          <div class="accordion-body">
+              <ul class="list-items-only-section">
+              <li ng-repeat="item in ctrl.protocolData.subsections[2].items track by $index">
+                  {{item}}
+              </li>
+              </ul>        
+          </div>        
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="protocolHeadingOne_4">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+        data-bs-target="#4" aria-expanded="false" aria-controls="4" ng-click="ctrl.blurButton($event)">
+        {{ctrl.protocolData.subsections[3].displayName}}
+        </button>
+        </h2>
+        <div id="4" class="accordion-collapse collapse" aria-labelledby="protocolHeadingOne_4">
+          <div class="accordion-body">
+            <table class="table" style="margin-top: 20px;">
+              <thead>
+                <tr class="table-header">
+                  <th scope="col">תרופה</th>
+                  <th scope="col">מינון</th>
+                  <th scope="col">אופן לקיחת התרופה</th>
+                  <th scope="col">תדירות</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="medison in ctrl.protocolData.subsections[3].medisons track by $index">
+                  <th scope="row" >{{medison.name}}</th>
+                  <th scope="row" >{{medison.dosage}}</th>
+                  <th scope="row" >{{medison.type}}</th>
+                  <th scope="row" >{{medison.frequency}}</th>
+                </tr>
+              </tbody>
+          </table>
+          <div class="pro-hospitalization case-sub-section" style="background-color: #FFECCC;">
+            {{ctrl.protocolData.subsections[3].comment}}
+          </div>  
+          </div>        
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="protocolHeadingOne_5">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+        data-bs-target="#5" aria-expanded="false" aria-controls="5" ng-click="ctrl.blurButton($event)">
+        {{ctrl.protocolData.subsections[4].displayName}}
+        </button>
+        </h2>
+        <div id="5" class="accordion-collapse collapse" aria-labelledby="protocolHeadingOne_5">
+          <div class="accordion-body">
+            <table class="table" style="margin-top: 20px;">
+              <thead>
+                <tr class="table-header">
+                  <th scope="col">הוראה</th>
+                  <th scope="col">תדירות</th>                  
+                  <th scope="col">הערות</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="instruction in ctrl.protocolData.subsections[4].instructions track by $index">
+                  <th scope="row" >{{instruction.name}}</th>
+                  <th scope="row" >{{instruction.frequency}}</th>
+                  <th scope="row" >{{instruction.comment}}</th>
+                </tr>
+              </tbody>
+          </table>
+          </div>        
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="protocolHeadingOne_6">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+        data-bs-target="#6" aria-expanded="false" aria-controls="6" ng-click="ctrl.blurButton($event)">
+        {{ctrl.protocolData.subsections[5].displayName}}
+        </button>
+        </h2>
+        <div id="6" class="accordion-collapse collapse" aria-labelledby="protocolHeadingOne_6">
+          <div class="accordion-body">
+              <ul class="list-items-only-section">
+              <li ng-repeat="item in ctrl.protocolData.subsections[5].items track by $index">
+                  {{item}}
+              </li>
+              </ul>        
+          </div>        
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="protocolHeadingOne_7">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+        data-bs-target="#7" aria-expanded="false" aria-controls="7" ng-click="ctrl.blurButton($event)">
+          {{ctrl.protocolData.subsections[6].displayName}}
+        </button>
+        </h2>
+        
+        <div id="7" class="accordion-collapse collapse" aria-labelledby="protocolHeadingOne_7">
+          <div class="accordion-body">      
+              <h5>התוויות לייעוצים</h5>
+              <div class="pro-hospitalization case-sub-section" style="background-color: #FFECCC;">
+              <ul class="list-items-only-section" >
+                  <li class="bullet-point" ng-repeat="item in ctrl.protocolData.subsections[6].consultencies track by $index">
+                  {{item}}
+                  </li>
+                  </ul>        
+              </div>
+          
+              <h5>התוויות לאשפוז במחלקה אחרת</h5>
+              <div class="con-hospitalization case-sub-section" style="background-color: #FFECCC;">
+              <ul class="list-items-only-section" >
+                  <li class="bullet-point" ng-repeat="item in ctrl.protocolData.subsections[6].hospitalizationElsewhere track by $index">
+                  {{item}}
+                  </li>
+                  </ul>        
+              </div>
+              </div>        
+          </div>      
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="protocolHeadingOne_8">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+            data-bs-target="#8" aria-expanded="false" aria-controls="8" ng-click="ctrl.blurButton($event)">
+              {{ctrl.protocolData.subsections[7].displayName}}
+            </button>
+            </h2>
+            
+            <div id="8" class="accordion-collapse collapse" aria-labelledby="protocolHeadingOne_8">
+              <div class="accordion-body">      
+                  <h5>התוויות לשחרור</h5>
+                  <div class="pro-hospitalization case-sub-section" style="background-color: #FFECCC;">
+                  <ul class="list-items-only-section" >
+                      <li class="bullet-point" ng-repeat="item in ctrl.protocolData.subsections[7].guidelines track by $index">
+                      {{item}}
+                      </li>
+                      </ul>        
+                  </div>
+              
+                  <h5>המלצות לשחרור</h5>
+                  <div class="con-hospitalization case-sub-section" style="background-color: #FFECCC;">
+                  <ul class="list-items-only-section" >
+                      <li class="bullet-point" ng-repeat="item in ctrl.protocolData.subsections[7].recommendations track by $index">
+                      {{item}}
+                      </li>
+                      </ul>        
+                  </div>
+                  </div>        
+              </div>      
+            </div>
+  </div>    
