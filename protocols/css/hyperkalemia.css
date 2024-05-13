@@ -1,0 +1,135 @@
+:root {
+  --bs-primary-bg-subtle: #6585A0;
+}
+
+html, body {
+    max-width: 700px; /* Set maximum width for the body */
+    direction: rtl; /* Right-to-left direction */
+    height: 100%;
+    scroll-behavior: smooth;
+    margin: 0 auto; /* Center the body horizontally */
+    padding: 0;
+    font-family: Arial, sans-serif;  
+    overflow: hidden;
+}
+
+
+.group-container .form-group .form-check {  
+  margin-right: 1rem; /* Adjust margin between form checks */
+}
+
+.cards-container {
+    width: 100%; /* Set a width */
+    margin: 0 auto; /* Set margin to auto */
+}
+
+.form-group {
+    margin-top: 20px;
+}
+
+.info {
+    font-size: 24px;
+}
+
+.protocols-main {
+  padding: 0px;
+  height: calc(100dvh - 50px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  border: 1px solid var(--border-color);
+}
+
+.input-col {
+  padding-right: 0px;
+}
+
+.col-auto-text-cols {      
+  min-width: 170px;
+  padding: 0px;
+}
+.col-auto-buttons-cols {      
+    min-width: 170px;
+    padding: 0px;
+  }
+
+.back-button {
+    float: right;
+    margin: 5px;    
+    cursor: pointer;
+    box-shadow: 0 0 5px -1px rgba(0,0,0,0.2);
+    padding-right: 30px;
+    padding-left: 30px;
+    border-radius: 10px;
+    font-size: 30px;
+    color: var(--page-font-color);
+  }
+  .back-button:active {
+    box-shadow: 0 0 5px -1px rgba(0,0,0,0.6);
+  }
+
+  .back-button-img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .content-risks {    
+    text-align: center;
+  }
+
+  .risks-header {
+    padding-top: 15px;
+    padding-left: 80px;
+  }
+
+  .risks-container {
+    width: 100%;
+    padding: 0;
+    margin-top: 3dvh;
+  }
+
+  .reset-button {
+    margin-left: 20px;
+	display: grid;
+	align-items: center;
+    justify-content: left;
+  }
+
+  .circle {
+    display: inline-block;
+    width: 0.65em; /* Set the width and height to be the same as the font size */
+    height: 0.65em;
+    border-radius: 50%; /* Create a circle using border-radius */    
+    margin-left: 10px;
+  }
+
+  .accordion-button {
+    justify-content: space-between;
+}
+.accordion-button::after {
+  margin-left: inherit !important;
+  color: white;
+}
+.case-sub-section {
+  background-color: #FFECCC; 
+  padding: 6px;
+  border-radius: 10px;
+}
+.list-items-only-section {
+  padding-inline-start: 1.5rem;
+}
+
+  .accordion-button:not(.collapsed) {    
+    --bs-accordion-active-color: white;   
+  }
+  .accordion-button:not(.collapsed)::after {    
+      background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>") !important;    
+  }
+
+  .links {
+    border: 1px solid var(--border-color) !important;
+  }
+
+  .bullet-point {
+      list-style-type: '👈';
+      padding-inline-start: 1ch;    
+  }
