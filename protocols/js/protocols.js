@@ -3,7 +3,8 @@ var app = angular.module("app", []);
 app.controller("ProtocolsController", ['$scope', '$rootScope', '$http', '$timeout', function($scope, $rootScope, $http, $timeout) {
     const ctrl = this;
     window.ctrl = this;
-    ctrl.protocols = {};
+    ctrl.protocols = [];
+    ctrl.searchQuery = '';
     ctrl.urlSuffix = window.location.href.indexOf("localhost") > -1 ||
                      window.location.href.indexOf("127.0.0.1") > -1 ? ".html" : "";
 

@@ -8,7 +8,7 @@
 <link href="../3rd-party/bootstrap/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="../3rd-party/fontawesome/fontawesome-free-6.5.1-web/css/all.min.css">
 <link rel="stylesheet" href="../common/css/common.css">
-<link rel="stylesheet" href="css/erprotocols.css">
+<link rel="stylesheet" href="css/protocols.css">
 
 <link rel="icon" href="/assets/logo/fav-icon96x96.png">
 <meta property='og:title' content="פרוטוקולים , מיון מבוגרים, אסותא אשדוד"/>
@@ -52,25 +52,38 @@
     <div style="padding-right: 10px;padding-left: 10px;">
         <div class="row form-group">
             <div class="col-auto fs-3 ">
-                <h1>הפרוטוקולים של זקני ציון</h1>
+                <h1>פרוטוקולי מלר"ד</h1>
             </div>
-            <div class="col-auto me-auto">
-              <button ng-click="ctrl.toggleCollabse()" type="button" class="btn btn-light border buttons-color fs-6" style="min-width: 80px;padding:3px;">{{ctrl.isExpanded ? "כווץ" : "פתח הכל"}}</button>
-            </div>
-        </div>  
-    </div>
-  </div>
-  <div ng-repeat="protocol in ctrl.protocols">
-    <div class="btn-group" style="min-width: 100%;">
-            <button type="button" ng-click="ctrl.openUrl(protocol.link); $event.prevetDefault();" class="btn links"> {{protocol.name}}</button>
-            <button type="button" style="max-width: 30px;" class="btn dropdown-toggle dropdown-toggle-split links" data-bs-toggle="dropdown" aria-expanded="false">
-            <span class="visually-hidden">Toggle Dropdown</span>
-            </button>
-            <ul class="dropdown-menu">
-            <li ng-repeat="subsection in protocol.subsections"><a class="dropdown-item" href="{{protocol.link + ctrl.urlSuffix + '#' + subsection.id}}">{{subsection.displayName}}</a></li>
-            </ul>
         </div>
     </div>
+    <div class="input-group rounded" style="margin-bottom: 10px; padding-right: 12px; padding-left: 12px;">
+      <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" ng-model="ctrl.searchQuery" />
+      <span class="input-group-text border-0" style="background-color: white;" id="search-addon">
+        <i class="fas fa-search"></i>
+      </span>
+    </div>
+  </div>
+  <div class="accordion" id="accordionExample" ng-if="ctrl.protocols && ctrl.protocols.length > 0">
+    <div ng-repeat="protocol in (ctrl.protocols | filter: {name: ctrl.searchQuery}) track by $index" class="accordion-item">
+      <h2 class="accordion-header" id="headingOne{{$index}}">
+        <div class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne{{$index}}" aria-expanded="false" aria-controls="collapseOne{{$index}}">
+          <button ng-click="ctrl.openUrl(protocol.link); $event.prevetDefault();" class="accordion-button collapsed" type="button">
+            {{protocol.name}}
+          </button>
+          <i class="far fa-list-alt"></i>
+        </div>
+      </h2>
+      <div id="collapseOne{{$index}}" class="accordion-collapse collapse" aria-labelledby="headingOne{{$index}}" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <ul class="list-group">
+            <li ng-repeat="subsection in protocol.subsections" class="list-group-item">
+              <a class="dropdown-item" href="{{protocol.link + ctrl.urlSuffix + '#' + subsection.id}}">{{subsection.displayName}}</a>
+            </li>
+           </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>  
 <script src="../3rd-party/angularjs/angular.min.js"></script>
 <script src="../3rd-party/bootstrap/bootstrap.bundle.min.js"></script>
