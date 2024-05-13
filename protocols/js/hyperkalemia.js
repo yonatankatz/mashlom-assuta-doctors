@@ -22,16 +22,16 @@ app.controller("HyperkalemiaController", ['$scope', '$rootScope', '$http', '$tim
     onGoingTreatment = ['אקג חוזר לאחר טיפול ',
                         'גזים חוזרים פעם בשעה',
                         'קטטר במידת הצורך'];
-    caseTypes = ['קל: 5.5-6',
-    'בנוני: 6.1-6.9',
-    'קשה: 6.9-7'];
-    caseDecription = 'תלונות לא ספיציפיות, ייתכן א-סימפטומטי, עלול להתייצג עם חולשה. תסמיני GI  עד הפרעות קצב מסכנות חיים';
-    riskFactors = 'מטופלי דיאליזה, CKD, תרופתי כגון: NSAIDS , דיגוקסין , סקולין, בטא בלוקרים, ספירונולקטון, איקקור.';
+    caseTypes = ['קל: 5.5-6 mEq/L',
+    'בנוני: 6.1-6.9 mEq/L',
+    'קשה: 6.9-7 mEq/L'];
+    caseDecription = ['א-סימפטומטי', 'חולשה', 'תסמיני GI', 'תסמיני CV – הפערת קצב VT/VF /TdP'];
+    riskFactors = ['מטופלי דיאליזה', 'CKD', 'תרופתי כגון: NSAIDS , דיגוקסין , סקולין, בטא בלוקרים, ספירונולקטון, איקקור.'];
     ctrl.sections = [
         {'id': 1, 'displayName': 'תלונה', caseTypes, caseDecription, riskFactors},
-        {'id': 2, 'displayName': 'קבלה סיעודית', listItems: kabala_siudit },
+        {'id': 2, 'displayName': 'קבלה סיעודית', listItems: kabala_siudit},
         {'id': 3, 'displayName': 'בירור', imageSource: 'assets/hyperkalemia-diagnose.png', imageDescription: 'שינויים באקג המתאימים להיפרקלמיה:' },
-        {'id': 4, 'displayName': 'טיפול', listItems: treatment},
+        {'id': 4, 'displayName': 'טיפול', listItems: treatment, bulletClass: "bullet-point"},
         {'id': 5, 'displayName': 'ניהול שוטף של המטופל', listItems: onGoingTreatment},
         {'id': 6, 'displayName':  'החלטה', listItems: decisions},
         {'id': 7, 'displayName':'המלצות בשחרור', listItems: releaseNotes}

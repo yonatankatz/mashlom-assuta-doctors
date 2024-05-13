@@ -73,7 +73,7 @@
           <div ng-if="section.id === 1">
             <div>
               <span>
-                סיווג (Meq\L)
+                סיווג
               </span>
               <div class="case-sub-section" style="background-color: #FFECCC;">
                 <ul style="list-style-type:none; padding-inline-start: 5px; margin-block-end: 0">
@@ -88,7 +88,11 @@
                 תיאור התלונה
               </span>
               <div class="case-sub-section">
-                {{section.caseDecription}}
+                <ul>
+                  <li ng-repeat="desc in section.caseDecription">
+                    {{desc}}
+                  </li>                
+                </ul>
               </div>
             </div>
             <div style="margin-top: 0.5rem;">
@@ -96,12 +100,16 @@
                 גורמי סיכון
               </span>
               <div class="case-sub-section">
-                {{section.riskFactors}}
+                <ul>
+                  <li ng-repeat="risk in section.riskFactors">
+                    {{risk}}
+                  </li>                
+                </ul>
               </div>
             </div>
           </div>
           <ul ng-if="!!section.listItems" class="list-items-only-section">
-            <li ng-repeat="item in section.listItems">
+            <li ng-repeat="item in section.listItems" ng-class="{'bullet-point' : section.bulletClass}" >
               {{item}}
             </li>
           </ul>
