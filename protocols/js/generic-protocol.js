@@ -36,12 +36,6 @@ app.controller("ProtocolController", ['$scope', '$rootScope', '$http', '$timeout
     }
 
     init();
-
-    function init() {
-    }
-
-    init();
-    
 }]);
 
 app.directive('protocolContent', function($parse) {

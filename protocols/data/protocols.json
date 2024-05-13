@@ -16,14 +16,15 @@
         "name": "אצירת שתן",
         "link": "./urinary-retention",
         "subsections": [
-            {"displayName": "תלונה", "id": "1"},
-            {"displayName": "קבלה סיעודית", "id": "2"},
-            {"displayName": "בירור", "id": "3"},
-            {"displayName": "טיפול", "id": "4"},
-            {"displayName": "ניהול שוטף של המטופל", "id": "5"},
-            {"displayName": "החלטה", "id": "6"},
-            {"displayName": "המלצות בשחרור", "id": "7"}
-        ]
-    }
+         {"displayName": "תלונה - אצירת שתן", "id": "1" },
+         {"displayName": "התוויות לאשפוז ביחידה לאשפוז קצר", "id": "2"},
+         {"displayName": "בירורים", "id": "3"},
+         {"displayName": "טיפול תרופתי מומלץ", "id": "4"},
+         {"displayName": "הוראות מומלצות", "id": "5"},
+         {"displayName": "סוגיות ספציפיות למטופל", "id": "6"},
+         {"displayName": "התוויות נוספות", "id": "7"},
+         {"displayName": "שחרור", "id": "8"}
+       ]
+     }
     ]
 }
