@@ -585,6 +585,89 @@ var phototherapyShlomoProtocolWeek37WithRisk = [
 ]; 
 
 
+var labelsPercentile40 = [];
+var valuesPercentile40 = [];
+labelsPercentile40.push(0);
+valuesPercentile40.push(NaN);
+for (i = 0; i < percentile40DataPoints.length; ++i) {
+    labelsPercentile40.push(percentile40DataPoints[i].x);
+    valuesPercentile40.push(percentile40DataPoints[i].y);
+}
+
+var labelsPercentile75 = [];
+var valuesPercentile75 = [];
+labelsPercentile75.push(0);
+valuesPercentile75.push(NaN);
+for (i = 0; i < percentile75DataPoints.length; ++i) {
+    labelsPercentile75.push(percentile75DataPoints[i].x);
+    valuesPercentile75.push(percentile75DataPoints[i].y);
+}
+
+var labelsPercentile95 = [];
+var valuesPercentile95 = [];
+labelsPercentile95.push(0);
+valuesPercentile95.push(NaN);
+for (i = 0; i < percentile95DataPoints.length; ++i) {
+    labelsPercentile95.push(percentile95DataPoints[i].x);
+    valuesPercentile95.push(percentile95DataPoints[i].y);
+}
+
+const butaniData = {
+labels: labelsPercentile40,
+datasets: [
+    {
+    data: valuesPercentile95,
+    borderColor: 'black',
+    fill: false,
+    label: '',
+    cubicInterpolationMode: 'monotone',
+    tension: 0.4,
+    pointRadius: 0 // Hide points
+    },
+    {
+    data: valuesPercentile75,
+    borderColor: 'black',
+    fill: false,
+    cubicInterpolationMode: 'monotone',
+    tension: 0.4,
+    pointRadius: 0 // Hide points
+    },
+    {
+    data: valuesPercentile40,
+    borderColor: 'black',
+    fill: false,
+    cubicInterpolationMode: 'monotone',
+    tension: 0.4,
+    pointRadius: 0 // Hide points
+    }  ]
+};
+
+var labels38PlusNoRisk = [];
+var valueslabels38PlusNoRisk = [];
+labels38PlusNoRisk.push(0);
+valueslabels38PlusNoRisk.push(NaN);
+for (i = 0; i < phototherapyShlomoProtocolWeek38PlusNoRisk.length; ++i) {
+    labels38PlusNoRisk.push(phototherapyShlomoProtocolWeek38PlusNoRisk[i].x);
+    valueslabels38PlusNoRisk.push(phototherapyShlomoProtocolWeek38PlusNoRisk[i].y);
+}
+
+const phototherapyData = {
+labels: labelsPercentile95,
+datasets: [
+    {
+    data: valuesPercentile95,
+    borderColor: 'black',
+    fill: false,
+    label: '',
+    cubicInterpolationMode: 'monotone',
+    tension: 0.4,
+    pointRadius: 0 // Hide points
+    }]
+};    
+
+let butaniChart = undefined;
+let phototherapyChart = undefined;
+
 function interpolate(x0, y0, x1, y1, x) {
     return y0 + ((y1 - y0) / (x1 - x0)) * (x - x0);
 }
@@ -715,4 +798,185 @@ function getYOnCurveByX(dataPoints, x) {
     );
 
     return interpolatedY;
+}
+
+function createButaniChart(ctx){
+    const config = {
+        type: 'line',
+        data: butaniData, // fix data to photothreapy data
+        options: {
+          responsive: true,
+          plugins: {
+            title: {
+              display: true,
+              text: 'עקומת בוטאני'
+            },
+            legend: {
+              display: false // Hide legend
+            },
+            tooltip: {
+              rtl: true,
+              textDirection: 'rtl',
+              interaction: {
+                  mode: 'nearest',
+                  axis: 'xy'
+              },
+              callbacks: {
+                  title: function(context) {
+                      return '';
+                  },
+                  label: function(context) {
+                      return '';
+                  },
+                  afterLabel: function(context) {
+                      return "גיל: " + context.label + ", בילירובין: " + context.formattedValue;
+                  }
+              }
+            }
+          },
+          interaction: {
+            intersect: false,
+          },
+          scales: {
+            x: {
+              type: 'linear',
+              ticks: {
+                stepSize: 12
+              },
+              max: 144,
+              display: true,
+              title: {
+                display: true,
+                text: 'גיל בשעות'
+              }
+            },
+            y: {
+              type: 'linear',
+              ticks: {
+                stepSize: 5
+              },
+              min:0,
+              max: 25,
+              display: true,
+              beginAtZero: true,
+              title: {
+                display: true,
+                text: 'בילירובין'
+              },
+            }
+          }
+        },
+      }; 
+      butaniChart = new Chart(ctx, config);    
+}
+
+function createphototherapyChart(ctx){
+    const config = {
+        type: 'line',
+        data: phototherapyData,
+        options: {
+          responsive: true,
+          plugins: {
+            title: {
+              display: true,
+              text: 'עקומת טיפול באור'
+            },
+            legend: {
+              display: false // Hide legend
+            },
+            tooltip: {
+              rtl: true,
+              textDirection: 'rtl',
+              interaction: {
+                  mode: 'nearest',
+                  axis: 'xy'
+              },
+              callbacks: {
+                  title: function(context) {
+                      return '';
+                  },
+                  label: function(context) {
+                      return '';
+                  },
+                  afterLabel: function(context) {
+                      return "גיל: " + context.label + ", בילירובין: " + context.formattedValue;
+                  }
+              }
+            }
+          },
+          interaction: {
+            intersect: false,
+          },
+          scales: {
+            x: {
+              type: 'linear',
+              ticks: {
+                stepSize: 12
+              },
+              max: 144,
+              display: true,
+              title: {
+                display: true,
+                text: 'גיל בשעות'
+              }
+            },
+            y: {
+              type: 'linear',
+              ticks: {
+                stepSize: 5
+              },
+              min:0,
+              max: 25,
+              display: true,
+              beginAtZero: true,
+              title: {
+                display: true,
+                text: 'בילירובין'
+              },
+            }
+          }
+        },
+      }; 
+      phototherapyChart = new Chart(ctx, config);    
+}
+
+function drawPhototherapyWithPoint(ctx, x, y){
+    if (phototherapyChart !== undefined){
+        phototherapyChart.destroy();
+      }
+    createphototherapyChart(ctx);  
+    if (phototherapyChart.data.datasets.length > 1){ // we already have a point on the chart. 1 datasets for butani, 1 for the point
+        phototherapyChart.data.datasets.splice(1, 1);
+    }
+    var newPointDataset = {
+    label: 'Point', // Label for the dataset
+    data: [{x: x, y: y}], // Array containing the new point
+    backgroundColor: 'red', // Background color for the point
+    borderColor: 'red', // Border color for the point
+    pointRadius: 3, // Size of the point
+    pointHoverRadius: 5 // Size of the point on hover
+    };
+    phototherapyChart.data.datasets.push(newPointDataset);
+    phototherapyChart.update();
+
+}
+
+function drawButaniWithPoint(ctx, x, y){
+  if (butaniChart !== undefined){
+    butaniChart.destroy();
+  }
+  createButaniChart(ctx);
+  if (butaniChart.data.datasets.length > 3){ // we already have a point on the chart. 3 datasets for butani, 1 for the point
+    butaniChart.data.datasets.splice(3, 1);
+  }
+  var newPointDataset = {
+    label: 'Point', // Label for the dataset
+    data: [{x: x, y: y}], // Array containing the new point
+    backgroundColor: 'red', // Background color for the point
+    borderColor: 'red', // Border color for the point
+    pointRadius: 3, // Size of the point
+    pointHoverRadius: 5 // Size of the point on hover
+  };
+  butaniChart.data.datasets.push(newPointDataset);
+  butaniChart.update();
 }

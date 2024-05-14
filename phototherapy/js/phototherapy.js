@@ -13,6 +13,9 @@ app.controller("PhototherapyController", ['$scope', '$rootScope', '$timeout', fu
     ctrl.riskZoneObj = {};
     ctrl.statusColor = {};
     ctrl.considerTransfusion = '';
+    var butaniCtx = document.getElementById('butaniChart').getContext('2d');
+    var phototherapyCtx = document.getElementById('phototherapyChart').getContext('2d');
+    phototherapyChart
 
     ctrl.clearContent = function(attr) {
         ctrl[attr]  = null;
@@ -97,6 +100,8 @@ app.controller("PhototherapyController", ['$scope', '$rootScope', '$timeout', fu
                 // Reset in case we already have data here from previous diagnose
                 ctrl.riskZoneObj = {};
             }
+            drawButaniWithPoint(butaniCtx, ctrl.ageInHours, ctrl.bilirubin);
+            drawPhototherapyWithPoint(phototherapyCtx, ctrl.ageInHours, ctrl.bilirubin);
             if (callback) {
                 callback('done');
             }

@@ -22,6 +22,8 @@
 <meta name="description" content="מחשבון טיפול בצהבת ביילוד" />
 <meta name="keywords" content="assuta ashdod, רופאים, מחשבונים, רפואת ילדים, צהבת, יילוד, עקומת בוטאני, phototherapy, אסותא אשדוד" />
 <meta name="robots" content="index, follow, NOODP" />
+<script src="../3rd-party/chartjs/chart.js"></script>
+<script src="../3rd-party/chartjs/chartjs-plugin-annotation.js"></script>
 
 </head>
 <body ng-app="app" ng-controller="PhototherapyController as ctrl" >
@@ -117,6 +119,18 @@
               <li>יילוד עם DAT חיובי הזקוק למעקב</li>
               <li>יילוד (או בן משפחה) עם חסר ב G6PD הזקוק למעקב </li>
             </ul>
+          </div>
+          <p>
+            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" 
+            data-bs-target="#pointonGraphs" aria-expanded="false" aria-controls="pointonGraphs">
+              צפה בערך על הגרף
+            </button>
+          </p>
+          <div class="collapse" id="pointonGraphs">
+            <div class="card card-body">
+              <canvas id="butaniChart" height="300"></canvas>
+              <canvas id="phototherapyChart" height="300"></canvas>
+            </div>
           </div>
         </div>
       </div>
