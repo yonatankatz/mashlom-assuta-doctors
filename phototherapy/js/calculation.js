@@ -464,38 +464,23 @@ function getGenericCaseIndex(isWeek38Plus, hasRisk){
   }
 }
 
-var labelsPercentile40 = [];
-var valuesPercentile40 = [];
-labelsPercentile40.push(0);
-valuesPercentile40.push(NaN);
-for (i = 0; i < percentile40DataPoints.length; ++i) {
-    labelsPercentile40.push(percentile40DataPoints[i].x);
-    valuesPercentile40.push(percentile40DataPoints[i].y);
-}
-
-var labelsPercentile75 = [];
-var valuesPercentile75 = [];
-labelsPercentile75.push(0);
-valuesPercentile75.push(NaN);
-for (i = 0; i < percentile75DataPoints.length; ++i) {
-    labelsPercentile75.push(percentile75DataPoints[i].x);
-    valuesPercentile75.push(percentile75DataPoints[i].y);
-}
-
-var labelsPercentile95 = [];
-var valuesPercentile95 = [];
-labelsPercentile95.push(0);
-valuesPercentile95.push(NaN);
-for (i = 0; i < percentile95DataPoints.length; ++i) {
-    labelsPercentile95.push(percentile95DataPoints[i].x);
-    valuesPercentile95.push(percentile95DataPoints[i].y);
-}
+var allphototherapyDataPoints = [phototherapyShlomoProtocolWeek38PlusNoRisk,
+  phototherapyShlomoProtocolWeek38PlusWithRisk,
+  phototherapyShlomoProtocolWeek37NoRisk,
+  phototherapyShlomoProtocolWeek37WithRisk
+];
+var phototherapyChartsTitleSuffix = ['38+ ללא גורמי סיכון', '38+ עם גורמי סיכון', '35-37 ללא גורמי סיכון', '35-37 עם גורמי סיכון']
+var allPhototherapyChartsData = [];
+populatePhototherapyChartsData();
+var percentile40LabelsValues = createLabelsAndValues(percentile40DataPoints);
+var percentile75LabelsValues = createLabelsAndValues(percentile75DataPoints);
+var percentile95LabelsValues = createLabelsAndValues(percentile95DataPoints);
 
 const butaniData = {
-labels: labelsPercentile40,
+labels: percentile40LabelsValues[0],
 datasets: [
     {
-    data: valuesPercentile95,
+    data: percentile95LabelsValues[1],
     borderColor: 'black',
     fill: false,
     label: '',
@@ -504,7 +489,7 @@ datasets: [
     pointRadius: 0 // Hide points
     },
     {
-    data: valuesPercentile75,
+    data: percentile75LabelsValues[1],
     borderColor: 'black',
     fill: false,
     cubicInterpolationMode: 'monotone',
@@ -512,7 +497,7 @@ datasets: [
     pointRadius: 0 // Hide points
     },
     {
-    data: valuesPercentile40,
+    data: percentile40LabelsValues[1],
     borderColor: 'black',
     fill: false,
     cubicInterpolationMode: 'monotone',
@@ -521,17 +506,15 @@ datasets: [
     }  ]
 };
 
-var allphototherapyDataPoints = [phototherapyShlomoProtocolWeek38PlusNoRisk,
-  phototherapyShlomoProtocolWeek38PlusWithRisk,
-  phototherapyShlomoProtocolWeek37NoRisk,
-  phototherapyShlomoProtocolWeek37WithRisk
-];
-var allPhototherapyChartsData = [];
-populatePhototherapyChartsData();
-
 function populatePhototherapyChartsData(){
   for (j = 0; j < allphototherapyDataPoints.length; ++j) {
     var datapoints = allphototherapyDataPoints[j];
+    var result = createLabelsAndValues(datapoints);
+    allPhototherapyChartsData.push(result);
+  }
+}
+
+function createLabelsAndValues(datapoints){
     var labels = [];
     var values = [];
     labels.push(0);
@@ -540,8 +523,7 @@ function populatePhototherapyChartsData(){
         labels.push(datapoints[i].x);
         values.push(datapoints[i].y);
     }
-    allPhototherapyChartsData.push([labels, values])
-  }
+    return [labels, values];
 }
 
 function getGraphArraysByCase(isWeek38Plus, hasRisk){
@@ -774,7 +756,7 @@ function createphototherapyChart(ctx, is38Plus, hasRiskFactors){
           plugins: {
             title: {
               display: true,
-              text: 'עקומת טיפול באור'
+              text: 'טיפול באור - ' + phototherapyChartsTitleSuffix[getGenericCaseIndex(is38Plus, hasRiskFactors)]
             },
             legend: {
               display: false // Hide legend
