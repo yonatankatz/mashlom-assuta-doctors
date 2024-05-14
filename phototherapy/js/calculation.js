@@ -642,28 +642,61 @@ datasets: [
     }  ]
 };
 
+// 38+ no risk
 var labels38PlusNoRisk = [];
 var valueslabels38PlusNoRisk = [];
-labels38PlusNoRisk.push(0);
-valueslabels38PlusNoRisk.push(NaN);
-for (i = 0; i < phototherapyShlomoProtocolWeek38PlusNoRisk.length; ++i) {
-    labels38PlusNoRisk.push(phototherapyShlomoProtocolWeek38PlusNoRisk[i].x);
-    valueslabels38PlusNoRisk.push(phototherapyShlomoProtocolWeek38PlusNoRisk[i].y);
+populatePhototherapyData(labels38PlusNoRisk, valueslabels38PlusNoRisk, phototherapyShlomoProtocolWeek38PlusNoRisk);
+
+// 38+ with risk
+var labels38PlusWithRisk = [];
+var valueslabels38PlusWithRisk = [];
+populatePhototherapyData(labels38PlusWithRisk, valueslabels38PlusWithRisk, phototherapyShlomoProtocolWeek38PlusWithRisk);
+
+// 35-37 no risk
+var labels3537NoRisk = [];
+var valueslabels3537NoRisk = [];
+populatePhototherapyData(labels3537NoRisk, valueslabels3537NoRisk, phototherapyShlomoProtocolWeek37NoRisk);
+
+// 35-37 with risk
+var labels3537WithRisk = [];
+var valueslabels3537WithRisk = [];
+populatePhototherapyData(labels3537WithRisk, valueslabels3537WithRisk, phototherapyShlomoProtocolWeek37WithRisk);
+
+function populatePhototherapyData(labelsList, valuesList, datapoints){
+    labelsList.push(0);
+    valuesList.push(NaN);
+    for (i = 0; i < datapoints.length; ++i) {
+        labelsList.push(datapoints[i].x);
+        valuesList.push(datapoints[i].y);
+    }
 }
 
-const phototherapyData = {
-labels: labelsPercentile95,
-datasets: [
-    {
-    data: valuesPercentile95,
-    borderColor: 'black',
-    fill: false,
-    label: '',
-    cubicInterpolationMode: 'monotone',
-    tension: 0.4,
-    pointRadius: 0 // Hide points
-    }]
-};    
+
+function getGraphArraysByCase(isWeek38Plus, hasRisk){
+    if (isWeek38Plus){
+        return hasRisk ? [labels38PlusWithRisk, valueslabels38PlusWithRisk] : [labels38PlusNoRisk, valueslabels38PlusNoRisk]; 
+    }
+    else{
+        return hasRisk ? [labels3537WithRisk, valueslabels3537WithRisk] :  [labels3537NoRisk, valueslabels3537NoRisk]; 
+    }
+}
+
+function getPhototherapyData(is38Plus, hasRiskFactors){
+    const arrays = getGraphArraysByCase(is38Plus, hasRiskFactors);
+    return phototherapyData = {
+    labels: arrays[0],
+    datasets: [
+        {
+        data: arrays[1],
+        borderColor: 'black',
+        fill: false,
+        label: '',
+        cubicInterpolationMode: 'monotone',
+        tension: 0.4,
+        pointRadius: 0 // Hide points
+        }]
+    };    
+}
 
 let butaniChart = undefined;
 let phototherapyChart = undefined;
@@ -870,10 +903,10 @@ function createButaniChart(ctx){
       butaniChart = new Chart(ctx, config);    
 }
 
-function createphototherapyChart(ctx){
+function createphototherapyChart(ctx, is38Plus, hasRiskFactors){
     const config = {
         type: 'line',
-        data: phototherapyData,
+        data: getPhototherapyData(is38Plus, hasRiskFactors),
         options: {
           responsive: true,
           plugins: {
@@ -913,7 +946,7 @@ function createphototherapyChart(ctx){
               ticks: {
                 stepSize: 12
               },
-              max: 144,
+              max: 168,
               display: true,
               title: {
                 display: true,
@@ -923,10 +956,10 @@ function createphototherapyChart(ctx){
             y: {
               type: 'linear',
               ticks: {
-                stepSize: 5
+                stepSize: 2
               },
               min:0,
-              max: 25,
+              max: 26,
               display: true,
               beginAtZero: true,
               title: {
@@ -940,11 +973,12 @@ function createphototherapyChart(ctx){
       phototherapyChart = new Chart(ctx, config);    
 }
 
-function drawPhototherapyWithPoint(ctx, x, y){
+function drawPhototherapyWithPoint(ctx, is38Plus, hasRiskFactors, x, y){
     if (phototherapyChart !== undefined){
         phototherapyChart.destroy();
       }
-    createphototherapyChart(ctx);  
+
+    createphototherapyChart(ctx, is38Plus, hasRiskFactors);  
     if (phototherapyChart.data.datasets.length > 1){ // we already have a point on the chart. 1 datasets for butani, 1 for the point
         phototherapyChart.data.datasets.splice(1, 1);
     }

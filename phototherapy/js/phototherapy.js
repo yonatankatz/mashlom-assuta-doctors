@@ -15,7 +15,6 @@ app.controller("PhototherapyController", ['$scope', '$rootScope', '$timeout', fu
     ctrl.considerTransfusion = '';
     var butaniCtx = document.getElementById('butaniChart').getContext('2d');
     var phototherapyCtx = document.getElementById('phototherapyChart').getContext('2d');
-    phototherapyChart
 
     ctrl.clearContent = function(attr) {
         ctrl[attr]  = null;
@@ -101,7 +100,7 @@ app.controller("PhototherapyController", ['$scope', '$rootScope', '$timeout', fu
                 ctrl.riskZoneObj = {};
             }
             drawButaniWithPoint(butaniCtx, ctrl.ageInHours, ctrl.bilirubin);
-            drawPhototherapyWithPoint(phototherapyCtx, ctrl.ageInHours, ctrl.bilirubin);
+            drawPhototherapyWithPoint(phototherapyCtx, ctrl.weekOfBirth === 'above38', ctrl.hasRiskFactors, ctrl.ageInHours, ctrl.bilirubin);
             if (callback) {
                 callback('done');
             }
