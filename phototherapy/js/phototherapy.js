@@ -140,11 +140,14 @@ app.controller("PhototherapyController", ['$scope', '$rootScope', '$timeout', fu
     ctrl.toggleCollapse = function(){
         ctrl.isCollapsed = !ctrl.isCollapsed;
         ctrl.collapseToggleText = ctrl.isCollapsed ? expendGraphsText : collpaseGraphsText;
+        if (!ctrl.isCollapsed){
+            $timeout(function() {
+                document.getElementById('graphsScrollTarget').scrollIntoView({
+                    behavior: 'smooth'
+                });
+              }, 200);
+        }
     };
-
-    ctrl.isGraphCollapsed = function(){
-        return ctrl.isCollapsed;
-    }
 
     ctrl.collapseGraphs = function(){
         if (!ctrl.isCollapsed){

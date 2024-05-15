@@ -121,12 +121,12 @@
             </ul>
           </div>
           <div>
-            <button type="button" class="btn btn-link" ng-click="ctrl.toggleCollapse()" style="padding-right: 0.1rem;">
+            <button type="button" class="btn btn-link" ng-click="ctrl.toggleCollapse()" style="padding-right: 0.1rem;" id="graphsScrollTarget">
               {{ ctrl.collapseToggleText }}
             </button>
           </div>
           <div>
-            <div ng-show="!ctrl.isGraphCollapsed()">
+            <div ng-show="!ctrl.isCollapsed">
               <canvas id="phototherapyChart" height="300"></canvas>
               <canvas id="butaniChart" height="300"></canvas>
             </div>
