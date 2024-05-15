@@ -634,7 +634,12 @@ function gerTransfusionResult(ageInHours, bilirubin, isWeek38Plus, hasRisk){
         return 'עובר את סף החלפת דם';
     }
     else if ((threshold - bilirubin) <= DELTA_FROM_THRESHOLD_TO_NOTIFY){
-        return 'ערך בילירובין מתקרב לסף החלפת דם, יש לשקול מתן IVIG';
+        if (hasRisk) {
+          return 'ערך בילירובין מתקרב לסף החלפת דם, יש לשקול מתן IVIG';
+        }
+        else {
+          return 'ערך בילירובין מתקרב לסף החלפת דם';
+        }
     }
     return '';
 }
