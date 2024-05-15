@@ -120,16 +120,15 @@
               <li>יילוד (או בן משפחה) עם חסר ב G6PD הזקוק למעקב </li>
             </ul>
           </div>
-          <p>
-            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" 
-            data-bs-target="#pointonGraphs" aria-expanded="false" aria-controls="pointonGraphs">
-              צפה בערך על הגרף
+          <div>
+            <button type="button" class="btn btn-link" ng-click="ctrl.toggleCollapse()" style="padding-right: 0.1rem;">
+              {{ ctrl.collapseToggleText }}
             </button>
-          </p>
-          <div class="collapse" id="pointonGraphs">
-            <div class="card card-body">
-              <canvas id="butaniChart" height="300"></canvas>
+          </div>
+          <div>
+            <div ng-show="!ctrl.isGraphCollapsed()">
               <canvas id="phototherapyChart" height="300"></canvas>
+              <canvas id="butaniChart" height="300"></canvas>
             </div>
           </div>
         </div>

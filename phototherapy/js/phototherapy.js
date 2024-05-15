@@ -13,6 +13,10 @@ app.controller("PhototherapyController", ['$scope', '$rootScope', '$timeout', fu
     ctrl.riskZoneObj = {};
     ctrl.statusColor = {};
     ctrl.considerTransfusion = '';
+    const expendGraphsText = 'צפה בערך על העקומות';
+    const collpaseGraphsText = 'סגור תצוגה גרפית';
+    ctrl.collapseToggleText = expendGraphsText;
+    ctrl.isCollapsed = true;
     var butaniCtx = document.getElementById('butaniChart').getContext('2d');
     var phototherapyCtx = document.getElementById('phototherapyChart').getContext('2d');
 
@@ -54,6 +58,7 @@ app.controller("PhototherapyController", ['$scope', '$rootScope', '$timeout', fu
         ctrl.considerTransfusion = '';
         ctrl.riskZoneObj = {};
         ctrl.statusColor['background-color'] = '';
+        ctrl.collapseGraphs();
     };
 
     /*returns true if values satisfied.*/
@@ -69,6 +74,8 @@ app.controller("PhototherapyController", ['$scope', '$rootScope', '$timeout', fu
     }
 
     ctrl.changedValue = function(callback) {   
+        // Value changed we need to collapse graphs section
+        ctrl.collapseGraphs();
         if (!ctrl.handleValuesSatisifed(callback)) {
             return;
         }
@@ -127,6 +134,21 @@ app.controller("PhototherapyController", ['$scope', '$rootScope', '$timeout', fu
     ctrl.closePanel = function() {
         ctrl.dataShown = 'CALCULATOR';
     };
+
+    ctrl.toggleCollapse = function(){
+        ctrl.isCollapsed = !ctrl.isCollapsed;
+        ctrl.collapseToggleText = ctrl.isCollapsed ? expendGraphsText : collpaseGraphsText;
+    };
+
+    ctrl.isGraphCollapsed = function(){
+        return ctrl.isCollapsed;
+    }
+
+    ctrl.collapseGraphs = function(){
+        if (!ctrl.isCollapsed){
+            ctrl.toggleCollapse();
+        }
+    }
 
 }]);
 
