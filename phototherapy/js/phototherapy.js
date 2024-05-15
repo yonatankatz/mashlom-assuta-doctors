@@ -49,7 +49,7 @@ app.controller("PhototherapyController", ['$scope', '$rootScope', '$timeout', fu
     }
 
     ctrl.shouldFollowUp = function() {
-        return ctrl.riskZoneSatisfied() && ctrl.isFollowUpRelevant();
+        return ctrl.riskZoneSatisfied() && ctrl.isFollowUpRelevant() && ctrl.rootDiagnose !== "נדרש טיפול באור";;
     }
     
     ctrl.clearValues = function() {

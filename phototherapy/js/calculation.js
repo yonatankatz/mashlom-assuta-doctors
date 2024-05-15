@@ -594,7 +594,12 @@ function getTrackingStatusByRiskZone(riskZone, hasRisk, shouldUsePhototherapy){
         }
     }
     else if (riskZone === 2 && !hasRisk){
+      if (shouldUsePhototherapy){ // edge case where risk zone == 2 && no risk, but still above phototherapy curve
+        return 'טיפול אור באשפוז';
+      }
+      else {
         return 'שחרור עם מעקב בילירובין חוזר תוך 24 שעות';
+      }
     }
     else if (riskZone === 4 || (!hasRisk && riskZone === 3)){
         return 'שחרור למעקב שגרתי בקהילה, רופא מטפל וטיפת חלב';
