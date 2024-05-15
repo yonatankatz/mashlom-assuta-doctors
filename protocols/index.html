@@ -9,7 +9,6 @@
 <link rel="stylesheet" href="../3rd-party/fontawesome/fontawesome-free-6.5.1-web/css/all.min.css">
 <link rel="stylesheet" href="../common/css/common.css">
 <link rel="stylesheet" href="css/protocols.css">
-
 <link rel="icon" href="/assets/logo/fav-icon96x96.png">
 <meta property='og:title' content="פרוטוקולים , מיון מבוגרים, אסותא אשדוד"/>
 <meta property='og:type' content='Article'/>
@@ -67,7 +66,7 @@
     <div ng-repeat="protocol in (ctrl.protocols | filter: {name: ctrl.searchQuery}) track by $index" class="accordion-item">
       <h2 class="accordion-header" id="headingOne{{$index}}">
         <div class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne{{$index}}" aria-expanded="false" aria-controls="collapseOne{{$index}}">
-          <button ng-click="ctrl.openUrl(protocol.link); $event.prevetDefault();" class="accordion-button collapsed" type="button">
+          <button ng-click="ctrl.openUrl(protocol.link); $event.prevetDefault();" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target >
             {{protocol.name}}
           </button>
           <i class="far fa-list-alt"></i>
