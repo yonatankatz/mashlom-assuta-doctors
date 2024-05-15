@@ -57,6 +57,7 @@ app.controller("PhototherapyController", ['$scope', '$rootScope', '$timeout', fu
         ctrl.distanceFromCurve = '';
         ctrl.considerTransfusion = '';
         ctrl.riskZoneObj = {};
+        ctrl.collapseToggleText = '';
         ctrl.statusColor['background-color'] = '';
         ctrl.collapseGraphs();
     };
@@ -108,6 +109,7 @@ app.controller("PhototherapyController", ['$scope', '$rootScope', '$timeout', fu
             }
             drawButaniWithPoint(butaniCtx, ctrl.ageInHours, ctrl.bilirubin);
             drawPhototherapyWithPoint(phototherapyCtx, ctrl.weekOfBirth === 'above38', ctrl.hasRiskFactors, ctrl.ageInHours, ctrl.bilirubin);
+            ctrl.collapseToggleText = ctrl.isCollapsed ? expendGraphsText : collpaseGraphsText;
             if (callback) {
                 callback('done');
             }
