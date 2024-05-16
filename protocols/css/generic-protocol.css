@@ -109,81 +109,6 @@ html, body {
   margin-left: inherit !important;
   color: white;
 }
-.case-sub-section {
-  padding: 2px;
-  border-radius: 10px;
-}
-
-ul {
-  padding-top: 0rem;
-  padding-left: 0.5rem;
-}
-
-li {
-  padding-top: 0.3rem;
-}
-
-.list-items-only-bullets {
-  padding-inline-start: 0.4rem;
-  margin-right: 1rem;
-}
-
-.list-items-only-section {
-  padding-inline-start: 0.4rem;  
-  border-radius: 10px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-.list-items-only-section-positive {
-  background-color: #B9EDE7;  
-}
-.list-items-only-section-many {
-  background-color: #B9EDE7;  
-}
-.list-items-only-section {
-  list-style: none;
-  padding-left: 30px; /* Adjust padding to accommodate bullet size */
-}
-.list-items-only-section li {
-  position: relative;
-  padding-right: 30px; /* Adjust padding to accommodate bullet size */
-}
-.list-items-only-section-positive li::before {
-  content: '';
-  position: absolute;
-  right: 0;
-  top: 0.5em;
-  width: 20px; /* Adjust width */
-  height: 20px; /* Adjust height */
-  background-image: url('../../assets/bullets/v.svg');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-.list-items-only-section-negative li::before {
-  content: '';
-  position: absolute;
-  right: 0;
-  top: 0.5em;  
-  width: 20px; /* Adjust width */
-  height: 20px; /* Adjust height */
-  background-image: url('../../assets/bullets/x.svg');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-.list-items-only-section-many li::before {
-  content: '';
-  position: absolute;
-  right: 0;
-  top: 0.5em;  
-  width: 20px; /* Adjust width */
-  height: 20px; /* Adjust height */
-  background-image: url('../../assets/bullets/star.svg');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-}
 
 /* ul.list-items-only-section-positive li {
   list-style-image: url('path/to/your/icon.svg');
@@ -202,9 +127,4 @@ li {
 
   .links {
     border: 1px solid var(--border-color) !important;
-  }
-
-  .bullet-point {
-      list-style-type: '👈';
-      padding-inline-start: 1ch;    
   }

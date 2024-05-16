@@ -1,0 +1,27 @@
+<div ng-if="!bulletType && items.length == 1" class="case-sub-section">
+    {{items[0].value}}
+</div>
+<div ng-if="bulletType=='STAR' || (!bulletType && items.length > 3)" class="case-sub-section">
+    <ul class="list-items-only-section list-items-only-section-many" >
+        <li ng-repeat="item in items track by $index">
+            {{item.value}}
+        </li>
+        <ul ng-if="item.subItems" class="list-items-only-section list-items-only-section-many" >
+            <li ng-repeat="subItem in item.subItems track by $index">
+                {{subItem}}
+            </li>
+        </ul>        
+    </ul>        
+</div>
+<div ng-if="bulletType=='BULLET' || (!bulletType && items.length >=2 && items.length <= 3)">
+    <ul class="list-items-only-bullets">
+        <li ng-repeat="item in items track by $index">
+            {{item.value}}
+            <ul ng-if="item.subItems" class="list-items-only-bullets">
+                <li ng-repeat="subitem in item.subItems track by $index">
+                  {{subitem}}
+                 </li>                      
+              </ul>
+        </li>
+    </ul>
+</div>

@@ -89,7 +89,7 @@
                 תיאור התלונה
               </span>
               <div class="case-sub-section">
-                <ul>
+                <ul class="list-items-only-bullets">
                   <li ng-repeat="desc in section.caseDecription">
                     {{desc}}
                   </li>                
@@ -101,7 +101,7 @@
                 גורמי סיכון
               </span>
               <div class="case-sub-section">
-                <ul>
+                <ul class="list-items-only-bullets">
                   <li ng-repeat="risk in section.riskFactors">
                     {{risk}}
                   </li>                
@@ -109,8 +109,10 @@
               </div>
             </div>
           </div>
-          <ul ng-if="!!section.listItems" class="list-items-only-section">
-            <li ng-repeat="item in section.listItems" ng-class="{'bullet-point' : section.bulletClass}" >
+          <ul ng-if="!!section.listItems" ng-class="{'list-items-only-section': section.listItems.length > 3,
+                                                     'list-items-only-section-many': section.listItems.length > 3,
+                                                     'list-items-only-section-bullets': section.listItems.length <= 3}">
+            <li ng-repeat="item in section.listItems" >
               {{item}}
             </li>
           </ul>

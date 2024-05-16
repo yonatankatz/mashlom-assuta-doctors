@@ -8,15 +8,17 @@ app.controller("ProtocolController", ['$scope', '$rootScope', '$http', '$timeout
     ctrl.protocolData = window.protocolData;
 
     ctrl.toggleCollabse = function() {
-        ctrl.isExpanded = !ctrl.isExpanded;            
-        var accordionButtons = document.querySelectorAll('.accordion-button');
-        accordionButtons.forEach(function(button) {                
-            if (button.getAttribute("aria-expanded") == 'true' && !ctrl.isExpanded) {
-                button.click();                    
-            }
-            else if (button.getAttribute("aria-expanded") == 'false' && ctrl.isExpanded) {
-                button.click(); 
-            }                                
+        $timeout(function() {
+            ctrl.isExpanded = !ctrl.isExpanded;            
+            var accordionButtons = document.querySelectorAll('.accordion-button');
+            accordionButtons.forEach(function(button) {                
+                if (button.getAttribute("aria-expanded") == 'true' && !ctrl.isExpanded) {
+                    button.click();
+                }
+                else if (button.getAttribute("aria-expanded") == 'false' && ctrl.isExpanded) {
+                    button.click();
+                }                                
+            });
         });
     };
 

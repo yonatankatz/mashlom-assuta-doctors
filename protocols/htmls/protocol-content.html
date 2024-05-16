@@ -14,11 +14,7 @@
       </h2>
       <div id="1" class="accordion-collapse collapse" aria-labelledby="protocolHeadingOne_1">
         <div class="accordion-body">
-            <ul class="list-items-only-bullets">
-            <li ng-repeat="item in ctrl.protocolData.subsections[0].items track by $index">
-                {{item}}
-            </li>
-            </ul>        
+          <bullets items="ctrl.protocolData.subsections[0].items"></bullets>
         </div>        
       </div>
   </div>
@@ -60,16 +56,7 @@
         </h2>
         <div id="3" class="accordion-collapse collapse" aria-labelledby="protocolHeadingOne_3">
           <div class="accordion-body">
-            <ul class="list-items-only-bullets">
-              <li ng-repeat="item in ctrl.protocolData.subsections[2].items track by $index">
-                  {{item.value}}
-                  <ul ng-if="item.subItems" class="list-items-only-bullets">
-                    <li ng-repeat="subitem in item.subItems track by $index">
-                      {{subitem}}
-                     </li>                      
-                  </ul>
-              </li>
-              </ul>  
+            <bullets bullet-type="'BULLET'" items="ctrl.protocolData.subsections[2].items"></bullets>
           </div>        
         </div>
     </div>
@@ -92,7 +79,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr ng-repeat="medison in ctrl.protocolData.subsections[3].medisons track by $index">
+                <tr ng-repeat="medison in ctrl.protocolData.subsections[3].medicines track by $index">
                   <td scope="row" >{{medison.name}}</td>
                   <td scope="row" >{{medison.dosage}}</td>
                   <td scope="row" >{{medison.type}}</td>
@@ -143,11 +130,7 @@
         </h2>
         <div id="6" class="accordion-collapse collapse" aria-labelledby="protocolHeadingOne_6">
           <div class="accordion-body">
-              <ul class="list-items-only-bullets">
-              <li ng-repeat="item in ctrl.protocolData.subsections[5].items track by $index">
-                  {{item}}
-              </li>
-              </ul>        
+              <bullets items="ctrl.protocolData.subsections[5].items"></bullets>
           </div>        
         </div>
     </div>
@@ -162,22 +145,10 @@
         <div id="7" class="accordion-collapse collapse" aria-labelledby="protocolHeadingOne_7">
           <div class="accordion-body">      
               <h5>התוויות לייעוצים</h5>
-              <div class="pro-hospitalization case-sub-section" >
-              <ul class="list-items-only-section list-items-only-section-many" >
-                  <li ng-repeat="item in ctrl.protocolData.subsections[6].consultencies track by $index">
-                  {{item}}
-                  </li>
-                  </ul>        
-              </div>
+              <bullets bullet-type="'STAR'" items="ctrl.protocolData.subsections[6].consultencies"></bullets>              
           
               <h5>התוויות לאשפוז במחלקה אחרת</h5>
-              <div class="con-hospitalization case-sub-section">
-              <ul class="list-items-only-section list-items-only-section-many" >
-                  <li ng-repeat="item in ctrl.protocolData.subsections[6].hospitalizationElsewhere track by $index">
-                  {{item}}
-                  </li>
-                  </ul>        
-              </div>
+              <bullets bullet-type="'STAR'" items="ctrl.protocolData.subsections[6].hospitalizationElsewhere"></bullets>
               </div>        
           </div>      
         </div>
@@ -192,22 +163,9 @@
             <div id="8" class="accordion-collapse collapse" aria-labelledby="protocolHeadingOne_8">
               <div class="accordion-body">      
                   <h5>התוויות לשחרור</h5>
-                  <div class="pro-hospitalization case-sub-section" >
-                  <ul class="list-items-only-section list-items-only-section-many" >
-                      <li ng-repeat="item in ctrl.protocolData.subsections[7].guidelines track by $index">
-                      {{item}}
-                      </li>
-                      </ul>        
-                  </div>
-              
+                  <bullets bullet-type="'STAR'" items="ctrl.protocolData.subsections[7].guidelines"></bullets>              
                   <h5>המלצות לשחרור</h5>
-                  <div class="con-hospitalization case-sub-section">
-                  <ul class="list-items-only-section list-items-only-section-many" >
-                      <li ng-repeat="item in ctrl.protocolData.subsections[7].recommendations track by $index">
-                      {{item}}
-                      </li>
-                      </ul>        
-                  </div>
+                  <bullets bullet-type="'STAR'" items="ctrl.protocolData.subsections[7].recommendations"></bullets>
                   </div>        
               </div>      
             </div>
