@@ -85,46 +85,27 @@
           {
             displayName: "טיפול תרופתי מומלץ",
             id: "4",
-            medicines: [
-              {
-                name: "Gentamicin",
-                dosage: "0.5-1 mg (עד 400mg)",
-                type: "I.V",
-                frequency: "פעם ביום",
-                comment:" אין לתת במטופלים עם תפקוד כלייתי לקוי- eGFR< 60 mL/min, מחלת כבד עם בילירובין >  micromol/L 90, בעיה ידועה בשמיעה ושיווי משקל (כולל וארטיגו או טיניטוס), מחלות נוירומוקסולריות (פרקינסון, Myasthenia gravis). מעל גיל 60 יש לתת mg/kg4. יש לחשב על פי ה-Ideal body weight אלא עם המטופל/ת בתת משקל אז יש לחשב על פי המשקל כפי שהוא. ",
-              },
-              {
-                name: "Ceftriaxone",
-                dosage: "2g",
-                type: "I.V",
-                frequency: "פעם ביום",
-                comment: " במקרים בהם אי-אפשר לתת גאנטמיצין ",
-              },
-              {
-                name: "Paracetamol",
-                dosage: "1g",
-                type: "P.O, I.V",
-                frequency: "כל 4-6 שעות",
-              },
-              {
-                name: "Optalgin",
-                dosage: "1g",
-                type: "P.O, I.V",
-                frequency: "כל 8 שעות",
-              },
-            ],
+            table: {
+              header: ["תרופה", "מינון", "אופן לקיחה", "תדירות", "הערות"],
+              rows: [
+                ["Gentamicin", "0.5-1 mg (עד 400mg)", "I.V", "פעם ביום"],
+                [" אין לתת במטופלים עם תפקוד כלייתי לקוי- eGFR< 60 mL/min, מחלת כבד עם בילירובין >  micromol/L 90, בעיה ידועה בשמיעה ושיווי משקל (כולל וארטיגו או טיניטוס), מחלות נוירומוקסולריות (פרקינסון, Myasthenia gravis). מעל גיל 60 יש לתת mg/kg4. יש לחשב על פי ה-Ideal body weight אלא עם המטופל/ת בתת משקל אז יש לחשב על פי המשקל כפי שהוא. "],
+                ["Ceftriaxone", "2g", "I.V", "פעם ביום"],
+                [" במקרים בהם אי-אפשר לתת גאנטמיצין "],
+                [ "Paracetamol", "1g", "P.O, I.V", "כל 4-6 שעות", ""],
+                ["Optalgin", "1g", "P.O, I.V", "כל 8 שעות"],
+              ]
+            }
           },
           {
             displayName: "הוראות מומלצות",
             id: "5",
-            instructions: [
-              {
-                name: "מדדים חיוניים",
-                frequency: "כל שעה",
-                comment:
-                  " כולל חום וקצב נשימתי. סטורציה פעם במשמרת או על פי הצורך ",
-              },
-            ],
+            table: {
+              header: ["הוראה", "תדירות", "הערות"],
+              rows: [
+                ["מדדים חיוניים", "כל שעה", " כולל חום וקצב נשימתי. סטורציה פעם במשמרת או על פי הצורך "]
+              ]
+            }
           },
           {
             displayName: "סוגיות ספציפיות למטופל",
@@ -229,6 +210,6 @@
     <script src="../3rd-party/angularjs/angular.min.js"></script>
     <script src="../3rd-party/bootstrap/bootstrap.bundle.min.js"></script>
     <script src="js/generic-protocol.js"></script>
-    <script src="js/bullets.js"></script>
+    <script src="js/protocols-components.js"></script>
   </body>
 </html>

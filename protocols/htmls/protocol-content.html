@@ -69,27 +69,7 @@
         </h2>
         <div id="4" class="accordion-collapse collapse" aria-labelledby="protocolHeadingOne_4">
           <div class="accordion-body">
-            <table class="table" style="margin-top: 20px;">
-              <thead>
-                <tr class="table-header">
-                  <th scope="col">תרופה</th>
-                  <th scope="col">מינון</th>
-                  <th scope="col">אופן לקיחה</th>
-                  <th scope="col">תדירות</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr ng-repeat="medison in ctrl.protocolData.subsections[3].medicines track by $index">
-                  <td scope="row" >{{medison.name}}</td>
-                  <td scope="row" >{{medison.dosage}}</td>
-                  <td scope="row" >{{medison.type}}</td>
-                  <td scope="row" >{{medison.frequency}}</td>
-                </tr>
-              </tbody>
-          </table>
-          <div ng-if="ctrl.protocolData.subsections[3].comment" class="pro-hospitalization case-sub-section" style="background-color: #FFECCC;padding-right: 10px;padding-left: 10px;">
-            {{ctrl.protocolData.subsections[3].comment}}
-          </div>  
+            <custom-table table="ctrl.protocolData.subsections[3].table"></custom-table>
           </div>        
         </div>
     </div>
@@ -102,22 +82,7 @@
         </h2>
         <div id="5" class="accordion-collapse collapse" aria-labelledby="protocolHeadingOne_5">
           <div class="accordion-body">
-            <table class="table" style="margin-top: 10px;">
-              <thead>
-                <tr class="table-header">
-                  <th scope="col">הוראה</th>
-                  <th scope="col">תדירות</th>                  
-                  <th scope="col">הערות</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr ng-repeat="instruction in ctrl.protocolData.subsections[4].instructions track by $index">
-                  <td scope="row" >{{instruction.name}}</td>
-                  <td scope="row" >{{instruction.frequency}}</td>
-                  <td scope="row" >{{instruction.comment}}</td>
-                </tr>
-              </tbody>
-          </table>
+            <custom-table table="ctrl.protocolData.subsections[4].table"></custom-table>
           </div>        
         </div>
     </div>
