@@ -112,142 +112,6 @@ var percentile95DataPoints = [
     { x: 148, y: 17.4 }
 ];
 
-var phototherapyWeek38PlusNoRisk = [
-    { x: 0, y: 5 },
-    { x: 4.1, y: 6 },
-    { x: 8, y: 7.2 },
-    { x: 11.7, y: 8.1 },
-    { x: 16, y: 9.1 },
-    { x: 19.6, y: 9.9 },
-    { x: 23.6, y: 11 },
-    { x: 29.2, y: 11.9 },
-    { x: 36.1, y: 13 },
-    { x: 41.1, y: 14 },
-    { x: 47.1, y: 15 },
-    { x: 52.8, y: 15.5 },
-    { x: 59.4, y: 16 },
-    { x: 64.9, y: 16.5 },
-    { x: 71.3, y: 17 },
-    { x: 78.4, y: 17.3 },
-    { x: 86.4, y: 17.6 },
-    { x: 94.9, y: 17.9 },
-    { x: 102.2, y: 18.2 },
-    { x: 111.6, y: 18.4 },
-    { x: 119.3, y: 18.6 },
-    { x: 128.9, y: 18.9 },
-    { x: 137.8, y: 19 },
-    { x: 143.3, y: 19 },
-    { x: 152.5, y: 19 },
-    { x: 159.3, y: 19 },
-    { x: 167.4, y: 19 },
-];
-
-var phototherapyWeek38PlusWithRisk = [
-    { x: 0, y: 5 },
-    { x: 4.1, y: 6 },
-    { x: 9.8, y: 7.1 },
-    { x: 13.9, y: 7.8 },
-    { x: 17.2, y: 8.5 },
-    { x: 21.9, y: 9.2 },
-    { x: 26, y: 9.8 },
-    { x: 30, y: 10.2 },
-    { x: 36.6, y: 11.1 },
-    { x: 42.1, y: 11.8 },
-    { x: 47.5, y: 12.4 },
-    { x: 54.4, y: 13 },
-    { x: 61.5, y: 13.7 },
-    { x: 66.3, y: 14 },
-    { x: 71.3, y: 14.5 },
-    { x: 83.7, y: 15 },
-    { x: 90.8, y: 15.6 },
-    { x: 95.8, y: 16 },
-    { x: 109, y: 16.5 },
-    { x: 119.1, y: 16.9 },
-    { x: 127.1, y: 17.3 },
-    { x: 130.8, y: 17.4 },
-    { x: 138.8, y: 17.7 },
-    { x: 144.2, y: 17.7 },
-    { x: 154.8, y: 17.9 },
-    { x: 159.6, y: 18 },
-    { x: 162.8, y: 18 },
-    { x: 167, y: 18 },
-];
-
-var phototherapyWeek37NoRisk = [
-    { x: 0, y: 5.1 },
-    { x: 4.4, y: 6 },
-    { x: 8.4, y: 6.8 },
-    { x: 12.2, y: 7.6 },
-    { x: 14.7, y: 8 },
-    { x: 19.3, y: 8.8 },
-    { x: 23.1, y: 9.4 },
-    { x: 26.8, y: 9.9 },
-    { x: 33.6, y: 10.8 },
-    { x: 38.9, y: 11.4 },
-    { x: 43.3, y: 11.9 },
-    { x: 47.4, y: 12.4 },
-    { x: 53.9, y: 13 },
-    { x: 60.3, y: 13.5 },
-    { x: 65.1, y: 13.9 },
-    { x: 71.3, y: 14.4 },
-    { x: 77.4, y: 14.9 },
-    { x: 84.3, y: 15.4 },
-    { x: 89.2, y: 15.8 },
-    { x: 95, y: 15.9 },
-    { x: 100.3, y: 16.1 },
-    { x: 107.3, y: 16.5 },
-    { x: 113.2, y: 16.7 },
-    { x: 119.1, y: 16.9 },
-    { x: 126.6, y: 17.2 },
-    { x: 135.5, y: 17.5 },
-    { x: 143.8, y: 17.7 },
-    { x: 151.4, y: 17.9 },
-    { x: 159.8, y: 18 },
-    { x: 167.4, y: 18 },
-];
-
-var phototherapyWeek37WithRisk = [
-    { x: 0, y: 5.1 },
-    { x: 3.5, y: 5.3 },
-    { x: 6.6, y: 5.6 },
-    { x: 11.7, y: 6 },
-    { x: 18.7, y: 6.6 },
-    { x: 23.4, y: 7 },
-    { x: 27.1, y: 7.4 },
-    { x: 30.1, y: 7.8 },
-    { x: 34.9, y: 8.4 },
-    { x: 39, y: 9 },
-    { x: 42.5, y: 9.4 },
-    { x: 45.4, y: 9.8 },
-    { x: 49.3, y: 10.2 },
-    { x: 52.2, y: 10.4 },
-    { x: 55.5, y: 10.6 },
-    { x: 60.3, y: 11.1 },
-    { x: 63.1, y: 11.4 },
-    { x: 66.5, y: 11.8 },
-    { x: 71.7, y: 12.4 },
-    { x: 75.4, y: 12.8 },
-    { x: 79.7, y: 13 },
-    { x: 84.7, y: 13.5 },
-    { x: 88.6, y: 13.9 },
-    { x: 94.3, y: 14.4 },
-    { x: 98.3, y: 14.6 },
-    { x: 102.9, y: 14.8 },
-    { x: 109.3, y: 15 },
-    { x: 112.1, y: 15 },
-    { x: 115, y: 14.9 },
-    { x: 119.5, y: 15 },
-    { x: 123.9, y: 15 },
-    { x: 127.5, y: 15 },
-    { x: 133.1, y: 15 },
-    { x: 139, y: 15 },
-    { x: 144.9, y: 15 },
-    { x: 151.1, y: 15 },
-    { x: 157.4, y: 15 },
-    { x: 163.1, y: 15 },
-    { x: 167.5, y: 15 },
-];
-
 var transfusionWeek38PlusNoRisk = [
 { x: 5.9,  y: 16.1 },
 { x: 9.1,  y: 16.5 },
@@ -585,6 +449,109 @@ var phototherapyShlomoProtocolWeek37WithRisk = [
 ]; 
 
 
+// The function purpose is to easily identify the case with index without the need of checking the 
+// Week and the risk over and over again.
+//  38+, no risk == > 0
+//  38+, with risk == > 1
+//  35-37, no risk == > 2
+//  35-37, with risk == > 3
+function getGenericCaseIndex(isWeek38Plus, hasRisk){ 
+  if (isWeek38Plus){
+      return hasRisk ? 1 : 0;
+  }
+  else{
+      return hasRisk ? 3 : 2; 
+  }
+}
+
+var allphototherapyDataPoints = [phototherapyShlomoProtocolWeek38PlusNoRisk,
+  phototherapyShlomoProtocolWeek38PlusWithRisk,
+  phototherapyShlomoProtocolWeek37NoRisk,
+  phototherapyShlomoProtocolWeek37WithRisk
+];
+var phototherapyChartsTitleSuffix = ['38+ ללא גורמי סיכון', '38+ עם גורמי סיכון', '35-37 ללא גורמי סיכון', '35-37 עם גורמי סיכון']
+var allPhototherapyChartsData = [];
+populatePhototherapyChartsData();
+var percentile40LabelsValues = createLabelsAndValues(percentile40DataPoints);
+var percentile75LabelsValues = createLabelsAndValues(percentile75DataPoints);
+var percentile95LabelsValues = createLabelsAndValues(percentile95DataPoints);
+
+const butaniData = {
+labels: percentile40LabelsValues[0],
+datasets: [
+    {
+    data: percentile95LabelsValues[1],
+    borderColor: 'black',
+    fill: false,
+    label: '',
+    cubicInterpolationMode: 'monotone',
+    tension: 0.4,
+    pointRadius: 0 // Hide points
+    },
+    {
+    data: percentile75LabelsValues[1],
+    borderColor: 'black',
+    fill: false,
+    cubicInterpolationMode: 'monotone',
+    tension: 0.4,
+    pointRadius: 0 // Hide points
+    },
+    {
+    data: percentile40LabelsValues[1],
+    borderColor: 'black',
+    fill: false,
+    cubicInterpolationMode: 'monotone',
+    tension: 0.4,
+    pointRadius: 0 // Hide points
+    }  ]
+};
+
+function populatePhototherapyChartsData(){
+  for (j = 0; j < allphototherapyDataPoints.length; ++j) {
+    var datapoints = allphototherapyDataPoints[j];
+    var result = createLabelsAndValues(datapoints);
+    allPhototherapyChartsData.push(result);
+  }
+}
+
+function createLabelsAndValues(datapoints){
+    var labels = [];
+    var values = [];
+    labels.push(0);
+    values.push(NaN);
+    for (i = 0; i < datapoints.length; ++i) {
+        labels.push(datapoints[i].x);
+        values.push(datapoints[i].y);
+    }
+    return [labels, values];
+}
+
+function getGraphArraysByCase(isWeek38Plus, hasRisk){
+  const index = getGenericCaseIndex(isWeek38Plus, hasRisk);
+  return allPhototherapyChartsData[index];
+}
+
+function getPhototherapyData(is38Plus, hasRiskFactors){
+    const arrays = getGraphArraysByCase(is38Plus, hasRiskFactors);
+    return phototherapyData = {
+    labels: arrays[0],
+    datasets: [
+        {
+        data: arrays[1],
+        borderColor: 'black',
+        fill: false,
+        label: '',
+        cubicInterpolationMode: 'monotone',
+        tension: 0.4,
+        pointRadius: 0,
+        borderDash: hasRiskFactors ? [0, 0]: [5,5] // dashed when no risk, similar to "regular" graphs.
+        }]
+    };    
+}
+
+let butaniChart = undefined;
+let phototherapyChart = undefined;
+
 function interpolate(x0, y0, x1, y1, x) {
     return y0 + ((y1 - y0) / (x1 - x0)) * (x - x0);
 }
@@ -627,7 +594,12 @@ function getTrackingStatusByRiskZone(riskZone, hasRisk, shouldUsePhototherapy){
         }
     }
     else if (riskZone === 2 && !hasRisk){
+      if (shouldUsePhototherapy){ // edge case where risk zone == 2 && no risk, but still above phototherapy curve
+        return 'טיפול אור באשפוז';
+      }
+      else {
         return 'שחרור עם מעקב בילירובין חוזר תוך 24 שעות';
+      }
     }
     else if (riskZone === 4 || (!hasRisk && riskZone === 3)){
         return 'שחרור למעקב שגרתי בקהילה, רופא מטפל וטיפת חלב';
@@ -639,17 +611,10 @@ function getTrackingStatusByRiskZone(riskZone, hasRisk, shouldUsePhototherapy){
 
 function getPhototherapyDataPointsByCase(isWeek38Plus, hasRisk){
     if (isWeek38Plus){
-        // Hagar Old Graphs
-        //return hasRisk ? phototherapyWeek38PlusWithRisk : phototherapyWeek38PlusNoRisk; 
-
         // Shlomo and Assuta's Protocol
         return hasRisk ? phototherapyShlomoProtocolWeek38PlusWithRisk : phototherapyShlomoProtocolWeek38PlusNoRisk; 
     }
     else{
-        // Hagar Old Graphs
-        //return hasRisk ? phototherapyWeek37WithRisk : phototherapyWeek37NoRisk; 
-        
-        // Shlomo and Assuta's Protocol
         return hasRisk ? phototherapyShlomoProtocolWeek37WithRisk : phototherapyShlomoProtocolWeek37NoRisk; 
     }
 }
@@ -674,7 +639,12 @@ function gerTransfusionResult(ageInHours, bilirubin, isWeek38Plus, hasRisk){
         return 'עובר את סף החלפת דם';
     }
     else if ((threshold - bilirubin) <= DELTA_FROM_THRESHOLD_TO_NOTIFY){
-        return 'ערך בילירובין מתקרב לסף החלפת דם, יש לשקול מתן IVIG';
+        if (hasRisk) {
+          return 'ערך בילירובין מתקרב לסף החלפת דם, יש לשקול מתן IVIG';
+        }
+        else {
+          return 'ערך בילירובין מתקרב לסף החלפת דם';
+        }
     }
     return '';
 }
@@ -715,4 +685,186 @@ function getYOnCurveByX(dataPoints, x) {
     );
 
     return interpolatedY;
+}
+
+function createButaniChart(ctx){
+    const config = {
+        type: 'line',
+        data: butaniData, // fix data to photothreapy data
+        options: {
+          responsive: true,
+          plugins: {
+            title: {
+              display: true,
+              text: 'עקומת בוטאני'
+            },
+            legend: {
+              display: false // Hide legend
+            },
+            tooltip: {
+              rtl: true,
+              textDirection: 'rtl',
+              interaction: {
+                  mode: 'nearest',
+                  axis: 'xy'
+              },
+              callbacks: {
+                  title: function(context) {
+                      return '';
+                  },
+                  label: function(context) {
+                      return '';
+                  },
+                  afterLabel: function(context) {
+                      return "גיל: " + context.label + ", בילירובין: " + context.formattedValue;
+                  }
+              }
+            }
+          },
+          interaction: {
+            intersect: false,
+          },
+          scales: {
+            x: {
+              type: 'linear',
+              ticks: {
+                stepSize: 12
+              },
+              max: 144,
+              display: true,
+              title: {
+                display: true,
+                text: 'גיל בשעות'
+              }
+            },
+            y: {
+              type: 'linear',
+              ticks: {
+                stepSize: 5
+              },
+              min:0,
+              max: 25,
+              display: true,
+              beginAtZero: true,
+              title: {
+                display: true,
+                text: 'בילירובין'
+              },
+            }
+          }
+        },
+      }; 
+      butaniChart = new Chart(ctx, config);    
+}
+
+function createphototherapyChart(ctx, is38Plus, hasRiskFactors){
+    const config = {
+        type: 'line',
+        data: getPhototherapyData(is38Plus, hasRiskFactors),
+        options: {
+          responsive: true,
+          plugins: {
+            title: {
+              display: true,
+              text: 'טיפול באור - ' + phototherapyChartsTitleSuffix[getGenericCaseIndex(is38Plus, hasRiskFactors)]
+            },
+            legend: {
+              display: false // Hide legend
+            },
+            tooltip: {
+              rtl: true,
+              textDirection: 'rtl',
+              interaction: {
+                  mode: 'nearest',
+                  axis: 'xy'
+              },
+              callbacks: {
+                  title: function(context) {
+                      return '';
+                  },
+                  label: function(context) {
+                      return '';
+                  },
+                  afterLabel: function(context) {
+                      return "גיל: " + context.label + ", בילירובין: " + context.formattedValue;
+                  }
+              }
+            }
+          },
+          interaction: {
+            intersect: false,
+          },
+          scales: {
+            x: {
+              type: 'linear',
+              ticks: {
+                stepSize: 12
+              },
+              max: 168,
+              display: true,
+              title: {
+                display: true,
+                text: 'גיל בשעות'
+              }
+            },
+            y: {
+              type: 'linear',
+              ticks: {
+                stepSize: 2
+              },
+              min:0,
+              max: 26,
+              display: true,
+              beginAtZero: true,
+              title: {
+                display: true,
+                text: 'בילירובין'
+              },
+            }
+          }
+        },
+      }; 
+      phototherapyChart = new Chart(ctx, config);    
+}
+
+function drawPhototherapyWithPoint(ctx, is38Plus, hasRiskFactors, x, y){
+    if (phototherapyChart !== undefined){
+        phototherapyChart.destroy();
+      }
+
+    createphototherapyChart(ctx, is38Plus, hasRiskFactors);  
+    if (phototherapyChart.data.datasets.length > 1){ // we already have a point on the chart. 1 datasets for butani, 1 for the point
+        phototherapyChart.data.datasets.splice(1, 1);
+    }
+    var newPointDataset = {
+    label: 'Point', // Label for the dataset
+    data: [{x: x, y: y}], // Array containing the new point
+    backgroundColor: 'red', // Background color for the point
+    borderColor: 'red', // Border color for the point
+    pointRadius: 3, // Size of the point
+    pointHoverRadius: 5 // Size of the point on hover
+    };
+    phototherapyChart.data.datasets.push(newPointDataset);
+    phototherapyChart.update();
+
+}
+
+function drawButaniWithPoint(ctx, x, y){
+  if (butaniChart !== undefined){
+    butaniChart.destroy();
+  }
+  createButaniChart(ctx);
+  if (butaniChart.data.datasets.length > 3){ // we already have a point on the chart. 3 datasets for butani, 1 for the point
+    butaniChart.data.datasets.splice(3, 1);
+  }
+  var newPointDataset = {
+    label: 'Point', // Label for the dataset
+    data: [{x: x, y: y}], // Array containing the new point
+    backgroundColor: 'red', // Background color for the point
+    borderColor: 'red', // Border color for the point
+    pointRadius: 3, // Size of the point
+    pointHoverRadius: 5 // Size of the point on hover
+  };
+  butaniChart.data.datasets.push(newPointDataset);
+  butaniChart.update();
 }

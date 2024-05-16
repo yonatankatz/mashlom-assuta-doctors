@@ -13,6 +13,12 @@ app.controller("PhototherapyController", ['$scope', '$rootScope', '$timeout', fu
     ctrl.riskZoneObj = {};
     ctrl.statusColor = {};
     ctrl.considerTransfusion = '';
+    const expendGraphsText = 'צפה בערך על העקומות';
+    const collpaseGraphsText = 'סגור תצוגה גרפית';
+    ctrl.collapseToggleText = expendGraphsText;
+    ctrl.isCollapsed = true;
+    var butaniCtx = document.getElementById('butaniChart').getContext('2d');
+    var phototherapyCtx = document.getElementById('phototherapyChart').getContext('2d');
 
     ctrl.clearContent = function(attr) {
         ctrl[attr]  = null;
@@ -43,7 +49,7 @@ app.controller("PhototherapyController", ['$scope', '$rootScope', '$timeout', fu
     }
 
     ctrl.shouldFollowUp = function() {
-        return ctrl.riskZoneSatisfied() && ctrl.isFollowUpRelevant();
+        return ctrl.riskZoneSatisfied() && ctrl.isFollowUpRelevant() && ctrl.rootDiagnose !== "נדרש טיפול באור";;
     }
     
     ctrl.clearValues = function() {
@@ -51,7 +57,9 @@ app.controller("PhototherapyController", ['$scope', '$rootScope', '$timeout', fu
         ctrl.distanceFromCurve = '';
         ctrl.considerTransfusion = '';
         ctrl.riskZoneObj = {};
+        ctrl.collapseToggleText = '';
         ctrl.statusColor['background-color'] = '';
+        ctrl.collapseGraphs();
     };
 
     /*returns true if values satisfied.*/
@@ -67,6 +75,8 @@ app.controller("PhototherapyController", ['$scope', '$rootScope', '$timeout', fu
     }
 
     ctrl.changedValue = function(callback) {   
+        // Value changed we need to collapse graphs section
+        ctrl.collapseGraphs();
         if (!ctrl.handleValuesSatisifed(callback)) {
             return;
         }
@@ -97,6 +107,9 @@ app.controller("PhototherapyController", ['$scope', '$rootScope', '$timeout', fu
                 // Reset in case we already have data here from previous diagnose
                 ctrl.riskZoneObj = {};
             }
+            drawButaniWithPoint(butaniCtx, ctrl.ageInHours, ctrl.bilirubin);
+            drawPhototherapyWithPoint(phototherapyCtx, ctrl.weekOfBirth === 'above38', ctrl.hasRiskFactors, ctrl.ageInHours, ctrl.bilirubin);
+            ctrl.collapseToggleText = ctrl.isCollapsed ? expendGraphsText : collpaseGraphsText;
             if (callback) {
                 callback('done');
             }
@@ -123,6 +136,24 @@ app.controller("PhototherapyController", ['$scope', '$rootScope', '$timeout', fu
     ctrl.closePanel = function() {
         ctrl.dataShown = 'CALCULATOR';
     };
+
+    ctrl.toggleCollapse = function(){
+        ctrl.isCollapsed = !ctrl.isCollapsed;
+        ctrl.collapseToggleText = ctrl.isCollapsed ? expendGraphsText : collpaseGraphsText;
+        if (!ctrl.isCollapsed){
+            $timeout(function() {
+                document.getElementById('graphsScrollTarget').scrollIntoView({
+                    behavior: 'smooth'
+                });
+              }, 200);
+        }
+    };
+
+    ctrl.collapseGraphs = function(){
+        if (!ctrl.isCollapsed){
+            ctrl.toggleCollapse();
+        }
+    }
 
 }]);
 
