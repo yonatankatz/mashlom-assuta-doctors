@@ -27,23 +27,8 @@
       </h2>
       <div id="2" class="accordion-collapse collapse" aria-labelledby="protocolHeadingOne_1">
         <div class="accordion-body">      
-            <h5>התוויות בעד אשפוז</h5>
-            <div class="pro-hospitalization case-sub-section" >
-            <ul class="list-items-only-section list-items-only-section-positive" >
-                <li class="pro-bullet-point" ng-repeat="item in ctrl.protocolData.subsections[1].hospitalizationItems.pros track by $index">
-                {{item}}
-                </li>
-                </ul>        
-            </div>
-        
-            <h5>התוויות נגד אשפוז</h5>
-            <div class="con-hospitalization case-sub-section" >
-            <ul class="list-items-only-section list-items-only-section-negative" >
-                <li class="con-bullet-point" ng-repeat="item in ctrl.protocolData.subsections[1].hospitalizationItems.cons track by $index">
-                {{item}}
-                </li>
-                </ul>        
-            </div>
+            <bullets bullet-type="'POSITIVE'" items="ctrl.protocolData.subsections[1].hospitalizationItems.pros" title="'התוויות בעד אשפוז'"></bullets>
+            <bullets bullet-type="'NEGATIVE'" items="ctrl.protocolData.subsections[1].hospitalizationItems.cons" title="'התוויות נגד אשפוז'"></bullets>
             </div>        
         </div>      
       </div>

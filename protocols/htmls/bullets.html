@@ -1,3 +1,4 @@
+<h5>{{title}}</h5>
 <div ng-if="!bulletType && items.length == 1" class="case-sub-section">
     {{items[0].value}}
 </div>
@@ -24,4 +25,18 @@
               </ul>
         </li>
     </ul>
+</div>
+<div ng-if="bulletType=='POSITIVE'" class="pro-hospitalization case-sub-section" >
+    <ul class="list-items-only-section list-items-only-section-positive" >
+        <li class="pro-bullet-point" ng-repeat="item in items track by $index">
+        {{item.value}}
+        </li>
+    </ul>        
+</div>
+<div ng-if="bulletType=='NEGATIVE'" class="con-hospitalization case-sub-section" >
+    <ul class="list-items-only-section list-items-only-section-negative" >
+        <li class="con-bullet-point" ng-repeat="item in items track by $index">
+        {{item.value}}
+        </li>
+    </ul>        
 </div>

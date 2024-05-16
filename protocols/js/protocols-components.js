@@ -4,7 +4,8 @@ app.directive('bullets', function($parse) {
         templateUrl: 'htmls/bullets.html',
         scope: {
             items: '=',
-            bulletType: '='
+            bulletType: '=',
+            title: '='
         },
         link: function(scope, element, attrs) {
         }
