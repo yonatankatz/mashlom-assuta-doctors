@@ -76,7 +76,7 @@
               <span>
                 סיווג
               </span>
-              <div class="case-sub-section" style="background-color: #FFECCC;">
+              <div class="case-sub-section complaint-section" >
                 <ul style="list-style-type:none; padding-inline-start: 5px; margin-block-end: 0">
                   <li ng-repeat="case in section.caseTypes">
                     {{case}}
@@ -88,7 +88,7 @@
               <span>
                 תיאור התלונה
               </span>
-              <div class="case-sub-section">
+              <div class="case-sub-section complaint-section">
                 <ul class="list-items-only-bullets">
                   <li ng-repeat="desc in section.caseDecription">
                     {{desc}}
@@ -100,7 +100,7 @@
               <span>
                 גורמי סיכון
               </span>
-              <div class="case-sub-section">
+              <div class="case-sub-section complaint-section">
                 <ul class="list-items-only-bullets">
                   <li ng-repeat="risk in section.riskFactors">
                     {{risk}}
@@ -109,13 +109,7 @@
               </div>
             </div>
           </div>
-          <ul ng-if="!!section.listItems" ng-class="{'list-items-only-section': section.listItems.length > 3,
-                                                     'list-items-only-section-many': section.listItems.length > 3,
-                                                     'list-items-only-section-bullets': section.listItems.length <= 3}">
-            <li ng-repeat="item in section.listItems" >
-              {{item}}
-            </li>
-          </ul>
+          <bullets items="section.listItems"></bullets>
           <div>
               {{section.imageDescription}}
             <img ng-if="!!section.imageSource" style="max-width: 80dvw;margin-right:10px; " ng-src="{{section.imageSource}}">
@@ -127,5 +121,6 @@
 <script src="../3rd-party/angularjs/angular.min.js"></script>
 <script src="../3rd-party/bootstrap/bootstrap.bundle.min.js"></script>
 <script src="js/hyperkalemia.js"></script>
+<script src="js/protocols-components.js"></script>
 </body>
 </html>

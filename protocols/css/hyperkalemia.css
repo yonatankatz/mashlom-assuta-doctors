@@ -109,11 +109,6 @@ html, body {
   margin-left: inherit !important;
   color: white;
 }
-.case-sub-section {
-  background-color: #FFECCC; 
-  padding: 6px;
-  border-radius: 10px;
-} 
   .accordion-button:not(.collapsed) {    
     --bs-accordion-active-color: white;   
   }
@@ -125,7 +120,8 @@ html, body {
     border: 1px solid var(--border-color) !important;
   }
 
-  .bullet-point {
-      list-style-type: '👈';
-      padding-inline-start: 1ch;    
+  .complaint-section {
+    background-color: #FFECCC; 
+    /* padding: 6px; */
+    border-radius: 10px;
   }
