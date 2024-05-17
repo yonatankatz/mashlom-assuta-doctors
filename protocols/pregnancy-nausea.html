@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>פרוטוקלי מלר"ד - אסותא אשדוד</title>
+    <link rel="manifest" href="../common/manifest.json" />
+    <link href="../3rd-party/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="../3rd-party/fontawesome/fontawesome-free-6.5.1-web/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../common/css/common.css" />
+    <link rel="stylesheet" href="css/protocol-common.css" />
+    <link rel="stylesheet" href="css/generic-protocol.css" />
+
+    <link rel="icon" href="/assets/logo/fav-icon96x96.png" />
+    <meta
+      property="og:title"
+      content="פרוטוקול בחילות והקאות בהריון, מיון מבוגרים, אסותא אשדוד"
+    />
+    <meta property="og:type" content="Article" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:site_name" content="mashlom.me" />
+    <meta
+      property="og:image"
+      content="https://assuta.mashlom.me/assets/logo/FullLogo1200x630.jpg"
+    />
+    <meta
+      property="og:image:secure_url"
+      content="https://assuta.mashlom.me/assets/logo/FullLogo1200x630.jpg"
+    />
+    <meta
+      property="og:url"
+      content="https://assuta.mashlom.me/protocols/pregnancy-nausea"
+    />
+    <meta property="og:description" content="פרוטוקול טיפול בבחילות והקאות בהריון" />
+    <meta name="description" content="פרוטוקול טיפול בבחילות והקאות בהריון" />
+    <meta
+      name="keywords"
+      content="assuta ashdod, רופאים, מחשבונים, מיון, מלרד, מיון מבוגרים, Nausea and vomiting in pregnancy, בחילות והקאות בהריון, אסותא אשדוד"
+    />
+    <meta name="robots" content="index, follow, NOODP" />
+    <script>
+      window.protocolData = {
+        name: "בחילות והקאות בהריון",
+        link: "./pregnancy-nausea",
+        subsections: {
+          complaint: {
+            displayName: "תלונה- בחילות והקאות בהריון מוקדם",
+            id: "1",
+            items: [{value:"בחילות עזות או הקאות חוזרות בהריון עד שבוע 20 "}],
+          },
+          hospitalization: {
+            displayName: "התוויות לאשפוז ביחידה לאשפוז קצר",
+            id: "2",
+            hospitalizationItems: {
+              pros: [
+                {value:" הריון מאומת"},
+                {value:" ללא עדות להפלה "},
+                {value:" הקאות "},
+                {value:" קטונים בשתן "},
+              ],
+              cons: [
+              {value:"הריון > שבוע 20"},
+              {value:'מדדים חיוניים לא יציבים'},
+              {value:"כאבי בטן או רגישות ביטנית בבדיקה גופנית"},
+              {value:"חום"},
+              {value:" מחלקת נשים מבקשים לאשפז את המטופלת במחלקתם"},
+              ],
+            },
+          },
+          inquiries: {
+            displayName: "בירורים",
+            id: "3",
+            items: [ {
+              value: "מעבדה:",
+              subItems: ["ספירה", "כימיה כולל תפקודי כבד ובלוטת התריס", "שתן לכללית ובמקרה הצורך תרבית"]
+            },
+            { value: " דימות "},
+            {value: " ייעוצים: נשים "},                                      
+            ],
+          },
+          medication:{
+            displayName: "טיפול תרופתי מומלץ",
+            id: "4",
+            table: {
+              header: ["תרופה", "מינון", "אופן לקיחה", "תדירות"],
+              rows: [
+                ["Pyrodoxime", "mg25", "P.O", "3 פעמים ביום"],
+                ["Pramin (metoclopramide)", "10 mg", "I.V", "עד 6 פעמים ביום"],
+                [" Prochlorperazine (Largactil, Compazone)", "12.5 mg", "Slow I.V infusion", "עד 4 פעמים ביום"],
+                ["Zofran (ondansetron)", "4-8 mg", "I.V", "עד 3 פעמים ביום"],
+                [ "Prednisilone ", "50 mg", "P.O",  "פעם ביום"],
+                ["NS, Hartman", "500 ml- 1 liter", "I.V",  "על פי הצורך"],
+              ]
+            }
+          },
+          instructions: {
+            displayName: "הוראות מומלצות",
+            id: "5",
+            table: {
+              header: ["הוראה", "תדירות", "הערות"],
+              rows: [
+                ["מדדים חיוניים", "כל שעה", " סטורציה פעם אחת כל משמרת "]
+              ]
+            }
+          },
+          nursing: {"displayName": "סוגיות ספציפיות למעקב סיעודי",
+            "id": "9",
+            "items": 
+            [
+                {value: 'יש לבדוק את השתן לקטונים. לא ניתן לשחרר מטופלת עד היעלמותם'},
+            ]
+          },
+          patient: {
+            displayName: "סוגיות ספציפיות למטופל",
+            id: "6",
+            items: [
+              {value:" יש לוודא שהמטופלת אינה מיובשת "},
+            ],
+          },
+          additionals: {
+            displayName: "התוויות נוספות",
+            id: "7",
+            consultencies: [
+              {value:" ייעוץ רופא/ת נשים במקרה ואין שיפור תחת טיפול"},
+            ],
+            hospitalizationElsewhere: [
+            {value:"הקאות מתמשכות "},
+            {value:" אי יכולת שתייה או אכילה "},
+            {value:"קטונאוריאה מתמשך "},
+            ],
+          },
+          release: {
+            displayName: "שחרור",
+            id: "8",
+            guidelines: [
+            {value:" ללא הקאות > שעתיים "},
+            {value:"יכולת שתייה "},
+            {value:" מעגל סוציאלי תומך "},
+            {value:" ללא קטונאוריאה"},
+            {value:"כאבים שהגיבו לטיפול אנאלגטי "},
+            ],
+            recommendations: [
+            {value:"מעקב רופא/ת נשים מטפל/ת"},
+            {value:" פנייה לדיאטנית בקהילה"},
+            {value:" בכל מקרה של החמרה, כגון הקאות חוזרות, אם לא ניתן לשתות או לאכול, כאבי בטן עזים או עליית חום, יש לפנות לבדיקה רפואית"},
+            ],
+          },
+        },
+      };
+    </script>
+  </head>
+  <body ng-app="app" ng-controller="ProtocolController as ctrl">
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-J85BPCEQ2Y"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-J85BPCEQ2Y");
+    </script>
+    <nav class="navbar navbar-expand-lg header">
+      <div style="width: 20%; height: 100%; text-align: right">
+        <img class="header-assuta-logo" src="../assets/assuta/only-alef.png" />
+      </div>
+      <div class="header-text">
+        <p>
+          mashlom.me בשיתוף עם בית<br />
+          החולים אסותא אשדוד
+        </p>
+      </div>
+      <div
+        style="
+          width: 15%;
+          height: 100%;
+          text-align: left;
+          vertical-align: middle;
+        "
+      >
+        <img
+          class="header-mashlom-logo"
+          src="../assets/logo/IconOnly_Transparent_NoBuffer.png"
+        />
+      </div>
+    </nav>
+    <div id="protocol-main" class="container protocols-main">
+      <div class="group-container">
+        <div style="padding-right: 10px; padding-left: 10px">
+          <div class="row form-group">
+            <div class="col-auto fs-3">
+              <h1>בחילות והקאות בהריון</h1>
+            </div>
+            <div class="col-auto me-auto">
+              <button
+                ng-click="ctrl.toggleCollabse()"
+                type="button"
+                class="btn btn-light border buttons-color fs-6"
+                style="min-width: 80px; padding: 3px"
+              >
+                {{ctrl.isExpanded ? "כווץ" : "פתח הכל"}}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <protocol-content></protocol-content>
+    </div>
+    <script src="../3rd-party/angularjs/angular.min.js"></script>
+    <script src="../3rd-party/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="js/generic-protocol.js"></script>
+    <script src="js/protocols-components.js"></script>
+  </body>
+</html>

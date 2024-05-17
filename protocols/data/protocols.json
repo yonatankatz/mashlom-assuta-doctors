@@ -67,6 +67,20 @@
         { "displayName": "התוויות נוספות", "id": "7" },
         { "displayName": "שחרור", "id": "8" }
       ]
+    },
+    {
+      "name": "בחילות והקאות בהריון",
+      "link": "./pregnancy-nausea",
+      "subsections": [
+        { "displayName": "תלונה - בחילות והקאות בהריון מוקדם", "id": "1" },
+        { "displayName": "התוויות לאשפוז ביחידה לאשפוז קצר", "id": "2" },
+        { "displayName": "בירורים", "id": "3" },
+        { "displayName": "טיפול תרופתי מומלץ", "id": "4" },
+        { "displayName": "הוראות מומלצות", "id": "5" },
+        { "displayName": "סוגיות ספציפיות למטופל", "id": "6" },
+        { "displayName": "התוויות נוספות", "id": "7" },
+        { "displayName": "שחרור", "id": "8" }
+      ]
     }
   ]
 }
