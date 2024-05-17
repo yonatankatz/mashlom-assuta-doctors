@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>פרוטוקלי מלר"ד - אסותא אשדוד</title>
+<link rel="manifest" href="../common/manifest.json">
+<link href="../3rd-party/bootstrap/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="../3rd-party/fontawesome/fontawesome-free-6.5.1-web/css/all.min.css">
+<link rel="stylesheet" href="../common/css/common.css">
+<link rel="stylesheet" href="css/protocol-common.css" />
+<link rel="stylesheet" href="css/generic-protocol.css">
+
+<link rel="icon" href="/assets/logo/fav-icon96x96.png">
+<meta property='og:title' content="פרוטוקול כאבים בחזה, מיון מבוגרים, אסותא אשדוד"/>
+<meta property='og:type' content='Article'/>
+<meta property="og:image:type" content="image/jpeg" />
+<meta property='og:site_name' content='mashlom.me'/>
+<meta property='og:image' content='https://assuta.mashlom.me/assets/logo/FullLogo1200x630.jpg'/>
+<meta property="og:image:secure_url" content="https://assuta.mashlom.me/assets/logo/FullLogo1200x630.jpg" />
+<meta property='og:url' content="https://assuta.mashlom.me/protocols/chest-pain"/>
+<meta property='og:description' content="פרוטוקול טיפול בכאבים בחזה"/>
+<meta name="description" content="פרוטוקול טיפול בכאבים בחזה" />
+<meta name="keywords" content="assuta ashdod, רופאים, מחשבונים, מיון, מלרד, מיון מבוגרים, chest pain, כאבים בחזה, אסותא אשדוד" />
+<meta name="robots" content="index, follow, NOODP" />
+<script>
+  window.protocolData = {
+     "name": "כאבים בחזה - חשד למקור קרדיאלי",
+     "link": "./chest-pain",
+     "subsections": {
+      hospitalization: {"displayName": "התוויות לאשפוז ביחידה לאשפוז קצר",
+       "id": "2",
+       "hospitalizationItems" : {
+         "pros": [
+         {value:" Low-Moderate Risk על פי ה- HEART Score"}, 
+         {value:"עבר קרדיאלי כולל אירועים לבבים, EF <40%, או הצרות עורקים קרדיאליים ידועה > 50%"},
+         {value:"לאחר תשובות של טרופונין שני (במקרה הצורך) ואק\"ג חוזר עם האשפוז > 3 שעות מביצוע  האחרון "},
+         ],
+         "cons": [
+         {value:"High risk על פי ה- HEART Score"},
+         {value:"אירועים חוזרים של כאבי חזה או מתמשכים ( > 10 דקות)"},
+         {value:"טרופונין מוגבר"},
+         {value:"אק\"ג המראה צניחות ST (> 1 מ\"מ) או היפוך גל T חדש"},
+         {value:"עליות ST חולפות של > 1 מ\"מ בשני לידים עוקבים "},
+         {value:"אי- יציבות הימודינמית- ל\"ד סיסטולי < 100 ממ\"כ, פריפריה קרה, הזעת יתר, Killip class>1, אוושה מיטרלית חדשה"},
+         {value:"Sustained ventricular tachycardia"},
+         {value:"סינקופה"},
+         {value:"ניתוח מעקפים או צנתור בחצי השנה האחרונה"},
+         {value:"Unstable cardiac rhythm"},
+         {value:"אי-ספיקה לבבית"},
+         {value:"מחלות רקע שבעצמן דורשות אשפוז"},
+        ]
+       }
+      },
+      inquiries: {"displayName": "בירורים",
+       "id": "3",
+       "items": 
+       [
+        {value: 'מעבדה: כימיה חוזרת, בירור טרשת'},
+        {value: 'דימות: מבחן מאמץ'},
+        {value: 'ייעוצים: קרדיולוג'},        
+        {value: 'בדיקות נוספות'},        
+       ]
+      },
+      medication: {"displayName": "טיפול תרופתי מומלץ",
+       "id": "4",
+       table: {
+              header: ["תרופה", "מינון", "אופן לקיחה", "תדירות"],
+              rows: [
+                ["אספרין", "100 מ\"ג", "P.O", "פעם ביום"],
+                ["Anginine", "300-600 מיקרוגרם", "לפי הצורך", "תת לשוני"],
+                ["אקמול", "1 גרם", "P.O", "עד 4 פעמים ביום"],
+              ],
+        }
+      },
+      instructions: {"displayName": "הוראות מומלצות",
+       "id": "5",
+       table: {
+              header: ["הוראה", "תדירות"],
+              rows: [
+                ["מדדים חיוניים", "כל שעה"],
+              ]
+        },
+      },
+      nursing: {"displayName": "סוגיות ספציפיות למעקב סיעודי",
+       "id": "9",
+       "items": 
+       [
+        {value: 'הכנה למבחן מאמץ'},
+       ]
+      },
+      additionals: {"displayName": "התוויות נוספות",
+       "id": "7",
+       "consultencies": [
+       {value:"החמרה בתסמינים"},
+       {value:"שינויים באק\"ג"},
+       {value:"עליית טרופונין"},
+       {value:"התדרדרות במדדים חיוניים"},
+      ],
+       "hospitalizationElsewhere": [
+       {value:"שינויי אק\"ג או אריטמיות"},
+       {value:"עלייה בטרופונין"},
+       {value:"הישנות של כאבי חזה"},
+       {value:"מבחן מאמץ חיובי"},
+       ],
+
+      },
+      release: {"displayName": "שחרור",
+       "id": "8",
+       "guidelines": [
+        {value:"חלוף התסמינים וללא הישנות"},
+        {value:"ללא שינויי באק\"ג"},
+        {value:"ללא עלייה בטרופונין"},
+        {value:"מבחן מאמץ שלילי או לא אבחנתי"}
+      ],
+       "recommendations": [
+        {value: "מעקב רופא/ת משפחה"},
+        {value: "בירור ואיזון גורמי סיכון קרדיאליים לרבות יתר לחץ דם, יתר שומנים בדם וסכרת"},
+        {value:"המשך בירור קרדיאלי בקהילה"},
+        {value:"מומלץ להימנע מפעילות גופנית מאומצת עד תום הבירור"},
+        {value:"בכל מקרה של החמרה, כגון כאבים חוזרים, קוצר נשימה או עליית חום, יש לפנות לבדיקה רפואית"}
+       ],
+      }
+
+     }
+  }
+</script>
+
+</head>
+<body ng-app="app" ng-controller="ProtocolController as ctrl" >
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J85BPCEQ2Y"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-J85BPCEQ2Y');
+</script>
+<nav class="navbar navbar-expand-lg header">
+  <div style="width: 20%;height:100%; text-align: right;">
+    <img class="header-assuta-logo" src="../assets/assuta/only-alef.png" >
+  </div>
+  <div class="header-text">
+    <p>
+      mashlom.me בשיתוף עם בית<br>
+      החולים אסותא אשדוד
+    </p>
+  </div>
+  <div style="width: 15%;height:100%; text-align: left; vertical-align: middle">
+    <img class="header-mashlom-logo" src="../assets/logo/IconOnly_Transparent_NoBuffer.png" >
+  </div>
+</nav>
+<div id="protocol-main" class="container protocols-main">  
+  <div class="group-container">
+    <div style="padding-right: 10px;padding-left: 10px;">
+        <div class="row form-group">
+            <div class="col-auto fs-3 ">
+                <h1>כאבים בחזה</h1>
+            </div>
+            <div class="col-auto me-auto">
+              <button ng-click="ctrl.toggleCollabse()" type="button" class="btn btn-light border buttons-color fs-6" style="min-width: 80px;padding:3px;">{{ctrl.isExpanded ? "כווץ" : "פתח הכל"}}</button>
+            </div>
+        </div> 
+    </div>
+  </div>
+  <protocol-content></protocol-content>
+
+</div>  
+<script src="../3rd-party/angularjs/angular.min.js"></script>
+<script src="../3rd-party/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="js/generic-protocol.js"></script>
+<script src="js/protocols-components.js"></script>
+</body>
+</html>

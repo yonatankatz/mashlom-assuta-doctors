@@ -53,6 +53,20 @@
         { "displayName": "התוויות נוספות", "id": "7" },
         { "displayName": "שחרור", "id": "8" }
       ]
+    },
+    {
+      "name": "כאבים בחזה",
+      "link": "./chest-pain",
+      "subsections": [
+        { "displayName": "התוויות לאשפוז ביחידה לאשפוז קצר", "id": "2" },
+        { "displayName": "בירורים", "id": "3" },
+        { "displayName": "טיפול תרופתי מומלץ", "id": "4" },
+        { "displayName": "הוראות מומלצות", "id": "5" },
+        { "displayName": "הנחיות ספציפיות למעקב סיעודי", "id": "9" },
+        { "displayName": "סוגיות ספציפיות למטופל", "id": "6" },
+        { "displayName": "התוויות נוספות", "id": "7" },
+        { "displayName": "שחרור", "id": "8" }
+      ]
     }
   ]
 }

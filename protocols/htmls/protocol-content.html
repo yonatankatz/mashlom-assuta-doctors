@@ -71,6 +71,19 @@
           </div>        
         </div>
     </div>
+    <div class="accordion-item" ng-if="ctrl.sections.nursing">
+      <h2 class="accordion-header" id="protocolHeadingOne_9">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+      data-bs-target="#9" aria-expanded="false" aria-controls="9" ng-click="ctrl.blurButton($event)">
+      {{ctrl.sections.nursing.displayName}}
+      </button>
+      </h2>
+      <div id="9" class="accordion-collapse collapse" aria-labelledby="protocolHeadingOne_9">
+        <div class="accordion-body">
+          <bullets items="ctrl.sections.nursing.items"></bullets>
+        </div>        
+      </div>
+  </div>
     <div class="accordion-item" ng-if="ctrl.sections.patient">
         <h2 class="accordion-header" id="protocolHeadingOne_6">
         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
