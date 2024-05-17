@@ -5,117 +5,120 @@
     }
 </style>
 <div class="accordion accordion-flush" id="accordionProtocolLevel">
-    <div class="accordion-item">
+    <div class="accordion-item" ng-if="ctrl.sections.complaint">
       <h2 class="accordion-header" id="protocolHeadingOne_1">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
       data-bs-target="#1" aria-expanded="false" aria-controls="1" ng-click="ctrl.blurButton($event)">
-      {{ctrl.protocolData.subsections[0].displayName}}
+      {{ctrl.sections.complaint.displayName}}
       </button>
       </h2>
       <div id="1" class="accordion-collapse collapse" aria-labelledby="protocolHeadingOne_1">
         <div class="accordion-body">
-          <bullets items="ctrl.protocolData.subsections[0].items"></bullets>
+          <bullets items="ctrl.sections.complaint.items"></bullets>
         </div>        
       </div>
   </div>
-    <div class="accordion-item">
+    <div class="accordion-item" ng-if="ctrl.sections.hospitalization">
       <h2 class="accordion-header" id="protocolHeadingOne_2">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
       data-bs-target="#2" aria-expanded="false" aria-controls="2" ng-click="ctrl.blurButton($event)">
-        {{ctrl.protocolData.subsections[1].displayName}}
+        {{ctrl.sections.hospitalization.displayName}}
       </button>
       </h2>
-      <div id="2" class="accordion-collapse collapse" aria-labelledby="protocolHeadingOne_1">
+      <div id="2" class="accordion-collapse collapse" aria-labelledby="protocolHeadingOne_2">
         <div class="accordion-body">      
-            <bullets bullet-type="'POSITIVE'" items="ctrl.protocolData.subsections[1].hospitalizationItems.pros" title="'התוויות בעד אשפוז'"></bullets>
-            <bullets bullet-type="'NEGATIVE'" items="ctrl.protocolData.subsections[1].hospitalizationItems.cons" title="'התוויות נגד אשפוז'"></bullets>
+            <bullets bullet-type="'POSITIVE'" items="ctrl.sections.hospitalization.hospitalizationItems.pros" title="'התוויות בעד אשפוז'"></bullets>
+            <bullets bullet-type="'NEGATIVE'" items="ctrl.sections.hospitalization.hospitalizationItems.cons" title="'התוויות נגד אשפוז'"></bullets>
             </div>        
         </div>      
       </div>
-      <div class="accordion-item">
+      <div class="accordion-item" ng-if="ctrl.sections.inquiries">
         <h2 class="accordion-header" id="protocolHeadingOne_3">
         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
         data-bs-target="#3" aria-expanded="false" aria-controls="3" ng-click="ctrl.blurButton($event)">
-        {{ctrl.protocolData.subsections[2].displayName}}
+        {{ctrl.sections.inquiries.displayName}}
         </button>
         </h2>
         <div id="3" class="accordion-collapse collapse" aria-labelledby="protocolHeadingOne_3">
           <div class="accordion-body">
-            <bullets bullet-type="'BULLET'" items="ctrl.protocolData.subsections[2].items"></bullets>
+            <bullets bullet-type="'BULLET'" items="ctrl.sections.inquiries.items"></bullets>
           </div>        
         </div>
     </div>
-    <div class="accordion-item">
+    <div class="accordion-item" ng-if="ctrl.sections.medication">
         <h2 class="accordion-header" id="protocolHeadingOne_4">
         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
         data-bs-target="#4" aria-expanded="false" aria-controls="4" ng-click="ctrl.blurButton($event)">
-        {{ctrl.protocolData.subsections[3].displayName}}
+        {{ctrl.sections.medication.displayName}}
         </button>
         </h2>
         <div id="4" class="accordion-collapse collapse" aria-labelledby="protocolHeadingOne_4">
           <div class="accordion-body">
-            <custom-table table="ctrl.protocolData.subsections[3].table"></custom-table>
+            <custom-table table="ctrl.sections.medication.table"></custom-table>
           </div>        
         </div>
     </div>
-    <div class="accordion-item">
+    <div class="accordion-item" ng-if="ctrl.sections.instructions">
         <h2 class="accordion-header" id="protocolHeadingOne_5">
         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
         data-bs-target="#5" aria-expanded="false" aria-controls="5" ng-click="ctrl.blurButton($event)">
-        {{ctrl.protocolData.subsections[4].displayName}}
+        {{ctrl.sections.instructions.displayName}}
         </button>
         </h2>
         <div id="5" class="accordion-collapse collapse" aria-labelledby="protocolHeadingOne_5">
           <div class="accordion-body">
-            <custom-table table="ctrl.protocolData.subsections[4].table"></custom-table>
+            <custom-table table="ctrl.sections.instructions.table"></custom-table>
           </div>        
         </div>
     </div>
-    <div class="accordion-item">
+    <div class="accordion-item" ng-if="ctrl.sections.patient">
         <h2 class="accordion-header" id="protocolHeadingOne_6">
         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
         data-bs-target="#6" aria-expanded="false" aria-controls="6" ng-click="ctrl.blurButton($event)">
-        {{ctrl.protocolData.subsections[5].displayName}}
+        {{ctrl.sections.patient.displayName}}
         </button>
         </h2>
         <div id="6" class="accordion-collapse collapse" aria-labelledby="protocolHeadingOne_6">
           <div class="accordion-body">
-              <bullets items="ctrl.protocolData.subsections[5].items"></bullets>
+              <bullets items="ctrl.sections.patient.items"></bullets>
           </div>        
         </div>
     </div>
-    <div class="accordion-item">
+    <div class="accordion-item" ng-if="ctrl.sections.additionals">
         <h2 class="accordion-header" id="protocolHeadingOne_7">
         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
         data-bs-target="#7" aria-expanded="false" aria-controls="7" ng-click="ctrl.blurButton($event)">
-          {{ctrl.protocolData.subsections[6].displayName}}
+          {{ctrl.sections.additionals.displayName}}
         </button>
         </h2>
         
         <div id="7" class="accordion-collapse collapse" aria-labelledby="protocolHeadingOne_7">
           <div class="accordion-body">      
-              <h5>התוויות לייעוצים</h5>
-              <bullets bullet-type="'STAR'" items="ctrl.protocolData.subsections[6].consultencies"></bullets>              
-          
-              <h5>התוויות לאשפוז במחלקה אחרת</h5>
-              <bullets bullet-type="'STAR'" items="ctrl.protocolData.subsections[6].hospitalizationElsewhere"></bullets>
+              <div ng-if="ctrl.sections.additionals.consultencies">
+                <h5>התוויות לייעוצים</h5>
+                <bullets bullet-type="'STAR'" items="ctrl.sections.additionals.consultencies"></bullets>              
+              </div>
+              <div ng-if="ctrl.sections.additionals.hospitalizationElsewhere">
+                <h5>התוויות לאשפוז במחלקה אחרת</h5>
+                <bullets bullet-type="'STAR'" items="ctrl.sections.additionals.hospitalizationElsewhere"></bullets>
               </div>        
           </div>      
         </div>
-        <div class="accordion-item">
+      </div> 
+        <div class="accordion-item" ng-if="ctrl.sections.release">
             <h2 class="accordion-header" id="protocolHeadingOne_8">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
             data-bs-target="#8" aria-expanded="false" aria-controls="8" ng-click="ctrl.blurButton($event)">
-              {{ctrl.protocolData.subsections[7].displayName}}
+              {{ctrl.sections.release.displayName}}
             </button>
             </h2>
             
             <div id="8" class="accordion-collapse collapse" aria-labelledby="protocolHeadingOne_8">
               <div class="accordion-body">      
                   <h5>התוויות לשחרור</h5>
-                  <bullets bullet-type="'STAR'" items="ctrl.protocolData.subsections[7].guidelines"></bullets>              
+                  <bullets bullet-type="'STAR'" items="ctrl.sections.release.guidelines"></bullets>              
                   <h5>המלצות לשחרור</h5>
-                  <bullets bullet-type="'STAR'" items="ctrl.protocolData.subsections[7].recommendations"></bullets>
+                  <bullets bullet-type="'STAR'" items="ctrl.sections.release.recommendations"></bullets>
                   </div>        
               </div>      
             </div>

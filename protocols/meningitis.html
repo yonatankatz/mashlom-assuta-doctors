@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>פרוטוקלי מלר"ד - אסותא אשדוד</title>
+    <link rel="manifest" href="../common/manifest.json" />
+    <link href="../3rd-party/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="../3rd-party/fontawesome/fontawesome-free-6.5.1-web/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../common/css/common.css" />
+    <link rel="stylesheet" href="css/protocol-common.css" />
+    <link rel="stylesheet" href="css/generic-protocol.css" />
+
+    <link rel="icon" href="/assets/logo/fav-icon96x96.png" />
+    <meta
+      property="og:title"
+      content="פרוטוקול דלקת קרום המוח נגיפית, מיון מבוגרים, אסותא אשדוד"
+    />
+    <meta property="og:type" content="Article" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:site_name" content="mashlom.me" />
+    <meta
+      property="og:image"
+      content="https://assuta.mashlom.me/assets/logo/FullLogo1200x630.jpg"
+    />
+    <meta
+      property="og:image:secure_url"
+      content="https://assuta.mashlom.me/assets/logo/FullLogo1200x630.jpg"
+    />
+    <meta
+      property="og:url"
+      content="https://assuta.mashlom.me/protocols/meningitis"
+    />
+    <meta property="og:description" content="פרוטוקול טיפול בדלקת קרום המוח נגיפית " />
+    <meta name="description" content="פרוטוקול טיפול בדלקת קרום המוח נגיפית " />
+    <meta
+      name="keywords"
+      content="assuta ashdod, רופאים, מחשבונים, מיון, מלרד, מיון מבוגרים, meningitis, דלקת קרום המוח נגיפית , אסותא אשדוד"
+    />
+    <meta name="robots" content="index, follow, NOODP" />
+    <script>
+      window.protocolData = {
+        name: "דלקת קרום המוח נגיפית",
+        link: "./meningitis",
+        subsections: {
+          complaint: {
+            displayName: "תלונה - דלקת קרום המוח נגיפית",
+            id: "1",
+            items: [{value:" כאבי ראש, חום, קשיון עורף "}],
+          },
+          hospitalization: {
+            displayName: "התוויות לאשפוז ביחידה לאשפוז קצר",
+            id: "2",
+            hospitalizationItems: {
+              pros: [
+                {value:"אשפוז  לאחר ניקור מותני אבחנתי"},                
+                {value:"מחלה המצריכה איזון כאב באשפוז"},
+              ],
+              cons: [
+              {value:"אשפוז המצריך שהייה מעל 24 שעות "},
+              {value:'מדדים חיוניים לא יציבים'},
+              {value:"מטופל/ת ללא תוכנית טיפולית ברורה"},
+              {value:"ניקור מותני לא בוצע או לא אבחנתי"},
+              {value:"GCS< 15 או כל ירידה במצב ההכרתי"},
+              {value:"חוסר נוירולוגי פוקלי"},
+              {value:"גיל > 50"},
+              {value:" טיפול אנטיביוטי טרם פנייה למלר\"ד "},
+              {value:"מחלות רקע כגון סכרת, IHD"},
+              ],
+            },
+          },
+          inquiries: {
+            displayName: "בירורים",
+            id: "3",
+            items: [ {
+              value: "מעבדה:",
+              subItems: ["CSF", "ספירה", "כימיה כולל CRP", "דגש על רמות גלוקוז", "שתן לכללית"]
+            },
+            { value: " דימות "},
+            {value: " ייעוצים "},
+            {value: " בדיקות נוספות "},
+            ],
+          },
+          medication:{
+            displayName: "טיפול תרופתי מומלץ",
+            id: "4",
+            table: {
+              header: ["תרופה", "מינון", "אופן לקיחה", "תדירות"],
+              rows: [
+                ["Zofran (Ondanserton)", "4-8 mg", "I.M, I.V", "כל 4-6 שעות"],                
+                ["Pramin (metoclopramide)", "10 mg", "I.V", "כל 4 שעות על פי הצורך"],
+                [ "רוקסט פלוס", "1-2 כדורים", "P.O, I.V", "3-4 פעמיים ביום"],
+                [ "Morphine", "mg2.5-5", "I.V", "כל שעה על פי הצורך"],
+                ["נוזלים: NS, Ringer’s", "על פי הצורך", "I.V", "על פי הצורך"],
+              ]
+            }
+          },
+          instructions: {
+            displayName: "הוראות מומלצות",
+            id: "5",
+            table: {
+              header: ["הוראה", "תדירות", "הערות"],
+              rows: [
+                ["מדדים חיוניים", "כל שעה", "כולל חום ו-RR"],
+                ["מצב הכרתי ", "כל שעה", ""],
+                ["DEX", "כל שעה", ""]
+              ]
+            }
+          },          
+          additionals: {
+            displayName: "התוויות נוספות",
+            id: "7",
+            hospitalizationElsewhere: [
+            {value:"המשכות התסמינים"},
+            {value:"התדרדרות במצב ההכרתי GCS < 15"},
+            {value:"חוסר נוירולוגי פוקלי"},
+            ],
+          },
+          release: {
+            displayName: "שחרור",
+            id: "8",
+            guidelines: [
+            {value:"ללא סימני התייבשות"},
+            {value:"אתסמיני תחת טיפול תרופתי "},
+            {value:"מעגל סוציאלי תומך "},
+            ],
+            recommendations: [
+            {value:" מעקב רופא/ת משפחה "},            
+            {value:"בכל מקרה של החמרה, כגון כאבי ראש עזים, מצב בלבולי, חוסר נוירולוגי פוקלי או חום גבוהה שאינו מגיב לטיפול, יש לפנות לבדיקה רפואית"},
+            ],
+          },
+        },
+      };
+    </script>
+  </head>
+  <body ng-app="app" ng-controller="ProtocolController as ctrl">
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-J85BPCEQ2Y"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-J85BPCEQ2Y");
+    </script>
+    <nav class="navbar navbar-expand-lg header">
+      <div style="width: 20%; height: 100%; text-align: right">
+        <img class="header-assuta-logo" src="../assets/assuta/only-alef.png" />
+      </div>
+      <div class="header-text">
+        <p>
+          mashlom.me בשיתוף עם בית<br />
+          החולים אסותא אשדוד
+        </p>
+      </div>
+      <div
+        style="
+          width: 15%;
+          height: 100%;
+          text-align: left;
+          vertical-align: middle;
+        "
+      >
+        <img
+          class="header-mashlom-logo"
+          src="../assets/logo/IconOnly_Transparent_NoBuffer.png"
+        />
+      </div>
+    </nav>
+    <div id="protocol-main" class="container protocols-main">
+      <div class="group-container">
+        <div style="padding-right: 10px; padding-left: 10px">
+          <div class="row form-group">
+            <div class="col-auto fs-3">
+              <h1>פיאלונפריטיס</h1>
+            </div>
+            <div class="col-auto me-auto">
+              <button
+                ng-click="ctrl.toggleCollabse()"
+                type="button"
+                class="btn btn-light border buttons-color fs-6"
+                style="min-width: 80px; padding: 3px"
+              >
+                {{ctrl.isExpanded ? "כווץ" : "פתח הכל"}}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <protocol-content></protocol-content>
+    </div>
+    <script src="../3rd-party/angularjs/angular.min.js"></script>
+    <script src="../3rd-party/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="js/generic-protocol.js"></script>
+    <script src="js/protocols-components.js"></script>
+  </body>
+</html>

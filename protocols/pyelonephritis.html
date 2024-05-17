@@ -45,13 +45,13 @@
       window.protocolData = {
         name: "פיאלונפריטיס",
         link: "./pyelonephritis",
-        subsections: [
-          {
+        subsections: {
+          complaint: {
             displayName: "תלונה - פיאלונפריטיס",
             id: "1",
             items: [{value:" חום, כאבי מותן ועדות לדלקת בשתן "}],
           },
-          {
+          hospitalization: {
             displayName: "התוויות לאשפוז ביחידה לאשפוז קצר",
             id: "2",
             hospitalizationItems: {
@@ -71,7 +71,7 @@
               ],
             },
           },
-          {
+          inquiries: {
             displayName: "בירורים",
             id: "3",
             items: [ {
@@ -82,7 +82,7 @@
             {value: " ייעוצים "},                                      
             ],
           },
-          {
+          medication:{
             displayName: "טיפול תרופתי מומלץ",
             id: "4",
             table: {
@@ -97,7 +97,7 @@
               ]
             }
           },
-          {
+          instructions: {
             displayName: "הוראות מומלצות",
             id: "5",
             table: {
@@ -107,7 +107,7 @@
               ]
             }
           },
-          {
+          patient: {
             displayName: "סוגיות ספציפיות למטופל",
             id: "6",
             items: [
@@ -115,7 +115,7 @@
               {value:" אירוע שני של פאילונפריטיס מצריך US  כליות   "},
             ],
           },
-          {
+          additionals: {
             displayName: "התוויות נוספות",
             id: "7",
             consultencies: [
@@ -128,7 +128,7 @@
             {value:" אבחנה של פיאלונפריטיס אינה וודאית "},
             ],
           },
-          {
+          release: {
             displayName: "שחרור",
             id: "8",
             guidelines: [
@@ -142,7 +142,7 @@
             {value:" בכל מקרה של החמרה, כגון חום גבוה שאינו מגיב לטיפול, הקאות חוזרות או אם אין הטבה בתסמינים תוך 3 ימים, יש לפנות לבדיקה רפואית "},
             ],
           },
-        ],
+        },
       };
     </script>
   </head>

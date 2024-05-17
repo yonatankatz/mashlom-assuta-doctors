@@ -1,12 +1,12 @@
 <table class="table" style="margin-top: 20px;">
     <thead>
       <tr class="table-header">
-        <th ng-repeat="column in table.header" scope="col">{{column}}</th>
+        <th ng-repeat="column in table.header track by $index" scope="col">{{column}}</th>
       </tr>
     </thead>
     <tbody>
       <tr ng-repeat="row in table.rows track by $index">        
-        <td ng-repeat="value in row" colspan="{{table.header.length > 1 && row.length == 1 ? table.header.length : 1}}" scope="row" style="padding: 0.15rem .2rem;">{{value}}</td>        
+        <td ng-repeat="value in row track by $index" colspan="{{table.header.length > 1 && row.length == 1 ? table.header.length : 1}}" scope="row" style="padding: 0.15rem .2rem;">{{value}}</td>        
       </tr>
     </tbody>
 </table>

@@ -6,7 +6,7 @@ app.controller("ProtocolController", ['$scope', '$rootScope', '$http', '$timeout
     ctrl.searchQuery = '';
     ctrl.isExpanded = false;
     ctrl.protocolData = window.protocolData;
-
+    ctrl.sections = ctrl.protocolData.subsections;
     ctrl.toggleCollabse = function() {
         $timeout(function() {
             ctrl.isExpanded = !ctrl.isExpanded;            
