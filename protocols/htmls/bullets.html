@@ -1,15 +1,12 @@
 <h5>{{title}}</h5>
-<div ng-if="!bulletType && items.length == 1" class="case-sub-section">
-    {{items[0].value}}
+<div ng-if="!bulletType && items.length == 1" class="case-sub-section" ng-bind-html="items[0].value">    
 </div>
 <div ng-if="bulletType=='STAR' || (!bulletType && items.length > 3)" class="case-sub-section">
     <ul class="list-items-only-section list-items-only-section-many" >
-        <li ng-repeat="item in items track by $index">
-            {{item.value}}
+        <li ng-repeat="item in items track by $index" ng-bind-html="item.value">
         </li>
         <ul ng-if="item.subItems" class="list-items-only-section list-items-only-section-many" >
-            <li ng-repeat="subItem in item.subItems track by $index">
-                {{subItem}}
+            <li ng-repeat="subItem in item.subItems track by $index" ng-bind-html="subItem">
             </li>
         </ul>        
     </ul>        
@@ -17,10 +14,9 @@
 <div ng-if="bulletType=='BULLET' || (!bulletType && items.length >=2 && items.length <= 3)">
     <ul class="list-items-only-bullets">
         <li ng-repeat="item in items track by $index">
-            {{item.value}}
+            <span ng-bind-html="item.value"></span>
             <ul ng-if="item.subItems" class="list-items-only-bullets">
-                <li ng-repeat="subitem in item.subItems track by $index">
-                  {{subitem}}
+                <li ng-repeat="subItem in item.subItems track by $index"  ng-bind-html="subItem">
                  </li>                      
               </ul>
         </li>
@@ -28,15 +24,13 @@
 </div>
 <div ng-if="bulletType=='POSITIVE'" class="pro-hospitalization case-sub-section" >
     <ul class="list-items-only-section list-items-only-section-positive" >
-        <li class="pro-bullet-point" ng-repeat="item in items track by $index">
-        {{item.value}}
+        <li class="pro-bullet-point" ng-repeat="item in items track by $index" ng-bind-html="item.value">
         </li>
     </ul>        
 </div>
 <div ng-if="bulletType=='NEGATIVE'" class="con-hospitalization case-sub-section" >
     <ul class="list-items-only-section list-items-only-section-negative" >
-        <li class="con-bullet-point" ng-repeat="item in items track by $index">
-        {{item.value}}
+        <li class="con-bullet-point" ng-repeat="item in items track by $index" ng-bind-html="item.value">
         </li>
     </ul>        
 </div>
