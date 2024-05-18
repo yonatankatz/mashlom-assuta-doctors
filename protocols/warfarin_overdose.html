@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>פרוטוקלי מלר"ד - פיאלונפריטיס - אסותא אשדוד</title>
+    <link rel="manifest" href="../common/manifest.json" />
+    <link href="../3rd-party/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="../3rd-party/fontawesome/fontawesome-free-6.5.1-web/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../common/css/common.css" />
+    <link rel="stylesheet" href="css/protocol-common.css" />
+    <link rel="stylesheet" href="css/generic-protocol.css" />
+
+    <link rel="icon" href="/assets/logo/fav-icon96x96.png" />
+    <meta
+      property="og:title"
+      content="פרוטוקול פיאלונפריטיס, מיון מבוגרים, אסותא אשדוד"
+    />
+    <meta property="og:type" content="Article" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:site_name" content="mashlom.me" />
+    <meta
+      property="og:image"
+      content="https://assuta.mashlom.me/assets/logo/FullLogo1200x630.jpg"
+    />
+    <meta
+      property="og:image:secure_url"
+      content="https://assuta.mashlom.me/assets/logo/FullLogo1200x630.jpg"
+    />
+    <meta
+      property="og:url"
+      content="https://assuta.mashlom.me/protocols/pyelonephritis"
+    />
+    <meta property="og:description" content="פרוטוקול טיפול בפיאלונפריטיס" />
+    <meta name="description" content="פרוטוקול טיפול בפיאלונפריטיס" />
+    <meta
+      name="keywords"
+      content="assuta ashdod, רופאים, מחשבונים, מיון, מלרד, מיון מבוגרים, פיאלונפריטיס, אסותא אשדוד"
+    />
+    <meta name="robots" content="index, follow, NOODP" />
+    <script>
+      window.protocolData = {
+        name: "קומדין (warfarin) מנת יתר",
+        link: "./warfarin_overdose.html",
+        subsections: {
+          complaint: {
+            displayName: "תלונה - קומדין (warfarin) מנת יתר",
+            id: "1",
+            items: [{value:"INR גבוהה בתהליכי התנרמלות לטווח טיפול, וכעת המטופל תחת השגחה בכדי לזהות דימומים"}],
+          },
+          hospitalization: {
+            displayName: "התוויות לאשפוז ביחידה לאשפוז קצר",
+            id: "2",
+            hospitalizationItems: {
+              pros: [
+                { value: "INR 5.0 בזמן טיפול בקומדין", },
+                { value: "תרופות המשפיעות על קומדין הופסקו  (לדוגמא פרוקור, אספרין, NSAID, פלוקונאזול, טיפול ממושך באקמול)" },
+                { value: 'דימום מינו שנשלט בזמן הטיפול במלר\"ד וכעט המטופל/ת בהשגחה עד חזרת ה-INR לטווח טיפולי. לדוגמא דימום מהאף שפסק ' },
+              ],
+              cons: [
+                { value: "מדדים חיוניים לא יציבים" },
+                { value: 'כל דימום שאינו נשלט', },
+                { value: "מחלות רקע היכולות להשפיע על הלך הטיפול, כגון מחלת כבד, הרעלות תרופות, כגון דיגוקסין, או מחלה זיהומית סימולטנית", },
+                { value: "דימום משמעותי באזור של ניתן ללחיצה- מערכת העיכול, דימום ראטרופריטוניאלי, הימופטיזיס, דימום תוך מוחי." },
+              ],
+            },
+          },
+          inquiries: {
+            displayName: "בירורים",
+            id: "3",
+            items: [ {
+              value: "מעבדה:",
+              subItems: [
+                  "ספירה",
+                  "כימיה כולל CRP ותפקודי כבד",
+                  "קרישה",
+                  "קרוס (?)",
+                          ]
+            },
+            { value: " דימות "},
+            {value: " ייעוצים "},                                      
+            {value: " בדיקות נוספות "},                                      
+            ],
+          },
+          medication:{
+            displayName: "טיפול תרופתי מומלץ",
+            id: "4",
+            table: {
+            header: ["INR", "דימום?", "סיכון לדמם*", "תרופה"],
+              rows: [
+                ["5-9", "ללא", "גבוה", "ללא"],
+                ["5-9", "ללא", "גבוה", "Vit K 1-2 mg P.O / 0.5-1 mg I.V"],
+                [">9", "ללא", "גבוה", "Vit K 2.5-5 mg P.O / 1 mg I.V"],
+                [">9", "ללא", "גבוה", "Vit k I.V / 25-50 units I.V / FP 150-30 cc I.V"],
+              ],
+            },
+          },
+          instructions: {
+            displayName: "הוראות מומלצות",
+            id: "5",
+            table: {
+              header: ["הוראה", "תדירות", "הערות"],
+              rows: [
+                ["מדדים חיוניים", "כל שעה", ""]
+              ]
+            }
+          },
+          nursing: {"displayName": "סוגיות ספציפיות למעקב סיעודי",
+            "id": "9",
+            "items":
+            [
+                {value: ' יש להודיע לצוות הרפואי בכל מקרה של דמם או חשד לדמם '},
+                {value: 'נא לדווח על כאבי ראש, כאבי בטן, כאבי מפרקים או כל סימפטום חדש המעלה חשד לדמם פנימי '},
+                {value: 'מטופלים עם סיכון גבוה לנפילה יש להגבילם להתניידות תחת השגחה בלבד '},
+            ]
+          },
+          patient: {
+            displayName: "סוגיות ספציפיות למטופל",
+            id: "6",
+            items: [
+              {value:" רוב המטופלים יראו שיפור לאחר 48 שעות אשפוז "},
+              {value:" אירוע שני של קומדין (warfarin) מנת יתר מצריך US  כליות   "},
+            ],
+          },
+          additionals: {
+            displayName: "התוויות נוספות",
+            id: "7",
+            consultencies: [
+              {value:"המטולוג- אם המשך הטיפול אינו ברור או השאלה של המשך הטיפול בקומדין "},
+            ],
+            hospitalizationElsewhere: [
+            {value:"מטופלים שאינם עומדים בהתוויות לשחרור "},
+            {value:"התפתחות של דימום משמעותי "},
+            {value:"דימום קטן שאינו נשלט או דימומים חוזרים "},
+            {value:"INR  > 5 לאחר השגחה או טיפול "},
+            {value:"INR < 5 וללא דימום "},
+            {value:"INR חוזרת תוך 24 שעות "},
+            {value:"המטופל/ת מבינים את סיבת מינון היתר "},
+            {value:"כל התרופות עם אינטראקציה עם קודמין הופסקו "},
+            {value:"אם INR < 2.0 יש להתחיל טיפול בקומדין אך בחצי המינון "},
+            {value:"הערכה מחודשת בשל הצורך להמשך טיפול בקומדין "},
+            ],
+          },
+          release: {
+            displayName: "שחרור",
+            id: "8",
+            guidelines: [
+            {value:" ללא סימני התייבשות ויכולים לשתות ללא הקאה "},
+            {value:" מדדים חיוניים תקינים וללא מראה טוקסי "},
+            {value:" מעגל סוציאלי תומך "},
+            ],
+            recommendations: [
+            {value:" מעקב רופא/ת משפחה "},
+            {value:"יש לוודא שהמטופל או מטפליו יודעים עם איזה מינון אליהם להמשיך "},
+            {value:"פנייה להמטולוג בקהילה בשאלה של המשך טיפול בקומדין "},
+            {value:"בכל מקרה של החמרה, כגון דימומים חוזרים, כאבי ראש או בטן עזים, יש לפנות לבדיקה רפואית "},
+            ],
+          },
+        },
+      };
+    </script>
+  </head>
+  <body ng-app="app" ng-controller="ProtocolController as ctrl">
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-J85BPCEQ2Y"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-J85BPCEQ2Y");
+    </script>
+    <nav class="navbar navbar-expand-lg header">
+      <div style="width: 20%; height: 100%; text-align: right">
+        <img class="header-assuta-logo" src="../assets/assuta/only-alef.png" />
+      </div>
+      <div class="header-text">
+        <p>
+          mashlom.me בשיתוף עם בית<br />
+          החולים אסותא אשדוד
+        </p>
+      </div>
+      <div
+        style="
+          width: 15%;
+          height: 100%;
+          text-align: left;
+          vertical-align: middle;
+        "
+      >
+        <img
+          class="header-mashlom-logo"
+          src="../assets/logo/IconOnly_Transparent_NoBuffer.png"
+        />
+      </div>
+    </nav>
+    <div id="protocol-main" class="container protocols-main">
+      <div class="group-container">
+        <div style="padding-right: 10px; padding-left: 10px">
+          <div class="row form-group">
+            <div class="col-auto fs-3">
+              <h1>פיאלונפריטיס</h1>
+            </div>
+            <div class="col-auto me-auto">
+              <button
+                ng-click="ctrl.toggleCollabse()"
+                type="button"
+                class="btn btn-light border buttons-color fs-6"
+                style="min-width: 80px; padding: 3px"
+              >
+                {{ctrl.isExpanded ? "כווץ" : "פתח הכל"}}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <protocol-content></protocol-content>
+    </div>
+    <script src="../3rd-party/angularjs/angular.min.js"></script>
+    <script src="../3rd-party/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="js/generic-protocol.js"></script>
+    <script src="js/protocols-components.js"></script>
+  </body>
+</html>
