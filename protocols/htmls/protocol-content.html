@@ -132,7 +132,21 @@
                   <bullets bullet-type="'STAR'" items="ctrl.sections.release.guidelines"></bullets>              
                   <h5>המלצות לשחרור</h5>
                   <bullets bullet-type="'STAR'" items="ctrl.sections.release.recommendations"></bullets>
-                  </div>        
-              </div>      
-            </div>
+              </div>        
+            </div>      
+        </div>
+        <div class="accordion-item" ng-if="ctrl.sections.release">
+            <h2 class="accordion-header" id="protocolHeadingOne_10">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+            data-bs-target="#10" aria-expanded="false" aria-controls="10" ng-click="ctrl.blurButton($event)">
+                {{ctrl.sections.extras.displayName}}
+            </button>
+            </h2>
+            
+            <div id="10" class="accordion-collapse collapse" aria-labelledby="protocolHeadingOne_10">
+              <div class="accordion-body">      
+                  <bullets bullet-type="'STAR'" items="ctrl.sections.extras.values"></bullets>              
+              </div>        
+            </div>      
+        </div>
   </div>    
