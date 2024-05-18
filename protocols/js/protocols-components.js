@@ -24,3 +24,15 @@ app.directive('customTable', function($parse) {
         }
     };
 });
+
+app.directive('breadcrumb', function($parse) {
+    return {
+        restrict: 'E',
+        templateUrl: 'htmls/breadcrumb.html',
+        scope: {
+            pageTitle: '='
+        },
+        link: function(scope, element, attrs) {            
+        }
+    };
+});
