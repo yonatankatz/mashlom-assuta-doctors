@@ -1,4 +1,4 @@
-var app = angular.module("app", []);
+var app = angular.module("app", ['ngSanitize']);
   
 app.controller("HyperkalemiaController", ['$scope', '$rootScope', '$http', '$timeout', function($scope, $rootScope, $http, $timeout) {
     const ctrl = this;
