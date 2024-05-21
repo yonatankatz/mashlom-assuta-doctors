@@ -469,17 +469,14 @@ var allphototherapyDataPoints = [phototherapyShlomoProtocolWeek38PlusNoRisk,
   phototherapyShlomoProtocolWeek37NoRisk,
   phototherapyShlomoProtocolWeek37WithRisk
 ];
-var phototherapyChartsTitleSuffix = ['38+ ללא גורמי סיכון', '38+ עם גורמי סיכון', '35-37 ללא גורמי סיכון', '35-37 עם גורמי סיכון']
-var allPhototherapyChartsData = [];
-populateChartsData(allphototherapyDataPoints, allPhototherapyChartsData);
 
 var alltransfusionDataPoints = [transfusionWeek38PlusNoRisk,
-    transfusionWeek38PlusWithRisk,
-    transfusionWeek37NoRisk,
-    transfusionWeek37WithRisk
-  ];
-var allTransfusionChartsData = [];
-populateChartsData(alltransfusionDataPoints, allTransfusionChartsData);
+  transfusionWeek38PlusWithRisk,
+  transfusionWeek37NoRisk,
+  transfusionWeek37WithRisk
+];
+
+var phototherapyChartsTitleSuffix = ['38+ ללא גורמי סיכון', '38+ עם גורמי סיכון', '35-37 ללא גורמי סיכון', '35-37 עם גורמי סיכון']
 
 var percentile40LabelsValues = createLabelsAndValues(percentile40DataPoints);
 var percentile75LabelsValues = createLabelsAndValues(percentile75DataPoints);
@@ -517,14 +514,6 @@ datasets: [
     }  ]
 };
 
-function populateChartsData(arrayOfDataPoints, chartsDataToPopulate){
-  for (j = 0; j < arrayOfDataPoints.length; ++j) {
-    var datapoints = arrayOfDataPoints[j];
-    var result = createLabelsAndValues(datapoints);
-    chartsDataToPopulate.push(result);
-  }
-}
-
 function createLabelsAndValues(datapoints){
     var labels = [];
     var values = [];
@@ -539,22 +528,21 @@ function createLabelsAndValues(datapoints){
 
 function getPhototherapyGraphArraysByCase(isWeek38Plus, hasRisk){
   const index = getGenericCaseIndex(isWeek38Plus, hasRisk);
-  return allPhototherapyChartsData[index];
+  return allphototherapyDataPoints[index];
 }
 
 function getTransfusionGraphArraysByCase(isWeek38Plus, hasRisk){
     const index = getGenericCaseIndex(isWeek38Plus, hasRisk);
-    return allTransfusionChartsData[index];
+    return alltransfusionDataPoints[index];
 }
 
 function getPhototherapyData(is38Plus, hasRiskFactors){
-    const phototherapyArrays = getPhototherapyGraphArraysByCase(is38Plus, hasRiskFactors);
-    const transfusionArrays = getTransfusionGraphArraysByCase(is38Plus, hasRiskFactors);
+    const phototherapyDataPoints = getPhototherapyGraphArraysByCase(is38Plus, hasRiskFactors);
+    const transfusionDataPoints = getTransfusionGraphArraysByCase(is38Plus, hasRiskFactors);
     return phototherapyData = {
-    labels: phototherapyArrays[0],
     datasets: [
         {
-            data: phototherapyArrays[1],
+            data: phototherapyDataPoints,
             borderColor: 'black',
             fill: false,
             label: 'פוטותרפיה',
@@ -564,7 +552,7 @@ function getPhototherapyData(is38Plus, hasRiskFactors){
             borderDash: [0, 0]
         },
         {
-            data: transfusionArrays[1],
+            data: transfusionDataPoints,
             borderColor: 'red',
             fill: false,
             label: 'החלפת דם',
@@ -639,7 +627,6 @@ function getTrackingStatusByRiskZone(riskZone, hasRisk, shouldUsePhototherapy){
 
 function getPhototherapyDataPointsByCase(isWeek38Plus, hasRisk){
     if (isWeek38Plus){
-        // Shlomo and Assuta's Protocol
         return hasRisk ? phototherapyShlomoProtocolWeek38PlusWithRisk : phototherapyShlomoProtocolWeek38PlusNoRisk; 
     }
     else{
