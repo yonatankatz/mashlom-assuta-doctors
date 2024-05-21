@@ -469,9 +469,15 @@ var allphototherapyDataPoints = [phototherapyShlomoProtocolWeek38PlusNoRisk,
   phototherapyShlomoProtocolWeek37NoRisk,
   phototherapyShlomoProtocolWeek37WithRisk
 ];
+
+var alltransfusionDataPoints = [transfusionWeek38PlusNoRisk,
+  transfusionWeek38PlusWithRisk,
+  transfusionWeek37NoRisk,
+  transfusionWeek37WithRisk
+];
+
 var phototherapyChartsTitleSuffix = ['38+ ללא גורמי סיכון', '38+ עם גורמי סיכון', '35-37 ללא גורמי סיכון', '35-37 עם גורמי סיכון']
-var allPhototherapyChartsData = [];
-populatePhototherapyChartsData();
+
 var percentile40LabelsValues = createLabelsAndValues(percentile40DataPoints);
 var percentile75LabelsValues = createLabelsAndValues(percentile75DataPoints);
 var percentile95LabelsValues = createLabelsAndValues(percentile95DataPoints);
@@ -483,36 +489,30 @@ datasets: [
     data: percentile95LabelsValues[1],
     borderColor: 'black',
     fill: false,
-    label: '',
+    label: 'אחוזון 95',
     cubicInterpolationMode: 'monotone',
     tension: 0.4,
     pointRadius: 0 // Hide points
     },
     {
     data: percentile75LabelsValues[1],
-    borderColor: 'black',
+    borderColor: '#7e7e7e',
     fill: false,
+    label: 'אחוזון 75',
     cubicInterpolationMode: 'monotone',
     tension: 0.4,
     pointRadius: 0 // Hide points
     },
     {
     data: percentile40LabelsValues[1],
-    borderColor: 'black',
+    borderColor: '#d1d1d1',
     fill: false,
+    label: 'אחוזון 40',
     cubicInterpolationMode: 'monotone',
     tension: 0.4,
     pointRadius: 0 // Hide points
     }  ]
 };
-
-function populatePhototherapyChartsData(){
-  for (j = 0; j < allphototherapyDataPoints.length; ++j) {
-    var datapoints = allphototherapyDataPoints[j];
-    var result = createLabelsAndValues(datapoints);
-    allPhototherapyChartsData.push(result);
-  }
-}
 
 function createLabelsAndValues(datapoints){
     var labels = [];
@@ -526,26 +526,42 @@ function createLabelsAndValues(datapoints){
     return [labels, values];
 }
 
-function getGraphArraysByCase(isWeek38Plus, hasRisk){
+function getPhototherapyGraphArraysByCase(isWeek38Plus, hasRisk){
   const index = getGenericCaseIndex(isWeek38Plus, hasRisk);
-  return allPhototherapyChartsData[index];
+  return allphototherapyDataPoints[index];
+}
+
+function getTransfusionGraphArraysByCase(isWeek38Plus, hasRisk){
+    const index = getGenericCaseIndex(isWeek38Plus, hasRisk);
+    return alltransfusionDataPoints[index];
 }
 
 function getPhototherapyData(is38Plus, hasRiskFactors){
-    const arrays = getGraphArraysByCase(is38Plus, hasRiskFactors);
+    const phototherapyDataPoints = getPhototherapyGraphArraysByCase(is38Plus, hasRiskFactors);
+    const transfusionDataPoints = getTransfusionGraphArraysByCase(is38Plus, hasRiskFactors);
     return phototherapyData = {
-    labels: arrays[0],
     datasets: [
         {
-        data: arrays[1],
-        borderColor: 'black',
-        fill: false,
-        label: '',
-        cubicInterpolationMode: 'monotone',
-        tension: 0.4,
-        pointRadius: 0,
-        borderDash: hasRiskFactors ? [0, 0]: [5,5] // dashed when no risk, similar to "regular" graphs.
-        }]
+            data: phototherapyDataPoints,
+            borderColor: 'black',
+            fill: false,
+            label: 'פוטותרפיה',
+            cubicInterpolationMode: 'monotone',
+            tension: 0.4,
+            pointRadius: 0,
+            borderDash: [0, 0]
+        },
+        {
+            data: transfusionDataPoints,
+            borderColor: 'red',
+            fill: false,
+            label: 'החלפת דם',
+            cubicInterpolationMode: 'monotone',
+            tension: 0.4,
+            pointRadius: 0,
+            borderDash: [0, 0]
+            }
+        ]
     };    
 }
 
@@ -611,7 +627,6 @@ function getTrackingStatusByRiskZone(riskZone, hasRisk, shouldUsePhototherapy){
 
 function getPhototherapyDataPointsByCase(isWeek38Plus, hasRisk){
     if (isWeek38Plus){
-        // Shlomo and Assuta's Protocol
         return hasRisk ? phototherapyShlomoProtocolWeek38PlusWithRisk : phototherapyShlomoProtocolWeek38PlusNoRisk; 
     }
     else{
@@ -699,7 +714,14 @@ function createButaniChart(ctx){
               text: 'עקומת בוטאני'
             },
             legend: {
-              display: false // Hide legend
+              display: true,
+              labels: {
+                filter: function (legendItem, chartData) {
+                    return (chartData.datasets[legendItem.datasetIndex].label)
+                },
+                usePointStyle: true,
+                pointStyle: 'line'
+              }
             },
             tooltip: {
               rtl: true,
@@ -769,7 +791,14 @@ function createphototherapyChart(ctx, is38Plus, hasRiskFactors){
               text: 'טיפול באור - ' + phototherapyChartsTitleSuffix[getGenericCaseIndex(is38Plus, hasRiskFactors)]
             },
             legend: {
-              display: false // Hide legend
+              display: true,
+              labels: {
+                filter: function (legendItem, chartData) {
+                    return (chartData.datasets[legendItem.datasetIndex].label)
+                },
+                usePointStyle: true,
+                pointStyle: 'line'
+            }
             },
             tooltip: {
               rtl: true,
@@ -833,11 +862,10 @@ function drawPhototherapyWithPoint(ctx, is38Plus, hasRiskFactors, x, y){
       }
 
     createphototherapyChart(ctx, is38Plus, hasRiskFactors);  
-    if (phototherapyChart.data.datasets.length > 1){ // we already have a point on the chart. 1 datasets for butani, 1 for the point
+    if (phototherapyChart.data.datasets.length > 2){ // we already have a point on the chart. 2 datasets for phototherapy & blood transfusion - 1 for the point
         phototherapyChart.data.datasets.splice(1, 1);
     }
     var newPointDataset = {
-    label: 'Point', // Label for the dataset
     data: [{x: x, y: y}], // Array containing the new point
     backgroundColor: 'red', // Background color for the point
     borderColor: 'red', // Border color for the point
@@ -858,7 +886,6 @@ function drawButaniWithPoint(ctx, x, y){
     butaniChart.data.datasets.splice(3, 1);
   }
   var newPointDataset = {
-    label: 'Point', // Label for the dataset
     data: [{x: x, y: y}], // Array containing the new point
     backgroundColor: 'red', // Background color for the point
     borderColor: 'red', // Border color for the point
