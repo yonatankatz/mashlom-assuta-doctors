@@ -47,6 +47,19 @@
     box-shadow: none;
 }
 
+.opened-accordion-color {    
+    color: white;
+    background-color: #0E3C6E;
+    font-weight: bold;
+}
+
+.closed-accordion-color {    
+    color: #152D49;
+    background-color: #F5F5F5;
+    font-weight: bold;
+}
+
+
 .accordion-button::after {
     background-image: initial;
   }
@@ -58,3 +71,26 @@
 .accordion-button {
     padding:8px;
 }
+
+.accordion-body {
+    padding:0px;
+}
+
+
+.list-group {
+    padding: 0px;
+}
+
+.list-group-item {
+    border-bottom: 1px solid #6585a0;
+    border-radius: 0; /* Remove rounded corners */
+}
+
+.list-group-item:nth-child(odd) {
+    border-bottom: 1px solid #6585a0;
+    border-radius: 0; /* Remove rounded corners */
+  }
+
+  .dropdown-item {
+    padding-right: 20px;
+  }
