@@ -49,14 +49,12 @@
 
 .opened-accordion-color {    
     color: white;
-    background-color: #0E3C6E;
-    font-weight: bold;
+    background-color: #6585A0;
 }
 
 .closed-accordion-color {    
-    color: #152D49;
-    background-color: #F5F5F5;
-    font-weight: bold;
+    /* color: #152D49; */
+    background-color: #FAFAFA;
 }
 
 
