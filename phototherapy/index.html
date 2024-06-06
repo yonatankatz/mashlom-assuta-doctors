@@ -70,8 +70,8 @@
                 שבוע לידה:
             </div>
             <div class="col-auto input-col">
-                <button type="button" class="btn btn-outline-secondary" ng-class="{ 'buttons-color': ctrl.weekOfBirth == 'above38' }" ng-click="ctrl.selectWeekOfBirth('above38')">+38</button>
-                <button type="button" class="btn btn-outline-secondary" ng-class="{ 'buttons-color': ctrl.weekOfBirth == 'under38' }" ng-click="ctrl.selectWeekOfBirth('under38')">35-37</button>
+                <button id="above38" type="button" class="btn btn-outline-secondary" ng-class="{ 'buttons-color': ctrl.weekOfBirth == 'above38' }" ng-click="ctrl.selectWeekOfBirth('above38')">+38</button>
+                <button id="under38" type="button" class="btn btn-outline-secondary" ng-class="{ 'buttons-color': ctrl.weekOfBirth == 'under38' }" ng-click="ctrl.selectWeekOfBirth('under38')">35-37</button>
             </div>            
           </div>
         <div class="row form-group">
@@ -81,8 +81,8 @@
                  :
             </div>
             <div class="col-auto input-col" >
-                <button type="button" class="btn btn-outline-secondary" ng-class="{ 'buttons-color': ctrl.hasRiskFactors }" ng-click="ctrl.selectRiskFactor(true)">קיים</button>
-                <button type="button" class="btn btn-outline-secondary" ng-class="{ 'buttons-color': !ctrl.hasRiskFactors }" ng-click="ctrl.selectRiskFactor(false)">לא קיים</button>
+                <button id="risky" type="button" class="btn btn-outline-secondary" ng-class="{ 'buttons-color': ctrl.hasRiskFactors }" ng-click="ctrl.selectRiskFactor(true)">קיים</button>
+                <button id="notRisky" type="button" class="btn btn-outline-secondary" ng-class="{ 'buttons-color': !ctrl.hasRiskFactors }" ng-click="ctrl.selectRiskFactor(false)">לא קיים</button>
             </div>
         </div>        
         <div class="row form-group">
@@ -108,7 +108,7 @@
     <div class="col">
       <div class="card">
         <div class="card-body" ng-show="ctrl.allInputsSatisfied()">
-          <h3 class="card-title"><span class="circle" ng-style="ctrl.statusColor"></span>{{ctrl.rootDiagnose}} </h3>
+          <h3 id="root-diagnose" class="card-title"><span class="circle" ng-style="ctrl.statusColor"></span>{{ctrl.rootDiagnose}} </h3>
           <p ng-show="ctrl.riskZoneSatisfied()" class="card-text">היילוד <span>{{ctrl.riskZoneObj['percentileString']}}</span> באיזור סיכון <span>{{ctrl.riskZoneObj['riskZone']}}</span>.<br> {{ctrl.riskZoneObj['explanation']}}.
           <h4 ng-show="ctrl.allInputsSatisfied()" class="card-title">{{ctrl.considerTransfusion}}</h4>
           <div ng-show="ctrl.shouldFollowUp()" class="card-text"> 
