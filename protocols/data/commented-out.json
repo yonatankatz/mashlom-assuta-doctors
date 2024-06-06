@@ -1,0 +1,44 @@
+    {
+      "name": "כאבים בחזה",
+      "link": "./chest-pain",
+      "subsections": [        
+        { "displayName": "בירורים", "id": "3" },
+        { "displayName": "טיפול תרופתי מומלץ", "id": "4" },
+        { "displayName": "הוראות מומלצות", "id": "5" },
+        { "displayName": "הנחיות ספציפיות למעקב סיעודי", "id": "9" },
+        { "displayName": "סוגיות ספציפיות למטופל", "id": "6" },
+        { "displayName": "התוויות נוספות", "id": "7" },
+        { "displayName": "התוויות לאשפוז", "id": "2" },
+        { "displayName": "שחרור", "id": "8" }
+      ]
+    },
+    {
+      "name": "בחילות והקאות בהריון",
+      "link": "./pregnancy-nausea",
+      "subsections": [
+        { "displayName": "תלונה - בחילות והקאות בהריון מוקדם", "id": "1" },        
+        { "displayName": "בירורים", "id": "3" },
+        { "displayName": "טיפול תרופתי מומלץ", "id": "4" },
+        { "displayName": "הוראות מומלצות", "id": "5" },
+        { "displayName": "סוגיות ספציפיות למטופל", "id": "6" },
+        { "displayName": "התוויות נוספות", "id": "7" },
+        { "displayName": "התוויות לאשפוז", "id": "2" },
+        { "displayName": "שחרור", "id": "8" }
+      ]
+    },
+    {
+        "name": "ורטיגו",
+        "link": "./vertigo",
+        "subsections": [
+          { "displayName": "תלונה - ורטיגו", "id": "1" },        
+          { "displayName": "בירורים", "id": "3" },
+          { "displayName": "טיפול תרופתי מומלץ", "id": "4" },
+          { "displayName": "הוראות מומלצות", "id": "5" },
+          { "displayName": "הנחיות ספציפיות למעקב סיעודי", "id": "9" },
+          { "displayName": "סוגיות ספציפיות למטופל", "id": "6" },
+          { "displayName": "התוויות נוספות", "id": "7" },
+          { "displayName": "התוויות לאשפוז", "id": "2" },
+          { "displayName": "שחרור", "id": "8" }
+        ]
+      },
+  

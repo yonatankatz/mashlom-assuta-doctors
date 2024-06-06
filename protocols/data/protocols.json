@@ -17,13 +17,13 @@
       "name": "אצירת שתן",
       "link": "./urinary-retention",
       "subsections": [
-        { "displayName": "תלונה - אצירת שתן", "id": "1" },
-        { "displayName": "התוויות לאשפוז ביחידה לאשפוז קצר", "id": "2" },
+        { "displayName": "תלונה - אצירת שתן", "id": "1" },        
         { "displayName": "בירורים", "id": "3" },
         { "displayName": "טיפול תרופתי מומלץ", "id": "4" },
         { "displayName": "הוראות מומלצות", "id": "5" },
         { "displayName": "סוגיות ספציפיות למטופל", "id": "6" },
         { "displayName": "התוויות נוספות", "id": "7" },
+        { "displayName": "התוויות לאשפוז", "id": "2" },
         { "displayName": "שחרור", "id": "8" }
       ]
     },
@@ -31,12 +31,12 @@
       "name": "דלקת קרום המוח נגיפית",
       "link": "./meningitis",
       "subsections": [
-        { "displayName": "תלונה - דלקת קרום המוח נגיפית", "id": "1" },
-        { "displayName": "התוויות לאשפוז ביחידה לאשפוז קצר", "id": "2" },
+        { "displayName": "תלונה - דלקת קרום המוח נגיפית", "id": "1" },        
         { "displayName": "בירורים", "id": "3" },
         { "displayName": "טיפול תרופתי מומלץ", "id": "4" },
         { "displayName": "הוראות מומלצות", "id": "5" },
         { "displayName": "התוויות נוספות", "id": "7" },
+        { "displayName": "התוויות לאשפוז", "id": "2" },
         { "displayName": "שחרור", "id": "8" }
       ]
     },
@@ -44,41 +44,13 @@
       "name": "פיאלונפריטיס",
       "link": "./pyelonephritis",
       "subsections": [
-        { "displayName": "תלונה - פיאלונפריטיס", "id": "1" },
-        { "displayName": "התוויות לאשפוז ביחידה לאשפוז קצר", "id": "2" },
+        { "displayName": "תלונה - פיאלונפריטיס", "id": "1" },        
         { "displayName": "בירורים", "id": "3" },
         { "displayName": "טיפול תרופתי מומלץ", "id": "4" },
         { "displayName": "הוראות מומלצות", "id": "5" },
         { "displayName": "סוגיות ספציפיות למטופל", "id": "6" },
         { "displayName": "התוויות נוספות", "id": "7" },
-        { "displayName": "שחרור", "id": "8" }
-      ]
-    },
-    {
-      "name": "כאבים בחזה",
-      "link": "./chest-pain",
-      "subsections": [
-        { "displayName": "התוויות לאשפוז ביחידה לאשפוז קצר", "id": "2" },
-        { "displayName": "בירורים", "id": "3" },
-        { "displayName": "טיפול תרופתי מומלץ", "id": "4" },
-        { "displayName": "הוראות מומלצות", "id": "5" },
-        { "displayName": "הנחיות ספציפיות למעקב סיעודי", "id": "9" },
-        { "displayName": "סוגיות ספציפיות למטופל", "id": "6" },
-        { "displayName": "התוויות נוספות", "id": "7" },
-        { "displayName": "שחרור", "id": "8" }
-      ]
-    },
-    {
-      "name": "בחילות והקאות בהריון",
-      "link": "./pregnancy-nausea",
-      "subsections": [
-        { "displayName": "תלונה - בחילות והקאות בהריון מוקדם", "id": "1" },
-        { "displayName": "התוויות לאשפוז ביחידה לאשפוז קצר", "id": "2" },
-        { "displayName": "בירורים", "id": "3" },
-        { "displayName": "טיפול תרופתי מומלץ", "id": "4" },
-        { "displayName": "הוראות מומלצות", "id": "5" },
-        { "displayName": "סוגיות ספציפיות למטופל", "id": "6" },
-        { "displayName": "התוויות נוספות", "id": "7" },
+        { "displayName": "התוויות לאשפוז", "id": "2" },
         { "displayName": "שחרור", "id": "8" }
       ]
     },
@@ -86,8 +58,7 @@
       "name": "מנת יתר של קומודין",
       "link": "./warfarin_overdose",
       "subsections": [
-        { "displayName": "תלונה - בחילות והקאות בהריון מוקדם", "id": "1" },
-        { "displayName": "התוויות לאשפוז ביחידה לאשפוז קצר", "id": "2" },
+        { "displayName": "תלונה - בחילות והקאות בהריון מוקדם", "id": "1" },      
         { "displayName": "בירורים", "id": "3" },
         { "displayName": "טיפול תרופתי מומלץ", "id": "4" },
         { "displayName": "גורמי סיכון לדמם", "id": "10" },
@@ -95,35 +66,21 @@
         { "displayName": "הנחיות ספציפיות למעקב סיעודי", "id": "9" },
         { "displayName": "סוגיות ספציפיות למטופל", "id": "6" },
         { "displayName": "התוויות נוספות", "id": "7" },
+        { "displayName": "התוויות לאשפוז", "id": "2" },
         { "displayName": "שחרור", "id": "8" }
       ]
     },
     {
       "name": "אסטמה",
       "link": "./asthma",
-      "subsections": [
-        { "displayName": "התוויות לאשפוז ביחידה לאשפוז קצר", "id": "2" },
+      "subsections": [        
         { "displayName": "בירורים", "id": "3" },
         { "displayName": "טיפול תרופתי מומלץ", "id": "4" },
         { "displayName": "הוראות מומלצות", "id": "5" },
         { "displayName": "הנחיות ספציפיות למעקב סיעודי", "id": "9" },
         { "displayName": "סוגיות ספציפיות למטופל", "id": "6" },
         { "displayName": "התוויות נוספות", "id": "7" },
-        { "displayName": "שחרור", "id": "8" }
-      ]
-    },
-    {
-      "name": "ורטיגו",
-      "link": "./vertigo",
-      "subsections": [
-        { "displayName": "תלונה - ורטיגו", "id": "1" },
-        { "displayName": "התוויות לאשפוז ביחידה לאשפוז קצר", "id": "2" },
-        { "displayName": "בירורים", "id": "3" },
-        { "displayName": "טיפול תרופתי מומלץ", "id": "4" },
-        { "displayName": "הוראות מומלצות", "id": "5" },
-        { "displayName": "הנחיות ספציפיות למעקב סיעודי", "id": "9" },
-        { "displayName": "סוגיות ספציפיות למטופל", "id": "6" },
-        { "displayName": "התוויות נוספות", "id": "7" },
+        { "displayName": "התוויות לאשפוז", "id": "2" },
         { "displayName": "שחרור", "id": "8" }
       ]
     },
@@ -131,12 +88,12 @@
       "name": "פרפור פרוזדורים",
       "link": "./atrial_fibrillation",
       "subsections": [
-        { "displayName": "תלונה - פרפור פרוזדורים", "id": "1" },
-        { "displayName": "התוויות לאשפוז ביחידה לאשפוז קצר", "id": "2" },
+        { "displayName": "תלונה - פרפור פרוזדורים", "id": "1" },        
         { "displayName": "בירורים", "id": "3" },
         { "displayName": "טיפול תרופתי מומלץ", "id": "4" },
         { "displayName": "הנחיות ספציפיות למעקב סיעודי", "id": "9" },
         { "displayName": "התוויות נוספות", "id": "7" },
+        { "displayName": "התוויות לאשפוז", "id": "2" },
         { "displayName": "שחרור", "id": "8" }
       ]
     }
