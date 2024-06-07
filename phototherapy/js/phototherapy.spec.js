@@ -1,3 +1,5 @@
+// Do we still need this file?
+
 // controller.spec.js
 
 describe('PhototherapyController', function() {

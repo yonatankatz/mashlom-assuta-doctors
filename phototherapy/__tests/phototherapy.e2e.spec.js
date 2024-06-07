@@ -1,5 +1,5 @@
 const puppeteer = require('puppeteer');
-// const testCases = require('./testCases')
+const testCases = require('./testCases')
 
 const LIGHT_TREATMENT = {
   NO_NEED_CARE: 'לא נדרש טיפול באור',
@@ -40,29 +40,37 @@ const getResult = async (isUnder38, isRisky, bilirobinValue, ageInHours) => {
   // Wait for the result to appear
   await page.waitForSelector('#root-diagnose');
 
+  // Sleep for 100ms
+  // Hack, but we need to wait for the result to be fully rendered.
+  // After moving to react we can move remove the sleep.
+  await new Promise(r => setTimeout(r, 100));
+
   // Get the result and return it
   const rootDiagnose = await page.$eval('#root-diagnose', el => el.textContent);
   const shouldFollowUp = await page.$eval('#should-followup', el => el.clientHeight > 0);
-  const riskZone = await page.$eval('#risk-zone', el => el.textContent);
+  const _riskZone = await page.$eval('#risk-zone', el => el.textContent);
   const transfusionResult = await page.$eval('#transfusion-result', el => el.textContent);
-
+  
   const needLightTreatment = rootDiagnose.trim() === LIGHT_TREATMENT.NO_NEED_CARE ? false : true;
-
+  // check if _riskZone is a number, if so, parse it to int, else parse it to 0
+  const riskZone = isNaN(parseInt(_riskZone)) ? 0 : parseInt(_riskZone);
   await browser.close();
 
   return { needLightTreatment, riskZone, shouldFollowUp };
 }
 
-const sample = [    {"above38": true, "hasRisk": false, "ageInHours": 24, "bilirubin": 10.5, "result": { "needLight": true, "riskZone": 1}}]
+// should remove
+const _sample =    {id: "38+לא2410.5כן1" , above38: true, hasRisk: false, ageInHours: 24, bilirubin: 10.5, result: { needLightTreatment: true, riskZone: 1}}
+const sample = [_sample]
 
 describe('Phototherapy-e2e', () => {
-  test.each(sample)(
+  it.each(testCases)(
     "test case %o",
-    async ({above38, risk, ageInHours, bilirubin, result}) => {
+    async ({above38, risk, ageInHours, bilirubin, expectedResult}) => {
       
       const {needLightTreatment, riskZone, shouldFollowUp} = await getResult(above38, risk, bilirubin, ageInHours);
-      expect(needLightTreatment).toEqual(result.needLightTreatment)
-      expect(riskZone).toEqual(result.riskZone)
+      expect(needLightTreatment).toEqual(expectedResult.needLightTreatment)
+      expect(riskZone).toEqual(expectedResult.riskZone)
       // expect(shouldFollowUp).toEqual(false)
     }
   );
