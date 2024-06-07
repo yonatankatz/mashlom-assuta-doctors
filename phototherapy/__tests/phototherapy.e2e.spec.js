@@ -1,14 +1,25 @@
 const puppeteer = require('puppeteer');
+// const testCases = require('./testCases')
 
-const noNeedCare = 'לא נדרש טיפול באור'
-const needCare = 'נדרש טיפול באור'
+const LIGHT_TREATMENT = {
+  NO_NEED_CARE: 'לא נדרש טיפול באור',
+  NEED_CARE: 'נדרש טיפול באור'
+}
+
+const TRANSFUSION_RESULT = {
+  A: 'עובר את סף החלפת דם (בילירובין גדול מגיל הילד)',
+  B: 'עובר את סף החלפת דם',
+  C: 'ערך בילירובין מתקרב לסף החלפת דם, יש לשקול מתן IVIG',
+  D: 'ערך בילירובין מתקרב לסף החלפת דם',
+}
 
 const getResult = async (isUnder38, isRisky, bilirobinValue, ageInHours) => {
-  const browser = await puppeteer.launch({headless: false, devtools: true });
+  const browser = await puppeteer.launch({headless: true, devtools: true });
   const page = await browser.newPage();
   await page.goto('http://localhost:8080/phototherapy/');
 
 
+  // Set up the input
   if (isUnder38) {
     await page.click('#under38');
   } else {
@@ -21,31 +32,39 @@ const getResult = async (isUnder38, isRisky, bilirobinValue, ageInHours) => {
     await page.click('#notRisky');
   }
 
-  // await page.$eval('#bilirubin', (el, value) => el.value = value, bilirobinValue);
-  // await page.$eval('#ageInHours', (el, value) => el.value = value, ageInHours);
-
   await page.focus('#bilirubin');
   await page.keyboard.type(bilirobinValue.toString());
   await page.focus('#ageInHours');
   await page.keyboard.type(ageInHours.toString());
 
-  // await for element with id root-diagnose to appear
+  // Wait for the result to appear
   await page.waitForSelector('#root-diagnose');
 
-  // get value of element with id root-diagnose
-  const result = await page.$eval('#root-diagnose', el => el.textContent);
+  // Get the result and return it
+  const rootDiagnose = await page.$eval('#root-diagnose', el => el.textContent);
+  const shouldFollowUp = await page.$eval('#should-followup', el => el.clientHeight > 0);
+  const riskZone = await page.$eval('#risk-zone', el => el.textContent);
+  const transfusionResult = await page.$eval('#transfusion-result', el => el.textContent);
+
+  const needLightTreatment = rootDiagnose.trim() === LIGHT_TREATMENT.NO_NEED_CARE ? false : true;
 
   await browser.close();
 
-  return result.trim()
+  return { needLightTreatment, riskZone, shouldFollowUp };
 }
 
+const sample = [    {"above38": true, "hasRisk": false, "ageInHours": 24, "bilirubin": 10.5, "result": { "needLight": true, "riskZone": 1}}]
 
 describe('Phototherapy-e2e', () => {
-
-  it('should display correct result for risky baby with bilirubin 10 and age 10', async () => {
-    const result = await getResult(true, true, 10, 10)
-    expect(result).toBe(needCare);
-  });
+  test.each(sample)(
+    "test case %o",
+    async ({above38, risk, ageInHours, bilirubin, result}) => {
+      
+      const {needLightTreatment, riskZone, shouldFollowUp} = await getResult(above38, risk, bilirubin, ageInHours);
+      expect(needLightTreatment).toEqual(result.needLightTreatment)
+      expect(riskZone).toEqual(result.riskZone)
+      // expect(shouldFollowUp).toEqual(false)
+    }
+  );
 
 });

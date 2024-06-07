@@ -109,9 +109,9 @@
       <div class="card">
         <div class="card-body" ng-show="ctrl.allInputsSatisfied()">
           <h3 id="root-diagnose" class="card-title"><span class="circle" ng-style="ctrl.statusColor"></span>{{ctrl.rootDiagnose}} </h3>
-          <p ng-show="ctrl.riskZoneSatisfied()" class="card-text">היילוד <span>{{ctrl.riskZoneObj['percentileString']}}</span> באיזור סיכון <span>{{ctrl.riskZoneObj['riskZone']}}</span>.<br> {{ctrl.riskZoneObj['explanation']}}.
-          <h4 ng-show="ctrl.allInputsSatisfied()" class="card-title">{{ctrl.considerTransfusion}}</h4>
-          <div ng-show="ctrl.shouldFollowUp()" class="card-text"> 
+          <p id="risk-zone" ng-show="ctrl.riskZoneSatisfied()" class="card-text">היילוד <span>{{ctrl.riskZoneObj['percentileString']}}</span> באיזור סיכון <span id="risk-zone">{{ctrl.riskZoneObj['riskZone']}}</span>.<br> {{ctrl.riskZoneObj['explanation']}}.
+          <h4 id ="transfusion-result" ng-show="ctrl.allInputsSatisfied()" class="card-title">{{ctrl.considerTransfusion}}</h4>
+          <div id="should-followup" ng-show="ctrl.shouldFollowUp()" class="card-text"> 
             ילדים להם נמליץ על מעקב במרפאתינו ולא בקהילה:
             <ul>
               <li>פג, משבוע 36+6/7 ומטה בלידתו עם גורם סיכון</li>
