@@ -2,10 +2,8 @@
 
 ## Init
 
-Initial installation:
 ```
 npm install
-npm install -g karma-cli
 ```
 
 ## Start a local server

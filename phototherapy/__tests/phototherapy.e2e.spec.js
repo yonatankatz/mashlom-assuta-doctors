@@ -13,7 +13,7 @@ const TRANSFUSION_RESULT = {
   D: 'ערך בילירובין מתקרב לסף החלפת דם',
 }
 
-const getResult = async (isUnder38, isRisky, bilirobinValue, ageInHours) => {
+const getPhototherapyResult = async (isUnder38, isRisky, bilirobinValue, ageInHours) => {
   const browser = await puppeteer.launch({headless: true, devtools: true });
   const page = await browser.newPage();
   await page.goto('http://localhost:8080/phototherapy/');
@@ -60,15 +60,14 @@ const getResult = async (isUnder38, isRisky, bilirobinValue, ageInHours) => {
 }
 
 // should remove
-const _sample =    {id: "38+לא2410.5כן1" , above38: true, hasRisk: false, ageInHours: 24, bilirubin: 10.5, result: { needLightTreatment: true, riskZone: 1}}
+const _sample =    {above38: true, hasRisk: false, ageInHours: 24, bilirubin: 10.5, expectedResult: { needLightTreatment: true, riskZone: 1}}
 const sample = [_sample]
 
 describe('Phototherapy-e2e', () => {
   it.each(testCases)(
     "test case %o",
     async ({above38, risk, ageInHours, bilirubin, expectedResult}) => {
-      
-      const {needLightTreatment, riskZone, shouldFollowUp} = await getResult(above38, risk, bilirubin, ageInHours);
+      const {needLightTreatment, riskZone, shouldFollowUp} = await getPhototherapyResult(above38, risk, bilirubin, ageInHours);
       expect(needLightTreatment).toEqual(expectedResult.needLightTreatment)
       expect(riskZone).toEqual(expectedResult.riskZone)
       // expect(shouldFollowUp).toEqual(false)
