@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "http-server",
+    "start": "http-server -o",
     "test": "jest"
   },
   "devDependencies": {
