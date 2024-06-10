@@ -1,14 +1,17 @@
 # MASHLOME.ME for Doctors
 
-## Testing
+## Init
 
-Initial installation:
 ```
 npm install
-npm install -g karma-cli
 ```
 
-Run:
+## Start a local server
 ```
-karma start
+npm start
+```
+
+## Testing
+```
+npm test
 ```
