@@ -13,17 +13,17 @@ const TRANSFUSION_RESULT = {
   D: 'ערך בילירובין מתקרב לסף החלפת דם',
 }
 
-const getPhototherapyResult = async (isUnder38, isRisky, bilirobinValue, ageInHours) => {
+const getPhototherapyResult = async (isAbove38, isRisky, bilirobinValue, ageInHours) => {
   const browser = await puppeteer.launch({headless: true, devtools: true });
   const page = await browser.newPage();
   await page.goto('http://localhost:8080/phototherapy/');
 
 
   // Set up the input
-  if (isUnder38) {
-    await page.click('#under38');
-  } else {
+  if (isAbove38) {
     await page.click('#above38');
+  } else {
+    await page.click('#under38');
   }
 
   if (isRisky) {
@@ -43,7 +43,11 @@ const getPhototherapyResult = async (isUnder38, isRisky, bilirobinValue, ageInHo
   // Sleep for 100ms
   // Hack, but we need to wait for the result to be fully rendered.
   // After moving to react we can move remove the sleep.
-  await new Promise(r => setTimeout(r, 100));
+  if (ageInHours <=9){
+    await new Promise(r => setTimeout(r, 900));
+  }else{
+    await new Promise(r => setTimeout(r, 100));
+  }
 
   // Get the result and return it
   const rootDiagnose = await page.$eval('#root-diagnose', el => el.textContent);
@@ -66,8 +70,8 @@ const sample = [_sample]
 describe('Phototherapy-e2e', () => {
   it.each(testCases)(
     "test case %o",
-    async ({above38, risk, ageInHours, bilirubin, expectedResult}) => {
-      const {needLightTreatment, riskZone, shouldFollowUp} = await getPhototherapyResult(above38, risk, bilirubin, ageInHours);
+    async ({above38, hasRisk, ageInHours, bilirubin, expectedResult}) => {
+      const {needLightTreatment, riskZone, shouldFollowUp} = await getPhototherapyResult(above38, hasRisk, bilirubin, ageInHours);
       expect(needLightTreatment).toEqual(expectedResult.needLightTreatment)
       expect(riskZone).toEqual(expectedResult.riskZone)
       // expect(shouldFollowUp).toEqual(false)

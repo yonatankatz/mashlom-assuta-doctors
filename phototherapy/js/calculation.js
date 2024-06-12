@@ -291,6 +291,7 @@ var transfusionWeek37WithRisk = [
 var phototherapyShlomoProtocolWeek38PlusNoRisk = [
 { x: 5.8,  y: 7.2 },
 { x: 10.4, y: 7.9 },
+{ x: 12.0, y: 8.0 },
 { x: 13.2, y: 8.4 },
 { x: 17.2, y: 9.1 },
 { x: 20.4, y: 9.7 },
