@@ -9,13 +9,15 @@ const LIGHT_TREATMENT = {
 const BLOOD_TRANSFUSION = {
   ALERT: 'ערך בילירובין מתקרב לסף החלפת דם',
   NEED: 'עובר את סף החלפת דם',
-  IVIG: 'ערך בילירובין מתקרב לסף החלפת דם, יש לשקול מתן IVIG'
+  IVIG: 'ערך בילירובין מתקרב לסף החלפת דם, יש לשקול מתן IVIG',
+  NEED_UNDER_SIX: 'עובר את סף החלפת דם (בילירובין גדול מגיל הילד)'
 }
 
 const transfusionNameToId = {
   [BLOOD_TRANSFUSION.ALERT]: 'התראה',
   [BLOOD_TRANSFUSION.NEED]: 'עובר',
-  [BLOOD_TRANSFUSION.IVIG]: 'התראה IVIG'
+  [BLOOD_TRANSFUSION.IVIG]: 'התראה IVIG',
+  [BLOOD_TRANSFUSION.NEED_UNDER_SIX]: 'עובר גדול מגיל ילוד'
 }
 
 const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
