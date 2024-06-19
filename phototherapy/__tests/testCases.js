@@ -19,8 +19,7 @@ module.exports = [
     {above38: false, hasRisk: false, ageInHours: 48, bilirubin: 18.6, expectedResult: { needLightTreatment: true, transfusionResult: 'עובר', riskZone: 1}},
     {above38: false, hasRisk: true, ageInHours: 24, bilirubin: 8.2, expectedResult: { needLightTreatment: true, transfusionResult: 'ריק', riskZone: 1}},
     {above38: false, hasRisk: true, ageInHours: 48, bilirubin: 13.6, expectedResult: { needLightTreatment: true, transfusionResult: 'ריק', riskZone: 1}},
-    {above38: false, hasRisk: true, ageInHours: 96, bilirubin: 18, expectedResult: { needLightTreatment: true, transfusionResult: 'ריק', riskZone: 3}},
-    {above38: false, hasRisk: true, ageInHours: 180, bilirubin: 18, expectedResult: { needLightTreatment: true, transfusionResult: 'ריק', riskZone: 1}},
+    {above38: false, hasRisk: true, ageInHours: 180, bilirubin: 16, expectedResult: { needLightTreatment: true, transfusionResult: 'ריק', riskZone: 2}},
     {above38: false, hasRisk: true, ageInHours: 48, bilirubin: 14.8, expectedResult: { needLightTreatment: true, transfusionResult: 'התראה IVIG', riskZone: 1}},
     {above38: false, hasRisk: true, ageInHours: 48, bilirubin: 16.6, expectedResult: { needLightTreatment: true, transfusionResult: 'עובר', riskZone: 1}},
     {above38: true, hasRisk: false, ageInHours: 24, bilirubin: 10.3, expectedResult: { needLightTreatment: false, transfusionResult: 'ריק', riskZone: 1}},
@@ -94,7 +93,6 @@ module.exports = [
     {above38: false, hasRisk: true, ageInHours: 4, bilirubin: 4.1, expectedResult: { needLightTreatment: true, transfusionResult: 'עובר גדול מגיל ילוד', riskZone: 0}},
     {above38: true, hasRisk: false, ageInHours: 12, bilirubin: 8, expectedResult: { needLightTreatment: true, transfusionResult: 'ריק', riskZone: 1}},
     {above38: true, hasRisk: true, ageInHours: 12, bilirubin: 6.5, expectedResult: { needLightTreatment: true, transfusionResult: 'ריק', riskZone: 2}},
-    {above38: false, hasRisk: false, ageInHours: 12, bilirubin: 6.2, expectedResult: { needLightTreatment: false, transfusionResult: 'ריק', riskZone: 0}},
     {above38: false, hasRisk: true, ageInHours: 12, bilirubin: 5.5, expectedResult: { needLightTreatment: true, transfusionResult: 'ריק', riskZone: 2}},
     {above38: true, hasRisk: false, ageInHours: 12, bilirubin: 7.5, expectedResult: { needLightTreatment: false, transfusionResult: 'ריק', riskZone: 1}},
     {above38: true, hasRisk: true, ageInHours: 12, bilirubin: 6.3, expectedResult: { needLightTreatment: false, transfusionResult: 'ריק', riskZone: 2}},
@@ -106,13 +104,16 @@ module.exports = [
     {above38: false, hasRisk: true, ageInHours: 9, bilirubin: 3.9, expectedResult: { needLightTreatment: false, transfusionResult: 'ריק', riskZone: 0}},
 ]
 
-// ADD IT ONCE CONTRACDICTION FIXED {above38: false, hasRisk: false, ageInHours: 48, bilirubin: 12.9, expectedResult: { needLightTreatment: false, riskZone: 2}}, 
 
-// Tal- there's a confilict with this sample- there's another sample (line 96) with different expected result
-// ADD IT AFTER WE AGREED ON REMOVAL OF RELEASE TEXT{above38: false, hasRisk: false, ageInHours: 12, bilirubin: 6.2, expectedResult: { needLightTreatment: true, riskZone: 2}},
+// ADD IT ONCE CONTRACDICTION FIXED - and we remove release notes if photo threshold passed
+// {above38: false, hasRisk: false, ageInHours: 48, bilirubin: 12.9, expectedResult: { needLightTreatment: false, riskZone: 2}}, 
+// {above38: false, hasRisk: true, ageInHours: 96, bilirubin: 18, expectedResult: { needLightTreatment: true, transfusionResult: 'ריק', riskZone: 3}},
+
+
 
 //ADD THESE after checking with Shlomo that we need to change the graphs accordingly...
 // {above38: true, hasRisk: false, ageInHours: 9, bilirubin: 7.2, expectedResult: { needLightTreatment: true, riskZone: 0}},
 // {above38: true, hasRisk: true, ageInHours: 9, bilirubin: 5.5, expectedResult: { needLightTreatment: true, riskZone: 0}},
 // {above38: false, hasRisk: false, ageInHours: 9, bilirubin: 5.5, expectedResult: { needLightTreatment: true, riskZone: 0}},
 // {above38: false, hasRisk: true, ageInHours: 9, bilirubin: 4.2, expectedResult: { needLightTreatment: true, riskZone: 0}},
+//{above38: false, hasRisk: false, ageInHours: 12, bilirubin: 6.2, expectedResult: { needLightTreatment: false, transfusionResult: 'ריק', riskZone: 0}},
