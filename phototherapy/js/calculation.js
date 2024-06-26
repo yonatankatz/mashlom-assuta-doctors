@@ -661,8 +661,9 @@ function gerTransfusionResult(ageInHours, bilirubin, isWeek38Plus, hasRisk){
 
 function shouldUsePhototherapy(ageInHours, bilirubin, isWeek38Plus, hasRisk){
     if (ageInHours < 6) {
-        shouldUse = bilirubin > ageInHours / 2;
-        return { shouldUse, delta: 0 };
+        var threshold = ageInHours / 2;
+        shouldUse = bilirubin > threshold;
+        return { shouldUse, delta: Math.abs(bilirubin - threshold).toFixed(2) };
     }
     var dataPoints = getPhototherapyDataPointsByCase(isWeek38Plus, hasRisk);
     var threshold = getYOnCurveByX(dataPoints, ageInHours);
@@ -670,7 +671,7 @@ function shouldUsePhototherapy(ageInHours, bilirubin, isWeek38Plus, hasRisk){
     if (bilirubin >= threshold) {
         shouldUse = true;
     }
-    return { shouldUse, delta: Math.abs(bilirubin - threshold).toFixed(1) };
+    return { shouldUse, delta: Math.abs(bilirubin - threshold).toFixed(2) };
 }
 
 function getYOnCurveByX(dataPoints, x) {

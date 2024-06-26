@@ -109,6 +109,7 @@
       <div class="card">
         <div class="card-body" ng-show="ctrl.allInputsSatisfied()">
           <h3 id="root-diagnose" class="card-title"><span class="circle" ng-style="ctrl.statusColor"></span>{{ctrl.rootDiagnose}} </h3>
+          <h5 id ="light-alert" class="card-title">{{ctrl.lightAlertMessage}}</h4>
           <p ng-show="ctrl.riskZoneSatisfied()" class="card-text">
             היילוד 
             <span>{{ctrl.riskZoneObj['percentileString']}}</span> 

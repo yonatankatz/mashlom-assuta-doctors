@@ -15,6 +15,7 @@ app.controller("PhototherapyController", ['$scope', '$rootScope', '$timeout', fu
     ctrl.considerTransfusion = '';
     const expendGraphsText = 'צפה בערך על העקומות';
     const collpaseGraphsText = 'סגור תצוגה גרפית';
+    ctrl.lightAlertMessage = '';
     ctrl.collapseToggleText = expendGraphsText;
     ctrl.isCollapsed = true;
     var butaniCtx = document.getElementById('butaniChart').getContext('2d');
@@ -55,6 +56,7 @@ app.controller("PhototherapyController", ['$scope', '$rootScope', '$timeout', fu
     ctrl.clearValues = function() {
         ctrl.rootDiagnose = '';
         ctrl.distanceFromCurve = '';
+        ctrl.lightAlertMessage = '';
         ctrl.considerTransfusion = '';
         ctrl.riskZoneObj = {};
         ctrl.collapseToggleText = '';
@@ -94,11 +96,8 @@ app.controller("PhototherapyController", ['$scope', '$rootScope', '$timeout', fu
             }    
             const {shouldUse , delta} = shouldUsePhototherapy(ctrl.ageInHours, ctrl.bilirubin, ctrl.weekOfBirth === 'above38', ctrl.hasRiskFactors);
             ctrl.rootDiagnose = shouldUse ? "נדרש טיפול באור" : "לא נדרש טיפול באור";
-            ctrl.distanceFromCurve = '(' + (shouldUse ? "מעל העקומה ב " : "מתחת לעקומה ב ") + delta + ")" ;
+            ctrl.lightAlertMessage = (!shouldUse && delta <= 0.5) ? 'ערך בילירובין מתקרב לסף טיפול באור' : '';
             ctrl.considerTransfusion = gerTransfusionResult(ctrl.ageInHours, ctrl.bilirubin, ctrl.weekOfBirth === 'above38', ctrl.hasRiskFactors);
-            if (delta == 0) {
-                ctrl.distanceFromCurve = "(על קו העקומה)";
-            }
             ctrl.statusColor['background-color'] = shouldUse ? 'red' : 'green';
             if (ctrl.ageInHours >= 12){
                 const newRiskZoneObj = getRiskZone(ctrl.ageInHours, ctrl.bilirubin, ctrl.hasRiskFactors, shouldUse);

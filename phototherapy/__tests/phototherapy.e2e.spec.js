@@ -3,7 +3,8 @@ const testCases = require('./testCases')
 
 const LIGHT_TREATMENT = {
   NO_NEED_CARE: 'לא נדרש טיפול באור',
-  NEED_CARE: 'נדרש טיפול באור'
+  NEED_CARE: 'נדרש טיפול באור',
+  ALERT: 'ערך בילירובין מתקרב לסף טיפול באור'
 }
 
 const BLOOD_TRANSFUSION = {
@@ -80,8 +81,12 @@ const getPhototherapyResult = async (isAbove38, isRisky, bilirobinValue, ageInHo
   const _riskZone = await page.$eval('#risk-zone', el => el.textContent);
   const _transfusionResult = await page.$eval('#transfusion-result', el => el.textContent);
   const _explanationResult = await page.$eval('#explanation', el => el.textContent);
+  const _lightAlertResult = await page.$eval('#light-alert', el => el.textContent);
   
   const needLightTreatment = rootDiagnose.trim() === LIGHT_TREATMENT.NO_NEED_CARE ? false : true;
+  const lightAlertResult = _lightAlertResult.trim() === LIGHT_TREATMENT.ALERT ? true : false;
+  
+  
   // check if _riskZone is a number, if so, parse it to int, else parse it to 0
   const riskZone = isNaN(parseInt(_riskZone)) ? 0 : parseInt(_riskZone);
   const transfusionResult = transfusionNameToId[_transfusionResult.trim()] ?? 'ריק';
@@ -90,7 +95,7 @@ const getPhototherapyResult = async (isAbove38, isRisky, bilirobinValue, ageInHo
   
   await browser.close();
 
-  return { needLightTreatment, riskZone, transfusionResult, shouldFollowUp, explanationResult };
+  return { needLightTreatment, riskZone, transfusionResult, shouldFollowUp, explanationResult, lightAlertResult };
 }
 
 // should remove
@@ -101,12 +106,12 @@ describe('Phototherapy-e2e', () => {
   it.each(testCases)(
     "test case %o",
     async ({above38, hasRisk, ageInHours, bilirubin, expectedResult}) => {
-      const {needLightTreatment, riskZone, transfusionResult, explanationResult} = await getPhototherapyResult(above38, hasRisk, bilirubin, ageInHours);
+      const {needLightTreatment, riskZone, transfusionResult, explanationResult, lightAlertResult} = await getPhototherapyResult(above38, hasRisk, bilirubin, ageInHours);
       expect(needLightTreatment).toEqual(expectedResult.needLightTreatment)
       expect(riskZone).toEqual(expectedResult.riskZone)
       expect(transfusionResult).toEqual(expectedResult.transfusionResult)
       expect(explanationResult).toEqual(expectedResult.explanationResult)
-      // expect(shouldFollowUp).toEqual(false)
+      expect(lightAlertResult).toEqual(expectedResult.lightAlertResult)
     }
   );
 
