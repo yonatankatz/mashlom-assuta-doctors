@@ -602,21 +602,15 @@ function getRiskZone(ageInHours, bilirubin, hasRisk, shouldUsePhototherapy){
 }
 
 function getTrackingStatusByRiskZone(riskZone, hasRisk, shouldUsePhototherapy){
+    // "win" each case. 
+    if (shouldUsePhototherapy){
+      return 'טיפול אור באשפוז';
+    }
     if ((riskZone === 1) || (riskZone === 2 && hasRisk)){
-        if (shouldUsePhototherapy){
-            return 'טיפול אור באשפוז';
-        }
-        else {
-            return 'המשך אשפוז עם מעקב בילירובין בסרום כל 8 שעות';
-        }
+        return 'המשך אשפוז עם מעקב בילירובין בסרום כל 8 שעות';
     }
     else if (riskZone === 2 && !hasRisk){
-      if (shouldUsePhototherapy){ // edge case where risk zone == 2 && no risk, but still above phototherapy curve
-        return 'טיפול אור באשפוז';
-      }
-      else {
         return 'שחרור עם מעקב בילירובין חוזר תוך 24 שעות';
-      }
     }
     else if (riskZone === 4 || (!hasRisk && riskZone === 3)){
         return 'שחרור למעקב שגרתי בקהילה, רופא מטפל וטיפת חלב';
