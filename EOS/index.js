@@ -78,8 +78,7 @@ function computeEOSChance() {
         console.log((0.0427 * J_gbscarU))
       //                  intercept              + (0.8680[tempimp])  - (6.9325[ga4mdlng])  + (0.0877 [ga4mdlng_sq]) + (1.2256[romimp])  - (1.0488[approptx1])  - (1.1861[approptx2])  + (0.5771[j_gbscar(+)])   + (0.0427[j_gbscar(u)])
       const Betas =  computeInterceptBeta() + (0.8680 * tempimp) - (6.9325 * ga4mdlng) + (0.0877 * ga4mdlng_sq) + (1.2256 * Romimp) - (1.0488 * Approptx1) - (1.1861 * Approptx2) + (0.5771 * J_gbscarPlus) + (0.0427 * J_gbscarU)
-      console.log(Betas)
-      alert( (1 / (1 + Math.E ** -Betas)))
+      alert( ((1 / (1 + Math.E ** -Betas)) * 1000))
 }
 
 // listen to variables
@@ -111,6 +110,8 @@ window.onload =  () => {
 
     const ApproptxElement = document.getElementById("Approptx")
     Approptx = ApproptxElement.value;
+    Approptx1 = computeApproptx1()
+    Approptx2 = computeApproptx2()
     ApproptxElement.addEventListener("input", (event) => {
         Approptx = ApproptxElement.value;
         Approptx1 = computeApproptx1()
@@ -119,6 +120,8 @@ window.onload =  () => {
 
     const J_gbscarElement = document.getElementById("J_gbscar")
     J_gbscar = J_gbscarElement.value;
+    J_gbscarPlus = computeJ_gbscarPlus()
+    J_gbscarU = computeJ_gbscarU()
     J_gbscarElement.addEventListener("input", (event) => {
         J_gbscar = J_gbscarElement.value;
         J_gbscarPlus = computeJ_gbscarPlus()
