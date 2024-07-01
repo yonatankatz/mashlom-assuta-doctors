@@ -1,5 +1,4 @@
 // initialize variables
-let intercept = 0;
 let tempimp = 0;
 let Romimp = 0
 let ga4mdlng = 0
@@ -89,24 +88,6 @@ function computeJ_gbscarU() {
     }
 }
 
-function computeInterceptBeta() {
-    // EOS incidence 0.3/1000 Live Births	40.0528
-    // EOS incidence 0.4/1000 Live Births	40.3415
-    // EOS incidence 0.5/1000 Live Births	40.5656
-    // EOS incidence 0.6/1000 Live Births	40.7489
-    if (intercept === "0.3") {
-        return 40.0528
-    } else if (intercept === "0.4") {
-        return 40.3415
-    } else if (intercept === "0.5") {
-        return 40.5656
-    } else if (intercept === "0.6") {
-        return 40.7489
-    } else {
-        return 0
-    }
-}
-
 function computega4mdlng() {
     return (Number(ga4mdlng) + (Number(days) / 7));
 }
@@ -122,18 +103,12 @@ function computeEOSChance() {
         console.log((0.5771 * computeJ_gbscarPlus()))
         console.log((0.0427 * computeJ_gbscarU()))
       //                  intercept              + (0.8680[tempimp])  - (6.9325[ga4mdlng])  + (0.0877 [ga4mdlng_sq]) + (1.2256[romimp])  - (1.0488[approptx1])  - (1.1861[approptx2])  + (0.5771[j_gbscar(+)])   + (0.0427[j_gbscar(u)])
-      const Betas =  computeInterceptBeta() + (0.8680 * tempimp) - (6.9325 * computega4mdlng()) + (0.0877 * ga4mdlng_sq) + (1.2256 * Romimp) - (1.0488 * computeApproptx1()) - (1.1861 * computeApproptx2()) + (0.5771 * computeJ_gbscarPlus()) + (0.0427 * computeJ_gbscarU())
+      const Betas =  40.5656 + (0.8680 * tempimp) - (6.9325 * computega4mdlng()) + (0.0877 * ga4mdlng_sq) + (1.2256 * Romimp) - (1.0488 * computeApproptx1()) - (1.1861 * computeApproptx2()) + (0.5771 * computeJ_gbscarPlus()) + (0.0427 * computeJ_gbscarU())
       alert( ((1 / (1 + Math.E ** -Betas)) * 1000))
 }
 
 // listen to variables
 window.onload =  () => {
-    const interceptElement = document.getElementById("intercept")
-    intercept = interceptElement.value;
-    interceptElement.addEventListener("input", (event) => {
-        intercept = interceptElement.value;
-    })
-
     const tempimpElement = document.getElementById("tempimp")
     tempimp = (tempimpElement.value * (9/5)) + 32
     tempimpElement.addEventListener("input", (event) => {
