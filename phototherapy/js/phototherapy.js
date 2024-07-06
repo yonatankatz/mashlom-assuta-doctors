@@ -21,6 +21,9 @@ app.controller("PhototherapyController", ['$scope', '$rootScope', '$timeout', fu
     var butaniCtx = document.getElementById('butaniChart').getContext('2d');
     var phototherapyCtx = document.getElementById('phototherapyChart').getContext('2d');
 
+    const termsSignedKey = 'mashlom.termsSigned';
+    ctrl.termsSigned = localStorage.getItem(termsSignedKey) === 'true';
+
     ctrl.clearContent = function(attr) {
         ctrl[attr]  = null;
     }
@@ -154,6 +157,10 @@ app.controller("PhototherapyController", ['$scope', '$rootScope', '$timeout', fu
         }
     }
 
+    ctrl.acceptTerms = function() {
+        ctrl.termsSigned = true;
+        localStorage.setItem(termsSignedKey, 'true');
+    }
 }]);
 
 app.directive('selectOnClick', ['$window', function ($window) {

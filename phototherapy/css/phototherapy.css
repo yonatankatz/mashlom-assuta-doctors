@@ -94,4 +94,23 @@ html, body {
     margin-left: 10px;
   }
 
+.usage-terms-dialog-backdrop {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  background-color: rgba(0,0,0,0.4);
+  overflow: auto;
+}
 
+.usage-terms-dialog {
+  width: 80%;
+  max-width: 600px;
+  margin: 10% auto;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px -1px rgba(0,0,0,0.2);
+}
