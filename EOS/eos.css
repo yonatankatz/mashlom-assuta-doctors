@@ -36,13 +36,9 @@ html, body {
 }
 
 .col-auto-text-cols {      
-  min-width: 170px;
+  min-width: 150px;
   padding: 0px;
 }
-.col-auto-buttons-cols {      
-    min-width: 170px;
-    padding: 0px;
-  }
 
 .back-button {
     float: right;
@@ -107,8 +103,15 @@ html, body {
   }
 
   .calc-button:hover {    
-    background-color: #1FB5A3;
+    background-color: #103C6E;
     color: white;
   }
 
+.card-title {
+  color: var(--page-font-color) !important;
+}
 
+.caption-fs {
+  font-size: 1rem !important;
+  font-weight: 600;
+}

@@ -1,52 +1,216 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="he" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./index.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <title>EOS Calculator</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>אלח דם - חטיבת ילדים - אסותא אשדוד</title>
+<link rel="manifest" href="../common/manifest.json">
+<link href="../3rd-party/bootstrap/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="../3rd-party/fontawesome/fontawesome-free-6.5.1-web/css/all.min.css">
+<link rel="stylesheet" href="../common/css/common.css">
+<link rel="stylesheet" href="./eos.css">
+
+<link rel="icon" href="/assets/logo/fav-icon96x96.png">
+<meta property='og:title' content="אלח דם, חטיבת ילדים, אסותא אשדוד"/>
+<meta property='og:type' content='Article'/>
+<meta property="og:image:type" content="image/jpeg" />
+<meta property='og:site_name' content='mashlom.me'/>
+<meta property='og:image' content='https://assuta.mashlom.me/assets/logo/FullLogo1200x630.jpg'/>
+<meta property="og:image:secure_url" content="https://assuta.mashlom.me/assets/logo/FullLogo1200x630.jpg" />
+<meta property='og:url' content="https://assuta.mashlom.me/eos"/>
+<meta property='og:description' content="מחשבון טיפול באלח דם"/>
+<meta name="description" content="מחשבון טיפול באלח דם" />
+<meta name="keywords" content="assuta ashdod, רופאים, מחשבונים, רפואת ילדים, יילוד, eos, אסותא אשדוד" />
+<meta name="robots" content="index, follow, NOODP" />
+
 </head>
-<body>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="./index.js"></script>
-    <div class="row d-flex justify-content-center">
-        <div class="col-4">
-            <form [formGroup]="EOSChanceForm">
-                <label for="intercept">שיעור EOS באוכלוסייה (EOS\1000 לידות)</label>
-                <select class="form-select" id="intercept">
-                    <option value="0.3">0.3</option>
-                    <option value="0.4">0.4</option>
-                    <option value="0.5">0.5</option>
-                    <option value="0.6">0.6</option>
-                </select>
-                
-                <label for="tempimp">החום האימהי הכי גבוה שנמדד</label>
-                <input type="number" min="0" max="100" required class="form-control" id="tempimp">
-                
-                <label for="ga4mdlng">משך הריון (ימים ושבועות)</label>
-                <input type="number" id="ga4mdlng" min="0" max="100" required class="form-control">
-                
-                <label for="Romimp">משך פקיעת הקרומים (בשעות)</label>
-                <input type="number" id="Romimp" min="0" required class="form-control">
-                
-                <label for="J_gbscar">סטטוס GBS אימהי</label>
-                <select class="form-select" id="J_gbscar">
-                    <option value="positive">חיובי</option>
-                    <option value="negative">שלילי</option>
-                    <option value="unknown">לא ידוע</option>
-                </select>
-                
-                <label for="Approptx">טיפול אנטיביוטי בלידה</label>
-                <select class="form-select" id="Approptx">
-                    <option value="broad-4">אנטיביוטיקה רחבת טווח מעל 4 שעות לפני הלידה</option>
-                    <option value="broad-2">אנטיביוטיקה רחבת טווח 2 עד 3.9 שעות לפני הלידה</option>
-                    <option value="GBS-2">אנטיביוטיקה ספציפית ל-GBS מעל שעתיים לפני הלידה</option>
-                    <option value="none">ללא טיפול אנטיביוטי, או טיפול אנטיביוטי פחות משעתיים לפני הלידה</option>
-                </select>
-            </form>    
+<body ng-app="app" ng-controller="EosController as ctrl" >
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J85BPCEQ2Y"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-J85BPCEQ2Y');
+</script>
+<nav class="navbar navbar-expand-lg header">
+  <div style="width: 20%;height:100%; text-align: right;">
+    <img class="header-assuta-logo" src="../assets/assuta/only-alef.png" >
+  </div>
+  <div class="header-text">
+    <p>
+      mashlom.me בשיתוף עם בית<br>
+      החולים אסותא אשדוד, חטיבת הילדים
+    </p>
+  </div>
+  <div style="width: 15%;height:100%; text-align: left; vertical-align: middle">
+    <img class="header-mashlom-logo" src="../assets/logo/IconOnly_Transparent_NoBuffer.png" >
+  </div>
+</nav>
+<div id="eos-main" class="container main-content eos-main-content">  
+<div id="calculator" style="overflow-y: auto;overflow-x: hidden; padding-bottom: 10px;" >
+  <div class="group-container">
+    <form>
+    <div>
+        <div class="row form-group">
+            <div class="col-auto fs-3 ">
+                <h1> אלח דם <span style="font-size: 1.05rem;">(Early-Onset Sepsis)</span></h1>
+            </div>
+            <div class="col-auto me-auto reset-button">
+                <span ng-click="ctrl.resetAll()"><img style="cursor:pointer; width: 35px; height: 35px;margin-right:10px; " src="../assets/refresh.png"></span>
+            </div>        
         </div>
-        <button class="btn btn-primary" id="computeEOSButton">חשב EOS</button>
     </div>
+      <div class="container">              
+        <div class="row form-group">
+            <div class="col-auto caption-fs  col-auto-text-cols d-flex align-items-center">
+                חום אימהי מקסימלי:
+            </div>
+            <div class="col input-col">
+                <input  ng-model-options="{ allowInvalid: true}" inputmode="decimal" type="text" pattern="[0-9]{1,4}[.]{0,1}[0-9]{0,1}" maxlength="5" style="max-width: 90px;" ng-model="ctrl.temprature" 
+                        class="form-control" id="temprature" max="45" min="36" select-on-click >
+            </div>
+        </div>        
+        <div class="row form-group">
+            <div class="col-auto caption-fs col-auto-text-cols d-flex align-items-center">
+                משך הריון:
+            </div>
+            <div class="col input-col">
+              <div class="row">
+                <div class="col-6 col-md-3" style="padding-left: 0px;margin-left: 10px;max-width: 100px;">
+                  <input placeholder="שבועות" ng-model-options="{ allowInvalid: true}" inputmode="decimal" type="text" pattern="[0-9]{0,3}"
+                          min="30" max="45" 
+                          maxlength="3" style="max-width: 90px;" ng-model="ctrl.pregnancyLengthWeeks" class="form-control" id="pregnancyLengthWeeks" select-on-click >
+                </div>
+                <div class="col-6 col-md-3" style="padding-right: 0px;max-width: 100px;">
+                  <input placeholder="+ ימים" ng-model-options="{ allowInvalid: true}" inputmode="decimal" type="text" pattern="[0-6]{0,1}"
+                          max="6" min="0" 
+                          maxlength="3" style="max-width: 90px;" ng-model="ctrl.pregnancyLengthDays" class="form-control" id="pregnancyLengthDays" select-on-click >
+                  </div>
+                </div>
+            </div>
+        </div>        
+        <div class="row form-group">
+          <div class="col-auto caption-fs  col-auto-text-cols d-flex align-items-center">
+              משך פקיעת הקרומים:
+          </div>
+          <div class="col input-col">
+              <input placeholder="שעות" ng-model-options="{ allowInvalid: true}" inputmode="decimal" type="text" pattern="[0-9]{1,4}[.]{0,1}[0-9]{0,1}" maxlength="3" style="max-width: 90px;" ng-model="ctrl.rom" 
+                      class="form-control" id="rom" max="150" min="0" select-on-click >
+          </div>
+      </div>        
+      <div class="row form-group">
+        <div class="col-auto caption-fs  col-auto-text-cols d-flex align-items-center">
+            סטטוס GBS:
+        </div>
+        <div class="col input-col" style="max-width: 200px;">
+          <select class="form-select" id="gbs" ng-model="ctrl.gbs">
+            <option value="positive">חיובי</option>
+            <option value="negative">שלילי</option>
+            <option value="unknown">לא ידוע</option>
+          </select>
+        </div>
+      </div>
+      
+
+      <div class="row form-group">
+        <div class="col-auto caption-fs col-auto-text-cols d-flex align-items-center">
+          טיפול אנטיביוטי בלידה:
+        </div>
+      </div>
+      <div class="row form-group">
+        <div class="col input-col">
+          <div class="row mb-2">
+            <div class="col-auto d-flex align-items-center">
+              <input class="form-check-input" type="radio" id="broad-4" ng-model="ctrl.antibioticTreatment" value="broad-4">
+            </div>
+            <div class="col">
+              <label class="form-check-label" for="broad-4">
+                אנטיביוטיקה רחבת טווח מעל 4 שעות לפני הלידה
+              </label>
+            </div>
+          </div>
+          <div class="row mb-2">
+            <div class="col-auto d-flex align-items-center">
+              <input class="form-check-input" type="radio" id="broad-2" ng-model="ctrl.antibioticTreatment" value="broad-2">
+            </div>
+            <div class="col">
+              <label class="form-check-label" for="broad-2">
+                אנטיביוטיקה רחבת טווח 2 עד 3.9 שעות לפני הלידה
+              </label>
+            </div>
+          </div>
+          <div class="row mb-2">
+            <div class="col-auto d-flex align-items-center">
+              <input class="form-check-input" type="radio" id="GBS-2" ng-model="ctrl.antibioticTreatment" value="GBS-2">
+            </div>
+            <div class="col">
+              <label class="form-check-label" for="GBS-2">
+                אנטיביוטיקה ספציפית ל-GBS מעל שעתיים לפני הלידה
+              </label>
+            </div>
+          </div>
+          <div class="row mb-2">
+            <div class="col-auto d-flex align-items-center">
+              <input class="form-check-input" type="radio" id="none" ng-model="ctrl.antibioticTreatment" value="none">
+            </div>
+            <div class="col">
+              <label class="form-check-label" for="none">
+                ללא טיפול אנטיביוטי, או טיפול אנטיביוטי פחות משעתיים לפני הלידה
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      
+
+
+      <div class="calc-button-container">
+        <button class="btn calc-button" ng-disabled="!ctrl.allValuesSatisfied()" ng-click="ctrl.computeEOS()">חשב</button>
+      </div>
+      <div class="cards-container row row-cols-1 row-cols-md-1 g-4" ng-if="!!ctrl.eos">
+        <div class="col">
+          <div class="card">
+            <div class="card-body">
+              <div id="eos" class="card-title" style="text-align: center;"><span style="font-size: 1.1rem">סיכון לאלח דם מוקדם:</span><br>
+                <span style="font-size: 1.5rem; font-weight: bold;"> {{ctrl.eos}} </span> <br><span style="font-size: 1.1rem">לאלף לידות</span></div>
+              <p class="card-text">
+               </p>                                  
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </form>
+  </div>
+  </div>
+</div>  
+<footer class="text-center text-white footer" ng-hide="true">
+  <div class="footer-container">
+    <div id="footer-menu">
+      <a class="footer-button" >
+        <div class="bottom-menu-color"><i class="fa-solid fa-bed-pulse"></i></div>
+        <div class="text">גורמי סיכון</div>
+      </a>
+    </div>
+    <a class="footer-button">
+        <div class="bottom-menu-color" ><i class="fa-solid fa-chart-line"></i></div>
+        <div class="text">גרף טיפול באור</div>
+      </a>
+      <a class="footer-button"  >
+        <div class="bottom-menu-color"><i class="fa-solid fa-droplet"></i></div>
+        <div class="text">גרף החלפת דם</div>
+      </a>
+      <a class="footer-button" >
+        <div class="bottom-menu-color"><i class="fa-solid fa-chart-gantt"></i></div>
+        <div class="text">עקומת בוטאני</div>
+      </a>
+    </div>
+  </div>
+</footer>
+<script src="../3rd-party/angularjs/angular.min.js"></script>
+<script src="../3rd-party/bootstrap/bootstrap.bundle.min.js"></script>
+<script src="./eos.js"></script>
 </body>
 </html>
