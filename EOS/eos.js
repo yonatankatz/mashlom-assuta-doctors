@@ -5,12 +5,12 @@ app.controller("EosController", ['$scope', '$rootScope', '$timeout', function($s
     window.ctrl = this;
 
     ctrl.intercept = 0.5; // constant for Israel
-    ctrl.temprature = 40;
-    ctrl.rom = 10;
-    ctrl.pregnancyLengthWeeks = 40;
+    ctrl.temprature;
+    ctrl.rom;
+    ctrl.pregnancyLengthWeeks;
     ctrl.pregnancyLengthDays;
-    ctrl.antibioticTreatment = 'none';
-    ctrl.gbs = 'positive';
+    ctrl.antibioticTreatment;
+    ctrl.gbs;
 
     ctrl.eos;
 
@@ -76,9 +76,9 @@ app.controller("EosController", ['$scope', '$rootScope', '$timeout', function($s
 
     function computePregnancyLength() {
       if (ctrl.pregnancyLengthDays) {
-        return ctrl.pregnancyLengthWeeks + (ctrl.pregnancyLengthDays / 7);  
+        return Number(ctrl.pregnancyLengthWeeks) + (Number(ctrl.pregnancyLengthDays) / 7);  
       }
-      return ctrl.pregnancyLengthWeeks;
+      return Number(ctrl.pregnancyLengthWeeks);
     }
 
     ctrl.allValuesSatisfied = function() {
