@@ -51,7 +51,6 @@
 <div id="eos-main" class="container main-content eos-main-content">  
 <div id="calculator" style="overflow-y: auto;overflow-x: hidden; padding-bottom: 10px;" >
   <div class="group-container">
-    <form>
     <div>
         <div class="row form-group">
             <div class="col-auto fs-3 ">
@@ -163,10 +162,7 @@
           </div>
         </div>
       </div>
-      
-      
-
-
+      </div>
       <div class="calc-button-container">
         <button class="btn calc-button" ng-disabled="!ctrl.allValuesSatisfied()" ng-click="ctrl.computeEOS()">חשב</button>
       </div>
@@ -182,9 +178,55 @@
           </div>
         </div>
       </div>
+
+      <div class="container mt-4">
+        <div class="accordion" id="accordionExample" style="width: 100%;">
+          <div class="card">
+            <div class="card-header collapse-item green" id="headingOne">
+              <h5 class="mb-0">
+                <button style="width:100%;" class="btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  תינוקות אסימפטומטיים (Well Appearing)
+                </button>
+              </h5>
+            </div>
+            <div id="collapseOne"  class="collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+              <div class="card-body">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header collapse-item yellow" id="headingTwo">
+              <h5 class="mb-0">
+                <button style="width:100%;" class="btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  תינוקות עם סימפטומים לא ספציפיים (Equivocal)
+                </button>
+              </h5>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+              <div class="card-body">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header collapse-item red" id="headingThree">
+              <h5 class="mb-0">
+                <button style="width:100%;" class="btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                  תינוקות עם סימנים משמעותיים (Clinical Illness)
+                </button>
+              </h5>
+            </div>
+            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+              <div class="card-body">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </form>
-  </div>
+
+    </div>
   </div>
 </div>  
 <footer class="text-center text-white footer" ng-hide="true">
