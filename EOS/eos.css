@@ -112,6 +112,33 @@ html, body {
 }
 
 .caption-fs {
-  font-size: 1rem !important;
+  font-size: 0.97rem !important;
   font-weight: 600;
+}
+
+.custom-radio {
+  position: relative;
+  width: 15px;  /* Increase the size if needed */
+  height: 15px; /* Increase the size if needed */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 1px solid #103C6E; /* Make the border thicker */
+  border-radius: 50%;
+  outline: none;
+  cursor: pointer;
+  vertical-align: middle;
+  margin-bottom: 3px;
+}
+
+.custom-radio:checked::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0px;  /* Size of the inner circle */
+  height: 0px; /* Size of the inner circle */
+  background-color: #103C6E;
+  border-radius: 50%;
 }
