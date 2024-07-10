@@ -3,7 +3,7 @@ var app = angular.module("app", []);
 app.controller("EosController", ['$scope', '$rootScope', '$timeout', function($scope, $rootScope, $timeout) {
     const ctrl = this;
     window.ctrl = this;
-
+    ctrl.page = 'CALCULATOR'; // values: CALCULATOR, ANTIBIOTIC_TREATMENT, INSTRUCTIONS
     ctrl.intercept = 0.5; // constant for Israel
     ctrl.temprature;
     ctrl.rom;
@@ -11,8 +11,16 @@ app.controller("EosController", ['$scope', '$rootScope', '$timeout', function($s
     ctrl.pregnancyLengthDays;
     ctrl.antibioticTreatment;
     ctrl.gbs;
-
+    ctrl.eosPerClinicalCondition = {};
     ctrl.eos;
+
+    ctrl.openPanel = function(page) {
+      ctrl.page = page;
+    };
+
+    ctrl.closePanel = function() {
+      ctrl.page = 'CALCULATOR';
+    };
 
     function computeApproptx1() {
         // 1 if GBS specific antibiotics are given ≥2 hours prior to deliver OR any antibiotics given 2-3.9 hours prior to delivery, otherwise 0
@@ -84,6 +92,27 @@ app.controller("EosController", ['$scope', '$rootScope', '$timeout', function($s
     ctrl.allValuesSatisfied = function() {
       return !!ctrl.intercept && !!ctrl.temprature && !!ctrl.rom && !!ctrl.pregnancyLengthWeeks && !!ctrl.antibioticTreatment && !!ctrl.gbs
     };
+
+    ctrl.calcEosPerClinicalCondition = function() {
+      ctrl.eosPerClinicalCondition['Well Appearing'] = 0.1;
+      ctrl.eosPerClinicalCondition['Equivocal'] = 2;
+      ctrl.eosPerClinicalCondition['Clinical Illness'] = 3;
+    };
+
+    ctrl.getClinicalRecommendation = function(clinicalCondition) {
+      eosPerClinicalCondition = ctrl.eosPerClinicalCondition[clinicalCondition];
+
+      if (eosPerClinicalCondition < 1) {
+        return "No additional care";
+      }
+      else if (eosPerClinicalCondition < 3) {
+        hours = clinicalCondition == 'Well Appearing' ? 24 : 16;
+        return `Blood culture and vitals every 4 hours for ${hours} hours`;
+      }
+      else {
+        return 'Treat empirically with antibiotics';
+      }
+    };
     
     ctrl.resetAll = function() {
         ctrl.intercept = 0.5; // constant for Israel
@@ -102,13 +131,15 @@ app.controller("EosController", ['$scope', '$rootScope', '$timeout', function($s
                                 (1.2256 * computeROM()) - (1.0488 * computeApproptx1()) -
                                  (1.1861 * computeApproptx2()) + (0.5771 * computeJ_gbscarPlus()) + (0.0427 * computeJ_gbscarU());
       ctrl.eos =  ((1 / (1 + Math.E ** -betas)) * 1000).toFixed(2);
+      ctrl.calcEosPerClinicalCondition();
       $timeout(function() {
         document.getElementById('eos').scrollIntoView({
             behavior: 'smooth'
         });
       }, 100);
-
     }
+
+    ctrl.calcEosPerClinicalCondition(); // TODO: remove
 }]);
 
 app.directive('selectOnClick', ['$window', function ($window) {
@@ -132,5 +163,41 @@ app.directive('selectOnClick', ['$window', function ($window) {
                   }
             });
         }
-    };
+    };    
 }]);
+
+app.directive('clinicalRecommendation', function() {
+  return {
+      restrict: 'E',
+      templateUrl: 'htmls/clinical-recommendation.html',
+      scope: {
+        condition: '@'
+      },
+      link: function(scope, element, attrs) {           
+        scope.getRisk = function() {
+          return ctrl.eosPerClinicalCondition[scope.condition];
+        };  
+      }
+
+  };
+});
+
+app.directive('antibiotics', function() {
+  return {
+      restrict: 'E',
+      templateUrl: 'htmls/antibiotics.html',
+      link: function(scope, element, attrs) {           
+      }
+
+  };
+});
+
+app.directive('instructions', function() {
+  return {
+      restrict: 'E',
+      templateUrl: 'htmls/instructions.html',
+      link: function(scope, element, attrs) {           
+      }
+
+  };
+});

@@ -49,7 +49,7 @@
   </div>
 </nav>
 <div id="eos-main" class="container main-content eos-main-content">  
-<div id="calculator" style="overflow-y: auto;overflow-x: hidden; padding-bottom: 10px;" >
+<div id="calculator" ng-show="ctrl.page == 'CALCULATOR'" style="overflow-y: auto;overflow-x: hidden; padding-bottom: 10px;" >
   <div class="group-container">
     <div>
         <div class="row form-group">
@@ -106,16 +106,32 @@
         <div class="col input-col" style="max-width: 200px;">
           <select class="form-select" id="gbs" ng-model="ctrl.gbs">
             <option value="positive">חיובי</option>
-            <option value="negative">שלילי</option>
-            <option value="unknown">לא ידוע</option>
+            <!-- <option value="negative">שלילי</option> -->
+            <option value="unknown">שלילי או לא ידוע</option>
           </select>
         </div>
-      </div>
-      
+      </div>          
 
       <div class="row form-group">
         <div class="col-auto caption-fs col-auto-text-cols d-flex align-items-center">
-          טיפול אנטיביוטי בלידה:
+          טיפול אנטיביוטי בלידה: <i class="fa-solid fa-circle-question" style="margin-right: 10px;" data-bs-toggle="modal" data-bs-target="#infoAntibiotics"></i>
+        </div>
+      </div>
+      <div class="modal fade" id="infoAntibiotics" tabindex="-1" aria-labelledby="infoAntibioticsLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              <h5 class="modal-title" id="infoAntibioticsLabel">הטיפול אנטיביוטי</h5>
+            </div>
+            <div class="modal-body">
+              <ul>
+                <li>במידה והאם קבלה כיסוי טרום לידתי עם אמפיצילין וגנטאמיצין או צפטריאקסון בלבד יש להזין שניתנה אנטיביוטיקה רחבת טווח לאם תוך כדי התייחסות למספר שעות טרם לידה שהטיפול ניתן.</li>
+                <li>אם האם קבלה טיפול מסוג beta Lactams  - להזין "אנטיביוטיקה ספציפית ל-GBS", במידה וניתן לפחות שעתיים טרם לידה.</li>
+                <li>אם האם לא קבלה תכשירי מסוג beta Lactams או קבלה כיסוי אנטיביוטי פחות משעתיים טרם לידה יש לבחור באפשרות "ללא טיפול אנטיביוטי". </li>
+              </ul> 
+            </div>
+          </div>
         </div>
       </div>
       <div class="row form-group">
@@ -178,76 +194,137 @@
           </div>
         </div>
       </div>
-
-      <div class="container mt-4">
-        <div class="accordion" id="accordionExample" style="width: 100%;">
-          <div class="card">
-            <div class="card-header collapse-item green" id="headingOne">
-              <h5 class="mb-0">
-                <button style="width:100%;" class="btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                  תינוקות אסימפטומטיים (Well Appearing)
-                </button>
-              </h5>
-            </div>
-            <div id="collapseOne"  class="collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-              <div class="card-body">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-header collapse-item yellow" id="headingTwo">
-              <h5 class="mb-0">
-                <button style="width:100%;" class="btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                  תינוקות עם סימפטומים לא ספציפיים (Equivocal)
-                </button>
-              </h5>
-            </div>
-            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-              <div class="card-body">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-header collapse-item red" id="headingThree">
-              <h5 class="mb-0">
-                <button style="width:100%;" class="btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                  תינוקות עם סימנים משמעותיים (Clinical Illness)
-                </button>
-              </h5>
-            </div>
-            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-              <div class="card-body">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </div>
-            </div>
-          </div>
+<!---->
+<div class="container mt-4" ng-if="!!ctrl.eos">
+  <div class="accordion" id="accordionExample" style="width: 100%;">
+    <div class="card">
+      <div class="card-header collapse-item green position-relative" id="headingOne">
+        <h5 class="mb-0">
+          <button class="btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            תינוקות אסימפטומטיים (Well Appearing)
+          </button>
+          <i class="fa-solid fa-circle-info icon" data-bs-toggle="modal" data-bs-target="#infoModal1"></i>
+        </h5>
+      </div>
+      <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+        <div class="card-body">
+          <clinical-recommendation condition="Well Appearing"></clinical-recommendation>
         </div>
       </div>
-
+    </div>
+    <div class="card">
+      <div class="card-header collapse-item yellow position-relative" id="headingTwo">
+        <h5 class="mb-0">
+          <button class="btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            תינוקות עם סימפטומים לא ספציפיים לאלח-דם (Equivocal)
+          </button>
+          <i class="fa-solid fa-circle-info icon" data-bs-toggle="modal" data-bs-target="#infoModal2"></i>
+        </h5>
+      </div>
+      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+        <div class="card-body">
+          <clinical-recommendation condition="Equivocal"></clinical-recommendation>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header collapse-item red position-relative" id="headingThree">
+        <h5 class="mb-0">
+          <button class="btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            תינוקות עם סימנים משמעותיים (Clinical Illness)
+          </button>
+          <i class="fa-solid fa-circle-info icon" data-bs-toggle="modal" data-bs-target="#infoModal3"></i>
+        </h5>
+      </div>
+      <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+        <div class="card-body">
+          <clinical-recommendation condition="Clinical Illness"></clinical-recommendation>
+        </div>
+      </div>
     </div>
   </div>
-</div>  
-<footer class="text-center text-white footer" ng-hide="true">
+</div>
+
+<div class="modal fade" id="infoModal1" tabindex="-1" aria-labelledby="infoModalLabel1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header green">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <h5 class="modal-title" id="infoModalLabel1">תינוקות אסימפטומטיים</h5>
+      </div>
+      <div class="modal-body">
+        תינוקות עם בדיקה גופנית תקינה.
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="infoModal2" tabindex="-1" aria-labelledby="infoModalLabel2" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header yellow">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <h5 class="modal-title" id="infoModalLabel2">תינוקות עם סימפטומים לא ספציפיים לאלח-דם</h5>
+      </div>
+      <div class="modal-body">
+        
+        הפרעה בודדת שהנמשכת מעלה 4 שעות :         
+          <ul>
+            <li>טכיקרדיה: דופק >.160</li>
+            <li>טכיפניאה: נשימות >.60</li>
+            <li>חוסר יציבות בחום הגוף: חום פחות מ-C.36.4</li>
+            <li>סימני מצוקה נשימתית (אנחות, רתיעות בין צלעיות, נשימת כנפי אף) ללא צורך בתוספת חמצן.</li>
+          </ul>
+          <b>או</b><br/><br/>
+          הפרעה בשני סימנים או יותר שנמשכים יותר משעתיים:
+            <ul>
+              <li>טכיקרדיה: דופק >160</li>
+              <li>טכיפניאה: נשימות >60</li>
+              <li>חוסר יציבות בחום הגוף: חום פחות מ-C.36.4</li>
+              <li>סימני מצוקה נשימתית (אנחות, רתיעות בין - צלעיות, נשימת כנפי אף) ללא צורך בתוספת    חמצן.</li>
+            </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="infoModal3" tabindex="-1" aria-labelledby="infoModalLabel3" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header red">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <h5 class="modal-title" id="infoModalLabel3">תינוקות עם סימנים משמעותיים</h5>
+      </div>
+      <div class="modal-body">        
+          <ul>
+            <li>צורך בהמשך תמיכה נשימתית פולשנית או לא פולשנית מחוץ לחדר לידה/ חדר ניתוח</li>
+            <li>חוסר יציבות המודינמית, כולל צורך בטיפול תרופתי</li>
+            <li>מצב נוירולוגי לא תקין: אנצפלופטיה בילוד,  היפוטוניה,  חוסר תגובה לגירוי, או פרכוסים</li>
+            <li>אפגר נמוך מ5 בגיל 5 דקות</li>
+            <li>צורך בהעשרת חמצן למשך יותר משעתיים לאחר הלידה לשמירה על ריווי חמצן מעל 90%</li>
+            <li>חום גוף התינוק מעל 38.0</li>
+          </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!---->
+    </div>
+  </div>
+<instructions ng-show="ctrl.page == 'INSTRUCTIONS'"></instructions> 
+<antibiotics ng-show="ctrl.page == 'ANTIBIOTIC_TREATMENT'"></antibiotics> 
+</div> 
+<footer class="text-center text-white footer" >
   <div class="footer-container">
     <div id="footer-menu">
-      <a class="footer-button" >
-        <div class="bottom-menu-color"><i class="fa-solid fa-bed-pulse"></i></div>
-        <div class="text">גורמי סיכון</div>
+      <a class="footer-button" ng-click="ctrl.openPanel('ANTIBIOTIC_TREATMENT')">
+        <div class="bottom-menu-color"><i class="fa-solid fa-thermometer"></i></div>
+        <div class="text">טיפול אנטיביוטי</div>
       </a>
     </div>
-    <a class="footer-button">
-        <div class="bottom-menu-color" ><i class="fa-solid fa-chart-line"></i></div>
-        <div class="text">גרף טיפול באור</div>
-      </a>
-      <a class="footer-button"  >
-        <div class="bottom-menu-color"><i class="fa-solid fa-droplet"></i></div>
-        <div class="text">גרף החלפת דם</div>
-      </a>
-      <a class="footer-button" >
-        <div class="bottom-menu-color"><i class="fa-solid fa-chart-gantt"></i></div>
-        <div class="text">עקומת בוטאני</div>
+    <a class="footer-button" ng-click="ctrl.openPanel('INSTRUCTIONS')">
+        <div class="bottom-menu-color" ><i class="fa-solid fa-chalkboard-user"></i></div>
+        <div class="text">הוראות שימוש</div>
       </a>
     </div>
   </div>

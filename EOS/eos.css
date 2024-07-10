@@ -146,15 +146,64 @@ html, body {
 .collapse-item {
   cursor: pointer;
 }
-.collapse-item.green {
+.green {
   background-color: #d4edda; /* Green */
 }
-.collapse-item.yellow {
+.yellow {
   background-color: #fff3cd; /* Yellow */
 }
-.collapse-item.red {
+.red {
   background-color: #f8d7da; /* Red */
 }
 .collapse-item .card-body {
   text-align: right; /* Align text to the right */
+}
+.collapse-item .icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.collapse-item .btn {
+  width: calc(100% - 40px); /* Adjust width to make room for the icon */
+  text-align: right; /* Align text to the right */
+}
+@media (max-width: 576px) {
+  .collapse-item .icon {
+    left: 5px;
+  }  
+}
+
+.card-body {
+  color: var(--page-font-color); 
+}
+
+.eos-per-condition {
+  font-weight: bolder;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.modal-title {
+  flex-grow: 1;
+  text-align: right;
+  font-size: 1rem; /* Adjust font size to fit */
+}
+.btn-close {
+  margin-left: auto;
+  position: absolute;
+  left: 10px;
+}
+
+.subpage-header {
+  padding-top: 15px;
+  padding-left: 80px;
+}
+
+.paragraph-title {
+  text-decoration: underline;
+  font-weight: bold;
 }
