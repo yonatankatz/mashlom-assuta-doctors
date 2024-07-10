@@ -138,8 +138,6 @@ app.controller("EosController", ['$scope', '$rootScope', '$timeout', function($s
         });
       }, 100);
     }
-
-    ctrl.calcEosPerClinicalCondition(); // TODO: remove
 }]);
 
 app.directive('selectOnClick', ['$window', function ($window) {
