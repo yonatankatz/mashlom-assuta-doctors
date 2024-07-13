@@ -182,12 +182,12 @@
       <div class="calc-button-container">
         <button class="btn calc-button" ng-disabled="!ctrl.allValuesSatisfied()" ng-click="ctrl.computeEOS()">חשב</button>
       </div>
-      <div class="cards-container row row-cols-1 row-cols-md-1 g-4" ng-if="!!ctrl.eos">
+      <div class="cards-container row row-cols-1 row-cols-md-1 g-4" ng-if="!!ctrl.eosString">
         <div class="col">
           <div class="card">
             <div class="card-body">
-              <div id="eos" class="card-title" style="text-align: center;"><span style="font-size: 1.1rem">סיכון לאלח דם מוקדם:</span><br>
-                <span style="font-size: 1.5rem; font-weight: bold;"> {{ctrl.eos}} </span> <br><span style="font-size: 1.1rem">לאלף לידות</span></div>
+              <div id="eos" class="card-title" style="text-align: center;"><span style="font-size: 1.1rem">סיכון לאלח דם מוקדם:</span>
+                <span style="font-size: 1.5rem; font-weight: bold;"> {{ctrl.eosString}} </span><span style="font-size: 1.1rem">לאלף לידות</span></div>
               <p class="card-text">
                </p>                                  
             </div>
@@ -195,13 +195,20 @@
         </div>
       </div>
 <!---->
-<div class="container mt-4" ng-if="!!ctrl.eos">
+<div class="container mt-4" ng-if="!!ctrl.eosString">
   <div class="accordion" id="accordionExample" style="width: 100%;">
     <div class="card">
-      <div class="card-header collapse-item green position-relative" id="headingOne">
+      <div class="card-header collapse-item position-relative" ng-class="{'green' : ctrl.eosPerClinicalCondition['Well Appearing'] < 1,
+                                                                          'yellow' : ctrl.eosPerClinicalCondition['Well Appearing'] >= 1 && ctrl.eosPerClinicalCondition['Well Appearing'] < 3,
+                                                                          'red' : ctrl.eosPerClinicalCondition['Well Appearing'] >= 3}" id="headingOne">
         <h5 class="mb-0">
           <button class="btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-            תינוקות אסימפטומטיים (Well Appearing)
+            <b>תינוקות אסימפטומטיים (Well Appearing)</b>
+              <ul>
+                <li>סיכון של {{ctrl.eosPerClinicalCondition['Well Appearing']}} לאלף לידות</li>
+                <li>{{ctrl.getClinicalRecommendation('Well Appearing')}}</li>
+                <li>{{ctrl.getTrackingRecommendation('Well Appearing')}}</li>
+              </ul>                       
           </button>
           <i class="fa-solid fa-circle-info icon" data-bs-toggle="modal" data-bs-target="#infoModal1"></i>
         </h5>
@@ -213,10 +220,17 @@
       </div>
     </div>
     <div class="card">
-      <div class="card-header collapse-item yellow position-relative" id="headingTwo">
+      <div class="card-header collapse-item position-relative" ng-class="{'green' : ctrl.eosPerClinicalCondition['Equivocal'] < 1,
+               'yellow' : ctrl.eosPerClinicalCondition['Equivocal'] >= 1 && ctrl.eosPerClinicalCondition['Equivocal'] < 3,
+               'red' : ctrl.eosPerClinicalCondition['Equivocal'] >= 3}" id="headingTwo">
         <h5 class="mb-0">
           <button class="btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-            תינוקות עם סימפטומים לא ספציפיים לאלח-דם (Equivocal)
+            <b>תינוקות עם סימפטומים לא ספציפיים לאלח-דם (Equivocal)</b>
+            <ul>
+              <li>סיכון של {{ctrl.eosPerClinicalCondition['Equivocal']}} לאלף לידות</li>
+              <li>{{ctrl.getClinicalRecommendation('Equivocal')}}</li>
+              <li>{{ctrl.getTrackingRecommendation('Equivocal')}}</li>
+            </ul>
           </button>
           <i class="fa-solid fa-circle-info icon" data-bs-toggle="modal" data-bs-target="#infoModal2"></i>
         </h5>
@@ -228,10 +242,17 @@
       </div>
     </div>
     <div class="card">
-      <div class="card-header collapse-item red position-relative" id="headingThree">
+      <div class="card-header collapse-item position-relative" id="headingThree" ng-class="{'green' : ctrl.eosPerClinicalCondition['Clinical Illness'] < 1,
+      'yellow' : ctrl.eosPerClinicalCondition['Clinical Illness'] >= 1 && ctrl.eosPerClinicalCondition['Clinical Illness'] < 3,
+      'red' : ctrl.eosPerClinicalCondition['Clinical Illness'] >= 3}">
         <h5 class="mb-0">
           <button class="btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-            תינוקות עם סימנים משמעותיים (Clinical Illness)
+            <b>תינוקות עם סימנים משמעותיים (Clinical Illness)</b>
+            <ul>
+              <li>סיכון של {{ctrl.eosPerClinicalCondition['Clinical Illness']}} לאלף לידות</li>
+              <li>{{ctrl.getClinicalRecommendation('Clinical Illness')}}</li>
+              <li>{{ctrl.getTrackingRecommendation('Clinical Illness')}}</li>
+            </ul>
           </button>
           <i class="fa-solid fa-circle-info icon" data-bs-toggle="modal" data-bs-target="#infoModal3"></i>
         </h5>
@@ -316,15 +337,13 @@
 </div> 
 <footer class="text-center text-white footer" >
   <div class="footer-container">
-    <div id="footer-menu">
+    <a class="footer-button" ng-click="ctrl.openPanel('INSTRUCTIONS')">
+      <div class="bottom-menu-color" ><i class="fa-solid fa-chalkboard-user"></i></div>
+      <div class="text">הוראות שימוש</div>
+    </a>
       <a class="footer-button" ng-click="ctrl.openPanel('ANTIBIOTIC_TREATMENT')">
         <div class="bottom-menu-color"><i class="fa-solid fa-thermometer"></i></div>
         <div class="text">טיפול אנטיביוטי</div>
-      </a>
-    </div>
-    <a class="footer-button" ng-click="ctrl.openPanel('INSTRUCTIONS')">
-        <div class="bottom-menu-color" ><i class="fa-solid fa-chalkboard-user"></i></div>
-        <div class="text">הוראות שימוש</div>
       </a>
     </div>
   </div>

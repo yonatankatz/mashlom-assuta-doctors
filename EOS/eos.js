@@ -1,4 +1,9 @@
 var app = angular.module("app", []);
+
+document.addEventListener('shown.bs.collapse', function (event) {
+  let target = event.target;
+  target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+});
   
 app.controller("EosController", ['$scope', '$rootScope', '$timeout', function($scope, $rootScope, $timeout) {
     const ctrl = this;
@@ -12,7 +17,8 @@ app.controller("EosController", ['$scope', '$rootScope', '$timeout', function($s
     ctrl.antibioticTreatment;
     ctrl.gbs;
     ctrl.eosPerClinicalCondition = {};
-    ctrl.eos;
+    ctrl.eos = undefined;
+    ctrl.eosString = undefined;
 
     ctrl.openPanel = function(page) {
       ctrl.page = page;
@@ -90,27 +96,53 @@ app.controller("EosController", ['$scope', '$rootScope', '$timeout', function($s
     }
 
     ctrl.allValuesSatisfied = function() {
-      return !!ctrl.intercept && !!ctrl.temprature && !!ctrl.rom && !!ctrl.pregnancyLengthWeeks && !!ctrl.antibioticTreatment && !!ctrl.gbs
+      return !!ctrl.intercept && !!ctrl.temprature && !!ctrl.rom && !!ctrl.pregnancyLengthWeeks && !!ctrl.antibioticTreatment && !!ctrl.gbs;
     };
 
     ctrl.calcEosPerClinicalCondition = function() {
-      ctrl.eosPerClinicalCondition['Well Appearing'] = 0.1;
-      ctrl.eosPerClinicalCondition['Equivocal'] = 2;
-      ctrl.eosPerClinicalCondition['Clinical Illness'] = 3;
+      const wellAppearingLiklyhood = 0.41;
+      const equivocalLiklyhood = 5.0;
+      const clinicalIllnessLiklyhood = 21.2;
+
+      const eosOdds = ctrl.eos / (1 - ctrl.eos);
+      const wellAppearingOdds = wellAppearingLiklyhood * eosOdds;
+      const equivocalOdds = equivocalLiklyhood * eosOdds;
+      const clinicalIllnessOdds = clinicalIllnessLiklyhood * eosOdds;
+
+      const wellAppearingP = wellAppearingOdds / (1 + wellAppearingOdds);
+      const equivocalP = equivocalOdds / (1 + equivocalOdds);
+      const clinicalIllnessP = clinicalIllnessOdds / (1 + clinicalIllnessOdds);      
+
+      ctrl.eosPerClinicalCondition['Well Appearing'] = (wellAppearingP * 1000).toFixed(2);
+      ctrl.eosPerClinicalCondition['Equivocal'] = (equivocalP * 1000).toFixed(2);
+      ctrl.eosPerClinicalCondition['Clinical Illness'] = (clinicalIllnessP * 1000).toFixed(2);
     };
 
     ctrl.getClinicalRecommendation = function(clinicalCondition) {
-      eosPerClinicalCondition = ctrl.eosPerClinicalCondition[clinicalCondition];
+      const eosPerClinicalCondition = ctrl.eosPerClinicalCondition[clinicalCondition];
 
       if (eosPerClinicalCondition < 1) {
-        return "No additional care";
+        return "ללא תרביות, ללא טיפול אנטיביוטי";
       }
       else if (eosPerClinicalCondition < 3) {
-        hours = clinicalCondition == 'Well Appearing' ? 24 : 16;
-        return `Blood culture and vitals every 4 hours for ${hours} hours`;
+        return `תרביות דם`;
       }
       else {
-        return 'Treat empirically with antibiotics';
+        return 'טיפול אנטיביוטי אמפירי';
+      }
+    };
+
+    ctrl.getTrackingRecommendation = function(clinicalCondition) {
+      const eosPerClinicalCondition = ctrl.eosPerClinicalCondition[clinicalCondition];
+
+      if (eosPerClinicalCondition < 1) {
+        return "מעקב שגרתי";
+      }
+      else if (eosPerClinicalCondition < 3) {
+        return `סימנים חיוניים כל 4 שעות למשך 24 שעות`;
+      }
+      else {
+        return 'סימנים חיוניים כמקובל בפגיה';
       }
     };
     
@@ -123,20 +155,26 @@ app.controller("EosController", ['$scope', '$rootScope', '$timeout', function($s
         ctrl.antibioticTreatment = '';
         ctrl.gbs = '';
         ctrl.eos = undefined;
+        ctrl.eosString = undefined;
     };
 
     ctrl.computeEOS = function() {            
+      if (!ctrl.allValuesSatisfied()) {
+        return false;
+      }      
       const betas =  computeInterceptBeta() + (0.8680 * computeTemprature()) - 
                                 (6.9325 * computePregnancyLength()) + (0.0877 * Math.pow(computePregnancyLength(), 2)) + 
                                 (1.2256 * computeROM()) - (1.0488 * computeApproptx1()) -
                                  (1.1861 * computeApproptx2()) + (0.5771 * computeJ_gbscarPlus()) + (0.0427 * computeJ_gbscarU());
-      ctrl.eos =  ((1 / (1 + Math.E ** -betas)) * 1000).toFixed(2);
+      ctrl.eos = 1 / (1 + Math.E ** -betas);
+      ctrl.eosString =  (ctrl.eos * 1000).toFixed(2);
       ctrl.calcEosPerClinicalCondition();
       $timeout(function() {
         document.getElementById('eos').scrollIntoView({
             behavior: 'smooth'
         });
       }, 100);
+      return true;
     }
 }]);
 
@@ -175,6 +213,10 @@ app.directive('clinicalRecommendation', function() {
         scope.getRisk = function() {
           return ctrl.eosPerClinicalCondition[scope.condition];
         };  
+
+        scope.tooHighTemprature = function() {          
+          return parseInt(ctrl.temprature) >= 39;
+        };
       }
 
   };
