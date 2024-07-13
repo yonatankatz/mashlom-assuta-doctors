@@ -162,6 +162,7 @@ app.controller("EosController", ['$scope', '$rootScope', '$timeout', function($s
       if (!ctrl.allValuesSatisfied()) {
         return false;
       }      
+      const alreadyHasEos = !!ctrl.eosString;
       const betas =  computeInterceptBeta() + (0.8680 * computeTemprature()) - 
                                 (6.9325 * computePregnancyLength()) + (0.0877 * Math.pow(computePregnancyLength(), 2)) + 
                                 (1.2256 * computeROM()) - (1.0488 * computeApproptx1()) -
@@ -169,11 +170,13 @@ app.controller("EosController", ['$scope', '$rootScope', '$timeout', function($s
       ctrl.eos = 1 / (1 + Math.E ** -betas);
       ctrl.eosString =  (ctrl.eos * 1000).toFixed(2);
       ctrl.calcEosPerClinicalCondition();
-      $timeout(function() {
-        document.getElementById('eos').scrollIntoView({
-            behavior: 'smooth'
-        });
-      }, 100);
+      if (!alreadyHasEos) { // first time EOS value appears, we want to scroll to it.
+        $timeout(function() {
+          document.getElementById('eos').scrollIntoView({
+              behavior: 'smooth'
+          });
+        }, 100);
+      }
       return true;
     }
 }]);
