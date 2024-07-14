@@ -1,8 +1,20 @@
 var app = angular.module("app", []);
 
+function isElementInViewport(el) {
+  const rect = el.getBoundingClientRect();
+  return (
+    rect.top >= 0 &&
+    rect.left >= 0 &&
+    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+  );
+}
+
 document.addEventListener('shown.bs.collapse', function (event) {
   let target = event.target;
-  target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  if (!isElementInViewport(target)) {
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
 });
   
 app.controller("EosController", ['$scope', '$rootScope', '$timeout', function($scope, $rootScope, $timeout) {
