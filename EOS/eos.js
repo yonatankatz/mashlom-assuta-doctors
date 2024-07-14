@@ -16,6 +16,8 @@ document.addEventListener('shown.bs.collapse', function (event) {
     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 });
+
+history.replaceState({ panel: 'CALCULATOR' }, '', window.location.pathname);
   
 app.controller("EosController", ['$scope', '$rootScope', '$timeout', function($scope, $rootScope, $timeout) {
     const ctrl = this;
@@ -33,10 +35,20 @@ app.controller("EosController", ['$scope', '$rootScope', '$timeout', function($s
     ctrl.eosString = undefined;
 
     ctrl.openPanel = function(page) {
+      history.pushState({ panel: page }, '', '#' + page);
       ctrl.page = page;
     };
 
+    window.onpopstate = function(event) {
+      $rootScope.$apply(function() {
+        if (event.state && event.state.panel) {
+          ctrl.openPanel(event.state.panel);
+        }
+      });
+   };
+
     ctrl.closePanel = function() {
+      history.replaceState({ panel: 'CALCULATOR' }, '', window.location.pathname);
       ctrl.page = 'CALCULATOR';
     };
 
