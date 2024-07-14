@@ -51,14 +51,7 @@
   </div>
 </nav>
 <div id="phototherapy-main" class="container main-content phototherapy-main-content">  
-  <div id="usage-terms-dialog-backdrop" class="usage-terms-dialog-backdrop" ng-show="!ctrl.termsSigned">
-    <div id="usage-terms-dialog" class="usage-terms-dialog">
-      <p>
-        בשימושך באתר אתה מצהיר כי הנך חבר צוות רפואי בבית החולים אסותא אשדוד, והנך מבין כי האתר מיועד לשימוש תומך החלטה בלבד ואינו מהווה תחליף לשיקול דעת הרופא המטפל. לחץ על "אני מסכים" על מנת להמשיך.
-      </p>
-      <button type="button" class="btn btn-outline-secondary buttons-color usage-terms-dialog-action" ng-click="ctrl.acceptTerms()">אני מסכים</button>
-    </div>
-  </div>
+<terms></terms>
 <div id="calculator" style="overflow-y: auto;overflow-x: hidden; padding-bottom: 10px;" ng-show="ctrl.dataShown=='CALCULATOR'" >
   <div class="group-container">
     <form>
@@ -183,6 +176,7 @@
 <script src="../3rd-party/angularjs/angular.min.js"></script>
 <script src="../3rd-party/bootstrap/bootstrap.bundle.min.js"></script>
 <script src="js/calculation.js"></script>
+<script src="../common/js/terms.js"></script>
 <script src="js/phototherapy.js"></script>
 </body>
 </html>
