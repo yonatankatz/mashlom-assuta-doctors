@@ -101,7 +101,7 @@ html, body {
   z-index: 100;
   left: 0;
   top: 0;
-  background-color: rgba(0,0,0,0.4);
+  background-color: rgba(0, 0, 0, 0.4);
   overflow: auto;
 }
 
@@ -112,5 +112,10 @@ html, body {
   background-color: white;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 0 10px -1px rgba(0,0,0,0.2);
+  box-shadow: 0 0 10px -1px rgba(0, 0, 0, 0.2);
+}
+
+.usage-terms-dialog-action {
+  display: block;
+  margin: 0 auto;
 }
