@@ -160,7 +160,7 @@ app.controller("PhototherapyController", ['$scope', '$rootScope', '$timeout', fu
     ctrl.acceptTerms = function() {
         ctrl.termsSigned = true;
         localStorage.setItem(termsSignedKey, 'true');
-    }
+    };
 }]);
 
 app.directive('selectOnClick', ['$window', function ($window) {
