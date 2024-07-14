@@ -1,4 +1,4 @@
-var app = angular.module("app", []);
+var app = angular.module("app", ["terms"]);
 
 function isElementInViewport(el) {
   const rect = el.getBoundingClientRect();
