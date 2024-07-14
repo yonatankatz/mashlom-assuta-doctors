@@ -131,31 +131,60 @@ app.controller("EosController", ['$scope', '$rootScope', '$timeout', function($s
     };
 
     ctrl.getClinicalRecommendation = function(clinicalCondition) {
+      if (ctrl.tooHighTemprature()) {
+        return 'טיפול אנטיביוטי אמפירי';
+      }
       const eosPerClinicalCondition = ctrl.eosPerClinicalCondition[clinicalCondition];
 
       if (eosPerClinicalCondition < 1) {
         return "ללא תרביות, ללא טיפול אנטיביוטי";
       }
-      else if (eosPerClinicalCondition < 3) {
-        return `תרביות דם`;
+      else if (eosPerClinicalCondition < 3 && eosPerClinicalCondition >= 1) {
+        return 'תרביות דם';
       }
       else {
         return 'טיפול אנטיביוטי אמפירי';
       }
     };
 
+    ctrl.getClinicalConditionColor = function(clinicalCondition) {
+      if (!!!ctrl.temprature) {
+        return 'none';
+      }
+      if (parseInt(ctrl.temprature) >= 39) {
+        return 'red';        
+      }
+      if (ctrl.eosPerClinicalCondition[clinicalCondition] < 1)
+      {
+        return 'green';
+      }
+      if (ctrl.eosPerClinicalCondition[clinicalCondition] >= 1 && ctrl.eosPerClinicalCondition[clinicalCondition] < 3) {
+        return 'yellow';
+      }
+      if (ctrl.eosPerClinicalCondition[clinicalCondition] >= 3) {
+        return 'red';
+      }
+    }
+
     ctrl.getTrackingRecommendation = function(clinicalCondition) {
+      if (ctrl.tooHighTemprature()) {
+        return 'ניטור רציף';
+      }
       const eosPerClinicalCondition = ctrl.eosPerClinicalCondition[clinicalCondition];
 
       if (eosPerClinicalCondition < 1) {
         return "מעקב שגרתי";
       }
-      else if (eosPerClinicalCondition < 3) {
-        return `סימנים חיוניים כל 4 שעות למשך 24 שעות`;
+      else if (eosPerClinicalCondition < 3 && eosPerClinicalCondition >= 1) {
+        return 'סימנים חיוניים כל 4 שעות למשך 24 שעות';
       }
       else {
-        return 'סימנים חיוניים כמקובל בפגיה';
+        return 'ניטור רציף';
       }
+    };
+
+    ctrl.tooHighTemprature = function() {          
+      return parseInt(ctrl.temprature) >= 39;
     };
     
     ctrl.resetAll = function() {
@@ -230,7 +259,7 @@ app.directive('clinicalRecommendation', function() {
         };  
 
         scope.tooHighTemprature = function() {          
-          return parseInt(ctrl.temprature) >= 39;
+          return ctrl.tooHighTemprature();
         };
       }
 
